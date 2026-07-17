@@ -53,10 +53,12 @@ export function SiteFooter() {
           <div className="site-footer__links">
             <div>
               <p className="site-footer__label">Explore</p>
-              <a href="#product">Product</a>
-              <a href="#tools">Tools</a>
-              <a href="#pricing">Pricing</a>
-              <a href="#faq">FAQ</a>
+              <Link href="/#product">Product</Link>
+              <Link href="/tools">Tools</Link>
+              <Link href="/guide">Guide</Link>
+              <Link href="/examples">Examples</Link>
+              <Link href="/#pricing">Pricing</Link>
+              <Link href="/#faq">FAQ</Link>
             </div>
             <div>
               <p className="site-footer__label">Policies</p>

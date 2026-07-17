@@ -1,0 +1,16 @@
+import type { Metadata } from "next"
+
+import { ToolsIndexPage } from "@/components/marketing/content-pages"
+
+export const metadata: Metadata = {
+  title: "Tools",
+  description:
+    "Movie Recap, Football, Dhamma, One Click Shorts နဲ့ Hook Maker creator tools directory။",
+  alternates: {
+    canonical: "/tools",
+  },
+}
+
+export default function Page() {
+  return <ToolsIndexPage />
+}

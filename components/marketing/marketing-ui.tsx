@@ -94,6 +94,11 @@ const toolIcons: Record<Tool["icon"], LucideIcon> = {
   sparkles: Sparkles,
 }
 
+export function ToolIcon({ icon }: { icon: Tool["icon"] }) {
+  const Icon = toolIcons[icon]
+  return <Icon aria-hidden="true" />
+}
+
 export function SectionHeading({
   eyebrow,
   title,

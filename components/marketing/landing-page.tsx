@@ -151,7 +151,10 @@ export function LandingPage() {
                 မပြောင်းဘဲ Burmese content ထုတ်နိုင်အောင် စီထားပါတယ်။
               </p>
               <div className="hero-actions">
-                <ActionLink href={getPlanCtaHref()} external={getPlanCtaHref() !== "#support"}>
+                <ActionLink
+                  external={getPlanCtaHref().startsWith("http")}
+                  href={getPlanCtaHref()}
+                >
                   Plan ရွေးရန်
                   <ArrowRight aria-hidden="true" />
                 </ActionLink>

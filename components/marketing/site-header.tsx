@@ -25,17 +25,17 @@ export function SiteHeader() {
 
         <nav className="site-nav" aria-label="Main navigation">
           {navigation.map((item) => (
-            <a href={item.href} key={item.href}>
+            <Link href={item.href} key={item.href}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="site-header__actions">
-          <a className="site-header__login" href="#support">
+          <Link className="site-header__login" href="/#support">
             Support
-          </a>
-          <ActionLink href="#pricing" variant="primary">
+          </Link>
+          <ActionLink href="/#pricing" variant="primary">
             Plan ဝယ်ရန်
           </ActionLink>
         </div>
