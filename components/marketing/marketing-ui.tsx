@@ -1,0 +1,184 @@
+import type { ReactNode } from "react"
+
+import {
+  Check,
+  Film,
+  Leaf,
+  MessageCircle,
+  Scissors,
+  Send,
+  Sparkles,
+  Trophy,
+} from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+import {
+  type FAQItem,
+  type PricingPlan,
+  type SupportChannel,
+  type Tool,
+  getSupportUrl,
+} from "@/lib/site-content"
+
+type ActionLinkProps = {
+  href: string
+  children: ReactNode
+  variant?: "primary" | "secondary" | "light" | "text"
+  className?: string
+  external?: boolean
+}
+
+export function ActionLink({
+  href,
+  children,
+  variant = "primary",
+  className,
+  external = false,
+}: ActionLinkProps) {
+  return (
+    <a
+      className={cn("action-link", `action-link--${variant}`, className)}
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noreferrer" : undefined}
+    >
+      {children}
+    </a>
+  )
+}
+
+export function SupportLink({
+  channel,
+  children,
+  className,
+}: {
+  channel: SupportChannel
+  children: ReactNode
+  className?: string
+}) {
+  const href = getSupportUrl(channel)
+
+  if (!href) {
+    return (
+      <span
+        aria-disabled="true"
+        className={cn("action-link", "action-link--muted", className)}
+        title="Support link will be connected before launch"
+      >
+        {children}
+      </span>
+    )
+  }
+
+  return (
+    <ActionLink
+      className={className}
+      external
+      href={href}
+      variant="light"
+    >
+      {children}
+    </ActionLink>
+  )
+}
+
+const toolIcons: Record<Tool["icon"], LucideIcon> = {
+  film: Film,
+  football: Trophy,
+  leaf: Leaf,
+  scissors: Scissors,
+  sparkles: Sparkles,
+}
+
+export function SectionHeading({
+  eyebrow,
+  title,
+  description,
+  align = "left",
+}: {
+  eyebrow?: string
+  title: string
+  description?: string
+  align?: "left" | "center"
+}) {
+  return (
+    <div className={cn("section-heading", `section-heading--${align}`)}>
+      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+      <h2>{title}</h2>
+      {description ? <p className="section-heading__description">{description}</p> : null}
+    </div>
+  )
+}
+
+export function ToolCard({ tool }: { tool: Tool }) {
+  const Icon = toolIcons[tool.icon]
+
+  return (
+    <article className={cn("tool-card", `tool-card--${tool.accent}`)}>
+      <div className="tool-card__icon" aria-hidden="true">
+        <Icon />
+      </div>
+      <div>
+        <p className="tool-card__label">{tool.name}</p>
+        <h3>{tool.label}</h3>
+        <p>{tool.description}</p>
+      </div>
+      <span className="tool-card__arrow" aria-hidden="true">
+        ↗
+      </span>
+    </article>
+  )
+}
+
+export function PricingCard({ plan }: { plan: PricingPlan }) {
+  const isFeatured = plan.name === "VVIP"
+
+  return (
+    <article className={cn("pricing-card", isFeatured && "pricing-card--featured")}>
+      <div className="pricing-card__topline">
+        <span className="pricing-card__name">{plan.name}</span>
+        {plan.badge ? <span className="pricing-card__badge">{plan.badge}</span> : null}
+      </div>
+      <p className="pricing-card__price">{plan.price}</p>
+      <p className="pricing-card__period">per 30 days</p>
+      <p className="pricing-card__description">{plan.description}</p>
+      <ul className="check-list">
+        {plan.features.map((feature) => (
+          <li key={feature}>
+            <Check aria-hidden="true" />
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+      <ActionLink
+        className="pricing-card__cta"
+        href="#support"
+        variant={isFeatured ? "primary" : "secondary"}
+      >
+        {plan.name} နဲ့ စတင်ရန်
+      </ActionLink>
+    </article>
+  )
+}
+
+export function FAQList({ items }: { items: FAQItem[] }) {
+  return (
+    <div className="faq-list">
+      {items.map((item, index) => (
+        <details className="faq-item" key={item.question} open={index === 0}>
+          <summary>
+            <span>{item.question}</span>
+            <span className="faq-item__marker" aria-hidden="true" />
+          </summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  )
+}
+
+export function SupportIcon({ channel }: { channel: SupportChannel }) {
+  const Icon = channel === "messenger" ? MessageCircle : Send
+  return <Icon aria-hidden="true" />
+}
