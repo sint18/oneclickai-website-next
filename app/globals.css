@@ -2124,14 +2124,14 @@
     gap: 2rem;
     margin-top: 4rem;
     padding: clamp(1.5rem, 4vw, 2.5rem);
-    border: 1px solid color-mix(in oklch, var(--brand-teal-deep), transparent 72%);
+    border: 1px solid color-mix(in oklch, #fefefd, transparent 84%);
     border-radius: var(--radius-card);
-    background: var(--brand-teal);
-    color: var(--brand-ink);
+    background: var(--brand-ink);
+    color: #fefefd;
   }
 
   .content-page__cta .eyebrow--light {
-    color: var(--brand-teal-deep);
+    color: #d4eeeb;
   }
 
   .content-page__cta h2 {
@@ -2145,7 +2145,7 @@
   .content-page__cta > div > p:not(.eyebrow) {
     max-width: 34rem;
     margin: 1rem 0 0;
-    color: color-mix(in oklch, var(--brand-teal-deep), transparent 12%);
+    color: #cfcfcc;
     font-size: 0.9rem;
     line-height: 1.75;
   }

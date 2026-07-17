@@ -224,13 +224,6 @@ export function LandingPage() {
                 <span className="output-line__meta">Voice · Subtitle · SRT</span>
               </div>
               </div>
-              <MediaSlot
-                alt="One Click AI dashboard or workflow screenshot"
-                className="media-slot--hero"
-                detail="Use a real dashboard or source-to-output capture here before launch."
-                eyebrow="Hero media slot"
-                title="One Click AI in use"
-              />
             </div>
           </div>
 
