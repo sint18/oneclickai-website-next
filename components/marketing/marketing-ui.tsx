@@ -1,9 +1,11 @@
 import type { ReactNode } from "react"
 
+import Image from "next/image"
 import {
   ArrowUpRight,
   Check,
   Film,
+  ImageIcon,
   Leaf,
   MessageCircle,
   Scissors,
@@ -109,6 +111,50 @@ export function SectionHeading({
       <h2>{title}</h2>
       {description ? <p className="section-heading__description">{description}</p> : null}
     </div>
+  )
+}
+
+type MediaSlotProps = {
+  alt: string
+  detail: string
+  eyebrow: string
+  src?: string | null
+  title: string
+  ratio?: "wide" | "tall"
+  className?: string
+}
+
+export function MediaSlot({
+  alt,
+  detail,
+  eyebrow,
+  src,
+  title,
+  ratio = "wide",
+  className,
+}: MediaSlotProps) {
+  return (
+    <figure className={cn("media-slot", `media-slot--${ratio}`, className)}>
+      <div className="media-slot__surface">
+        {src ? (
+          <Image
+            alt={alt}
+            className="media-slot__image"
+            fill
+            sizes="(max-width: 52rem) 100vw, 55vw"
+            src={src}
+          />
+        ) : (
+          <div className="media-slot__placeholder">
+            <ImageIcon aria-hidden="true" />
+            <span className="media-slot__eyebrow">{eyebrow}</span>
+            <strong>{title}</strong>
+            <p>{detail}</p>
+          </div>
+        )}
+      </div>
+      <figcaption>{src ? alt : "Real product asset slot"}</figcaption>
+    </figure>
   )
 }
 

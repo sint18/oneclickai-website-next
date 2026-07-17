@@ -14,10 +14,10 @@ export function SiteFooter() {
         <div className="site-footer__cta">
           <div>
             <p className="eyebrow eyebrow--light">Ready when you are</p>
-            <h2>Content Run ဖို့ workflow ကို လျှော့လိုက်ပါ။</h2>
+            <h2>Content ထုတ်တဲ့အလုပ်ကို တစ်နေရာတည်းမှာ စလိုက်ပါ။</h2>
             <p>
-              ကိုယ်လုပ်မယ့် content type နဲ့ တစ်နေ့ဘယ်နှစ်ပုဒ်ထုတ်မလဲဆိုတာ ပြောပြီး
-              သင့်တော်တဲ့ plan ကို အကြံပေးခိုင်းနိုင်ပါတယ်။
+              ကိုယ်လုပ်မယ့် content type နဲ့ တစ်နေ့ဘယ်နှစ်ပုဒ်လောက် ထုတ်ချင်လဲပြောပါ။
+              သင့်တော်တဲ့ plan ကို support က အကြံပေးနိုင်ပါတယ်။
             </p>
           </div>
           <div className="site-footer__support-links">
@@ -69,7 +69,7 @@ export function SiteFooter() {
 
         <div className="site-footer__bottom">
           <span>© 2026 {siteConfig.company}. All rights reserved.</span>
-          <span>Burmese-first creator workflow.</span>
+          <span>Burmese-first creator tool.</span>
         </div>
       </div>
     </footer>

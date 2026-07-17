@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | One Click AI",
   },
   description:
-    "Myanmar creators အတွက် source video နဲ့ audio ကနေ Burmese voice, subtitle နဲ့ upload-ready content ထုတ်ပေးတဲ့ AI-assisted content production system.",
+    "Myanmar creators အတွက် source video သို့မဟုတ် audio ကနေ Burmese voice, subtitle, SRT နဲ့ upload-ready output ထုတ်နိုင်တဲ့ AI content tool.",
   keywords: [
     "One Click AI",
     "Myanmar AI content tool",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "One Click AI | Myanmar Creator Content System",
     description:
-      "Source video ကနေ Burmese voice, subtitle နဲ့ upload-ready content အထိ One Click နဲ့ ထုတ်ပါ။",
+      "Source video တင်ပြီး Burmese voice, subtitle, SRT နဲ့ upload-ready output ထုတ်ပါ။",
     siteName: "One Click AI",
     type: "website",
     locale: "my_MM",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "One Click AI | Myanmar Creator Content System",
     description:
-      "Source video ကနေ Burmese voice, subtitle နဲ့ upload-ready content အထိ One Click နဲ့ ထုတ်ပါ။",
+      "Source video တင်ပြီး Burmese voice, subtitle, SRT နဲ့ upload-ready output ထုတ်ပါ။",
   },
 }
 

@@ -4,13 +4,13 @@ import { PolicyPage } from "@/components/marketing/policy-page"
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Public terms for using One Click AI content production workflows.",
+  description: "Public terms for using One Click AI creator tools.",
 }
 
 export default function TermsPage() {
   return (
     <PolicyPage
-      description="One Click AI က source media ကို content workflow အဖြစ် ပြောင်းလဲရာမှာ အကူအညီပေးတဲ့ web-based service ဖြစ်ပါတယ်။"
+      description="One Click AI က source video သို့မဟုတ် audio ကို Burmese voice, subtitle နဲ့ output အဖြစ် ပြင်ဆင်ရာမှာ ကူညီပေးတဲ့ web-based service ဖြစ်ပါတယ်။"
       eyebrow="One Click AI · Terms"
       title="Terms of Service"
       sections={[
@@ -20,7 +20,7 @@ export default function TermsPage() {
             <p>
               One Click AI ကို အသုံးပြုတဲ့အခါ ကိုယ်ပိုင်အသုံးပြုခွင့်ရှိတဲ့ source material ကို
               အသုံးပြုရပြီး content type နဲ့ ကိုက်ညီတဲ့ tool ကို ရွေးချယ်ရပါမယ်။ Movie Recap
-              workflow အတွက် narration ရှင်းတဲ့ source တွေက ပိုသင့်တော်ပါတယ်။
+              အတွက် narration ရှင်းတဲ့ source တွေက ပိုသင့်တော်ပါတယ်။
             </p>
           ),
           bullets: [
@@ -30,12 +30,12 @@ export default function TermsPage() {
           ],
         },
         {
-          title: "AI-assisted output",
+          title: "AI output",
           body: (
             <p>
-              AI-assisted output က source quality, audio clarity, source duration နဲ့
-              processing mode ပေါ်မူတည်ပြီး ကွာနိုင်ပါတယ်။ One Click AI က workflow ကို
-              လျှော့ပေးတာဖြစ်ပြီး result တိုင်းဟာ perfect ဖြစ်မယ်လို့ မအာမခံပါ။
+              AI output က source quality, audio clarity, source duration နဲ့ mode ပေါ်မူတည်ပြီး
+              ကွာနိုင်ပါတယ်။ One Click AI က video ထုတ်တဲ့အလုပ်ကို
+              လျှော့ပေးတာဖြစ်ပြီး result တိုင်း perfect ဖြစ်မယ်လို့ မအာမခံပါ။
             </p>
           ),
         },
@@ -54,8 +54,8 @@ export default function TermsPage() {
           title: "Service changes",
           body: (
             <p>
-              Tool availability, processing modes နဲ့ product features တွေက အချိန်နဲ့အမျှ
-              ပြောင်းလဲနိုင်ပါတယ်။ လက်ရှိ plan နဲ့ product rules ကို မသုံးခင် စစ်ဆေးပါ။
+              Tool availability, modes နဲ့ product features တွေက အချိန်နဲ့အမျှ
+              ပြောင်းလဲနိုင်ပါတယ်။ မသုံးခင် လက်ရှိ plan နဲ့ product rules ကို စစ်ဆေးပါ။
             </p>
           ),
         },
