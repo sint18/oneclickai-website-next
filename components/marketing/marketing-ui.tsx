@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 
 import {
+  ArrowUpRight,
   Check,
   Film,
   Leaf,
@@ -125,7 +126,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
         <p>{tool.description}</p>
       </div>
       <span className="tool-card__arrow" aria-hidden="true">
-        ↗
+        <ArrowUpRight />
       </span>
     </article>
   )

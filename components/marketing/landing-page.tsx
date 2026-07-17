@@ -228,7 +228,8 @@ export function LandingPage() {
               description="Source ရှာ၊ transcript ထုတ်၊ translate လုပ်၊ voice ထုတ်၊ subtitle ထိုး၊ timing ညှိပြီးမှ video တစ်ပုဒ်ရတဲ့ workflow က အချိန်အရမ်းကုန်ပါတယ်။"
             />
             <div className="problem-grid">
-              <article className="problem-card">
+              <article className="problem-card problem-card--lead">
+                <span className="problem-card__index">01</span>
                 <IconTile>
                   <WandSparkles aria-hidden="true" />
                 </IconTile>
@@ -236,6 +237,7 @@ export function LandingPage() {
                 <p>Voice tool, subtitle tool, editor နဲ့ caption tool တွေကြား file ပြောင်းရွှေ့နေရပါတယ်။</p>
               </article>
               <article className="problem-card">
+                <span className="problem-card__index">02</span>
                 <IconTile>
                   <Captions aria-hidden="true" />
                 </IconTile>
@@ -243,6 +245,7 @@ export function LandingPage() {
                 <p>Burmese font, long subtitle lines, voice timing နဲ့ visual timing တွေကို ကိုယ်တိုင်ပြန်ညှိရပါတယ်။</p>
               </article>
               <article className="problem-card">
+                <span className="problem-card__index">03</span>
                 <IconTile>
                   <Clock3 aria-hidden="true" />
                 </IconTile>

@@ -354,10 +354,10 @@
   .hero-copy h1 {
     max-width: 13ch;
     margin: 0;
-    font-size: clamp(3.5rem, 6.2vw, 6.25rem);
+    font-size: clamp(3rem, 4.8vw, 5rem);
     font-weight: 700;
     letter-spacing: -0.075em;
-    line-height: 0.94;
+    line-height: 0.98;
   }
 
   .hero-copy h1 span {
@@ -637,10 +637,10 @@
   .policy-strip h2,
   .site-footer__cta h2 {
     margin: 0;
-    font-size: clamp(2.3rem, 4.6vw, 4.4rem);
+    font-size: clamp(2rem, 3.4vw, 3.35rem);
     font-weight: 700;
     letter-spacing: -0.065em;
-    line-height: 0.98;
+    line-height: 1.35;
   }
 
   .section-heading__description,
@@ -677,7 +677,9 @@
   }
 
   .problem-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.35fr 1fr 1fr;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
 
   .problem-card,
@@ -691,8 +693,45 @@
   }
 
   .problem-card {
-    min-height: 15rem;
-    padding: 1.5rem;
+    position: relative;
+    min-height: 18rem;
+    padding: 1.5rem 1.5rem 1.7rem;
+    border: 0;
+    border-right: 1px solid var(--border);
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .problem-card:last-child {
+    border-right: 0;
+  }
+
+  .problem-card--lead {
+    border-radius: 0rem;
+    background: var(--brand-teal-deep);
+    color: #fefefd;
+  }
+
+  .problem-card__index {
+    display: block;
+    margin-bottom: 2.5rem;
+    color: var(--brand-teal);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  .problem-card--lead .problem-card__index {
+    color: #a9ddd8;
+  }
+
+  .problem-card .icon-tile {
+    background: var(--brand-teal-soft);
+  }
+
+  .problem-card--lead .icon-tile {
+    background: color-mix(in oklch, #fefefd, transparent 84%);
+    color: #fefefd;
   }
 
   .problem-card h3,
@@ -707,6 +746,15 @@
     line-height: 1.2;
   }
 
+  .problem-card h3 {
+    max-width: 16ch;
+    line-height: 1.35;
+  }
+
+  .problem-card--lead h3 {
+    color: #fefefd;
+  }
+
   .problem-card p,
   .tool-card p,
   .step-card p,
@@ -716,6 +764,15 @@
     color: var(--brand-muted);
     font-size: 0.9rem;
     line-height: 1.7;
+  }
+
+  .problem-card p {
+    max-width: 29ch;
+    line-height: 1.65;
+  }
+
+  .problem-card--lead p {
+    color: #d4eeeb;
   }
 
   .solution-section {
@@ -836,7 +893,11 @@
     border: 1px solid currentColor;
     border-radius: 50%;
     color: var(--brand-teal-deep);
-    font-size: 1.1rem;
+  }
+
+  .tool-card__arrow svg {
+    width: 1rem;
+    height: 1rem;
   }
 
   .tool-card--ink .tool-card__arrow {
@@ -846,24 +907,45 @@
   .steps-grid {
     grid-template-columns: repeat(3, 1fr);
     counter-reset: steps;
+    border-top: 1px solid var(--border);
   }
 
   .step-card {
-    min-height: 15rem;
-    padding: 1.5rem;
+    position: relative;
+    min-height: 17rem;
+    padding: 1.5rem 1.5rem 1.5rem 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .step-card:not(:last-child) {
+    border-right: 1px solid var(--border);
+    padding-right: 2rem;
+  }
+
+  .step-card:not(:first-child) {
+    padding-left: 2rem;
   }
 
   .step-card__number {
-    display: inline-flex;
-    width: 2.6rem;
-    height: 2.6rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: var(--brand-teal);
-    color: #fefefd;
-    font-size: 0.75rem;
+    display: block;
+    color: var(--brand-teal);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
     font-weight: 700;
+    letter-spacing: -0.08em;
+    line-height: 0.9;
+  }
+
+  .step-card h3 {
+    max-width: 15ch;
+    margin-top: 1.8rem;
+    line-height: 1.35;
+  }
+
+  .step-card p {
+    max-width: 28ch;
+    line-height: 1.7;
   }
 
   .mode-grid {
@@ -908,7 +990,7 @@
   .mode-card h3 {
     max-width: 18ch;
     color: #fefefd;
-    font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+    font-size: clamp(1.35rem, 2vw, 1.9rem);
   }
 
   .mode-card > p:not(.mode-card__label) {
@@ -1365,9 +1447,9 @@
 
   .policy-page__header h1 {
     margin: 0;
-    font-size: clamp(3rem, 7vw, 5.6rem);
+    font-size: clamp(2.6rem, 5.2vw, 4.4rem);
     letter-spacing: -0.07em;
-    line-height: 0.95;
+    line-height: 1.1;
   }
 
   .policy-page__header > p:not(.eyebrow) {
@@ -1489,6 +1571,31 @@
     grid-column: span 6;
   }
 
+  .problem-card {
+    min-height: 15rem;
+  }
+
+  .problem-card:not(:last-child) {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .problem-card--lead {
+    border-radius: 0;
+  }
+
+  .step-card,
+  .step-card:not(:first-child),
+  .step-card:not(:last-child) {
+    padding: 1.5rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .step-card:last-child {
+    border-bottom: 0;
+  }
+
   .site-footer__cta,
   .site-footer__main {
     align-items: flex-start;
@@ -1524,7 +1631,7 @@
   }
 
   .hero-copy h1 {
-    font-size: clamp(3rem, 14vw, 4.25rem);
+    font-size: clamp(2.6rem, 11vw, 3.6rem);
   }
 
   .hero-copy__description {
@@ -1579,7 +1686,7 @@
   .reliability-section h2,
   .policy-strip h2,
   .site-footer__cta h2 {
-    font-size: clamp(2.3rem, 11vw, 3.5rem);
+    font-size: clamp(2rem, 9vw, 2.9rem);
   }
 
   .tool-grid,
