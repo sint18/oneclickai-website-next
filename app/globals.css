@@ -326,16 +326,70 @@
     background: var(--background);
   }
 
+  .hero-section__stage {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-ink);
+    color: #fefefd;
+  }
+
+  .hero-section__backdrop,
+  .hero-section__scrim {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-section__backdrop {
+    pointer-events: none;
+  }
+
+  .hero-section__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+  }
+
+  .hero-section__scrim {
+    background:
+      linear-gradient(
+        90deg,
+        var(--brand-ink) 0%,
+        color-mix(in oklch, var(--brand-ink), transparent 8%) 42%,
+        color-mix(in oklch, var(--brand-ink), transparent 70%) 78%,
+        color-mix(in oklch, var(--brand-ink), transparent 66%) 100%
+      ),
+      linear-gradient(
+        180deg,
+        transparent 0%,
+        color-mix(in oklch, var(--brand-ink), transparent 30%) 82%,
+        var(--brand-ink)
+      );
+  }
+
   .hero-section__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1.03fr) minmax(25rem, 0.97fr);
+    position: relative;
+    z-index: 1;
+    display: flex;
     align-items: center;
-    gap: clamp(3rem, 7vw, 7rem);
-    padding-block: clamp(5rem, 10vw, 9rem) clamp(3.5rem, 7vw, 6rem);
+    min-height: clamp(36rem, 72vh, 49rem);
+    padding-block: clamp(5rem, 10vw, 8rem) clamp(4rem, 8vw, 6rem);
   }
 
   .hero-copy {
-    max-width: 47rem;
+    max-width: 48rem;
+  }
+
+  .hero-section__stage .hero-copy h1 {
+    color: #fefefd;
+  }
+
+  .hero-section__stage .hero-copy__description {
+    color: #cfcfcc;
+  }
+
+  .hero-section__stage .hero-note {
+    color: #c5deda;
   }
 
   .eyebrow {
@@ -358,7 +412,7 @@
     font-size: clamp(3rem, 4.8vw, 5rem);
     font-weight: 700;
     letter-spacing: -0.075em;
-    line-height: 0.98;
+    line-height: 1.2;
   }
 
   .hero-copy h1 span {
@@ -394,20 +448,6 @@
     width: 1rem;
     height: 1rem;
     color: var(--brand-teal);
-  }
-
-  .workflow-preview {
-    overflow: hidden;
-    border: 1px solid color-mix(in oklch, #fefefd, transparent 80%);
-    border-radius: 1.7rem;
-    background: var(--brand-teal-deep);
-    box-shadow: 0 2rem 4rem color-mix(in oklch, var(--brand-ink), transparent 78%);
-    color: #fefefd;
-  }
-
-  .hero-visual-stack {
-    display: grid;
-    gap: 1rem;
   }
 
   .media-slot {
@@ -484,53 +524,6 @@
     text-transform: uppercase;
   }
 
-  .workflow-preview__header,
-  .workflow-preview__source,
-  .workflow-preview__output {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .workflow-preview__header {
-    gap: 1rem;
-    padding: 1.4rem 1.5rem 1.25rem;
-    border-bottom: 1px solid color-mix(in oklch, #fefefd, transparent 84%);
-  }
-
-  .workflow-preview__header strong,
-  .workflow-preview__source strong {
-    display: block;
-    margin-top: 0.22rem;
-    font-size: 1.05rem;
-    font-weight: 700;
-  }
-
-  .preview-kicker {
-    display: block;
-    color: #a9ddd8;
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .preview-status {
-    border: 1px solid color-mix(in oklch, #fefefd, transparent 72%);
-    border-radius: 999px;
-    padding: 0.42rem 0.7rem;
-    color: #d4eeeb;
-    font-size: 0.7rem;
-    font-weight: 700;
-  }
-
-  .workflow-preview__source {
-    margin: 1.2rem 1.5rem;
-    padding: 0.9rem;
-    border: 1px solid color-mix(in oklch, #fefefd, transparent 82%);
-    border-radius: 1rem;
-    background: color-mix(in oklch, #fefefd, transparent 92%);
-  }
-
   .icon-tile {
     display: inline-flex;
     width: 2.8rem;
@@ -546,111 +539,6 @@
   .icon-tile svg {
     width: 1.25rem;
     height: 1.25rem;
-  }
-
-  .workflow-preview__source .icon-tile {
-    margin-right: 0.8rem;
-    background: color-mix(in oklch, #fefefd, transparent 82%);
-    color: #d4eeeb;
-  }
-
-  .preview-trailing-icon {
-    width: 1.15rem;
-    height: 1.15rem;
-    margin-left: auto;
-    color: #a9ddd8;
-  }
-
-  .workflow-preview__steps {
-    display: grid;
-    gap: 0.35rem;
-    margin: 0;
-    padding: 0 1.5rem 1.25rem;
-    list-style: none;
-  }
-
-  .workflow-preview__step {
-    display: grid;
-    grid-template-columns: 2rem minmax(0, 1fr) 1.1rem;
-    align-items: center;
-    gap: 0.7rem;
-    min-height: 4.2rem;
-    padding: 0.8rem;
-    border-radius: 0.9rem;
-    color: #e7e7e6;
-  }
-
-  .workflow-preview__step > span {
-    display: inline-flex;
-    width: 1.8rem;
-    height: 1.8rem;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid color-mix(in oklch, #fefefd, transparent 72%);
-    border-radius: 50%;
-    color: #a9ddd8;
-    font-size: 0.65rem;
-    font-weight: 700;
-  }
-
-  .workflow-preview__step strong,
-  .workflow-preview__step small {
-    display: block;
-  }
-
-  .workflow-preview__step strong {
-    font-size: 0.92rem;
-  }
-
-  .workflow-preview__step small {
-    margin-top: 0.25rem;
-    color: #a9ddd8;
-    font-size: 0.72rem;
-    line-height: 1.35;
-  }
-
-  .workflow-preview__step svg {
-    width: 1rem;
-    height: 1rem;
-    color: #a9ddd8;
-  }
-
-  .workflow-preview__step--active {
-    background: color-mix(in oklch, #fefefd, transparent 90%);
-  }
-
-  .workflow-preview__step--active > span {
-    border-color: var(--brand-teal);
-    background: var(--brand-teal);
-    color: var(--brand-teal-deep);
-  }
-
-  .workflow-preview__output {
-    margin: 0 1.5rem 1.5rem;
-    padding: 1rem;
-    border-radius: 0.9rem;
-    background: #fefefd;
-    color: var(--brand-teal-deep);
-  }
-
-  .output-line {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.82rem;
-    font-weight: 700;
-  }
-
-  .output-line__dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: var(--brand-teal);
-  }
-
-  .output-line__meta {
-    color: var(--brand-muted);
-    font-size: 0.7rem;
   }
 
   .trust-strip {
@@ -2161,11 +2049,6 @@
     display: none;
   }
 
-  .hero-section__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.9fr);
-    gap: 3rem;
-  }
-
   .solution-section,
   .output-section,
   .audience-section,
@@ -2189,7 +2072,6 @@
     display: none;
   }
 
-  .hero-section__inner,
   .solution-section,
   .output-section,
   .audience-section,
@@ -2242,10 +2124,6 @@
 
   .hero-copy h1 {
     max-width: 14ch;
-  }
-
-  .workflow-preview {
-    max-width: 38rem;
   }
 
   .problem-grid,
@@ -2361,27 +2239,6 @@
     width: 100%;
   }
 
-  .workflow-preview__header,
-  .workflow-preview__source,
-  .workflow-preview__steps,
-  .workflow-preview__output {
-    margin-right: 1rem;
-    margin-left: 1rem;
-  }
-
-  .workflow-preview__header {
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  .workflow-preview__source {
-    margin-right: 0;
-    margin-left: 0;
-    border-right: 0;
-    border-left: 0;
-    border-radius: 0;
-  }
-
   .trust-strip {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -2471,5 +2328,11 @@
 
   .policy-page__back {
     margin-bottom: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section__video {
+    display: none;
   }
 }

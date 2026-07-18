@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   Clock3,
   Download,
-  FileAudio,
   Gauge,
   MonitorSmartphone,
   ShieldCheck,
@@ -19,7 +18,6 @@ import { SiteHeader } from "@/components/marketing/site-header"
 import {
   ActionLink,
   FAQList,
-  MediaSlot,
   PricingCard,
   SectionHeading,
   ToolCard,
@@ -138,91 +136,49 @@ export function LandingPage() {
       <SiteHeader />
       <main>
         <section className="hero-section">
-          <div className="site-shell hero-section__inner">
-            <div className="hero-copy">
-              <p className="eyebrow">One Click AI by AI Code Lab</p>
-              <h1>
-                One Click AI
-                <span>တစ်ချက်နှိပ် တန်းတင် AI Content Tool</span>
-              </h1>
-              <p className="hero-copy__description">
-                Movie Recap, Football, Dhamma, Shorts နဲ့ Hook Maker အတွက် source တင်၊
-                voice/subtitle/timing ရွေး၊ output ကို download လုပ်ပါ။ Tool အများကြီး
-                မပြောင်းဘဲ Burmese content ထုတ်နိုင်အောင် စီထားပါတယ်။
-              </p>
-              <div className="hero-actions">
-                <ActionLink
-                  external={getPlanCtaHref().startsWith("http")}
-                  href={getPlanCtaHref()}
-                >
-                  Plan ရွေးရန်
-                  <ArrowRight aria-hidden="true" />
-                </ActionLink>
-                <ActionLink href="#how-it-works" variant="secondary">
-                  ဘယ်လိုသုံးလဲ ကြည့်ရန်
-                </ActionLink>
-              </div>
-              <div className="hero-note">
-                <BadgeCheck aria-hidden="true" />
-                <span>VIP 35,000 MMK · VVIP 59,000 MMK · 30 days</span>
-              </div>
+          <div className="hero-section__stage">
+            <div className="hero-section__backdrop" aria-hidden="true">
+              <video
+                autoPlay
+                className="hero-section__video"
+                loop
+                muted
+                playsInline
+                preload="auto"
+              >
+                <source src="/abstract-forest.mp4" type="video/mp4" />
+              </video>
+              <div className="hero-section__scrim" />
             </div>
 
-            <div className="hero-visual-stack">
-              <div className="workflow-preview" aria-label="One Click AI workflow preview">
-              <div className="workflow-preview__header">
-                <div>
-                  <span className="preview-kicker">Preview</span>
-                  <strong>Source in → Output out</strong>
+            <div className="site-shell hero-section__inner">
+              <div className="hero-copy">
+                <p className="eyebrow eyebrow--light">One Click AI by AI Code Lab</p>
+                <h1>
+                  One Click AI
+                  <span>တစ်ချက်နှိပ် တန်းတင် AI Content Tool</span>
+                </h1>
+                <p className="hero-copy__description">
+                  Movie Recap, Football, Dhamma, Shorts နဲ့ Hook Maker အတွက် source တင်၊
+                  voice/subtitle/timing ရွေး၊ output ကို download လုပ်ပါ။ Tool အများကြီး
+                  မပြောင်းဘဲ Burmese content ထုတ်နိုင်အောင် စီထားပါတယ်။
+                </p>
+                <div className="hero-actions">
+                  <ActionLink
+                    external={getPlanCtaHref().startsWith("http")}
+                    href={getPlanCtaHref()}
+                  >
+                    Plan ရွေးရန်
+                    <ArrowRight aria-hidden="true" />
+                  </ActionLink>
+                  <ActionLink href="#how-it-works" variant="light">
+                    ဘယ်လိုသုံးလဲ ကြည့်ရန်
+                  </ActionLink>
                 </div>
-                <span className="preview-status">One Click AI</span>
-              </div>
-
-              <div className="workflow-preview__source">
-                <IconTile>
-                  <FileAudio aria-hidden="true" />
-                </IconTile>
-                <div>
-                  <span className="preview-kicker">Your source</span>
-                  <strong>Video / audio file</strong>
+                <div className="hero-note">
+                  <BadgeCheck aria-hidden="true" />
+                  <span>VIP 35,000 MMK · VVIP 59,000 MMK · 30 days</span>
                 </div>
-                <Upload aria-hidden="true" className="preview-trailing-icon" />
-              </div>
-
-              <ol className="workflow-preview__steps">
-                <li className="workflow-preview__step workflow-preview__step--done">
-                  <span>01</span>
-                  <div>
-                    <strong>Tool ရွေး</strong>
-                    <small>Movie Recap · Football · Dhamma · Shorts</small>
-                  </div>
-                  <CheckCircle2 aria-hidden="true" />
-                </li>
-                <li className="workflow-preview__step workflow-preview__step--done">
-                  <span>02</span>
-                  <div>
-                    <strong>Output ပုံစံချ</strong>
-                    <small>Voice · subtitle · timing · format</small>
-                  </div>
-                  <CheckCircle2 aria-hidden="true" />
-                </li>
-                <li className="workflow-preview__step workflow-preview__step--active">
-                  <span>03</span>
-                  <div>
-                    <strong>Generate & download</strong>
-                    <small>Ready for TikTok, Reels, or Shorts</small>
-                  </div>
-                  <Download aria-hidden="true" />
-                </li>
-              </ol>
-
-              <div className="workflow-preview__output">
-                <div className="output-line">
-                  <span className="output-line__dot" />
-                  <span>Upload-ready file</span>
-                </div>
-                <span className="output-line__meta">Voice · Subtitle · SRT</span>
-              </div>
               </div>
             </div>
           </div>
