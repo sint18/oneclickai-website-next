@@ -8,6 +8,10 @@ export const toolSlugSchema = z.enum([
   "dhamma",
   "shorts",
   "hook-maker",
+  "thumbnail-generator",
+  "video-splitter",
+  "knowledge-video",
+  "voice-library",
 ])
 
 export type ToolSlug = z.infer<typeof toolSlugSchema>
@@ -22,17 +26,14 @@ export const guideSlugSchema = z.enum([
 export type GuideSlug = z.infer<typeof guideSlugSchema>
 
 export type ToolIcon =
-  | "film"
-  | "football"
-  | "leaf"
-  | "scissors"
-  | "sparkles"
+  "film" | "football" | "image" | "leaf" | "scissors" | "sparkles"
 
 export type Tool = {
   slug: ToolSlug
   name: string
   label: string
   description: string
+  access: string
   purpose: string
   audience: string
   sourceGuidance: string[]
@@ -100,7 +101,7 @@ export const siteConfig = {
   name: "One Click AI",
   company: "AI Code Lab",
   description:
-    "Myanmar creators အတွက် source video သို့မဟုတ် audio ကနေ Burmese voice, subtitle, SRT နဲ့ upload-ready output ထုတ်နိုင်တဲ့ AI content tool.",
+    "Myanmar creator တွေအတွက် source content ကနေ publish-ready နီးစပ်တဲ့ output ရအောင် ကူညီပေးတဲ့ AI-assisted content tool suite.",
   siteUrl,
   support: {
     messenger: process.env.NEXT_PUBLIC_MESSENGER_URL ?? "",
@@ -123,28 +124,35 @@ export const tools: Tool[] = [
     name: "Movie Recap",
     label: "Movie Recap Generator",
     description:
-      "Source video ကနေ Burmese narration, subtitle, SRT နဲ့ recap output ပြင်ပါ။",
+      "Source video တင်ပြီး Burmese narration, subtitle, SRT ပါတဲ့ recap ကို လွယ်လွယ်ထုတ်ပါ။",
+    access: "VIP and VVIP",
     purpose:
-      "ဇာတ်လမ်း flow ရှင်းတဲ့ movie recap-style source ကို Burmese recap output အဖြစ် ပြောင်းပါ။",
+      "ဇာတ်လမ်း flow ရှင်းတဲ့ movie recap-style source ကို မြန်မာလိုပြန်ပြောတဲ့ recap video အဖြစ် ပြောင်းပါ။",
     audience:
-      "Movie recap စတင်ချင်ပြီး source quality ကို ဂရုစိုက်တဲ့ creator တွေအတွက်ပါ။",
+      "Movie recap စလုပ်ချင်ပြီး source quality ကို သေချာဂရုစိုက်တဲ့ creator တွေအတွက်ပါ။",
     sourceGuidance: [
-      "Movie recap-style video ဖြစ်ပြီး story flow ရှင်းရပါမယ်။",
-      "Scenes တွေက ဇာတ်လမ်းအလိုက် ဆက်စပ်နေသင့်ပါတယ်။",
-      "Voiceover သို့မဟုတ် narration ပါရင် context နားလည်ဖို့ ပိုလွယ်ပါတယ်။",
+      "VIP မှာ 5 minutes အထိ၊ VVIP မှာ 30 minutes အထိ source video တင်နိုင်ပါတယ်။",
+      "Story flow ရှင်းတဲ့ movie recap-style video ဖြစ်ရပါမယ်။",
+      "Scene တွေက ဇာတ်လမ်းအတိုင်း ဆက်သွားတာ ပိုကောင်းပါတယ်။",
+      "Voiceover သို့မဟုတ် narration ပါရင် context ကို ပိုနားလည်လွယ်ပါတယ်။",
     ],
     outputs: [
       "Burmese voiceover / narration",
+      "Edited recap video",
       "Timed Burmese subtitles",
       "SRT export",
-      "Recap-ready video output",
+      "VVIP မှာ styled Myanmar subtitle burn-in",
     ],
     workflow: [
       "Movie recap-style source ကို ရွေးပါ။",
-      "Movie Recap tool ထဲ source တင်ပြီး voice, subtitle, timing ကို ရွေးပါ။",
-      "Generate လုပ်ပြီး output ကို review လုပ်ကာ download လုပ်ပါ။",
+      "Movie Recap tool ထဲ တင်ပြီး voice, subtitle, timing ကို ရွေးပါ။",
+      "Generate လုပ်ပြီး output ကို ပြန်ကြည့်၊ အဆင်ပြေရင် download လုပ်ပါ။",
     ],
-    relatedGuideSlugs: ["getting-started", "choose-a-source", "review-and-publish"],
+    relatedGuideSlugs: [
+      "getting-started",
+      "choose-a-source",
+      "review-and-publish",
+    ],
     icon: "film",
     accent: "teal",
   },
@@ -153,23 +161,29 @@ export const tools: Tool[] = [
     name: "Football",
     label: "Football Content Maker",
     description:
-      "Match clip သို့မဟုတ် highlight source ကို vertical football content အဖြစ် ပြင်ပါ။",
-    purpose: "Match clip သို့မဟုတ် highlight source ကို vertical football content အဖြစ် ပြင်ပါ။",
-    audience: "Football page နဲ့ short-form sports content မှန်မှန်ထုတ်ချင်တဲ့ creator တွေအတွက်ပါ။",
+      "Match clip သို့မဟုတ် highlight ကို vertical football content အဖြစ် အမြန်ပြင်ပါ။",
+    access: "VVIP only",
+    purpose:
+      "Match clip သို့မဟုတ် highlight source ကို short-form football video အဖြစ် ပြန်ထုတ်ပါ။",
+    audience:
+      "VVIP plan နဲ့ football page run နေပြီး sports short-form content ကို ပုံမှန်တင်ချင်တဲ့ creator တွေအတွက်ပါ။",
     sourceGuidance: [
+      "VVIP only feature ဖြစ်ပြီး source footage ကို 10 minutes အထိ လက်ခံပါတယ်။",
+      "Selected/output clip duration က 3 minutes အထိ ဖြစ်ပါတယ်။",
       "Match clip သို့မဟုတ် highlight source ဖြစ်ရပါမယ်။",
       "Action flow နဲ့ clip context ရှင်းတဲ့ source ကို သုံးပါ။",
       "အသုံးပြုခွင့်ရှိတဲ့ source ဖြစ်ကြောင်း ကိုယ်တိုင်စစ်ဆေးပါ။",
     ],
     outputs: [
       "Vertical football content",
+      "Automated framing",
+      "Automated ball tracking",
       "Short-form match or highlight output",
-      "Subtitle and export-ready assets where supported",
     ],
     workflow: [
       "Football match clip သို့မဟုတ် highlight source ကို ရွေးပါ။",
-      "Football Content Maker ထဲ source တင်ပြီး output setting ကို ရွေးပါ။",
-      "Generate လုပ်ပြီး publish မလုပ်ခင် source rights နဲ့ output ကို စစ်ပါ။",
+      "Football Content Maker ထဲ တင်ပြီး output setting ကို ရွေးပါ။",
+      "Generate လုပ်ပြီး မတင်ခင် source rights နဲ့ output ကို ပြန်စစ်ပါ။",
     ],
     relatedGuideSlugs: ["getting-started", "review-and-publish"],
     icon: "football",
@@ -180,23 +194,28 @@ export const tools: Tool[] = [
     name: "Dhamma",
     label: "Dhamma Content Maker",
     description:
-      "Long sermon audio ကို background, Burmese subtitle နဲ့ timing ချိန်ထားတဲ့ video အဖြစ် ပြောင်းပါ။",
-    purpose: "Long sermon audio ကို background, Burmese subtitle နဲ့ timing ချိန်ထားတဲ့ video အဖြစ် ပြောင်းပါ။",
-    audience: "တရားတော် audio ကို ရှင်းလင်းတဲ့ video content အဖြစ် ပြောင်းချင်တဲ့ creator တွေအတွက်ပါ။",
+      "တရားတော် audio ကို background, Burmese subtitle, timing ပါတဲ့ video အဖြစ် ပြောင်းပါ။",
+    access: "VVIP only",
+    purpose:
+      "Long sermon audio ကို နားထောင်ဖတ်ရှုလို့ကောင်းတဲ့ Dhamma video အဖြစ် ပြန်ပြင်ပါ။",
+    audience:
+      "VVIP plan နဲ့ တရားတော် audio ကို သပ်သပ်ရပ်ရပ် video content အဖြစ် ပြောင်းချင်တဲ့ creator တွေအတွက်ပါ။",
     sourceGuidance: [
+      "VVIP only feature ဖြစ်ပြီး source audio ကို 3 hours အထိ လက်ခံပါတယ်။",
+      "Standard နဲ့ Pro quality tier နှစ်မျိုး ရွေးနိုင်ပါတယ်။",
       "အသံရှင်းပြီး နားထောင်လို့ကောင်းတဲ့ sermon audio ကို သုံးပါ။",
-      "Audio context နဲ့ အကြောင်းအရာကို မဖြတ်တောက်ဘဲ ပြန်စစ်ပါ။",
-      "ဘာသာရေးအကြောင်းအရာကို publish မလုပ်ခင် စာသားနဲ့ output ကို review လုပ်ပါ။",
+      "Audio context နဲ့ အကြောင်းအရာ မလွဲအောင် ပြန်စစ်ပါ။",
+      "ဘာသာရေးအကြောင်းအရာဖြစ်လို့ publish မလုပ်ခင် စာသားနဲ့ output ကို သေချာ review လုပ်ပါ။",
     ],
     outputs: [
       "Background video with sermon audio",
       "Burmese subtitles",
-      "Timed, upload-ready video output",
+      "Review လုပ်ပြီး publish လုပ်ဖို့ နီးစပ်တဲ့ timed video output",
     ],
     workflow: [
-      "Sermon audio source ကို ရွေးပြီး အသံအရည်အသွေးကို စစ်ပါ။",
+      "Sermon audio ကို ရွေးပြီး အသံရှင်းမရှင်း စစ်ပါ။",
       "Dhamma Content Maker ထဲ audio တင်ပြီး background နဲ့ subtitle setting ကို ရွေးပါ။",
-      "Generate လုပ်ပြီး အကြောင်းအရာမှန်ကန်မှုကို review လုပ်ပါ။",
+      "Generate လုပ်ပြီး အကြောင်းအရာ မှန်မမှန် ပြန်ကြည့်ပါ။",
     ],
     relatedGuideSlugs: ["getting-started", "review-and-publish"],
     icon: "leaf",
@@ -207,23 +226,27 @@ export const tools: Tool[] = [
     name: "Shorts",
     label: "One Click Shorts",
     description:
-      "Stream နဲ့ long-video source တွေကို short-form clips အဖြစ် ပြန်ထုတ်ပါ။",
-    purpose: "Stream နဲ့ long-video source တွေကို short-form clips အဖြစ် ပြန်ထုတ်ပါ။",
-    audience: "Long video သို့မဟုတ် stream ကနေ short-form content ပုံမှန်ထုတ်ချင်တဲ့ creator တွေအတွက်ပါ။",
+      "Stream နဲ့ long video ထဲက အကောင်းဆုံးအပိုင်းတွေကို short clips အဖြစ် ပြန်ထုတ်ပါ။",
+    access: "VVIP only",
+    purpose:
+      "Stream နဲ့ long-video source တွေကို short-form clips အဖြစ် ပြန်ခွဲထုတ်ပါ။",
+    audience:
+      "VVIP plan နဲ့ long video သို့မဟုတ် stream ကနေ short-form content ကို ပုံမှန်ထုတ်ချင်တဲ့ creator တွေအတွက်ပါ။",
     sourceGuidance: [
-      "Long video သို့မဟုတ် stream source ဖြစ်ပြီး clip ထုတ်ဖို့ context ရှိရပါမယ်။",
-      "စိတ်ဝင်စားစရာအပိုင်းတွေကို ရှာဖွေလို့ရအောင် source quality ကောင်းရပါမယ်။",
+      "VVIP only feature ဖြစ်ပြီး source video ကို 2 hours အထိ လက်ခံပါတယ်။",
+      "Long video သို့မဟုတ် stream source ဖြစ်ပြီး clip ထုတ်လို့ရတဲ့ context ရှိရပါမယ်။",
+      "စိတ်ဝင်စားစရာအပိုင်းတွေကို ရှာလို့ရအောင် source quality ကောင်းဖို့လိုပါတယ်။",
       "Source rights နဲ့ platform rules ကို publish မလုပ်ခင် စစ်ဆေးပါ။",
     ],
     outputs: [
       "Short-form clips",
       "Vertical content output",
-      "Upload-ready files for short-form platforms",
+      "TikTok, YouTube Shorts နဲ့ Facebook Reels use cases",
     ],
     workflow: [
       "Stream သို့မဟုတ် long-video source ကို ရွေးပါ။",
       "One Click Shorts ထဲ source တင်ပြီး clip/output setting ကို ရွေးပါ။",
-      "ထုတ်ပြီးသား short clips ကို review လုပ်ကာ download လုပ်ပါ။",
+      "ထွက်လာတဲ့ short clips ကို ပြန်ကြည့်ပြီး download လုပ်ပါ။",
     ],
     relatedGuideSlugs: ["getting-started", "review-and-publish"],
     icon: "scissors",
@@ -234,27 +257,153 @@ export const tools: Tool[] = [
     name: "Hook Maker",
     label: "Hook Maker",
     description:
-      "Video စစချင်း audience ကို ရပ်ကြည့်စေမယ့် hook angle တွေ ထုတ်ပါ။",
-    purpose: "Content idea သို့မဟုတ် source ကနေ video အစပိုင်း hook angle တွေ စဉ်းစားဖို့ ကူညီပါ။",
-    audience: "Video စစချင်းမှာ audience အာရုံစိုက်လာအောင် opening angle လိုတဲ့ creator တွေအတွက်ပါ။",
+      "Video အစမှာ audience ကို ဆက်ကြည့်ချင်စေမယ့် hook angle တွေ ထုတ်ပါ။",
+    access: "VIP and VVIP",
+    purpose:
+      "Content idea သို့မဟုတ် source context ကနေ video အဖွင့် hook တွေ စဉ်းစားပေးပါတယ်။",
+    audience:
+      "Video စစချင်းမှာ audience အာရုံဝင်လာအောင် opening angle လိုတဲ့ creator တွေအတွက်ပါ။",
     sourceGuidance: [
-      "ပြောချင်တဲ့ content idea သို့မဟုတ် source context ကို ရှင်းရှင်းလင်းလင်း ပြင်ဆင်ပါ။",
+      "ပြောချင်တဲ့ content idea သို့မဟုတ် source context ကို ရှင်းရှင်းလင်းလင်း ပြင်ထားပါ။",
       "ကိုယ့် audience နဲ့ကိုက်တဲ့ topic နဲ့ key point ကို အရင်သတ်မှတ်ပါ။",
-      "Generated hook ကို ကိုယ့် content နဲ့ကိုက်မကိုက် ပြန်စစ်ပါ။",
+      "ထွက်လာတဲ့ hook ကို ကိုယ့် content နဲ့ကိုက်မကိုက် ပြန်စစ်ပါ။",
     ],
     outputs: [
       "Opening hook angles",
-      "Short-form content opening directions",
-      "Content idea အလိုက် ရွေးချယ်စရာ hook များ",
+      "Short-form content အဖွင့် idea တွေ",
+      "Content idea အလိုက် ရွေးချယ်စရာ hook တွေ",
     ],
     workflow: [
       "Content idea သို့မဟုတ် source context ကို ပြင်ဆင်ပါ။",
-      "Hook Maker ထဲ ထည့်ပြီး ကိုယ့် content အမျိုးအစားကို စဉ်းစားပါ။",
-      "ထွက်လာတဲ့ hook angle ကို review လုပ်ပြီး script workflow ထဲ ဆက်သုံးပါ။",
+      "Hook Maker ထဲ ထည့်ပြီး ကိုယ့် content အမျိုးအစားကို ရွေးပါ။",
+      "ထွက်လာတဲ့ hook angle ကို ပြန်ရွေးပြီး script workflow ထဲ ဆက်သုံးပါ။",
     ],
     relatedGuideSlugs: ["getting-started", "review-and-publish"],
     icon: "sparkles",
     accent: "ink",
+  },
+  {
+    slug: "thumbnail-generator",
+    name: "Thumbnail",
+    label: "Thumbnail Generator",
+    description:
+      "Video idea ကနေ horizontal သို့မဟုတ် vertical AI thumbnail တစ်ပုံ ဖန်တီးပါ။",
+    access: "VIP and VVIP",
+    purpose:
+      "Short idea, subject, setting, action နဲ့ mood ကို ထည့်ပြီး video thumbnail visual တစ်ပုံ အမြန်ဖန်တီးပေးပါတယ်။",
+    audience:
+      "Thumbnail ကို အစကနေ design မလုပ်ဘဲ video idea ကနေ visual တစ်ပုံ မြန်မြန်ရချင်တဲ့ creator တွေအတွက်ပါ။",
+    sourceGuidance: [
+      "စကားလုံး 6 လုံးအထိ headline ထည့်နိုင်ပါတယ်။",
+      "Video ရဲ့ subject, setting, action နဲ့ mood ကို ရှင်းရှင်းလင်းလင်းရေးပါ။",
+      "Standard video အတွက် horizontal၊ Shorts/mobile content အတွက် vertical format ကို ရွေးပါ။",
+      "Guaranteed clicks, views, engagement သို့မဟုတ် viral result ကို အာမခံမပေးပါ။",
+    ],
+    outputs: [
+      "AI-generated thumbnail 1 ပုံ",
+      "Horizontal or vertical format",
+      "User account ထဲ private storage",
+      "1 credit per thumbnail",
+    ],
+    workflow: [
+      "Thumbnail လိုတဲ့ video idea ကို ပြင်ဆင်ပါ။",
+      "Headline, subject, setting, action, mood နဲ့ format ကို ရွေးပါ။",
+      "Generate လုပ်ပြီး thumbnail ကို review လုပ်ကာ လိုရင် ထပ် generate လုပ်ပါ။",
+    ],
+    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    icon: "image",
+    accent: "sand",
+  },
+  {
+    slug: "video-splitter",
+    name: "Video Splitter",
+    label: "Video Splitter",
+    description:
+      "ပြီးစီးထားတဲ့ video ကို shorter clips တွေအဖြစ် အခမဲ့ ခွဲထုတ်ပါ။",
+    access: "Free helper tool",
+    purpose:
+      "ပြီးစီးထားတဲ့ video ကို original picture, layout, sound နဲ့ subtitles မပြောင်းဘဲ clips တွေအဖြစ် ခွဲပေးပါတယ်။",
+    audience:
+      "Long video တစ်ခုကို Shorts, social posts သို့မဟုတ် share လုပ်ရလွယ်တဲ့ clips တွေအဖြစ် ခွဲချင်တဲ့ creator တွေအတွက်ပါ။",
+    sourceGuidance: [
+      "ပြီးစီးထားတဲ့ video file ကို အသုံးပြုပါ။",
+      "Preset length 30, 60 သို့မဟုတ် 90 seconds ကို ရွေးနိုင်ပါတယ်။",
+      "Custom length ကို 15 seconds ကနေ 10 minutes အထိ သတ်မှတ်နိုင်ပါတယ်။",
+      "Split မလုပ်ခင် estimated clip count ကို ပြန်စစ်ပါ။",
+    ],
+    outputs: [
+      "Shorter clips up to 100 clips",
+      "Original picture, layout, sound နဲ့ subtitle မပြောင်းပါ",
+      "Credit မကုန်တဲ့ free helper output",
+      "Clip length က ရွေးထားတဲ့ length ထက် အနည်းငယ်ကွာနိုင်ပါတယ်",
+    ],
+    workflow: [
+      "ပြီးစီးထားတဲ့ video ကို တင်ပါ။",
+      "Preset သို့မဟုတ် custom clip length ကို ရွေးပါ။",
+      "Estimated clip count ကို စစ်ပြီး split လုပ်ပါ။",
+    ],
+    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    icon: "scissors",
+    accent: "teal",
+  },
+  {
+    slug: "knowledge-video",
+    name: "Knowledge Video",
+    label: "Knowledge Video",
+    description:
+      "Knowledge-style video workflow ကို VVIP plan မှာ အသုံးပြုနိုင်ပါတယ်။ Research feature က လက်ရှိ disabled ဖြစ်ပါတယ်။",
+    access: "VVIP only",
+    purpose:
+      "Knowledge-video workflow ကို launch လုပ်ထားပြီး VVIP creator တွေအတွက် supported workflow အဖြစ် အသုံးပြုနိုင်ပါတယ်။",
+    audience:
+      "Knowledge-style content ကို VVIP workflow ထဲကနေ ပြင်ဆင်ချင်တဲ့ creator တွေအတွက်ပါ။",
+    sourceGuidance: [
+      "VVIP only feature ဖြစ်ပါတယ်။",
+      "Research feature က လက်ရှိ disabled ဖြစ်ပါတယ်။",
+      "Source facts နဲ့ final output ကို publish မလုပ်ခင် ကိုယ်တိုင် review လုပ်ပါ။",
+    ],
+    outputs: [
+      "Knowledge-style video workflow output",
+      "Review လုပ်ပြီး publish ဆက်လုပ်ဖို့ နီးစပ်တဲ့ content output",
+    ],
+    workflow: [
+      "Knowledge video အတွက် source context ကို ပြင်ဆင်ပါ။",
+      "Knowledge Video workflow ထဲမှာ setting ကို ရွေးပါ။",
+      "Generate လုပ်ပြီး facts, wording နဲ့ final output ကို ပြန်စစ်ပါ။",
+    ],
+    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    icon: "sparkles",
+    accent: "ink",
+  },
+  {
+    slug: "voice-library",
+    name: "Voice Library",
+    label: "Voice Library / Voice Cloning",
+    description:
+      "Saved and cloned voices တွေကို manage လုပ်ပြီး supported workflows တွေမှာ အသုံးပြုပါ။",
+    access: "VVIP only",
+    purpose:
+      "Saved voices နဲ့ cloned voices တွေကို စီမံပြီး One Click AI ရဲ့ supported workflows တွေမှာ အသုံးပြုနိုင်အောင် ကူညီပါတယ်။",
+    audience:
+      "VVIP plan နဲ့ voice workflow ကို ပိုစနစ်တကျ manage လုပ်ချင်တဲ့ creator တွေအတွက်ပါ။",
+    sourceGuidance: [
+      "VVIP only supporting tool ဖြစ်ပါတယ်။",
+      "Saved or cloned voice ကို supported workflows တွေမှာသာ အသုံးပြုပါ။",
+      "Voice output ကို publish မလုပ်ခင် နားထောင်စစ်ပါ။",
+    ],
+    outputs: [
+      "Saved voices management",
+      "Cloned voices management",
+      "Supported workflows တွေမှာ အသုံးပြုနိုင်တဲ့ voice assets",
+    ],
+    workflow: [
+      "အသုံးပြုချင်တဲ့ voice asset ကို ပြင်ဆင်ပါ။",
+      "Voice Library ထဲမှာ saved/cloned voice ကို manage လုပ်ပါ။",
+      "Supported workflow ထဲမှာ voice ကို ရွေးပြီး output ကို review လုပ်ပါ။",
+    ],
+    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    icon: "film",
+    accent: "sand",
   },
 ]
 
@@ -262,29 +411,37 @@ export const plans: PricingPlan[] = [
   {
     name: "VIP",
     price: "35,000 MMK",
-    description: "Movie Recap စပြီး content မှန်မှန်ထုတ်ချင်တဲ့ creator အတွက်။",
+    description:
+      "Movie Recap စလုပ်ပြီး content ကို မှန်မှန်တင်ချင်တဲ့ creator အတွက်။",
     badge: "Beginner Choice",
     features: [
-      "60 credits / 30 days",
-      "တစ်နေ့ 5 ကြိမ်အထိ generate",
-      "Standard processing speed",
-      "Movie Recap + Hook Maker",
-      "ATS Standard + ATS Pro",
-      "Burmese subtitle + SRT export",
+      "60 monthly credits",
+      "Main features တစ်နေ့ 5 ကြိမ်အထိ",
+      "Movie Recap source video 5 minutes အထိ",
+      "Normal processing",
+      "Movie Recap ATS Standard + ATS Pro",
+      "Voice, video and subtitle timing sync",
+      "SRT subtitle download",
+      "Hook Maker + Thumbnail Generator",
+      "Free Video Splitter",
     ],
   },
   {
     name: "VVIP",
     price: "59,000 MMK",
-    description: "Daily output ပိုများပြီး priority processing လိုတဲ့ creator အတွက်။",
+    description:
+      "နေ့တိုင်း output ပိုများများထုတ်မယ်၊ priority processing လိုမယ်ဆိုရင်။",
     badge: "Best Value",
     features: [
-      "120 credits / 30 days",
-      "တစ်နေ့ 10 ကြိမ်အထိ generate",
-      "Priority processing",
-      "Movie Recap + Hook Maker",
-      "ATS Standard + ATS Pro",
-      "Burmese subtitle + SRT export",
+      "120 monthly credits",
+      "Main features တစ်နေ့ 10 ကြိမ်အထိ",
+      "Movie Recap source video 30 minutes အထိ",
+      "VIP entitlement အားလုံးပါဝင်",
+      "VIP ထက် 5x အထိပိုမြန်တဲ့ priority processing",
+      "Styled Myanmar subtitle burn-in",
+      "Football + One Click Shorts + Dhamma",
+      "Knowledge Video + Voice Library/Cloning",
+      "New premium features priority access",
     ],
   },
 ]
@@ -293,12 +450,12 @@ export const faqs: FAQItem[] = [
   {
     question: "One Click AI ဆိုတာဘာလဲ?",
     answer:
-      "One Click AI က source video သို့မဟုတ် audio တင်ပြီး Burmese voice, subtitle, timing နဲ့ upload-ready output ထုတ်နိုင်တဲ့ Myanmar creator tool ဖြစ်ပါတယ်။",
+      "One Click AI က source content ကနေ publish-ready နီးစပ်တဲ့ output ရအောင် ကူညီပြီး creator workflow ကို မြန်စေတဲ့ AI-assisted Myanmar creator tool suite ဖြစ်ပါတယ်။",
   },
   {
     question: "ဘယ် content အမျိုးအစားတွေ လုပ်လို့ရလဲ?",
     answer:
-      "Movie Recap, Football Content, Dhamma Content, One Click Shorts နဲ့ Hook Maker ကို အသုံးပြုနိုင်ပါတယ်။ Tool availability က သင့် plan နဲ့ လက်ရှိ product rules ပေါ်မူတည်နိုင်ပါတယ်။",
+      "Movie Recap, Football Content, Dhamma Content, One Click Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Library နဲ့ Video Splitter တွေကို သုံးနိုင်ပါတယ်။ ဘယ် tool တွေပါမလဲဆိုတာက သင့် plan နဲ့ လက်ရှိ product rules ပေါ်မူတည်နိုင်ပါတယ်။",
   },
   {
     question: "Software install လုပ်ရလား?",
@@ -308,12 +465,12 @@ export const faqs: FAQItem[] = [
   {
     question: "Burmese voice နဲ့ subtitle ပါလား?",
     answer:
-      "Supported tools တွေမှာ Burmese narration, Burmese subtitle နဲ့ SRT export ပါဝင်ပါတယ်။ Output quality က source quality, audio clarity, source type နဲ့ mode ပေါ်မူတည်ပါတယ်။",
+      "Supported tools တွေမှာ Burmese narration, Burmese subtitle နဲ့ SRT export ပါပါတယ်။ Output ကောင်းမကောင်းက source quality, အသံရှင်းလင်းမှု, source type နဲ့ mode ပေါ်မူတည်ပါတယ်။",
   },
   {
     question: "ATS Standard နဲ့ ATS Pro ဘာကွာလဲ?",
     answer:
-      "ATS Standard က credit ကိုချွေတာပြီး content မှန်မှန်ထုတ်ဖို့ balance လုပ်ထားတဲ့ mode ဖြစ်ပါတယ်။ ATS Pro က voice, visual နဲ့ subtitle timing ကို ပိုဦးစားပေးတဲ့ mode ဖြစ်ပါတယ်။",
+      "Movie Recap အတွက် ATS Standard က source footage duration အလိုက် approximately 1 credit per source minute ဖြစ်ပြီး ATS Pro က approximately 3 credits per source minute ဖြစ်ပါတယ်။ Exact credit ကို generate screen ပေါ်က estimate မှာ စစ်ပါ။",
   },
   {
     question: "Phone နဲ့သုံးလို့ရလား?",
@@ -323,17 +480,17 @@ export const faqs: FAQItem[] = [
   {
     question: "Copyright နဲ့ monetization ကို အာမခံလား?",
     answer:
-      "မအာမခံပါဘူး။ Source rights, content quality, originality, platform rules နဲ့ account performance ပေါ်မူတည်ပါတယ်။ One Click AI က video ထုတ်တဲ့အလုပ်ကို လျှော့ပေးတာဖြစ်ပြီး platform approval, views, followers, income သို့မဟုတ် monetization ကို အာမခံမပေးပါ။",
+      "မအာမခံပါဘူး။ Source rights, content quality, originality, platform rules နဲ့ account performance ပေါ်မူတည်ပါတယ်။ One Click AI က video ထုတ်တဲ့အလုပ်ကို လွယ်ကူအောင်ကူညီပေးတာဖြစ်ပြီး platform approval, views, followers, income သို့မဟုတ် monetization ကို အာမခံမပေးပါ။",
   },
   {
     question: "Generation error ဖြစ်ရင် credit ကုန်မလား?",
     answer:
-      "System error အကျုံးဝင်လို့ project မပြီးသွားတဲ့ case တွေမှာ credit restoration ကို product policy အတိုင်း ဆောင်ရွက်နိုင်ပါတယ်။ User error, unsuitable source သို့မဟုတ် incorrect usage တွေက အကျုံးမဝင်နိုင်ပါ။ အသေးစိတ်ကို Credit Rules မှာ ကြည့်ပါ။",
+      "System error အကျုံးဝင်ပြီး project မပြီးသွားတဲ့ case တွေမှာ product policy အတိုင်း credit ပြန်ထည့်ပေးနိုင်ပါတယ်။ User error, မသင့်တော်တဲ့ source သို့မဟုတ် အသုံးပြုပုံမှားတာတွေက အကျုံးမဝင်နိုင်ပါ။ အသေးစိတ်ကို Credit Rules မှာ ကြည့်ပါ။",
   },
   {
     question: "VIP နဲ့ VVIP ဘယ်ဟာရွေးရမလဲ?",
     answer:
-      "Movie Recap စတင်ပြီး moderate volume နဲ့သုံးမယ်ဆို VIP က သင့်တော်ပါတယ်။ Daily output ပိုများပြီး priority processing လိုရင် VVIP ကို ရွေးပါ။",
+      "Movie Recap စလုပ်မယ်၊ source video 5 minutes အထိပဲ တင်မယ်၊ normal processing အဆင်ပြေတယ်ဆို VIP က သင့်တော်ပါတယ်။ Movie Recap 30 minutes အထိ တင်ချင်တာ၊ priority processing, styled subtitle burn-in, Football, Shorts သို့မဟုတ် Dhamma workflow လိုတာဆို VVIP ကို ရွေးပါ။",
   },
 ]
 
@@ -342,7 +499,8 @@ export const videoResources: VideoResource[] = [
     slug: "football-walkthrough",
     toolSlug: "football",
     title: "ဘောလုံး content Tool အသုံးပြုနည်း",
-    description: "Football Content Maker ကို စတင်အသုံးပြုဖို့ walkthrough video ကို ကြည့်ပါ။",
+    description:
+      "Football Content Maker ကို စတင်အသုံးပြုဖို့ walkthrough video ကို ကြည့်ပါ။",
     type: "walkthrough",
     href: "https://www.facebook.com/reel/1039389995329615/",
     status: "available",
@@ -351,7 +509,8 @@ export const videoResources: VideoResource[] = [
     slug: "shorts-walkthrough",
     toolSlug: "shorts",
     title: "One Click Shorts Tool အသုံးပြုနည်း",
-    description: "Long video သို့မဟုတ် stream ကနေ short-form clip ထုတ်တဲ့ flow ကို ကြည့်ပါ။",
+    description:
+      "Long video သို့မဟုတ် stream ကနေ short-form clip ထုတ်တဲ့ flow ကို ကြည့်ပါ။",
     type: "walkthrough",
     href: "https://www.facebook.com/reel/997618983137266/",
     status: "available",
@@ -360,7 +519,8 @@ export const videoResources: VideoResource[] = [
     slug: "movie-recap-walkthrough",
     toolSlug: "movie-recap",
     title: "Movie Recap Tool အသုံးပြုနည်း",
-    description: "Movie Recap workflow နဲ့ source တင်ပြီး output ထုတ်ပုံကို ကြည့်ပါ။",
+    description:
+      "Movie Recap workflow နဲ့ source တင်ပြီး output ထုတ်ပုံကို ကြည့်ပါ။",
     type: "walkthrough",
     href: "https://www.facebook.com/reel/969633642350390",
     status: "available",
@@ -369,7 +529,8 @@ export const videoResources: VideoResource[] = [
     slug: "movie-recap-source-guide",
     toolSlug: "movie-recap",
     title: "Movie Recap result ကောင်းအောင် source ရွေးနည်း",
-    description: "Source video quality က recap output ပေါ် ဘယ်လိုသက်ရောက်လဲဆိုတာ ဖတ်ကြည့်ပါ။",
+    description:
+      "Source video quality က recap output ပေါ် ဘယ်လိုသက်ရောက်လဲဆိုတာ ဖတ်ကြည့်ပါ။",
     type: "quality-guide",
     href: "https://www.facebook.com/AICodeLab/posts/pfbid0jFpgqTxSgz3UGc5JLwhxSkgifkaAqGoerq1CFK8EFaaHTVsrep5pRDp6J4M5vgLfl",
     status: "available",
@@ -378,7 +539,8 @@ export const videoResources: VideoResource[] = [
     slug: "dhamma-walkthrough",
     toolSlug: "dhamma",
     title: "တရားတော် video Tool အသုံးပြုနည်း",
-    description: "Dhamma Content Maker walkthrough video ကို မကြာမီ ထည့်ပေးပါမယ်။",
+    description:
+      "Dhamma Content Maker walkthrough video ကို မကြာမီ ထည့်ပေးပါမယ်။",
     type: "walkthrough",
     status: "coming-soon",
   },
@@ -389,21 +551,26 @@ export const guides: GuideArticle[] = [
     slug: "getting-started",
     eyebrow: "Start here",
     title: "One Click AI ကို စတင်သုံးမယ်ဆိုရင်",
-    description: "Tool ရွေးတာကနေ output download လုပ်တဲ့အထိ အခြေခံ workflow ကို တစ်ဆင့်ချင်း လိုက်လုပ်ပါ။",
+    description:
+      "Tool ရွေးတာကနေ output download လုပ်တဲ့အထိ အခြေခံ workflow ကို တစ်ဆင့်ချင်း လိုက်လုပ်ပါ။",
     intro:
       "Beginner ဖြစ်ဖြစ် content ကို ပုံမှန် run နေသူဖြစ်ဖြစ် source တင်၊ setting ရွေး၊ generate လုပ်ပြီး output ကို review လုပ်နိုင်အောင် ဒီ guide ကို စီထားပါတယ်။",
     sections: [
       {
         title: "၁။ ကိုယ်လုပ်မယ့် content type ကို ရွေးပါ",
         paragraphs: [
-          "Movie Recap, Football, Dhamma, Shorts နဲ့ Hook Maker ထဲက ကိုယ်ထုတ်ချင်တဲ့ content နဲ့ ကိုက်တဲ့ tool ကို ရွေးပါ။ Tool ကို source ပုံစံနဲ့ ကိုက်အောင် ရွေးရင် output ကို နားလည်ပြီး review လုပ်ရတာ ပိုလွယ်ပါတယ်။",
+          "Movie Recap, Football, Dhamma, Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Library နဲ့ Video Splitter ထဲက ကိုယ်ထုတ်ချင်တဲ့ content နဲ့ ကိုက်တဲ့ tool ကို ရွေးပါ။ Tool ကို source ပုံစံနဲ့ ကိုက်အောင် ရွေးရင် output ကို နားလည်ပြီး review လုပ်ရတာ ပိုလွယ်ပါတယ်။",
         ],
         bullets: [
           "Movie recap-style source အတွက် Movie Recap",
           "Match clip သို့မဟုတ် highlight အတွက် Football",
           "Sermon audio အတွက် Dhamma",
           "Long video သို့မဟုတ် stream အတွက် Shorts",
+          "Knowledge-style content အတွက် Knowledge Video",
           "Opening angle လိုရင် Hook Maker",
+          "Video idea ကနေ thumbnail လိုရင် Thumbnail Generator",
+          "Saved/cloned voices တွေ manage လုပ်ချင်ရင် Voice Library",
+          "ပြီးစီးထားတဲ့ video ကို clips ခွဲချင်ရင် Video Splitter",
         ],
       },
       {
@@ -425,7 +592,17 @@ export const guides: GuideArticle[] = [
         ],
       },
     ],
-    relatedToolSlugs: ["movie-recap", "football", "dhamma", "shorts", "hook-maker"],
+    relatedToolSlugs: [
+      "movie-recap",
+      "football",
+      "dhamma",
+      "shorts",
+      "hook-maker",
+      "thumbnail-generator",
+      "video-splitter",
+      "knowledge-video",
+      "voice-library",
+    ],
     videoResourceSlugs: [
       "football-walkthrough",
       "shorts-walkthrough",
@@ -437,7 +614,8 @@ export const guides: GuideArticle[] = [
     slug: "choose-a-source",
     eyebrow: "Source guidance",
     title: "Result ကောင်းဖို့ source ကို ဘယ်လိုရွေးမလဲ?",
-    description: "အထူးသဖြင့် Movie Recap အတွက် source quality က output အပေါ် ဘယ်လိုသက်ရောက်လဲ သိထားပါ။",
+    description:
+      "အထူးသဖြင့် Movie Recap အတွက် source quality က output အပေါ် ဘယ်လိုသက်ရောက်လဲ သိထားပါ။",
     intro:
       "One Click AI က random video တစ်ခုခုတင်လိုက်တာနဲ့ ဘာပဲဖြစ်ဖြစ် result ကောင်းအောင်လုပ်ပေးတဲ့ magic tool မဟုတ်ပါဘူး။ Tool နဲ့ကိုက်တဲ့ source ကို ရွေးတာက workflow ရဲ့ အရေးကြီးဆုံးအပိုင်းတစ်ခုပါ။",
     sections: [
@@ -445,6 +623,7 @@ export const guides: GuideArticle[] = [
         title: "Movie Recap အတွက် သင့်တော်တဲ့ source",
         paragraphs: [
           "Movie recap content အတွက် design လုပ်ထားတဲ့ tool ဖြစ်လို့ ဇာတ်လမ်း flow နဲ့ context ရှင်းတဲ့ video ကို သုံးပါ။",
+          "Movie Recap source video limit က VIP မှာ 5 minutes အထိ၊ VVIP မှာ 30 minutes အထိ ဖြစ်ပါတယ်။",
         ],
         bullets: [
           "Movie story ပြောထားတဲ့ recap video",
@@ -486,26 +665,27 @@ export const guides: GuideArticle[] = [
     slug: "ats-modes",
     eyebrow: "Quality modes",
     title: "ATS Standard နဲ့ ATS Pro ကို ဘယ်လိုရွေးမလဲ?",
-    description: "Content volume, timing priority နဲ့ credit usage ကိုကြည့်ပြီး mode ရွေးပါ။",
+    description:
+      "Movie Recap အတွက် ATS Standard နဲ့ ATS Pro credit rate ကိုကြည့်ပြီး mode ရွေးပါ။",
     intro:
-      "ATS mode ရွေးတဲ့အခါ output တစ်ခုချင်းစီရဲ့ quality priority နဲ့ credit usage ကို ထည့်စဉ်းစားပါ။ Generate မလုပ်ခင် screen ပေါ်က estimate ကို စစ်ပြီးမှ စတင်ပါ။",
+      "Movie Recap မှာ ATS Standard နဲ့ ATS Pro နှစ်မျိုးရှိပါတယ်။ Credit ကို source footage duration ပေါ်မူတည်ပြီးတွက်လို့ generate မလုပ်ခင် screen ပေါ်က estimate ကို စစ်ပြီးမှ စတင်ပါ။",
     sections: [
       {
         title: "ATS Standard",
         paragraphs: [
-          "Credit usage ကို balance လုပ်ပြီး content ကို မှန်မှန်ထုတ်ချင်တဲ့ workflow အတွက် သင့်တော်ပါတယ်။ Daily output ကို ထိန်းပြီး ဆက်လုပ်ချင်တဲ့ creator တွေအတွက် စဉ်းစားနိုင်ပါတယ်။",
+          "ATS Standard က source footage duration အလိုက် approximately 1 credit per source minute ဖြစ်ပါတယ်။ Credit usage ကို ထိန်းပြီး Movie Recap content ကို မှန်မှန်ထုတ်ချင်တဲ့ workflow အတွက် သင့်တော်ပါတယ်။",
         ],
       },
       {
         title: "ATS Pro",
         paragraphs: [
-          "Voice, visual နဲ့ subtitle timing ကို ပိုဦးစားပေးပြီး output ကို သေချာစစ်ချင်တဲ့ content အတွက် သုံးနိုင်ပါတယ်။",
+          "ATS Pro က source footage duration အလိုက် approximately 3 credits per source minute ဖြစ်ပါတယ်။ Quality priority ကို ပိုဂရုစိုက်ချင်တဲ့ Movie Recap content အတွက် သုံးနိုင်ပါတယ်။",
         ],
       },
       {
         title: "Generate မလုပ်ခင် စစ်ရမယ့်အချက်",
         paragraphs: [
-          "Tool, source duration နဲ့ mode ပေါ်မူတည်ပြီး credit usage က ကွာနိုင်ပါတယ်။ Generate မလုပ်ခင် estimated credit ကို ကြည့်ပြီး ကိုယ့် plan နဲ့ကိုက်မကိုက် စစ်ပါ။ အသေးစိတ်ကို Credit Rules မှာ ဖတ်ပါ။",
+          "Exact credit amount က video length, selected feature နဲ့ quality setting ပေါ်မူတည်ပြီး အနည်းငယ်ကွာနိုင်ပါတယ်။ Generate မလုပ်ခင် estimated credit ကို ကြည့်ပြီး ကိုယ့် plan နဲ့ကိုက်မကိုက် စစ်ပါ။ အသေးစိတ်ကို Credit Rules မှာ ဖတ်ပါ။",
         ],
       },
     ],
@@ -515,7 +695,8 @@ export const guides: GuideArticle[] = [
     slug: "review-and-publish",
     eyebrow: "Before you publish",
     title: "Output ကို review လုပ်ပြီးမှ publish လုပ်ပါ",
-    description: "Voice, subtitle, timing, source rights နဲ့ platform rules ကို နောက်ဆုံးတစ်ကြိမ် စစ်ဆေးပါ။",
+    description:
+      "Voice, subtitle, timing, source rights နဲ့ platform rules ကို နောက်ဆုံးတစ်ကြိမ် စစ်ဆေးပါ။",
     intro:
       "AI output ရတာနဲ့ တန်းတင်တာထက် ကိုယ့် content အဖြစ် publish မလုပ်ခင် source နဲ့ output ကို တစ်ခါပြန်စစ်တာက ပိုလုံခြုံပါတယ်။",
     sections: [
@@ -532,7 +713,7 @@ export const guides: GuideArticle[] = [
         ],
       },
       {
-        title: "SRT နဲ့ upload-ready output ကို သုံးပါ",
+        title: "SRT နဲ့ review-ready output ကို သုံးပါ",
         paragraphs: [
           "Video ထဲ subtitle တန်းပါဖို့ မလိုသေးရင် SRT file ကို သီးခြား download လုပ်ပြီး ကိုယ့် editing workflow ထဲ ဆက်သုံးနိုင်ပါတယ်။ Platform အလိုက် output format နဲ့ caption ကို ပြန်စစ်ပါ။",
         ],
@@ -544,7 +725,17 @@ export const guides: GuideArticle[] = [
         ],
       },
     ],
-    relatedToolSlugs: ["movie-recap", "football", "dhamma", "shorts", "hook-maker"],
+    relatedToolSlugs: [
+      "movie-recap",
+      "football",
+      "dhamma",
+      "shorts",
+      "hook-maker",
+      "thumbnail-generator",
+      "video-splitter",
+      "knowledge-video",
+      "voice-library",
+    ],
   },
 ]
 
@@ -599,21 +790,91 @@ export const exampleItems: ExampleItem[] = [
     alt: "One Click AI Hook Maker example",
     imageSrc: null,
   },
+  {
+    slug: "thumbnail-generator-output",
+    toolSlug: "thumbnail-generator",
+    title: "Thumbnail Generator example",
+    sourceLabel: "Video idea and thumbnail brief",
+    outputLabel: "Horizontal or vertical AI thumbnail",
+    caption: "Approved Thumbnail Generator example ထည့်ရန်နေရာ။",
+    alt: "One Click AI Thumbnail Generator example",
+    imageSrc: null,
+  },
+  {
+    slug: "video-splitter-output",
+    toolSlug: "video-splitter",
+    title: "Video Splitter example",
+    sourceLabel: "Completed video file",
+    outputLabel: "Shorter clips",
+    caption: "Approved Video Splitter output sample ထည့်ရန်နေရာ။",
+    alt: "One Click AI Video Splitter example",
+    imageSrc: null,
+  },
+  {
+    slug: "knowledge-video-output",
+    toolSlug: "knowledge-video",
+    title: "Knowledge Video example",
+    sourceLabel: "Knowledge-style source context",
+    outputLabel: "Review-ready knowledge video workflow",
+    caption: "Approved Knowledge Video output sample ထည့်ရန်နေရာ။",
+    alt: "One Click AI Knowledge Video example",
+    imageSrc: null,
+  },
+  {
+    slug: "voice-library-output",
+    toolSlug: "voice-library",
+    title: "Voice Library example",
+    sourceLabel: "Saved or cloned voice asset",
+    outputLabel: "Voice asset used in supported workflow",
+    caption: "Approved Voice Library example ထည့်ရန်နေရာ။",
+    alt: "One Click AI Voice Library example",
+    imageSrc: null,
+  },
 ]
 
-export const hasApprovedExampleAssets = exampleItems.some((item) => Boolean(item.imageSrc))
+export const hasApprovedExampleAssets = exampleItems.some((item) =>
+  Boolean(item.imageSrc)
+)
 
 export const creditRules = [
-  "Credit က content generation အတွက် အသုံးပြုတဲ့ usage unit ဖြစ်ပါတယ်။",
-  "အသုံးပြုမယ့် credit ပမာဏက tool, source duration နဲ့ mode ပေါ်မူတည်ပြီး ကွာနိုင်ပါတယ်။",
-  "Generate မလုပ်ခင် screen ပေါ်က estimated credit ကို စစ်ပြီးမှ စတင်ပါ။",
-  "VIP နဲ့ VVIP plan နှစ်ခုလုံးက payment အတည်ပြုတဲ့နေ့ကနေ 30 days သက်တမ်းရှိပါတယ်။",
-  "VIP မှာ တစ်နေ့ 5 ကြိမ်အထိ၊ VVIP မှာ တစ်နေ့ 10 ကြိမ်အထိ generate လုပ်နိုင်ပါတယ်။",
-  "Plan မကုန်ခင် renewal လုပ်ပါက လက်ရှိ plan rules အတိုင်း သက်တမ်းနဲ့ included credits ကို ထပ်ပေါင်းနိုင်ပါတယ်။",
-  "Plan သက်တမ်းကုန်သွားပါက အသုံးမပြုရသေးတဲ့ plan credits တွေ expire ဖြစ်နိုင်ပါတယ်။",
-  "System-generation failure အကျုံးဝင်ပါက product policy အတိုင်း credit restoration ရနိုင်ပါတယ်။",
-  "Unsuitable source, user error, incorrect usage သို့မဟုတ် customer-side issue တွေက credit restoration အကျုံးမဝင်နိုင်ပါ။",
-  "Plan နဲ့ credit purchase တွေမှာ refund မရှိပါ။",
+  "Credit ဆိုတာ One Click AI ထဲမှာ content generate လုပ်တဲ့အခါ သုံးရတဲ့ billing unit ဖြစ်ပါတယ်။",
+  "Source သို့မဟုတ် output ပိုရှည်ရင် credit ပိုကုန်နိုင်ပြီး quality mode နဲ့ generation settings ပေါ်မူတည်ပြီးလည်း ကွာနိုင်ပါတယ်။",
+  "Exact credit amount ကို generation screen ပေါ်က estimate မှာ စစ်ပြီးမှ စတင်ပါ။",
+]
+
+export const creditVideoRates = [
+  "Movie Recap ATS Standard: source footage duration အလိုက် approximately 1 credit per source minute",
+  "Movie Recap ATS Pro: source footage duration အလိုက် approximately 3 credits per source minute",
+  "Football Content Maker: source footage duration အလိုက် approximately 2 credits per source minute",
+  "One Click Shorts: source footage duration အလိုက် approximately 1 credit per source minute",
+]
+
+export const creditSupportingToolRules = [
+  "Thumbnail Generator: thumbnail တစ်ပုံလျှင် 1 credit",
+  "Thumbnail Generator ကို regenerate လုပ်တိုင်း request အသစ်ဖြစ်ပြီး 1 credit ထပ်ကုန်ပါတယ်။",
+  "Video Splitter: အခမဲ့၊ credit မကုန်ပါ။",
+]
+
+export const hookMakerCreditRules = [
+  "Default output types လေးမျိုးက Title, Description, Hashtags နဲ့ Pinned comment ဖြစ်ပါတယ်။",
+  "3 variations: default 4 output types ဆို 1 credit၊ more than 4 output types ဆို 2 credits",
+  "5 variations: default 4 output types ဖြစ်ဖြစ် more than 4 output types ဖြစ်ဖြစ် 2 credits",
+  "10 variations: default 4 output types ဖြစ်ဖြစ် more than 4 output types ဖြစ်ဖြစ် 3 credits",
+]
+
+export const dhammaCreditRules = [
+  "Up to 1 hour: Standard 25 credits, Pro 35 credits",
+  "Over 1 hour to 1.5 hours: Standard 30 credits, Pro 40 credits",
+  "Over 1.5 hours to 2 hours: Standard 35 credits, Pro 45 credits",
+  "Over 2 hours to 2.5 hours: Standard 40 credits, Pro 50 credits",
+  "Over 2.5 hours to 3 hours: Standard 45 credits, Pro 55 credits",
+]
+
+export const dailyLimitRules = [
+  "VIP: main features ကို တစ်နေ့ 5 generations အထိ",
+  "VVIP: main features ကို တစ်နေ့ 10 generations အထိ",
+  "Daily limit က Movie Recap, One Click Shorts, Dhamma Content Maker နဲ့ Football Content Maker အတွက်ပဲ သက်ရောက်ပါတယ်။",
+  "Hook Maker, Thumbnail Generator နဲ့ Video Splitter က daily limit ထဲ မပါဝင်ပါ။",
 ]
 
 export function getSupportUrl(channel: SupportChannel) {
@@ -622,12 +883,16 @@ export function getSupportUrl(channel: SupportChannel) {
 
 export function getToolBySlug(value: string) {
   const result = toolSlugSchema.safeParse(value)
-  return result.success ? tools.find((tool) => tool.slug === result.data) : undefined
+  return result.success
+    ? tools.find((tool) => tool.slug === result.data)
+    : undefined
 }
 
 export function getGuideBySlug(value: string) {
   const result = guideSlugSchema.safeParse(value)
-  return result.success ? guides.find((guide) => guide.slug === result.data) : undefined
+  return result.success
+    ? guides.find((guide) => guide.slug === result.data)
+    : undefined
 }
 
 export function getVideoResourceBySlug(value: string) {
@@ -643,5 +908,7 @@ export function getExamplesForTool(toolSlug: ToolSlug) {
 }
 
 export function getPlanCtaHref() {
-  return siteConfig.support.messenger || siteConfig.support.telegram || "/#support"
+  return (
+    siteConfig.support.messenger || siteConfig.support.telegram || "/#support"
+  )
 }

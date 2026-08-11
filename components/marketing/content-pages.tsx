@@ -64,7 +64,11 @@ function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
         {items.map((item) => (
           <li key={item.label}>
             <span aria-hidden="true">/</span>
-            {item.href ? <Link href={item.href}>{item.label}</Link> : <span>{item.label}</span>}
+            {item.href ? (
+              <Link href={item.href}>{item.label}</Link>
+            ) : (
+              <span>{item.label}</span>
+            )}
           </li>
         ))}
       </ol>
@@ -95,7 +99,12 @@ export function ContentPageFrame({
       <main className="content-page">
         <div className="site-shell">
           <Breadcrumbs items={breadcrumbs} />
-          <header className={cn("content-page__hero", heroAside && "content-page__hero--split")}>
+          <header
+            className={cn(
+              "content-page__hero",
+              heroAside && "content-page__hero--split"
+            )}
+          >
             <div>
               <p className="eyebrow">{eyebrow}</p>
               <h1>{title}</h1>
@@ -113,7 +122,8 @@ export function ContentPageFrame({
 }
 
 export function VideoResourceCard({ resource }: { resource: VideoResource }) {
-  const availableHref = resource.status === "available" ? resource.href : undefined
+  const availableHref =
+    resource.status === "available" ? resource.href : undefined
 
   return (
     <article className="resource-card">
@@ -128,11 +138,7 @@ export function VideoResourceCard({ resource }: { resource: VideoResource }) {
         <p>{resource.description}</p>
       </div>
       {availableHref ? (
-        <ActionLink
-          external
-          href={availableHref}
-          variant="secondary"
-        >
+        <ActionLink external href={availableHref} variant="secondary">
           Facebook မှာကြည့်ရန်
           <ExternalLink aria-hidden="true" />
         </ActionLink>
@@ -166,7 +172,9 @@ function ToolDirectoryCard({ tool }: { tool: Tool }) {
       <span className="content-card__icon" aria-hidden="true">
         <ToolIcon icon={tool.icon} />
       </span>
-      <p className="content-card__eyebrow">{tool.name}</p>
+      <p className="content-card__eyebrow">
+        {tool.name} · {tool.access}
+      </p>
       <h2>{tool.label}</h2>
       <p>{tool.description}</p>
       <Link className="content-card__link" href={`/tools/${tool.slug}`}>
@@ -203,7 +211,10 @@ function ExampleCard({ example }: { example: ExampleItem }) {
           </div>
         </dl>
         <p>{example.caption}</p>
-        <Link className="content-card__link" href={`/tools/${example.toolSlug}`}>
+        <Link
+          className="content-card__link"
+          href={`/tools/${example.toolSlug}`}
+        >
           {tool?.name} အကြောင်းကြည့်ရန်
           <ArrowRight aria-hidden="true" />
         </Link>
@@ -287,7 +298,8 @@ export function ExamplesPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "One Click AI Examples",
-    description: "One Click AI tools အတွက် output example နဲ့ real product media ထည့်ရန်နေရာများ။",
+    description:
+      "One Click AI tools အတွက် output example နဲ့ real product media ထည့်ရန်နေရာများ။",
   }
 
   return (
@@ -310,7 +322,9 @@ export function ExamplesPage() {
       <section className="content-page__notice" aria-live="polite">
         <p className="eyebrow">Real examples coming soon</p>
         <p>
-          အခုမြင်ရတဲ့နေရာတွေက approved product screenshots နဲ့ output files ထည့်ဖို့ media slots တွေပါ။ Real asset မရသေးခင် fabricated proof မထည့်ထားပါဘူး။
+          အခုမြင်ရတဲ့နေရာတွေက approved product screenshots နဲ့ output files
+          ထည့်ဖို့ media slots တွေပါ။ Real asset မရသေးခင် fabricated proof
+          မထည့်ထားပါဘူး။
         </p>
       </section>
 
@@ -380,7 +394,7 @@ export function GuidesIndexPage() {
       </section>
 
       <ContentCta
-        description="အသုံးပြုပုံနဲ့အတူ credit, expiry, renewal နဲ့ restoration rules တွေကိုလည်း ကြိုဖတ်ထားပါ။"
+        description="အသုံးပြုပုံနဲ့အတူ credit rates, daily limits နဲ့ estimate စစ်ရမယ့်အချက်တွေကိုလည်း ကြိုဖတ်ထားပါ။"
         title="အသုံးပြုနည်းသိပြီးမှ plan ရွေးပါ။"
       />
     </ContentPageFrame>
@@ -391,7 +405,7 @@ export function ToolsIndexPage() {
   return (
     <ContentPageFrame
       breadcrumbs={[{ label: "Tools" }]}
-      description="Movie Recap, Football, Dhamma, Shorts နဲ့ Hook Maker ထဲက ကိုယ့် source နဲ့ content ရည်ရွယ်ချက်နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။"
+      description="Movie Recap, Football, Dhamma, Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Library နဲ့ Video Splitter ထဲက ကိုယ့် source နဲ့ content ရည်ရွယ်ချက်နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။"
       eyebrow="Creator tools"
       title="ကိုယ့် niche အတွက် tool ကို ရွေးပါ။"
       structuredData={{
@@ -486,7 +500,7 @@ export function GuideArticlePage({ guide }: { guide: GuideArticle }) {
 
       <RelatedTools slugs={guide.relatedToolSlugs} />
       <ContentCta
-        description="Credit usage, plan duration, expiry, renewal နဲ့ restoration rules တွေကို Credit Rules မှာ ဖတ်ပါ။"
+        description="Credit rates, daily limits နဲ့ estimate စစ်ရမယ့်အချက်တွေကို Credit Rules မှာ ဖတ်ပါ။"
         title="အသုံးမပြုခင် rules တွေကို သိထားပါ။"
       />
     </ContentPageFrame>
@@ -530,6 +544,7 @@ export function ToolDetailPage({ tool }: { tool: Tool }) {
         <div>
           <p className="eyebrow">Purpose</p>
           <h2>ဘာလုပ်ပေးလဲ?</h2>
+          <p className="content-card__eyebrow">{tool.access}</p>
           <p>{tool.purpose}</p>
         </div>
       </section>

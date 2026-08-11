@@ -1,10 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import {
-  SupportIcon,
-  SupportLink,
-} from "@/components/marketing/marketing-ui"
+import { SupportIcon, SupportLink } from "@/components/marketing/marketing-ui"
 import { siteConfig } from "@/lib/site-content"
 
 export function SiteFooter() {
@@ -14,10 +11,11 @@ export function SiteFooter() {
         <div className="site-footer__cta">
           <div>
             <p className="eyebrow eyebrow--light">Ready when you are</p>
-            <h2>Content ထုတ်တဲ့အလုပ်ကို တစ်နေရာတည်းမှာ စလိုက်ပါ။</h2>
+            <h2>Content ထုတ်တဲ့အလုပ်ကို တစ်နေရာတည်းကနေ စလိုက်ပါ။</h2>
             <p>
-              ကိုယ်လုပ်မယ့် content type နဲ့ တစ်နေ့ဘယ်နှစ်ပုဒ်လောက် ထုတ်ချင်လဲပြောပါ။
-              သင့်တော်တဲ့ plan ကို support က အကြံပေးနိုင်ပါတယ်။
+              ကိုယ်လုပ်မယ့် content type နဲ့ တစ်နေ့ဘယ်နှစ်ပုဒ်လောက် ထုတ်ချင်လဲ
+              ပြောပါ။ ကိုယ့် workflow နဲ့ကိုက်မယ့် plan ကို support က
+              ကူညီရွေးပေးနိုင်ပါတယ်။
             </p>
           </div>
           <div className="site-footer__support-links">
@@ -44,7 +42,9 @@ export function SiteFooter() {
               />
               <span className="brand-lockup__copy">
                 <span className="brand-lockup__name">{siteConfig.name}</span>
-                <span className="brand-lockup__company">by {siteConfig.company}</span>
+                <span className="brand-lockup__company">
+                  by {siteConfig.company}
+                </span>
               </span>
             </Link>
             <p>{siteConfig.description}</p>

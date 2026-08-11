@@ -1,17 +1,25 @@
 import type { Metadata } from "next"
 
 import { PolicyPage } from "@/components/marketing/policy-page"
-import { creditRules } from "@/lib/site-content"
+import {
+  creditRules,
+  creditSupportingToolRules,
+  creditVideoRates,
+  dailyLimitRules,
+  dhammaCreditRules,
+  hookMakerCreditRules,
+} from "@/lib/site-content"
 
 export const metadata: Metadata = {
   title: "Credit Rules",
-  description: "Credit usage, expiry, renewal, and restoration rules for One Click AI users.",
+  description:
+    "Credit rates, daily limits, and estimate-checking rules for One Click AI users.",
 }
 
 export default function CreditPage() {
   return (
     <PolicyPage
-      description="Generate မလုပ်ခင် credit ဘယ်လိုသုံးမလဲ၊ plan ဘယ်လောက်ကြာမလဲ၊ error ဖြစ်ရင် ဘယ် case တွေမှာ credit ပြန်ရနိုင်မလဲဆိုတာ ဒီမှာဖတ်ပါ။"
+      description="Generate မလုပ်ခင် credit ဘယ်လိုတွက်မလဲ၊ ဘယ် tool တွေ daily limit ထဲပါလဲ၊ exact estimate ကို ဘယ်မှာစစ်ရမလဲဆိုတာ ဒီမှာဖတ်ပါ။"
       eyebrow="One Click AI · Credit Rules"
       title="Credit Rules"
       sections={[
@@ -19,55 +27,66 @@ export default function CreditPage() {
           title: "How credits work",
           body: (
             <p>
-              Credit က content generate လုပ်တဲ့အခါသုံးတဲ့ usage unit ဖြစ်ပါတယ်။ Tool,
-              source duration နဲ့ mode အလိုက် အသုံးပြုနှုန်းကွာနိုင်လို့ Generate မလုပ်ခင်
+              Credit က content generate လုပ်တဲ့အခါ သုံးတဲ့ billing unit
+              ဖြစ်ပါတယ်။ Tool, source duration, output duration, quality mode
+              နဲ့ generation settings အလိုက် ကွာနိုင်လို့ generate မလုပ်ခင်
               screen ပေါ်က estimate ကို စစ်ပါ။
             </p>
           ),
-          bullets: creditRules.slice(0, 3),
+          bullets: creditRules,
         },
         {
-          title: "Plan limits and duration",
+          title: "Video feature rates",
           body: (
             <p>
-              VIP နဲ့ VVIP plan နှစ်ခုလုံးက payment အတည်ပြုတဲ့နေ့ကနေ 30 days သက်တမ်းရှိပါတယ်။
-              Daily generation limit က VIP မှာ 5 ကြိမ်အထိ၊ VVIP မှာ 10 ကြိမ်အထိ ဖြစ်ပါတယ်။
+              Movie Recap, Football Content Maker နဲ့ One Click Shorts တွေမှာ
+              credit ကို system က process လုပ်တဲ့ source footage duration
+              ပေါ်မူတည်ပြီးတွက်ပါတယ်။
             </p>
           ),
-          bullets: creditRules.slice(3, 5),
+          bullets: creditVideoRates,
         },
         {
-          title: "Renewal and expiry",
+          title: "Dhamma Content credits",
           body: (
             <p>
-              Plan မကုန်ခင် renewal လုပ်ပါက လက်ရှိ plan rules အတိုင်း သက်တမ်းနဲ့ included
-              credits ကို ထပ်ပေါင်းနိုင်ပါတယ်။ Plan သက်တမ်းကုန်သွားရင် အသုံးမပြုရသေးတဲ့
-              plan credits တွေ expire ဖြစ်နိုင်ပါတယ်။
+              Dhamma Content က VVIP only feature ဖြစ်ပြီး Standard နဲ့ Pro
+              quality tier နှစ်မျိုးရှိပါတယ်။ Source duration အလိုက် credit tier
+              ကွာပါတယ်။
             </p>
           ),
-          bullets: creditRules.slice(5, 7),
+          bullets: dhammaCreditRules,
         },
         {
-          title: "Credit restoration",
+          title: "Hook Maker credits",
           body: (
             <p>
-              System-generation failure အကျုံးဝင်လို့ project မပြီးသွားတဲ့ case တွေမှာ
-              product policy အတိုင်း credit restoration ရနိုင်ပါတယ်။ Unsuitable source, user
-              error, incorrect usage သို့မဟုတ် customer-side issue တွေက restoration အကျုံး
-              မဝင်နိုင်ပါ။
+              Hook Maker usage က variation count နဲ့ output types
+              ပေါ်မူတည်ပါတယ်။ Pricing က tiered ဖြစ်ပါတယ်။
             </p>
           ),
-          bullets: creditRules.slice(7, 9),
+          bullets: hookMakerCreditRules,
         },
         {
-          title: "Purchase rule",
+          title: "Supporting tools",
           body: (
             <p>
-              Plan နဲ့ credit purchase တွေမှာ refund မရှိပါ။ Payment မလုပ်ခင် plan features,
-              credit usage နဲ့ သက်တမ်း rules ကို သေချာစစ်ပါ။
+              Thumbnail Generator နဲ့ Video Splitter က main-feature daily limit
+              ထဲ မပါဝင်ပါ။ Credit သုံးစွဲမှုက သက်ဆိုင်ရာ rule အတိုင်း
+              ဆက်သက်ရောက်ပါတယ်။
             </p>
           ),
-          bullets: [creditRules[9]],
+          bullets: creditSupportingToolRules,
+        },
+        {
+          title: "Daily generation limits",
+          body: (
+            <p>
+              Daily limit က main features လေးခုအတွက်ပဲ သက်ရောက်ပါတယ်။ Supporting
+              tools တွေက daily limit ထဲမပါဝင်ပါ။
+            </p>
+          ),
+          bullets: dailyLimitRules,
         },
       ]}
     />

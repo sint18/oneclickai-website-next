@@ -75,12 +75,7 @@ export function SupportLink({
   }
 
   return (
-    <ActionLink
-      className={className}
-      external
-      href={href}
-      variant="light"
-    >
+    <ActionLink className={className} external href={href} variant="light">
       {children}
     </ActionLink>
   )
@@ -89,6 +84,7 @@ export function SupportLink({
 const toolIcons: Record<Tool["icon"], LucideIcon> = {
   film: Film,
   football: Trophy,
+  image: ImageIcon,
   leaf: Leaf,
   scissors: Scissors,
   sparkles: Sparkles,
@@ -114,7 +110,9 @@ export function SectionHeading({
     <div className={cn("section-heading", `section-heading--${align}`)}>
       {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
       <h2>{title}</h2>
-      {description ? <p className="section-heading__description">{description}</p> : null}
+      {description ? (
+        <p className="section-heading__description">{description}</p>
+      ) : null}
     </div>
   )
 }
@@ -172,7 +170,9 @@ export function ToolCard({ tool }: { tool: Tool }) {
         <Icon />
       </div>
       <div>
-        <p className="tool-card__label">{tool.name}</p>
+        <p className="tool-card__label">
+          {tool.name} · {tool.access}
+        </p>
         <h3>{tool.label}</h3>
         <p>{tool.description}</p>
       </div>
@@ -187,13 +187,17 @@ export function PricingCard({ plan }: { plan: PricingPlan }) {
   const isFeatured = plan.name === "VVIP"
 
   return (
-    <article className={cn("pricing-card", isFeatured && "pricing-card--featured")}>
+    <article
+      className={cn("pricing-card", isFeatured && "pricing-card--featured")}
+    >
       <div className="pricing-card__topline">
         <span className="pricing-card__name">{plan.name}</span>
-        {plan.badge ? <span className="pricing-card__badge">{plan.badge}</span> : null}
+        {plan.badge ? (
+          <span className="pricing-card__badge">{plan.badge}</span>
+        ) : null}
       </div>
       <p className="pricing-card__price">{plan.price}</p>
-      <p className="pricing-card__period">per 30 days</p>
+      <p className="pricing-card__period">per month</p>
       <p className="pricing-card__description">{plan.description}</p>
       <ul className="check-list">
         {plan.features.map((feature) => (

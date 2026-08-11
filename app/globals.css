@@ -266,7 +266,10 @@
     font-weight: 700;
     line-height: 1.2;
     text-align: center;
-    transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+    transition:
+      border-color 160ms ease,
+      background-color 160ms ease,
+      color 160ms ease;
   }
 
   .action-link svg {
@@ -462,8 +465,15 @@
     border: 1px dashed color-mix(in oklch, var(--brand-teal), transparent 22%);
     border-radius: 1.35rem;
     background:
-      linear-gradient(color-mix(in oklch, var(--brand-teal), transparent 92%) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in oklch, var(--brand-teal), transparent 92%) 1px, transparent 1px),
+      linear-gradient(
+        color-mix(in oklch, var(--brand-teal), transparent 92%) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in oklch, var(--brand-teal), transparent 92%) 1px,
+        transparent 1px
+      ),
       var(--brand-ink);
     background-size: 2.2rem 2.2rem;
   }
@@ -859,11 +869,6 @@
     padding: 1.4rem;
   }
 
-  .tool-card:nth-child(4),
-  .tool-card:nth-child(5) {
-    grid-column: span 6;
-  }
-
   .tool-card--teal {
     background: var(--brand-teal-soft);
   }
@@ -1119,7 +1124,8 @@
 
   .pricing-card--featured {
     border-color: var(--brand-teal);
-    box-shadow: 0 1.5rem 3rem color-mix(in oklch, var(--brand-teal), transparent 82%);
+    box-shadow: 0 1.5rem 3rem
+      color-mix(in oklch, var(--brand-teal), transparent 82%);
   }
 
   .pricing-card__topline {

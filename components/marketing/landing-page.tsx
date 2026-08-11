@@ -22,24 +22,30 @@ import {
   SectionHeading,
   ToolCard,
 } from "@/components/marketing/marketing-ui"
-import { faqs, getPlanCtaHref, plans, siteConfig, tools } from "@/lib/site-content"
+import {
+  faqs,
+  getPlanCtaHref,
+  plans,
+  siteConfig,
+  tools,
+} from "@/lib/site-content"
 
 const capabilityItems = [
   {
-    label: "Burmese workflow",
+    label: "မြန်မာလို workflow",
     detail: "Voice + subtitle timing",
   },
   {
-    label: "One workspace",
-    detail: "Source ကနေ output အထိ",
+    label: "တစ်နေရာတည်း",
+    detail: "Source တင်တာကနေ output ရတဲ့အထိ",
   },
   {
-    label: "Export ready",
-    detail: "SRT + upload-ready file",
+    label: "Review-ready",
+    detail: "SRT + publish-ready နီးစပ်တဲ့ output",
   },
   {
     label: "Creator modes",
-    detail: "Recap · Football · Shorts",
+    detail: "Recap · Shorts · Thumbnail",
   },
 ]
 
@@ -47,36 +53,43 @@ const workflowSteps = [
   {
     number: "01",
     title: "Tool ရွေးပါ",
-    description: "Movie Recap, Football, Dhamma, Shorts, Hook Maker ထဲက ကိုယ်လုပ်မယ့်ပုံစံကို ရွေးပါ။",
+    description:
+      "Movie Recap, Football, Dhamma, Shorts, Knowledge Video, Hook Maker, Thumbnail, Voice Library, Video Splitter ထဲက ကိုယ့် content နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။",
   },
   {
     number: "02",
     title: "Source တင်ပါ",
-    description: "Video သို့မဟုတ် audio source တင်ပြီး voice, subtitle, timing mode ကို ရွေးပါ။",
+    description:
+      "Video သို့မဟုတ် audio တင်ပြီး voice, subtitle, timing mode ကို စိတ်ကြိုက်ရွေးပါ။",
   },
   {
     number: "03",
     title: "ထုတ်ပြီး တင်ပါ",
-    description: "Output ကို download လုပ်ပြီး TikTok, Reels, Shorts မှာ တင်ပါ။",
+    description:
+      "ထွက်လာတဲ့ output ကို ပြန်ကြည့်၊ download လုပ်ပြီး TikTok, Reels, Shorts မှာ တင်ပါ။",
   },
 ]
 
 const benefitItems = [
-  "Voice, subtitle, timing ကို တစ်နေရာတည်းမှာ ကိုင်နိုင်မယ်",
-  "File ဟိုပို့ဒီပို့လုပ်ရတဲ့အလုပ် လျော့မယ်",
-  "Movie Recap, Football, Dhamma, Shorts အတွက် process ခွဲထားမယ်",
-  "ထုတ်ပြီးသား file ကို platform ပေါ်တင်ဖို့ ပိုလွယ်မယ်",
+  "Voice, subtitle, timing ကို တစ်နေရာတည်းမှာ ပြီးအောင်လုပ်နိုင်မယ်",
+  "File ဟိုပို့ဒီပို့လုပ်ရတဲ့အလုပ်တွေ လျော့မယ်",
+  "Movie Recap, Football, Dhamma, Shorts, Knowledge Video, Thumbnail အတွက် workflow တွေ သီးသန့်ရှိမယ်",
+  "ထွက်လာတဲ့ file ကို platform ပေါ်တင်ဖို့ ပိုလွယ်မယ်",
 ]
 
 const audienceItems = [
-  "Video idea ရှိပေမယ့် editing အချိန်မရှိတဲ့ creator",
-  "Movie Recap ကို စနစ်တကျစလုပ်ချင်သူ",
+  "Video idea ရှိပေမယ့် editing အချိန်မပေးနိုင်တဲ့ creator",
+  "Movie Recap ကို စနစ်တကျ စလုပ်ချင်သူ",
   "TikTok, Reels, Shorts အတွက် content မှန်မှန်တင်ချင်သူ",
   "Burmese voice နဲ့ subtitle ကို လက်နဲ့အကုန်မလုပ်ချင်သူ",
   "Football content ကို vertical format နဲ့ ထုတ်ချင်သူ",
   "Dhamma audio ကို video content အဖြစ် ပြောင်းချင်သူ",
   "Stream နဲ့ long video ကို short clips ပြန်လုပ်ချင်သူ",
-  "Page အများကြီး run နေပြီး output speed မြှင့်ချင်သူ",
+  "Video idea ကနေ thumbnail အမြန်ဖန်တီးချင်သူ",
+  "ပြီးစီးထားတဲ့ video ကို shorter clips အဖြစ် ခွဲချင်သူ",
+  "Knowledge-style video workflow သုံးချင်သူ",
+  "Saved/cloned voices တွေကို supported workflows မှာ သုံးချင်သူ",
+  "Page အများကြီး run နေပြီး output speed မြှင့်ချင်တဲ့သူ",
 ]
 
 function IconTile({ children }: { children: React.ReactNode }) {
@@ -153,15 +166,19 @@ export function LandingPage() {
 
             <div className="site-shell hero-section__inner">
               <div className="hero-copy">
-                <p className="eyebrow eyebrow--light">One Click AI by AI Code Lab</p>
+                <p className="eyebrow eyebrow--light">
+                  One Click AI by AI Code Lab
+                </p>
                 <h1>
                   One Click AI
-                  <span>တစ်ချက်နှိပ် တန်းတင် AI Content Tool</span>
+                  <span>Creator workflow ကို မြန်စေတဲ့ AI Content Tool</span>
                 </h1>
                 <p className="hero-copy__description">
-                  Movie Recap, Football, Dhamma, Shorts နဲ့ Hook Maker အတွက် source တင်၊
-                  voice/subtitle/timing ရွေး၊ output ကို download လုပ်ပါ။ Tool အများကြီး
-                  မပြောင်းဘဲ Burmese content ထုတ်နိုင်အောင် စီထားပါတယ်။
+                  Movie Recap, Football, Dhamma, Shorts, Hook Maker, Thumbnail,
+                  Video Splitter, Knowledge Video နဲ့ Voice Library အတွက်
+                  video/audio တင်ပါ။ Voice, subtitle နဲ့ timing ကို
+                  ရွေးလိုက်ရုံနဲ့ publish-ready နီးစပ်တဲ့ output ရနိုင်အောင်
+                  တစ်နေရာတည်းမှာ စီထားပါတယ်။
                 </p>
                 <div className="hero-actions">
                   <ActionLink
@@ -172,21 +189,24 @@ export function LandingPage() {
                     <ArrowRight aria-hidden="true" />
                   </ActionLink>
                   <ActionLink href="#how-it-works" variant="light">
-                    ဘယ်လိုသုံးလဲ ကြည့်ရန်
+                    ဘယ်လိုသုံးရလဲ ကြည့်ရန်
                   </ActionLink>
                 </div>
                 <div className="hero-note">
                   <BadgeCheck aria-hidden="true" />
-                  <span>VIP 35,000 MMK · VVIP 59,000 MMK · 30 days</span>
+                  <span>VIP 35,000 MMK · VVIP 59,000 MMK · monthly</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="site-shell trust-strip" aria-label="Product capabilities">
+          <div
+            className="site-shell trust-strip"
+            aria-label="Product capabilities"
+          >
             <div className="trust-strip__intro">
               <p className="eyebrow">Product capabilities</p>
-              <strong>တစ်နေရာတည်းမှာ ရှင်းရှင်းလင်းလင်း</strong>
+              <strong>လုပ်ရတာ ရှင်းပြီး မြန်စေဖို့</strong>
             </div>
             <div className="trust-strip__items">
               {capabilityItems.map((item, index) => (
@@ -205,7 +225,7 @@ export function LandingPage() {
             <SectionHeading
               eyebrow="The friction"
               title="Idea ရှိတယ်။ Video ထုတ်ဖို့ အချိန်ပဲ မရှိတာ။"
-              description="Source ရှာပြီး transcript, voice, subtitle, timing, format အားလုံးကို လက်နဲ့လိုက်လုပ်ရင် video တစ်ပုဒ်ပြီးဖို့ အချိန်ကုန်ပါတယ်။"
+              description="Source ရှာ၊ transcript ကြည့်၊ voice ထုတ်၊ subtitle ချိန်၊ format ပြန်ပြင်နေရင် video တစ်ပုဒ်ပြီးဖို့ အချိန်အများကြီးကုန်ပါတယ်။"
             />
             <div className="problem-grid">
               <article className="problem-card problem-card--lead">
@@ -213,16 +233,22 @@ export function LandingPage() {
                 <IconTile>
                   <WandSparkles aria-hidden="true" />
                 </IconTile>
-                <h3>Tool ၅ခုကြား file လိုက်ရွှေ့နေရတယ်</h3>
-                <p>Voice ထုတ်ပြီး editor ထဲထည့်၊ subtitle ထိုးပြီး timing ပြန်ညှိတဲ့အလုပ်က content speed ကို နှေးစေပါတယ်။</p>
+                <h3>Tool ၅ ခုကြား file တွေ လိုက်ရွှေ့နေရတယ်</h3>
+                <p>
+                  Voice ထုတ်ပြီး editor ထဲထည့်၊ subtitle ထိုးပြီး timing
+                  ပြန်ညှိနေရတာက content ထုတ်တဲ့အရှိန်ကို နှေးစေပါတယ်။
+                </p>
               </article>
               <article className="problem-card">
                 <span className="problem-card__index">02</span>
                 <IconTile>
                   <Captions aria-hidden="true" />
                 </IconTile>
-                <h3>Subtitle timing က နောက်ဆုံးမှာ ပြန်ညှိနေရတယ်</h3>
-                <p>Burmese line တွေရှည်သွားတာ၊ voice နဲ့ visual မတည့်တာတွေကို publish မလုပ်ခင် ထပ်ကိုင်နေရပါတယ်။</p>
+                <h3>Subtitle timing ကို နောက်ဆုံးမှ ပြန်လိုက်ညှိနေရတယ်</h3>
+                <p>
+                  Burmese line တွေ ရှည်သွားတာ၊ voice နဲ့ visual မတည့်တာတွေကို
+                  မတင်ခင် ထပ်ပြီးပြင်နေရပါတယ်။
+                </p>
               </article>
               <article className="problem-card">
                 <span className="problem-card__index">03</span>
@@ -230,21 +256,31 @@ export function LandingPage() {
                   <Clock3 aria-hidden="true" />
                 </IconTile>
                 <h3>တစ်ပုဒ်ပြီးရင် နောက်တစ်ပုဒ် မစနိုင်တော့ဘူး</h3>
-                <p>Manual editing အချိန်များလာတာနဲ့ content calendar က ရပ်သွားပါတယ်။</p>
+                <p>
+                  Manual editing အချိန်များလာတာနဲ့ content calendar က
+                  ဆက်မသွားတော့ပါဘူး။
+                </p>
               </article>
             </div>
           </div>
         </section>
 
-        <section className="section section--teal" aria-labelledby="solution-title">
+        <section
+          className="section section--teal"
+          aria-labelledby="solution-title"
+        >
           <div className="site-shell solution-section">
             <div className="solution-section__copy">
               <p className="eyebrow eyebrow--light">The system</p>
-              <h2 id="solution-title">Tool တစ်ခုချင်းစီ မလိုက်ပါနဲ့။ Video ထုတ်တဲ့ process ကို တစ်နေရာတည်းမှာ စုပါ။</h2>
+              <h2 id="solution-title">
+                Tool တစ်ခုချင်းစီ မလိုက်ရအောင် video ထုတ်တဲ့ flow ကို
+                တစ်နေရာတည်းမှာ စုထားပါတယ်။
+              </h2>
               <p>
-                One Click AI မှာ content type ရွေး၊ source တင်၊ settings ရွေးပြီး generate
-                လုပ်ပါ။ Burmese voice, subtitle, timing နဲ့ output ကို တစ်နေရာတည်းမှာ
-                ရယူနိုင်ပါတယ်။
+                One Click AI မှာ content type ရွေး၊ video/audio တင်၊ setting
+                ရွေးပြီး generate လုပ်နိုင်ပါတယ်။ Burmese voice, subtitle,
+                timing နဲ့ output ကို တစ်နေရာတည်းကနေ ရယူနိုင်အောင်
+                ပြုလုပ်ထားပါတယ်။
               </p>
               <ActionLink href="#tools" variant="light">
                 Tools တွေကြည့်ရန်
@@ -266,8 +302,8 @@ export function LandingPage() {
           <div className="site-shell">
             <SectionHeading
               eyebrow="Creator tools"
-              title="Movie Recap ကနေ Dhamma video အထိ။ ကိုယ့် niche အတွက် tool ရွေးပါ။"
-              description="ကိုယ်လုပ်ချင်တဲ့ content အလိုက် tool ရွေးပြီး source ကနေ output အထိ တစ်နေရာတည်းမှာ ဆက်လုပ်ပါ။"
+              title="Movie Recap ကနေ Knowledge Video, Thumbnail နဲ့ Video Splitter အထိ ကိုယ့် niche နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။"
+              description="လုပ်ချင်တဲ့ content ပုံစံအလိုက် tool ရွေးပြီး source တင်တာကနေ output ရတဲ့အထိ တစ်နေရာတည်းမှာ ဆက်လုပ်နိုင်ပါတယ်။"
             />
             <div className="tool-grid">
               {tools.map((tool) => (
@@ -281,8 +317,8 @@ export function LandingPage() {
           <div className="site-shell">
             <SectionHeading
               eyebrow="Simple by design"
-              title="Source တင်ပြီး ၃ဆင့်နဲ့ video ထုတ်ပါ"
-              description="Beginner ဖြစ်ဖြစ်၊ content ကို ပုံမှန် run နေသူဖြစ်ဖြစ် လိုက်လုပ်ရတာရှင်းအောင် စီထားပါတယ်။"
+              title="Source တင်ပြီး ၃ ဆင့်နဲ့ video ထုတ်ပါ"
+              description="Beginner ဖြစ်ဖြစ်၊ content ကို ပုံမှန် run နေသူဖြစ်ဖြစ် လိုက်လုပ်ရတာ ရှင်းနေအောင် စီထားပါတယ်။"
               align="center"
             />
             <ol className="steps-grid">
@@ -301,8 +337,8 @@ export function LandingPage() {
           <div className="site-shell">
             <SectionHeading
               eyebrow="Quality modes"
-              title="Speed နဲ့ quality ကို content ပုံစံအလိုက်ရွေးပါ"
-              description="ATS Standard က credit ကိုချွေတာပြီး မှန်မှန်ထုတ်ဖို့။ ATS Pro က timing နဲ့ quality ကို ပိုဦးစားပေးဖို့။"
+              title="Speed နဲ့ quality ကို ကိုယ့် content ပုံစံအလိုက် ရွေးပါ"
+              description="ATS Standard က credit ကိုချွေတာပြီး မှန်မှန်ထုတ်ဖို့။ ATS Pro က timing နဲ့ quality ကို ပိုဂရုစိုက်ချင်တဲ့အခါ သုံးဖို့။"
               align="center"
             />
             <div className="mode-grid">
@@ -312,7 +348,10 @@ export function LandingPage() {
                 </div>
                 <p className="mode-card__label">ATS Standard</p>
                 <h3>Credit ကိုချွေတာပြီး content မှန်မှန်ထုတ်ဖို့</h3>
-                <p>Quality နဲ့ credit usage ကို balance လုပ်ထားတဲ့ mode ဖြစ်လို့ daily output တင်ချင်သူတွေအတွက် သင့်တော်ပါတယ်။</p>
+                <p>
+                  Quality နဲ့ credit usage ကို balance လုပ်ထားတဲ့ mode ဖြစ်လို့
+                  နေ့တိုင်း output ထုတ်ချင်သူတွေအတွက် သင့်တော်ပါတယ်။
+                </p>
                 <span className="mode-card__note">Volume-first mode</span>
               </article>
               <article className="mode-card mode-card--accent">
@@ -320,8 +359,11 @@ export function LandingPage() {
                   <ShieldCheck aria-hidden="true" />
                 </div>
                 <p className="mode-card__label">ATS Pro</p>
-                <h3>Quality ကို ပိုဦးစားပေးတဲ့ သူများအတွက်</h3>
-                <p>Voice, visual နဲ့ subtitle timing ကို ပိုသေချာအောင် process လုပ်ချင်တဲ့ content တွေအတွက် သုံးပါ။</p>
+                <h3>Quality ကို ပိုဦးစားပေးချင်တဲ့သူတွေအတွက်</h3>
+                <p>
+                  Voice, visual နဲ့ subtitle timing ကို ပိုသေချာအောင် process
+                  လုပ်ချင်တဲ့ content တွေအတွက် သုံးနိုင်ပါတယ်။
+                </p>
                 <span className="mode-card__note">Quality-first mode</span>
               </article>
             </div>
@@ -333,40 +375,52 @@ export function LandingPage() {
             <div className="output-section__copy">
               <SectionHeading
                 eyebrow="From source to publish"
-                title="Download လုပ်ပြီး တင်လို့ရတဲ့ output ကို ရအောင်ထားပါတယ်။"
-                description="Video တစ်ဖိုင်ထဲပဲမဟုတ်ဘဲ voice, subtitle, SRT နဲ့ platform format အတွက်လိုတာတွေကို တစ်နေရာတည်းကနေ ထုတ်ယူနိုင်ပါတယ်။"
+                title="Review လုပ်ပြီး publish ဆက်လုပ်လို့လွယ်တဲ့ output ရအောင် စီထားပါတယ်။"
+                description="Video file တစ်ခုတည်းမဟုတ်ဘဲ voice, subtitle, SRT နဲ့ platform format အတွက်လိုတာတွေကို တစ်နေရာတည်းကနေ ရယူနိုင်ပါတယ်။"
               />
             </div>
             <div className="output-section__proof">
               <div className="output-feature-grid">
-              <article className="output-feature">
-                <IconTile>
-                  <Captions aria-hidden="true" />
-                </IconTile>
-                <h3>အသံနဲ့ subtitle ကို တစ်ချက်တည်း ချိန်</h3>
-                <p>Voice, visual နဲ့ subtitle ကို တစ်နေရာတည်းမှာ ချိန်ညှိပါ။</p>
-              </article>
-              <article className="output-feature">
-                <IconTile>
-                  <Download aria-hidden="true" />
-                </IconTile>
-                <h3>SRT export</h3>
-                <p>Video ထဲ တန်းပါမယ့် subtitle မလိုသေးရင် SRT file ကို သီးခြားရယူနိုင်ပါတယ်။</p>
-              </article>
-              <article className="output-feature">
-                <IconTile>
-                  <MonitorSmartphone aria-hidden="true" />
-                </IconTile>
-                <h3>TikTok, Reels, Shorts တင်ဖို့ ပြင်ပြီးသား</h3>
-                <p>Vertical content တင်တဲ့ platform တွေအတွက် output format ကို လိုအပ်သလို ရယူပါ။</p>
-              </article>
-              <article className="output-feature">
-                <IconTile>
-                  <Upload aria-hidden="true" />
-                </IconTile>
-                <h3>Source မှန်မှန်တင်ဖို့ လမ်းညွှန်ထားတယ်</h3>
-                <p>Tool နဲ့ကိုက်တဲ့ video သို့မဟုတ် audio source ကို တင်နိုင်အောင် ရှင်းလင်းထားပါတယ်။</p>
-              </article>
+                <article className="output-feature">
+                  <IconTile>
+                    <Captions aria-hidden="true" />
+                  </IconTile>
+                  <h3>အသံနဲ့ subtitle ကို တစ်နေရာတည်းမှာ ချိန်</h3>
+                  <p>
+                    Voice, visual နဲ့ subtitle timing ကို workflow
+                    တစ်ခုတည်းထဲမှာ ချိန်နိုင်ပါတယ်။
+                  </p>
+                </article>
+                <article className="output-feature">
+                  <IconTile>
+                    <Download aria-hidden="true" />
+                  </IconTile>
+                  <h3>SRT export</h3>
+                  <p>
+                    Video ထဲ subtitle တန်းမထည့်ချင်သေးရင် SRT file ကို
+                    သီးခြားရယူနိုင်ပါတယ်။
+                  </p>
+                </article>
+                <article className="output-feature">
+                  <IconTile>
+                    <MonitorSmartphone aria-hidden="true" />
+                  </IconTile>
+                  <h3>TikTok, Reels, Shorts အတွက် ပြင်ပြီးသား</h3>
+                  <p>
+                    Vertical content platform တွေမှာ တင်ဖို့ output format ကို
+                    လိုအပ်သလို ရယူနိုင်ပါတယ်။
+                  </p>
+                </article>
+                <article className="output-feature">
+                  <IconTile>
+                    <Upload aria-hidden="true" />
+                  </IconTile>
+                  <h3>Source မှန်မှန်တင်နိုင်အောင် လမ်းညွှန်ထားတယ်</h3>
+                  <p>
+                    Tool နဲ့ကိုက်တဲ့ video သို့မဟုတ် audio source ကို
+                    ရွေးတင်နိုင်အောင် ရှင်းပြထားပါတယ်။
+                  </p>
+                </article>
               </div>
             </div>
           </div>
@@ -379,11 +433,13 @@ export function LandingPage() {
             </div>
             <div>
               <p className="eyebrow">Built for fewer surprises</p>
-              <h2>Credit ကုန်မှာကို မသေချာမဖြစ်ရအောင် rules ကိုရှင်းထားပါတယ်။</h2>
+              <h2>
+                Credit ဘယ်လိုကုန်မလဲ မရှုပ်စေဖို့ rules တွေကို ရှင်းထားပါတယ်။
+              </h2>
               <p>
-                Generate မလုပ်ခင် source guidance နဲ့ credit estimate ကို စစ်နိုင်ပါတယ်။
-                System failure အကျုံးဝင်တဲ့ case တွေမှာ credit restoration policy ကို
-                အသုံးပြုနိုင်ပါတယ်။
+                Generate မလုပ်ခင် source guidance နဲ့ credit estimate ကို
+                ကြည့်နိုင်ပါတယ်။ Daily limit က main features လေးခုအတွက်ပဲ
+                သက်ရောက်ပြီး supporting tools တွေက daily limit ထဲ မပါဝင်ပါ။
               </p>
               <div className="reliability-points">
                 <span>
@@ -396,7 +452,7 @@ export function LandingPage() {
                   <Check aria-hidden="true" /> Clear error messages
                 </span>
                 <span>
-                  <Check aria-hidden="true" /> Credit restoration for qualifying failures
+                  <Check aria-hidden="true" /> Daily limit scope is clear
                 </span>
               </div>
               <ActionLink href="/credit" variant="secondary">
@@ -411,8 +467,8 @@ export function LandingPage() {
           <div className="site-shell">
             <SectionHeading
               eyebrow="Choose your pace"
-              title="ကိုယ်တင်မယ့်ပမာဏအလိုက် Plan ရွေးပါ"
-              description="စလုပ်မယ့် creator အတွက် VIP။ Daily output ပိုများပြီး priority processing လိုရင် VVIP။"
+              title="ကိုယ်တင်မယ့်ပမာဏအလိုက် plan ရွေးပါ"
+              description="စလုပ်မယ့် creator အတွက် VIP။ Source video ပိုရှည်တင်မယ်၊ priority processing, Football, Shorts သို့မဟုတ် Dhamma workflow လိုမယ်ဆို VVIP။"
               align="center"
             />
             <div className="pricing-grid">
@@ -421,7 +477,9 @@ export function LandingPage() {
               ))}
             </div>
             <p className="pricing-note">
-              Credit အသုံးပြုမှုက tool, source duration နဲ့ mode ပေါ်မူတည်ပြီး ကွာနိုင်ပါတယ်။ Generate မလုပ်ခင် estimate ကို စစ်ပါ။
+              Credit အသုံးပြုမှုက tool, source duration နဲ့ mode ပေါ်မူတည်ပြီး
+              ကွာနိုင်ပါတယ်။ Exact credit ကို generate screen ပေါ်က estimate မှာ
+              ကြည့်ပါ။
             </p>
           </div>
         </section>
@@ -431,7 +489,7 @@ export function LandingPage() {
             <SectionHeading
               eyebrow="Made for Myanmar creators"
               title="ဒီ platform က ဘယ်သူတွေအတွက်လဲ?"
-              description="Editing skill များများမလိုဘဲ content ကို ပုံမှန်ထုတ်ချင်တဲ့ creator တွေအတွက်ပါ။"
+              description="Editing skill အများကြီးမလိုဘဲ content ကို ပုံမှန်ထုတ်ချင်တဲ့ creator တွေအတွက်ပါ။"
             />
             <ul className="audience-list">
               {audienceItems.map((item) => (
@@ -449,7 +507,7 @@ export function LandingPage() {
             <SectionHeading
               eyebrow="Before you start"
               title="မဝယ်ခင် သိထားသင့်တာတွေ"
-              description="အသုံးပြုပုံ၊ plan ရွေးချယ်ပုံ၊ credit နဲ့ output quality အကြောင်း အရင်ဖတ်ပါ။"
+              description="အသုံးပြုပုံ၊ plan ရွေးချယ်ပုံ၊ credit နဲ့ output quality အကြောင်းကို အရင်ဖတ်ထားပါ။"
             />
             <FAQList items={faqs} />
           </div>
@@ -459,23 +517,34 @@ export function LandingPage() {
           <div className="site-shell policy-strip__inner">
             <div>
               <p className="eyebrow">Use it with confidence</p>
-              <h2>မတင်ခင် source rights နဲ့ platform rules ကို စစ်ပါ။</h2>
+              <h2>
+                မတင်ခင် source rights နဲ့ platform rules ကို ကိုယ်တိုင်စစ်ပါ။
+              </h2>
             </div>
             <div className="policy-grid">
               <div>
                 <ShieldCheck aria-hidden="true" />
                 <strong>Copyright</strong>
-                <p>Source rights မရှိဘဲ သုံးတာနဲ့ platform enforcement ကို One Click AI က အာမခံမပေးပါ။</p>
+                <p>
+                  Source rights မရှိဘဲ အသုံးပြုတာနဲ့ platform enforcement အတွက်
+                  One Click AI က အာမခံမပေးပါ။
+                </p>
               </div>
               <div>
                 <BadgeCheck aria-hidden="true" />
                 <strong>Monetization</strong>
-                <p>Views, followers, income နဲ့ monetization approval ကို အာမခံမပေးပါ။</p>
+                <p>
+                  Views, followers, income နဲ့ monetization approval ကို
+                  အာမခံမပေးပါ။
+                </p>
               </div>
               <div>
                 <WandSparkles aria-hidden="true" />
                 <strong>AI output</strong>
-                <p>Source quality နဲ့ mode ပေါ်မူတည်ပြီး output ကွာနိုင်လို့ publish မလုပ်ခင် review လုပ်ပါ။</p>
+                <p>
+                  Source quality နဲ့ mode ပေါ်မူတည်ပြီး output ကွာနိုင်လို့
+                  မတင်ခင် ပြန်စစ်ပါ။
+                </p>
               </div>
             </div>
           </div>
