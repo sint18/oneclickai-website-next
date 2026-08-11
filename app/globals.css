@@ -373,7 +373,9 @@
   .hero-section__inner {
     position: relative;
     z-index: 1;
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(31rem, 1.08fr);
+    gap: clamp(2rem, 4vw, 5rem);
     align-items: center;
     min-height: clamp(36rem, 72vh, 49rem);
     padding-block: clamp(5rem, 10vw, 8rem) clamp(4rem, 8vw, 6rem);
@@ -451,6 +453,128 @@
     width: 1rem;
     height: 1rem;
     color: var(--brand-teal);
+  }
+
+  .hero-showcase {
+    position: relative;
+    width: min(100%, 43rem);
+    height: clamp(29rem, 46vw, 40rem);
+    justify-self: end;
+  }
+
+  .hero-showcase__glow {
+    position: absolute;
+    inset: 18% 10% 12%;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      color-mix(in oklch, var(--brand-teal), transparent 46%) 0%,
+      color-mix(in oklch, var(--brand-teal), transparent 80%) 36%,
+      transparent 70%
+    );
+    filter: blur(1.25rem);
+  }
+
+  .hero-showcase__orbit {
+    position: absolute;
+    right: 12%;
+    bottom: 5%;
+    width: 64%;
+    height: 15%;
+    border: 1px solid color-mix(in oklch, var(--brand-teal), transparent 32%);
+    border-radius: 50%;
+    box-shadow:
+      0 0 1.75rem color-mix(in oklch, var(--brand-teal), transparent 54%),
+      inset 0 0 1.25rem color-mix(in oklch, var(--brand-teal), transparent 70%);
+    transform: rotate(-9deg);
+  }
+
+  .hero-card {
+    position: absolute;
+    overflow: hidden;
+    width: clamp(10rem, 18vw, 15rem);
+    aspect-ratio: 0.72;
+    border: 1px solid color-mix(in oklch, #fefefd, transparent 54%);
+    border-radius: 1rem;
+    background: #06100f;
+    box-shadow: 0 1.25rem 3.5rem color-mix(in oklch, #000, transparent 42%);
+  }
+
+  .hero-card__image {
+    object-fit: cover;
+  }
+
+  .hero-card__shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 42%,
+      color-mix(in oklch, var(--brand-ink), transparent 10%) 100%
+    );
+  }
+
+  .hero-card__meta {
+    position: absolute;
+    right: 0.7rem;
+    bottom: 0.7rem;
+    left: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: #fefefd;
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .hero-card__name {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .hero-card__name svg {
+    width: 0.85rem;
+    height: 0.85rem;
+    color: #b7f2eb;
+  }
+
+  .hero-card__duration {
+    padding: 0.24rem 0.38rem;
+    border: 1px solid color-mix(in oklch, #fefefd, transparent 60%);
+    border-radius: 0.35rem;
+    background: color-mix(in oklch, var(--brand-ink), transparent 22%);
+    font-size: 0.62rem;
+  }
+
+  .hero-card--movie {
+    top: 2%;
+    left: 26%;
+    z-index: 3;
+    transform: rotate(7deg);
+  }
+
+  .hero-card--football {
+    top: 15%;
+    right: 3%;
+    z-index: 4;
+    transform: rotate(-6deg);
+  }
+
+  .hero-card--dhamma {
+    bottom: 15%;
+    left: 0;
+    z-index: 2;
+    transform: rotate(-5deg);
+  }
+
+  .hero-card--hook {
+    right: 16%;
+    bottom: 0;
+    z-index: 3;
+    transform: rotate(9deg);
   }
 
   .media-slot {
@@ -2132,6 +2256,21 @@
     max-width: 14ch;
   }
 
+  .hero-section__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-showcase {
+    width: min(100%, 34rem);
+    height: 27rem;
+    justify-self: center;
+  }
+
+  .hero-card {
+    width: clamp(8.5rem, 31vw, 11.5rem);
+  }
+
   .problem-grid,
   .steps-grid {
     grid-template-columns: 1fr;
@@ -2200,6 +2339,32 @@
 
   .hero-section__inner {
     padding-block: 4.5rem 3.5rem;
+  }
+
+  .hero-showcase {
+    height: 22rem;
+  }
+
+  .hero-card {
+    width: min(38vw, 9.5rem);
+    border-radius: 0.8rem;
+  }
+
+  .hero-card__meta {
+    right: 0.5rem;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    font-size: 0.58rem;
+  }
+
+  .hero-card__name svg {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+
+  .hero-card__duration {
+    padding: 0.18rem 0.25rem;
+    font-size: 0.52rem;
   }
 
   .hero-copy h1 {

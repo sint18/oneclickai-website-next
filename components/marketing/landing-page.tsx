@@ -4,14 +4,18 @@ import {
   Captions,
   Check,
   CheckCircle2,
+  Clapperboard,
   Clock3,
   Download,
   Gauge,
+  MessageCircleMore,
   MonitorSmartphone,
   ShieldCheck,
+  Trophy,
   Upload,
   WandSparkles,
 } from "lucide-react"
+import Image from "next/image"
 
 import { SiteFooter } from "@/components/marketing/site-footer"
 import { SiteHeader } from "@/components/marketing/site-header"
@@ -46,6 +50,37 @@ const capabilityItems = [
   {
     label: "Creator modes",
     detail: "Recap · Shorts · Thumbnail",
+  },
+]
+
+const heroCards = [
+  {
+    name: "Movie Recap",
+    duration: "1:45",
+    image: "/images/hero-cards/movie-recap.png",
+    icon: Clapperboard,
+    className: "hero-card--movie",
+  },
+  {
+    name: "Football Highlight",
+    duration: "0:58",
+    image: "/images/hero-cards/football-highlight.png",
+    icon: Trophy,
+    className: "hero-card--football",
+  },
+  {
+    name: "Dhamma Short",
+    duration: "0:59",
+    image: "/images/hero-cards/dhamma-short.png",
+    icon: Captions,
+    className: "hero-card--dhamma",
+  },
+  {
+    name: "Hook Maker",
+    duration: "0:30",
+    image: "/images/hero-cards/hook-maker.png",
+    icon: MessageCircleMore,
+    className: "hero-card--hook",
   },
 ]
 
@@ -150,19 +185,19 @@ export function LandingPage() {
       <main>
         <section className="hero-section">
           <div className="hero-section__stage">
-            <div className="hero-section__backdrop" aria-hidden="true">
-              <video
-                autoPlay
-                className="hero-section__video"
-                loop
-                muted
-                playsInline
-                preload="auto"
-              >
-                <source src="/abstract-forest.mp4" type="video/mp4" />
-              </video>
-              <div className="hero-section__scrim" />
-            </div>
+            {/*<div className="hero-section__backdrop" aria-hidden="true">*/}
+            {/*  <video*/}
+            {/*    autoPlay*/}
+            {/*    className="hero-section__video"*/}
+            {/*    loop*/}
+            {/*    muted*/}
+            {/*    playsInline*/}
+            {/*    preload="auto"*/}
+            {/*  >*/}
+            {/*    <source src="/abstract-forest.mp4" type="video/mp4" />*/}
+            {/*  </video>*/}
+            {/*  <div className="hero-section__scrim" />*/}
+            {/*</div>*/}
 
             <div className="site-shell hero-section__inner">
               <div className="hero-copy">
@@ -196,6 +231,38 @@ export function LandingPage() {
                   <BadgeCheck aria-hidden="true" />
                   <span>VIP 35,000 MMK · VVIP 59,000 MMK · monthly</span>
                 </div>
+              </div>
+              <div className="hero-showcase" aria-hidden="true">
+                <div className="hero-showcase__glow" />
+                <div className="hero-showcase__orbit" />
+                {heroCards.map((card) => {
+                  const Icon = card.icon
+
+                  return (
+                    <article
+                      className={`hero-card ${card.className}`}
+                      key={card.name}
+                    >
+                      <Image
+                        alt=""
+                        className="hero-card__image"
+                        fill
+                        sizes="(max-width: 52rem) 45vw, 18rem"
+                        src={card.image}
+                      />
+                      <div className="hero-card__shade" />
+                      <div className="hero-card__meta">
+                        <span className="hero-card__name">
+                          <Icon aria-hidden="true" />
+                          {card.name}
+                        </span>
+                        <span className="hero-card__duration">
+                          {card.duration}
+                        </span>
+                      </div>
+                    </article>
+                  )
+                })}
               </div>
             </div>
           </div>
