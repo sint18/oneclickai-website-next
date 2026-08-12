@@ -10,22 +10,26 @@ export function SiteFooter() {
       <div className="site-shell">
         <div className="site-footer__cta">
           <div>
-            <p className="eyebrow eyebrow--light">Ready when you are</p>
-            <h2>Content ထုတ်တဲ့အလုပ်ကို တစ်နေရာတည်းကနေ စလိုက်ပါ။</h2>
+            <p className="eyebrow eyebrow--light">
+              Movie Recap workflow ကို စတင်ဖို့ ready ဖြစ်ပြီလား
+            </p>
+            <h2>
+              VVIP နဲ့ Movie Recap content တွေကို အချိန်တိုအတွင်း ဖန်တီးပါ။
+            </h2>
             <p>
-              ကိုယ်လုပ်မယ့် content type နဲ့ တစ်နေ့ဘယ်နှစ်ပုဒ်လောက် ထုတ်ချင်လဲ
-              ပြောပါ။ ကိုယ့် workflow နဲ့ကိုက်မယ့် plan ကို support က
-              ကူညီရွေးပေးနိုင်ပါတယ်။
+              ကိုယ်လုပ်မယ့် content type နဲ့ source video ဘယ်လောက်ရှည်လဲ ပြောပါ။
+              VVIP plan, payment နဲ့ account activation ကို support က
+              ကူညီပေးပါမယ်။
             </p>
           </div>
           <div className="site-footer__support-links">
             <SupportLink channel="messenger">
               <SupportIcon channel="messenger" />
-              Messenger မှာမေးရန်
+              Messenger မှာ VVIP ဝယ်ရန်
             </SupportLink>
             <SupportLink channel="telegram">
               <SupportIcon channel="telegram" />
-              Telegram မှာမေးရန်
+              Telegram မှာ VVIP ဝယ်ရန်
             </SupportLink>
           </div>
         </div>

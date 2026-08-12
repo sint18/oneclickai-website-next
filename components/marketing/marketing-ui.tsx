@@ -21,6 +21,7 @@ import {
   type PricingPlan,
   type SupportChannel,
   type Tool,
+  getPlanCtaHref,
   getSupportUrl,
 } from "@/lib/site-content"
 
@@ -185,6 +186,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
 
 export function PricingCard({ plan }: { plan: PricingPlan }) {
   const isFeatured = plan.name === "VVIP"
+  const href = getPlanCtaHref()
 
   return (
     <article
@@ -209,10 +211,11 @@ export function PricingCard({ plan }: { plan: PricingPlan }) {
       </ul>
       <ActionLink
         className="pricing-card__cta"
-        href="#support"
+        external={href.startsWith("http")}
+        href={href}
         variant={isFeatured ? "primary" : "secondary"}
       >
-        {plan.name} နဲ့ စတင်ရန်
+        {isFeatured ? "VVIP Plan ဝယ်ရန်" : "VIP Plan ဝယ်ရန်"}
       </ActionLink>
     </article>
   )

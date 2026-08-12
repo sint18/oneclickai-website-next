@@ -100,8 +100,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 export const siteConfig = {
   name: "One Click AI",
   company: "AI Code Lab",
-  description:
-    "Creator တွေအတွက် တစ်ခုတည်းသော AI-assisted content tool suite.",
+  description: "Creator တွေအတွက် တစ်ခုတည်းသော AI-assisted content tool suite.",
   siteUrl,
   support: {
     messenger: process.env.NEXT_PUBLIC_MESSENGER_URL ?? "",
@@ -377,28 +376,27 @@ export const tools: Tool[] = [
   },
   {
     slug: "voice-library",
-    name: "Voice Library",
-    label: "Voice Library / Voice Cloning",
+    name: "Voice Cloning",
+    label: "Voice Cloning",
     description:
       "ကိုယ်ပိုင်အသံတွေ clone ပြီး content တွေမှာ ထည့်သွင်း အသုံးပြုပါ။",
     access: "VVIP only",
     purpose:
-      "Saved voices နဲ့ cloned voices တွေကို စီမံပြီး One Click AI ရဲ့ supported workflows တွေမှာ အသုံးပြုနိုင်အောင် ကူညီပါတယ်။",
+      "ကိုယ်ပိုင်အသံကို clone လုပ်ပြီး One Click AI ရဲ့ supported workflows တွေမှာ အသုံးပြုနိုင်အောင် ကူညီပါတယ်။",
     audience:
-      "VVIP plan နဲ့ voice workflow ကို ပိုစနစ်တကျ manage လုပ်ချင်တဲ့ creator တွေအတွက်ပါ။",
+      "VVIP plan နဲ့ ကိုယ်ပိုင်အသံကို content workflow ထဲမှာ အသုံးပြုချင်တဲ့ creator တွေအတွက်ပါ။",
     sourceGuidance: [
       "VVIP only supporting tool ဖြစ်ပါတယ်။",
-      "Saved or cloned voice ကို supported workflows တွေမှာသာ အသုံးပြုပါ။",
+      "Cloned voice ကို supported workflows တွေမှာသာ အသုံးပြုပါ။",
       "Voice output ကို publish မလုပ်ခင် နားထောင်စစ်ပါ။",
     ],
     outputs: [
-      "Saved voices management",
-      "Cloned voices management",
+      "Cloned voice management",
       "Supported workflows တွေမှာ အသုံးပြုနိုင်တဲ့ voice assets",
     ],
     workflow: [
       "အသုံးပြုချင်တဲ့ voice asset ကို ပြင်ဆင်ပါ။",
-      "Voice Library ထဲမှာ saved/cloned voice ကို manage လုပ်ပါ။",
+      "Voice Cloning ထဲမှာ cloned voice ကို manage လုပ်ပါ။",
       "Supported workflow ထဲမှာ voice ကို ရွေးပြီး output ကို review လုပ်ပါ။",
     ],
     relatedGuideSlugs: ["getting-started", "review-and-publish"],
@@ -440,13 +438,18 @@ export const plans: PricingPlan[] = [
       "VIP ထက် 5x အထိပိုမြန်တဲ့ priority processing",
       "Styled Myanmar subtitle burn-in",
       "Football + One Click Shorts + Dhamma",
-      "Knowledge Video + Voice Library/Cloning",
+      "Knowledge Video + Voice Cloning",
       "New premium features priority access",
     ],
   },
 ]
 
 export const faqs: FAQItem[] = [
+  {
+    question: "VVIP ဝယ်ပြီး ဘယ်လိုစတင်ရမလဲ?",
+    answer:
+      "Messenger သို့မဟုတ် Telegram ကနေ VVIP Plan ဝယ်လိုကြောင်း ပြောပါ။ Payment နဲ့ account activation အတွက် support က လိုအပ်တဲ့အချက်တွေကို ကူညီပေးပါမယ်။ Account ရပြီးရင် Movie Recap source တင်ကာ workflow ကို စတင်နိုင်ပါတယ်။",
+  },
   {
     question: "One Click AI ဆိုတာဘာလဲ?",
     answer:
@@ -559,7 +562,7 @@ export const guides: GuideArticle[] = [
       {
         title: "၁။ ကိုယ်လုပ်မယ့် content type ကို ရွေးပါ",
         paragraphs: [
-          "Movie Recap, Football, Dhamma, Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Library နဲ့ Video Splitter ထဲက ကိုယ်ထုတ်ချင်တဲ့ content နဲ့ ကိုက်တဲ့ tool ကို ရွေးပါ။ Tool ကို source ပုံစံနဲ့ ကိုက်အောင် ရွေးရင် output ကို နားလည်ပြီး review လုပ်ရတာ ပိုလွယ်ပါတယ်။",
+          "Movie Recap, Football, Dhamma, Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter ထဲက ကိုယ်ထုတ်ချင်တဲ့ content နဲ့ ကိုက်တဲ့ tool ကို ရွေးပါ။ Tool ကို source ပုံစံနဲ့ ကိုက်အောင် ရွေးရင် output ကို နားလည်ပြီး review လုပ်ရတာ ပိုလွယ်ပါတယ်။",
         ],
         bullets: [
           "Movie recap-style source အတွက် Movie Recap",
@@ -569,7 +572,7 @@ export const guides: GuideArticle[] = [
           "Knowledge-style content အတွက် Knowledge Video",
           "Opening angle လိုရင် Hook Maker",
           "Video idea ကနေ thumbnail လိုရင် Thumbnail Generator",
-          "Saved/cloned voices တွေ manage လုပ်ချင်ရင် Voice Library",
+          "ကိုယ်ပိုင်အသံကို content မှာသုံးချင်ရင် Voice Cloning",
           "ပြီးစီးထားတဲ့ video ကို clips ခွဲချင်ရင် Video Splitter",
         ],
       },
@@ -823,11 +826,11 @@ export const exampleItems: ExampleItem[] = [
   {
     slug: "voice-library-output",
     toolSlug: "voice-library",
-    title: "Voice Library example",
+    title: "Voice Cloning example",
     sourceLabel: "Saved or cloned voice asset",
     outputLabel: "Voice asset used in supported workflow",
-    caption: "Approved Voice Library example ထည့်ရန်နေရာ။",
-    alt: "One Click AI Voice Library example",
+    caption: "Approved Voice Cloning example ထည့်ရန်နေရာ။",
+    alt: "One Click AI Voice Cloning example",
     imageSrc: null,
   },
 ]

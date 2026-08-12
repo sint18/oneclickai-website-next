@@ -2,9 +2,11 @@ import Image from "next/image"
 import Link from "next/link"
 
 import { ActionLink } from "@/components/marketing/marketing-ui"
-import { navigation, siteConfig } from "@/lib/site-content"
+import { getPlanCtaHref, navigation, siteConfig } from "@/lib/site-content"
 
 export function SiteHeader() {
+  const planHref = getPlanCtaHref()
+
   return (
     <header className="site-header">
       <div className="site-shell site-header__inner">
@@ -19,7 +21,9 @@ export function SiteHeader() {
           />
           <span className="brand-lockup__copy">
             <span className="brand-lockup__name">One Click AI</span>
-            <span className="brand-lockup__company">by {siteConfig.company}</span>
+            <span className="brand-lockup__company">
+              by {siteConfig.company}
+            </span>
           </span>
         </Link>
 
@@ -35,8 +39,12 @@ export function SiteHeader() {
           <Link className="site-header__login" href="/#support">
             Support
           </Link>
-          <ActionLink href="/#pricing" variant="primary">
-            Plan ဝယ်ရန်
+          <ActionLink
+            external={planHref.startsWith("http")}
+            href={planHref}
+            variant="primary"
+          >
+            VVIP ဝယ်ရန်
           </ActionLink>
         </div>
       </div>
