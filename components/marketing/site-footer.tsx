@@ -69,6 +69,19 @@ export function SiteFooter() {
               <Link href="/privacy">Privacy</Link>
               <Link href="/credit">Credit Rules</Link>
             </div>
+            <div>
+              <p className="site-footer__label">Follow AI Code Lab</p>
+              {siteConfig.social.map((social) => (
+                <a
+                  href={social.href}
+                  key={social.href}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  {social.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 

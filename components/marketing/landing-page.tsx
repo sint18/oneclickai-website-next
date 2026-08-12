@@ -354,7 +354,7 @@ export function LandingPage() {
           <div className="site-shell">
             <SectionHeading
               eyebrow="Simple by design"
-              title="Movie Recap source တင်ပြီး ၃ ဆင့်နဲ့ output ထုတ်ပါ"
+              title="Movie Recap ကို အဆင့် ၃ ဆင့်တည်းနဲ့ ထုတ်ပါ"
               description="Editing ကို ကျွမ်းကျင်ဖို့မလိုပါဘူး။ Tool နဲ့ကိုက်တဲ့ source ကို ရွေး၊ setting သတ်မှတ်ပြီး output ကို review လုပ်ပါ။"
               align="center"
             />

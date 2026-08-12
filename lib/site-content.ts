@@ -113,9 +113,16 @@ export const siteConfig = {
   description: "Creator တွေအတွက် တစ်ခုတည်းသော AI-assisted content tool suite.",
   siteUrl,
   support: {
-    messenger: process.env.NEXT_PUBLIC_MESSENGER_URL ?? "",
-    telegram: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? "",
+    messenger:
+      process.env.NEXT_PUBLIC_MESSENGER_URL ?? "https://m.me/AICodeLab",
+    telegram:
+      process.env.NEXT_PUBLIC_TELEGRAM_URL ?? "https://t.me/aicodelabmm",
   },
+  social: [
+    { label: "TikTok", href: "https://www.tiktok.com/@aicode.lab" },
+    { label: "YouTube", href: "https://www.youtube.com/@AICodeLabMM" },
+    { label: "Facebook", href: "https://www.facebook.com/AICodeLab/" },
+  ],
 } as const
 
 export const navigation = [
