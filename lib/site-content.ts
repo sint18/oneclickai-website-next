@@ -101,7 +101,7 @@ export const siteConfig = {
   name: "One Click AI",
   company: "AI Code Lab",
   description:
-    "Myanmar creator တွေအတွက် source content ကနေ publish-ready နီးစပ်တဲ့ output ရအောင် ကူညီပေးတဲ့ AI-assisted content tool suite.",
+    "Creator တွေအတွက် တစ်ခုတည်းသော AI-assisted content tool suite.",
   siteUrl,
   support: {
     messenger: process.env.NEXT_PUBLIC_MESSENGER_URL ?? "",
@@ -351,7 +351,7 @@ export const tools: Tool[] = [
     name: "Knowledge Video",
     label: "Knowledge Video",
     description:
-      "Knowledge-style video workflow ကို VVIP plan မှာ အသုံးပြုနိုင်ပါတယ်။ Research feature က လက်ရှိ disabled ဖြစ်ပါတယ်။",
+      "Knowledge-sharing style original content တွေထုတ်လို့ရမယ်။ VVIP plan မှာ အသုံးပြုနိုင်ပါတယ်။",
     access: "VVIP only",
     purpose:
       "Knowledge-video workflow ကို launch လုပ်ထားပြီး VVIP creator တွေအတွက် supported workflow အဖြစ် အသုံးပြုနိုင်ပါတယ်။",
@@ -359,15 +359,15 @@ export const tools: Tool[] = [
       "Knowledge-style content ကို VVIP workflow ထဲကနေ ပြင်ဆင်ချင်တဲ့ creator တွေအတွက်ပါ။",
     sourceGuidance: [
       "VVIP only feature ဖြစ်ပါတယ်။",
-      "Research feature က လက်ရှိ disabled ဖြစ်ပါတယ်။",
+      "Original Content မို့လို့ Copyright 100% လွတ်ပါတယ်",
       "Source facts နဲ့ final output ကို publish မလုပ်ခင် ကိုယ်တိုင် review လုပ်ပါ။",
     ],
     outputs: [
       "Knowledge-style video workflow output",
-      "Review လုပ်ပြီး publish ဆက်လုပ်ဖို့ နီးစပ်တဲ့ content output",
+      "Copyright-free Original content output",
     ],
     workflow: [
-      "Knowledge video အတွက် source context ကို ပြင်ဆင်ပါ။",
+      "Content အတွက် source context ကို ပြင်ဆင်ပါ။",
       "Knowledge Video workflow ထဲမှာ setting ကို ရွေးပါ။",
       "Generate လုပ်ပြီး facts, wording နဲ့ final output ကို ပြန်စစ်ပါ။",
     ],
@@ -380,7 +380,7 @@ export const tools: Tool[] = [
     name: "Voice Library",
     label: "Voice Library / Voice Cloning",
     description:
-      "Saved and cloned voices တွေကို manage လုပ်ပြီး supported workflows တွေမှာ အသုံးပြုပါ။",
+      "ကိုယ်ပိုင်အသံတွေ clone ပြီး content တွေမှာ ထည့်သွင်း အသုံးပြုပါ။",
     access: "VVIP only",
     purpose:
       "Saved voices နဲ့ cloned voices တွေကို စီမံပြီး One Click AI ရဲ့ supported workflows တွေမှာ အသုံးပြုနိုင်အောင် ကူညီပါတယ်။",
@@ -450,12 +450,12 @@ export const faqs: FAQItem[] = [
   {
     question: "One Click AI ဆိုတာဘာလဲ?",
     answer:
-      "One Click AI က source content ကနေ publish-ready နီးစပ်တဲ့ output ရအောင် ကူညီပြီး creator workflow ကို မြန်စေတဲ့ AI-assisted Myanmar creator tool suite ဖြစ်ပါတယ်။",
+      "One Click AI က source content ကနေ တန်းတင်လို့ရတဲ့ output ရအောင် ကူညီပြီး creator workflow ကို မြန်စေတဲ့ AI-assisted Myanmar creator tool suite ဖြစ်ပါတယ်။",
   },
   {
     question: "ဘယ် content အမျိုးအစားတွေ လုပ်လို့ရလဲ?",
     answer:
-      "Movie Recap, Football Content, Dhamma Content, One Click Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Library နဲ့ Video Splitter တွေကို သုံးနိုင်ပါတယ်။ ဘယ် tool တွေပါမလဲဆိုတာက သင့် plan နဲ့ လက်ရှိ product rules ပေါ်မူတည်နိုင်ပါတယ်။",
+      "Movie Recap, Football Content, Dhamma Content, One Click Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter တွေကို သုံးနိုင်ပါတယ်။ ဘယ် tool တွေပါမလဲဆိုတာက သင့် plan နဲ့ လက်ရှိ product rules ပေါ်မူတည်နိုင်ပါတယ်။",
   },
   {
     question: "Software install လုပ်ရလား?",

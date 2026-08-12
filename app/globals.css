@@ -473,6 +473,7 @@
       transparent 70%
     );
     filter: blur(1.25rem);
+    animation: hero-glow-pulse 5s ease-in-out infinite;
   }
 
   .hero-showcase__orbit {
@@ -498,6 +499,25 @@
     border-radius: 1rem;
     background: #06100f;
     box-shadow: 0 1.25rem 3.5rem color-mix(in oklch, #000, transparent 42%);
+    opacity: 0;
+    transform: translateY(var(--hero-card-scroll, 0px))
+      rotate(var(--hero-card-angle));
+    animation: hero-card-enter 600ms ease-out forwards;
+    transition:
+      border-color 240ms ease,
+      box-shadow 240ms ease,
+      opacity 240ms ease,
+      transform 240ms ease;
+    will-change: opacity, transform;
+  }
+
+  .hero-card:hover {
+    z-index: 5;
+    border-color: color-mix(in oklch, var(--brand-teal), #fefefd 48%);
+    box-shadow: 0 1.75rem 4rem
+      color-mix(in oklch, var(--brand-teal), transparent 68%);
+    transform: translateY(calc(var(--hero-card-scroll, 0px) - 0.4rem))
+      rotate(var(--hero-card-angle));
   }
 
   .hero-card__image {
@@ -553,28 +573,57 @@
     top: 2%;
     left: 26%;
     z-index: 3;
-    transform: rotate(7deg);
+    --hero-card-angle: 7deg;
+    animation-delay: 80ms;
   }
 
   .hero-card--football {
     top: 15%;
     right: 3%;
     z-index: 4;
-    transform: rotate(-6deg);
+    --hero-card-angle: -6deg;
+    animation-delay: 160ms;
   }
 
   .hero-card--dhamma {
     bottom: 15%;
     left: 0;
     z-index: 2;
-    transform: rotate(-5deg);
+    --hero-card-angle: -5deg;
+    animation-delay: 240ms;
   }
 
   .hero-card--hook {
     right: 16%;
     bottom: 0;
     z-index: 3;
-    transform: rotate(9deg);
+    --hero-card-angle: 9deg;
+    animation-delay: 320ms;
+  }
+
+  @keyframes hero-card-enter {
+    from {
+      opacity: 0;
+      scale: 0.96;
+    }
+
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  @keyframes hero-glow-pulse {
+    0%,
+    100% {
+      opacity: 0.7;
+      scale: 0.96;
+    }
+
+    50% {
+      opacity: 1;
+      scale: 1.04;
+    }
   }
 
   .media-slot {
@@ -2505,5 +2554,15 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-section__video {
     display: none;
+  }
+
+  .hero-showcase__glow,
+  .hero-card {
+    animation: none;
+  }
+
+  .hero-card {
+    opacity: 1;
+    transition: none;
   }
 }

@@ -4,20 +4,17 @@ import {
   Captions,
   Check,
   CheckCircle2,
-  Clapperboard,
   Clock3,
   Download,
   Gauge,
-  MessageCircleMore,
   MonitorSmartphone,
   ShieldCheck,
-  Trophy,
   Upload,
   WandSparkles,
 } from "lucide-react"
-import Image from "next/image"
 
 import { SiteFooter } from "@/components/marketing/site-footer"
+import { HeroShowcase } from "@/components/marketing/hero-showcase"
 import { SiteHeader } from "@/components/marketing/site-header"
 import {
   ActionLink,
@@ -36,51 +33,20 @@ import {
 
 const capabilityItems = [
   {
-    label: "မြန်မာလို workflow",
-    detail: "Voice + subtitle timing",
+    label: "ပိုမြန်မြန် ဖန်တီးပါ",
+    detail: "အိုင်ဒီယာကနေ content အဆင်သင့်ဖြစ်တဲ့အထိ အဆင့်နည်းနည်းနဲ့။",
   },
   {
-    label: "တစ်နေရာတည်း",
-    detail: "Source တင်တာကနေ output ရတဲ့အထိ",
+    label: "ပိုသပ်ရပ်တဲ့ ရလဒ်",
+    detail: "Voice, subtitle, timing တွေကို editing လုပ်စရာမလို။",
   },
   {
-    label: "Review-ready",
-    detail: "SRT + publish-ready နီးစပ်တဲ့ output",
+    label: "ပိုမှန်မှန် တင်နိုင်ပါ",
+    detail: "နေ့တိုင်း အသစ်ကစစရာမလိုဘဲ content flow ကို ဆက်သွားနိုင်ပါတယ်။",
   },
   {
-    label: "Creator modes",
-    detail: "Recap · Shorts · Thumbnail",
-  },
-]
-
-const heroCards = [
-  {
-    name: "Movie Recap",
-    duration: "1:45",
-    image: "/images/hero-cards/movie-recap.png",
-    icon: Clapperboard,
-    className: "hero-card--movie",
-  },
-  {
-    name: "Football Highlight",
-    duration: "0:58",
-    image: "/images/hero-cards/football-highlight.png",
-    icon: Trophy,
-    className: "hero-card--football",
-  },
-  {
-    name: "Dhamma Short",
-    duration: "0:59",
-    image: "/images/hero-cards/dhamma-short.png",
-    icon: Captions,
-    className: "hero-card--dhamma",
-  },
-  {
-    name: "Hook Maker",
-    duration: "0:30",
-    image: "/images/hero-cards/hook-maker.png",
-    icon: MessageCircleMore,
-    className: "hero-card--hook",
+    label: "ပိုရိုးရှင်းတဲ့ လုပ်နည်း",
+    detail: "Recap, Shorts, Hook, Thumbnail အတွက် လိုတာတွေ တစ်နေရာတည်း။",
   },
 ]
 
@@ -95,7 +61,7 @@ const workflowSteps = [
     number: "02",
     title: "Source တင်ပါ",
     description:
-      "Video သို့မဟုတ် audio တင်ပြီး voice, subtitle, timing mode ကို စိတ်ကြိုက်ရွေးပါ။",
+      "Video တင်ပြီး voice, subtitle, timing mode ကို စိတ်ကြိုက်ရွေးပါ။",
   },
   {
     number: "03",
@@ -116,14 +82,14 @@ const audienceItems = [
   "Video idea ရှိပေမယ့် editing အချိန်မပေးနိုင်တဲ့ creator",
   "Movie Recap ကို စနစ်တကျ စလုပ်ချင်သူ",
   "TikTok, Reels, Shorts အတွက် content မှန်မှန်တင်ချင်သူ",
-  "Burmese voice နဲ့ subtitle ကို လက်နဲ့အကုန်မလုပ်ချင်သူ",
+  "Editing မလုပ်တတ်/မလုပ်ချင် သူ",
   "Football content ကို vertical format နဲ့ ထုတ်ချင်သူ",
   "Dhamma audio ကို video content အဖြစ် ပြောင်းချင်သူ",
   "Stream နဲ့ long video ကို short clips ပြန်လုပ်ချင်သူ",
   "Video idea ကနေ thumbnail အမြန်ဖန်တီးချင်သူ",
   "ပြီးစီးထားတဲ့ video ကို shorter clips အဖြစ် ခွဲချင်သူ",
-  "Knowledge-style video workflow သုံးချင်သူ",
-  "Saved/cloned voices တွေကို supported workflows မှာ သုံးချင်သူ",
+  "Original content တွေ ထုတ်ချင်သူ",
+  "ကိုယ်ပိုင်အသံနဲ့ Content ဖန်တီးချင်သူ",
   "Page အများကြီး run နေပြီး output speed မြှင့်ချင်တဲ့သူ",
 ]
 
@@ -206,14 +172,13 @@ export function LandingPage() {
                 </p>
                 <h1>
                   One Click AI
-                  <span>Creator workflow ကို မြန်စေတဲ့ AI Content Tool</span>
+                  <span>တစ်ချက်နှိပ် တန်းတင် AI Content Tool</span>
                 </h1>
                 <p className="hero-copy__description">
-                  Movie Recap, Football, Dhamma, Shorts, Hook Maker, Thumbnail,
-                  Video Splitter, Knowledge Video နဲ့ Voice Library အတွက်
-                  video/audio တင်ပါ။ Voice, subtitle နဲ့ timing ကို
-                  ရွေးလိုက်ရုံနဲ့ publish-ready နီးစပ်တဲ့ output ရနိုင်အောင်
-                  တစ်နေရာတည်းမှာ စီထားပါတယ်။
+                  Video တစ်ပုဒ်ထုတ်ဖို့ AI Tool တွေအများကြီးပြောင်းသုံးပြီး
+                  အချိန်ကုန်ခံစရာမလိုတော့ပါဘူး။ Movie Recap အပြင် Original Content တွေကို AI နဲ့ မြန်မြန်ဖန်တီးပြီး
+                  TikTok, Facebook Reels နဲ့ YouTube Shorts မှာ
+                  တန်းတင်နိုင်အောင် One Click AI က ကူညီပေးပါတယ်။
                 </p>
                 <div className="hero-actions">
                   <ActionLink
@@ -232,38 +197,7 @@ export function LandingPage() {
                   <span>VIP 35,000 MMK · VVIP 59,000 MMK · monthly</span>
                 </div>
               </div>
-              <div className="hero-showcase" aria-hidden="true">
-                <div className="hero-showcase__glow" />
-                <div className="hero-showcase__orbit" />
-                {heroCards.map((card) => {
-                  const Icon = card.icon
-
-                  return (
-                    <article
-                      className={`hero-card ${card.className}`}
-                      key={card.name}
-                    >
-                      <Image
-                        alt=""
-                        className="hero-card__image"
-                        fill
-                        sizes="(max-width: 52rem) 45vw, 18rem"
-                        src={card.image}
-                      />
-                      <div className="hero-card__shade" />
-                      <div className="hero-card__meta">
-                        <span className="hero-card__name">
-                          <Icon aria-hidden="true" />
-                          {card.name}
-                        </span>
-                        <span className="hero-card__duration">
-                          {card.duration}
-                        </span>
-                      </div>
-                    </article>
-                  )
-                })}
-              </div>
+              <HeroShowcase />
             </div>
           </div>
 
@@ -300,7 +234,7 @@ export function LandingPage() {
                 <IconTile>
                   <WandSparkles aria-hidden="true" />
                 </IconTile>
-                <h3>Tool ၅ ခုကြား file တွေ လိုက်ရွှေ့နေရတယ်</h3>
+                <h3>Tool တွေအများကြီးနဲ့ တိုင်တွေပတ်</h3>
                 <p>
                   Voice ထုတ်ပြီး editor ထဲထည့်၊ subtitle ထိုးပြီး timing
                   ပြန်ညှိနေရတာက content ထုတ်တဲ့အရှိန်ကို နှေးစေပါတယ်။
@@ -340,11 +274,11 @@ export function LandingPage() {
             <div className="solution-section__copy">
               <p className="eyebrow eyebrow--light">The system</p>
               <h2 id="solution-title">
-                Tool တစ်ခုချင်းစီ မလိုက်ရအောင် video ထုတ်တဲ့ flow ကို
-                တစ်နေရာတည်းမှာ စုထားပါတယ်။
+                Tool တစ်ခုချင်းစီ လိုက်လုပ် စရမလိုအောင် video ထုတ်တဲ့ flow ကို
+                တစ်နေရာတည်းမှာ စုထားပါတယ်.
               </h2>
               <p>
-                One Click AI မှာ content type ရွေး၊ video/audio တင်၊ setting
+                One Click AI မှာ content type ရွေး၊ video တင်၊ setting
                 ရွေးပြီး generate လုပ်နိုင်ပါတယ်။ Burmese voice, subtitle,
                 timing နဲ့ output ကို တစ်နေရာတည်းကနေ ရယူနိုင်အောင်
                 ပြုလုပ်ထားပါတယ်။
@@ -369,7 +303,7 @@ export function LandingPage() {
           <div className="site-shell">
             <SectionHeading
               eyebrow="Creator tools"
-              title="Movie Recap ကနေ Knowledge Video, Thumbnail နဲ့ Video Splitter အထိ ကိုယ့် niche နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။"
+              title="Movie Recap ကနေ Original Content အထိ ကိုယ့် niche နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။"
               description="လုပ်ချင်တဲ့ content ပုံစံအလိုက် tool ရွေးပြီး source တင်တာကနေ output ရတဲ့အထိ တစ်နေရာတည်းမှာ ဆက်လုပ်နိုင်ပါတယ်။"
             />
             <div className="tool-grid">
@@ -442,7 +376,7 @@ export function LandingPage() {
             <div className="output-section__copy">
               <SectionHeading
                 eyebrow="From source to publish"
-                title="Review လုပ်ပြီး publish ဆက်လုပ်လို့လွယ်တဲ့ output ရအောင် စီထားပါတယ်။"
+                title="တကယ်အလုပ်ဖြစ်ပြီး သင်ပေးစရာမလိုအောင် လွယ်ကူတဲ့ Tool"
                 description="Video file တစ်ခုတည်းမဟုတ်ဘဲ voice, subtitle, SRT နဲ့ platform format အတွက်လိုတာတွေကို တစ်နေရာတည်းကနေ ရယူနိုင်ပါတယ်။"
               />
             </div>
