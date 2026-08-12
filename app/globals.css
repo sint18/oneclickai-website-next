@@ -1403,6 +1403,28 @@
     margin-top: 2rem;
   }
 
+  .pricing-card__proof-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    color: var(--brand-teal-deep);
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .pricing-card__proof-link svg {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  .pricing-card__proof-link:hover {
+    color: var(--brand-teal);
+  }
+
   .pricing-note {
     max-width: 52rem;
     margin: 1.5rem auto 0;
@@ -1797,6 +1819,20 @@
     color: var(--brand-muted);
     font-size: 1rem;
     line-height: 1.85;
+  }
+
+  .content-page__hero-action {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 1.75rem;
+  }
+
+  .content-page__hero-action > span {
+    color: var(--brand-muted);
+    font-size: 0.78rem;
+    line-height: 1.55;
   }
 
   .content-page__hero-media {
@@ -2197,6 +2233,26 @@
     border-radius: 0.7rem;
   }
 
+  .creator-case-study-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .creator-case-study--compact {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .creator-case-study--compact .creator-case-study__evidence {
+    max-width: 22rem;
+  }
+
+  .creator-case-study--compact .creator-case-study__metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .creator-testimonial-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2443,6 +2499,10 @@
 
   .creator-case-study__evidence {
     max-width: 26rem;
+  }
+
+  .creator-case-study-grid {
+    grid-template-columns: 1fr;
   }
 
   .content-card-grid--three,

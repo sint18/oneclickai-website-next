@@ -122,7 +122,6 @@ export const navigation = [
   { label: "Product", href: "/#product" },
   { label: "Tools", href: "/tools" },
   { label: "Guide", href: "/guide" },
-  { label: "Examples", href: "/examples" },
   { label: "Pricing", href: "/#pricing" },
   { label: "FAQ", href: "/#faq" },
 ] as const

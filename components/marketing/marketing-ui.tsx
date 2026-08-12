@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 
 import Image from "next/image"
+import Link from "next/link"
 import {
   ArrowUpRight,
   Check,
@@ -217,6 +218,15 @@ export function PricingCard({ plan }: { plan: PricingPlan }) {
       >
         {isFeatured ? "VVIP Plan ဝယ်ရန်" : "VIP Plan ဝယ်ရန်"}
       </ActionLink>
+      {isFeatured ? (
+        <Link
+          className="pricing-card__proof-link"
+          href="/tools/movie-recap#creator-results"
+        >
+          Movie Recap creator results ကြည့်ရန်
+          <ArrowUpRight aria-hidden="true" />
+        </Link>
+      ) : null}
     </article>
   )
 }

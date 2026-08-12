@@ -202,7 +202,7 @@ export function LandingPage() {
                   <BadgeCheck aria-hidden="true" />
                   <span>
                     VVIP 59,000 MMK / month · Payment နဲ့ account activation ကို
-                    Messenger/Telegram support က ကူညီပေးပါမယ်။
+                    Messenger/Telegram မှာ ဆက်သွယ်ဝယ်ယူနိုင်ပါတယ်။
                   </span>
                 </div>
               </div>
@@ -319,7 +319,7 @@ export function LandingPage() {
                 လိုက်ပြောင်းသုံးရတဲ့အလုပ်ကို လျှော့ပြီး content ထုတ်တဲ့ flow ကို
                 ပိုရှင်းစေပါတယ်။
               </p>
-              <ActionLink href="#tools" variant="light">
+              <ActionLink href="/tools/movie-recap" variant="light">
                 Movie Recap Tool ကို ကြည့်ရန်
                 <ArrowRight aria-hidden="true" />
               </ActionLink>

@@ -84,6 +84,7 @@ export function ContentPageFrame({
   children,
   description,
   eyebrow,
+  heroAction,
   heroAside,
   title,
   structuredData,
@@ -92,6 +93,7 @@ export function ContentPageFrame({
   children: ReactNode
   description: string
   eyebrow: string
+  heroAction?: ReactNode
   heroAside?: ReactNode
   title: string
   structuredData?: Record<string, unknown>
@@ -112,6 +114,7 @@ export function ContentPageFrame({
               <p className="eyebrow">{eyebrow}</p>
               <h1>{title}</h1>
               <p>{description}</p>
+              {heroAction}
             </div>
             {heroAside}
           </header>
@@ -467,7 +470,10 @@ function videoResourcesForSlugs(slugs: string[]) {
 
 function MovieRecapCaseStudies() {
   return (
-    <section className="content-page__section creator-results">
+    <section
+      className="content-page__section creator-results"
+      id="creator-results"
+    >
       <SectionHeading
         eyebrow="Real creator results"
         title="One Click AI နဲ့ Movie Recap content တင်နေတဲ့ creator တွေရဲ့ အတွေ့အကြုံ"
@@ -521,6 +527,92 @@ function MovieRecapCaseStudies() {
           />
         </div>
       </article>
+
+      <div className="creator-case-study-grid">
+        <article className="creator-case-study creator-case-study--compact">
+          <div className="creator-case-study__copy">
+            <p className="eyebrow">Customer monetization story</p>
+            <h3>
+              Content Monetization ရပြီး TikTok Creator Rewards eligibility
+              ပွင့်လာတဲ့ Ko Kyaw
+            </h3>
+            <p>
+              Ko Kyaw က Content Monetization ရခဲ့ပြီး TikTok မှာလည်း Creator
+              Rewards Program ပွင့်လာတယ်လို့ မျှဝေထားပါတယ်။
+            </p>
+            <dl className="creator-case-study__metrics">
+              <div>
+                <dt>18K followers</dt>
+                <dd>
+                  Ko Kyaw MM TikTok profile မှာ မြင်ရတဲ့ follower count ပါ။
+                </dd>
+              </div>
+              <div>
+                <dt>113.3K likes</dt>
+                <dd>
+                  Recap video channel profile မှာ မြင်ရတဲ့ total likes ပါ။
+                </dd>
+              </div>
+            </dl>
+            <p className="creator-case-study__disclaimer">
+              Individual result ပါ။ Monetization eligibility နဲ့ earnings က
+              platform rules နဲ့ account performance ပေါ်မူတည်နိုင်ပါတယ်။
+            </p>
+          </div>
+          <div className="creator-case-study__evidence">
+            <Image
+              alt="Ko Kyaw's TikTok Studio screen showing Creator Rewards Program availability"
+              height={600}
+              loading="eager"
+              src="/images/customer-results/ko-kyaw-creator-rewards.jpg"
+              width={360}
+            />
+            <Image
+              alt="Ko Kyaw MM TikTok profile with 18K followers and 113.3K likes"
+              height={600}
+              loading="eager"
+              src="/images/customer-results/ko-kyaw-tiktok-profile.jpg"
+              width={360}
+            />
+          </div>
+        </article>
+
+        <article className="creator-case-study creator-case-study--compact">
+          <div className="creator-case-study__copy">
+            <p className="eyebrow">VVIP customer update</p>
+            <h3>
+              VVIP upgrade လုပ်ပြီးနောက် Creator Rewards/RPM status
+              ပေါ်လာတယ်လို့ မျှဝေထားတဲ့ Sudir Golvash
+            </h3>
+            <p>
+              Sudir Golvash က VVIP upgrade လုပ်ပြီး video 7 ပုဒ်ခန့်တင်ပြီးနောက်
+              Creator Rewards screen မှာ dollar/RPM status ပေါ်လာတယ်လို့
+              မျှဝေထားပါတယ်။
+            </p>
+            <p className="creator-case-study__disclaimer">
+              Screenshot တွေမှာ Total rewards နဲ့ RPM က $0.00 လို့ ပြထားပါတယ်။
+              Earnings နဲ့ eligibility က platform rules နဲ့ account performance
+              ပေါ်မူတည်နိုင်ပါတယ်။
+            </p>
+          </div>
+          <div className="creator-case-study__evidence">
+            <Image
+              alt="Sudir Golvash's Creator Rewards screen with dollar and RPM status"
+              height={600}
+              loading="eager"
+              src="/images/customer-results/sudir-golvash-creator-rewards-1.jpg"
+              width={360}
+            />
+            <Image
+              alt="Sudir Golvash's Creator Rewards screen after VVIP upgrade"
+              height={600}
+              loading="eager"
+              src="/images/customer-results/sudir-golvash-creator-rewards-2.jpg"
+              width={360}
+            />
+          </div>
+        </article>
+      </div>
 
       <div className="creator-testimonial-grid">
         {movieRecapTestimonials.map((testimonial) => (
@@ -606,20 +698,34 @@ export function GuideArticlePage({ guide }: { guide: GuideArticle }) {
 export function ToolDetailPage({ tool }: { tool: Tool }) {
   const resources = getVideoResourcesForTool(tool.slug)
   const examples = getExamplesForTool(tool.slug)
+  const planHref = getPlanCtaHref()
 
   return (
     <ContentPageFrame
       breadcrumbs={[{ label: "Tools", href: "/tools" }, { label: tool.name }]}
       description={tool.description}
       eyebrow={tool.name}
+      heroAction={
+        tool.slug === "movie-recap" ? (
+          <div className="content-page__hero-action">
+            <ActionLink external={isExternalHref(planHref)} href={planHref}>
+              VVIP Plan ဝယ်ရန်
+              <ArrowRight aria-hidden="true" />
+            </ActionLink>
+            <span>Messenger/Telegram ကနေ ဝယ်ယူလို့ရပါပြီ။</span>
+          </div>
+        ) : undefined
+      }
       heroAside={
-        <MediaSlot
-          alt={`${tool.name} product screenshot or output example`}
-          className={`content-page__hero-media content-page__hero-media--${tool.accent}`}
-          detail="Approved dashboard or output screenshot ထည့်ရန်နေရာ။"
-          eyebrow={`${tool.name} media slot`}
-          title={`${tool.name} in use`}
-        />
+        tool.slug === "movie-recap" ? (
+          <MediaSlot
+            alt={`${tool.name} product screenshot or output example`}
+            className={`content-page__hero-media content-page__hero-media--${tool.accent}`}
+            detail="Approved dashboard or output screenshot ထည့်ရန်နေရာ။"
+            eyebrow={`${tool.name} media slot`}
+            title={`${tool.name} in use`}
+          />
+        ) : undefined
       }
       title={tool.label}
       structuredData={{
@@ -631,6 +737,8 @@ export function ToolDetailPage({ tool }: { tool: Tool }) {
         description: tool.description,
       }}
     >
+      {tool.slug === "movie-recap" ? <MovieRecapCaseStudies /> : null}
+
       <section className="content-page__section content-page__section--split">
         <div>
           <p className="eyebrow">Best for</p>
@@ -703,9 +811,7 @@ export function ToolDetailPage({ tool }: { tool: Tool }) {
         </section>
       ) : null}
 
-      {tool.slug === "movie-recap" ? <MovieRecapCaseStudies /> : null}
-
-      {tool.slug !== "movie-recap" && examples.length ? (
+      {examples.some((example) => example.imageSrc) ? (
         <section className="content-page__section">
           <SectionHeading
             eyebrow="Example slot"

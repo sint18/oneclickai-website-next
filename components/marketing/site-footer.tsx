@@ -60,7 +60,6 @@ export function SiteFooter() {
               <Link href="/#product">Product</Link>
               <Link href="/tools">Tools</Link>
               <Link href="/guide">Guide</Link>
-              <Link href="/examples">Examples</Link>
               <Link href="/#pricing">Pricing</Link>
               <Link href="/#faq">FAQ</Link>
             </div>
