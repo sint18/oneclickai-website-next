@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "Dhamma Content Maker",
     "Knowledge Video",
     "Thumbnail Generator Myanmar",
-    "Voice Library AI",
+    "Voice Cloning AI",
     "Video Splitter Myanmar",
     "TikTok content tool Myanmar",
   ],

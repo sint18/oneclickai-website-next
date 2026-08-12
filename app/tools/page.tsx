@@ -5,7 +5,7 @@ import { ToolsIndexPage } from "@/components/marketing/content-pages"
 export const metadata: Metadata = {
   title: "Tools",
   description:
-    "Movie Recap, Football, Dhamma, One Click Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Library နဲ့ Video Splitter creator tools directory။",
+    "Movie Recap, Football, Dhamma, One Click Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter creator tools directory။",
   alternates: {
     canonical: "/tools",
   },

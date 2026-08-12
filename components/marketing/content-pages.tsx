@@ -1,5 +1,6 @@
 import type { ReactNode } from "react"
 
+import Image from "next/image"
 import Link from "next/link"
 import {
   ArrowRight,
@@ -23,6 +24,7 @@ import {
   type GuideSection,
   type Tool,
   type VideoResource,
+  customerChannels,
   exampleItems,
   getExamplesForTool,
   getGuideBySlug,
@@ -32,6 +34,7 @@ import {
   getVideoResourcesForTool,
   guides,
   hasApprovedExampleAssets,
+  movieRecapTestimonials,
   tools,
 } from "@/lib/site-content"
 import { cn } from "@/lib/utils"
@@ -281,12 +284,16 @@ function ContentCta({
   return (
     <section className="content-page__cta">
       <div>
-        <p className="eyebrow eyebrow--light">Ready when you are</p>
+        <p className="eyebrow eyebrow--light">VVIP နဲ့ Movie Recap စတင်ရန်</p>
         <h2>{title}</h2>
         <p>{description}</p>
+        <p>
+          Payment နဲ့ account activation ကို Messenger/Telegram support က
+          ကူညီပေးပါမယ်။
+        </p>
       </div>
       <ActionLink external={isExternalHref(href)} href={href} variant="light">
-        Plan ရွေးရန်
+        VVIP Plan ဝယ်ရန်
         <ArrowRight aria-hidden="true" />
       </ActionLink>
     </section>
@@ -405,7 +412,7 @@ export function ToolsIndexPage() {
   return (
     <ContentPageFrame
       breadcrumbs={[{ label: "Tools" }]}
-      description="Movie Recap, Football, Dhamma, Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Library နဲ့ Video Splitter ထဲက ကိုယ့် source နဲ့ content ရည်ရွယ်ချက်နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။"
+      description="Movie Recap, Football, Dhamma, Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter ထဲက ကိုယ့် source နဲ့ content ရည်ရွယ်ချက်နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။"
       eyebrow="Creator tools"
       title="ကိုယ့် niche အတွက် tool ကို ရွေးပါ။"
       structuredData={{
@@ -456,6 +463,95 @@ function videoResourcesForSlugs(slugs: string[]) {
   return slugs
     .map((slug) => getVideoResourceBySlug(slug))
     .filter((resource): resource is VideoResource => Boolean(resource))
+}
+
+function MovieRecapCaseStudies() {
+  return (
+    <section className="content-page__section creator-results">
+      <SectionHeading
+        eyebrow="Real creator results"
+        title="One Click AI နဲ့ Movie Recap content တင်နေတဲ့ creator တွေရဲ့ အတွေ့အကြုံ"
+        description="Real customer feedback, dashboard screenshots နဲ့ creator channels တွေကို အောက်မှာ ကြည့်နိုင်ပါတယ်။"
+      />
+
+      <article className="creator-case-study">
+        <div className="creator-case-study__copy">
+          <p className="eyebrow">Featured VVIP customer story</p>
+          <h3>
+            Page ဖွင့်ပြီး ၅ ရက်အတွင်း monetization ရခဲ့တဲ့ Aung Khant Kyaw
+          </h3>
+          <p>
+            Aung Khant Kyaw က One Click AI နဲ့ Movie Recap content တွေ
+            စတင်တင်ပြီး Page ဖွင့်ပြီး ၅ ရက်အတွင်း monetization ရခဲ့တယ်လို့
+            မျှဝေထားပါတယ်။
+          </p>
+          <dl className="creator-case-study__metrics">
+            <div>
+              <dt>16 posts</dt>
+              <dd>ဒီအကို လာပြောတဲ့အချိန်မှာ Page မှာတင်ထားပြီးဖြစ်ပါတယ်။</dd>
+            </div>
+            <div>
+              <dt>1.2M views</dt>
+              <dd>7-day dashboard မှာ မြင်ရတဲ့ result ပါ။</dd>
+            </div>
+            <div>
+              <dt>4,759 followers</dt>
+              <dd>7-day dashboard မှာ မြင်ရတဲ့ net followers ပါ။</dd>
+            </div>
+          </dl>
+          <p className="creator-case-study__disclaimer">
+            Individual result ပါ။ Result က source, content quality, audience နဲ့
+            platform rules ပေါ်မူတည်နိုင်ပါတယ်။
+          </p>
+        </div>
+        <div className="creator-case-study__evidence">
+          <Image
+            alt="Aung Khant Kyaw's Facebook page with 5.6K followers and 16 posts"
+            height={600}
+            loading="eager"
+            src="/images/customer-results/aung-khant-kyaw-page.webp"
+            width={360}
+          />
+          <Image
+            alt="Aung Khant Kyaw's Facebook analytics dashboard showing 1.2M views and 4,759 net followers"
+            height={600}
+            loading="eager"
+            src="/images/customer-results/aung-khant-kyaw-analytics.webp"
+            width={360}
+          />
+        </div>
+      </article>
+
+      <div className="creator-testimonial-grid">
+        {movieRecapTestimonials.map((testimonial) => (
+          <blockquote className="creator-testimonial" key={testimonial.name}>
+            <p>“{testimonial.quote}”</p>
+            <cite>— {testimonial.name}, customer review</cite>
+          </blockquote>
+        ))}
+      </div>
+
+      <div className="creator-channel-links">
+        <div>
+          <p className="eyebrow">Customer channels</p>
+          <h3>Creator တွေရဲ့ channel တွေကိုကြည့်ပါ</h3>
+        </div>
+        <div className="creator-channel-links__list">
+          {customerChannels.map((channel) => (
+            <ActionLink
+              external
+              href={channel.href}
+              key={channel.href}
+              variant="secondary"
+            >
+              {channel.label}
+              <ExternalLink aria-hidden="true" />
+            </ActionLink>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
 }
 
 export function GuideArticlePage({ guide }: { guide: GuideArticle }) {
@@ -607,7 +703,9 @@ export function ToolDetailPage({ tool }: { tool: Tool }) {
         </section>
       ) : null}
 
-      {examples.length ? (
+      {tool.slug === "movie-recap" ? <MovieRecapCaseStudies /> : null}
+
+      {tool.slug !== "movie-recap" && examples.length ? (
         <section className="content-page__section">
           <SectionHeading
             eyebrow="Example slot"

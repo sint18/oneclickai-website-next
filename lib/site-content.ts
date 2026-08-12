@@ -95,6 +95,16 @@ export type FAQItem = {
   answer: string
 }
 
+export type CreatorTestimonial = {
+  name: string
+  quote: string
+}
+
+export type CreatorChannel = {
+  href: string
+  label: string
+}
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 
 export const siteConfig = {
@@ -494,6 +504,41 @@ export const faqs: FAQItem[] = [
     question: "VIP နဲ့ VVIP ဘယ်ဟာရွေးရမလဲ?",
     answer:
       "Movie Recap စလုပ်မယ်၊ source video 5 minutes အထိပဲ တင်မယ်၊ normal processing အဆင်ပြေတယ်ဆို VIP က သင့်တော်ပါတယ်။ Movie Recap 30 minutes အထိ တင်ချင်တာ၊ priority processing, styled subtitle burn-in, Football, Shorts သို့မဟုတ် Dhamma workflow လိုတာဆို VVIP ကို ရွေးပါ။",
+  },
+]
+
+export const movieRecapTestimonials: CreatorTestimonial[] = [
+  {
+    name: "Lwin Moe Wai",
+    quote:
+      "AI app အများကြီးပြောင်းသုံးပြီး အချိန်ကုန်စရာမလိုတော့ဘူး။ အသံရှင်းတဲ့ source ကို ရွေးပြီးထည့်လိုက်ရင် မိနစ်ပိုင်းအတွင်း Burmese recap video ရတယ်။",
+  },
+  {
+    name: "Min Min",
+    quote: "အဆင်ပြေတယ် သုံးရတာ။",
+  },
+  {
+    name: "Ko Kyaw",
+    quote: "Page လဲ cm အောင်ပီ။ Tt လဲအောင်ပီ အကို။",
+  },
+]
+
+export const customerChannels: CreatorChannel[] = [
+  {
+    label: "Lwin Moe Wai · Facebook",
+    href: "https://www.facebook.com/lwinmoe.wai.96",
+  },
+  {
+    label: "behindyoureyes.mm · TikTok",
+    href: "https://www.tiktok.com/@behindyoureyes.mm",
+  },
+  {
+    label: "historypagesmm · TikTok",
+    href: "https://www.tiktok.com/@historypagesmm?is_from_webapp=1&sender_device=pc",
+  },
+  {
+    label: "coffee.mix435 · TikTok",
+    href: "https://www.tiktok.com/@coffee.mix435?is_from_webapp=1&sender_device=pc",
   },
 ]
 
