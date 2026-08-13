@@ -1,7 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { SupportIcon, SupportLink } from "@/components/marketing/marketing-ui"
+import {
+  ActionLink,
+  SupportIcon,
+  SupportLink,
+} from "@/components/marketing/marketing-ui"
 import { siteConfig } from "@/lib/site-content"
 
 export function SiteFooter() {
@@ -18,8 +22,8 @@ export function SiteFooter() {
             </h2>
             <p>
               ကိုယ်လုပ်မယ့် content type နဲ့ source video ဘယ်လောက်ရှည်လဲ ပြောပါ။
-              VVIP plan, payment နဲ့ account activation ကို support က
-              ကူညီပေးပါမယ်။
+              VVIP plan ကို Messenger/Telegram ကနေ ဝယ်ယူလို့ရပါပြီ။
+              အကောင့်ရှိပြီးသားဆို app.oneclickai.studio မှာ ဝင်ပါ။
             </p>
           </div>
           <div className="site-footer__support-links">
@@ -31,6 +35,9 @@ export function SiteFooter() {
               <SupportIcon channel="telegram" />
               Telegram မှာ VVIP ဝယ်ရန်
             </SupportLink>
+            <ActionLink href={siteConfig.appUrl} variant="light">
+              App ဝင်ရန်
+            </ActionLink>
           </div>
         </div>
 

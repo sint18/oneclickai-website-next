@@ -194,17 +194,20 @@ export function LandingPage() {
                     VVIP Plan ကို စတင်ဝယ်ရန်
                     <ArrowRight aria-hidden="true" />
                   </ActionLink>
-                  <ActionLink href="#how-it-works" variant="light">
-                    Movie Recap ဘယ်လိုလုပ်လဲ ကြည့်ရန်
+                  <ActionLink href={siteConfig.appUrl} variant="light">
+                    App ဝင်ရန်
                   </ActionLink>
                 </div>
                 <div className="hero-note">
                   <BadgeCheck aria-hidden="true" />
                   <span>
-                    VVIP 59,000 MMK / month · Payment နဲ့ account activation ကို
-                    Messenger/Telegram မှာ ဆက်သွယ်ဝယ်ယူနိုင်ပါတယ်။
+                    VVIP 59,000 MMK / month · Messenger/Telegram ကနေ
+                    ဝယ်ယူလို့ရပါပြီ။
                   </span>
                 </div>
+                <p className="hero-app-note">
+                  အကောင့်ရှိပြီးသားဆို app.oneclickai.studio မှာ ဝင်ပါ။
+                </p>
               </div>
               <HeroShowcase />
             </div>

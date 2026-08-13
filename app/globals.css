@@ -253,6 +253,17 @@
     gap: 1rem;
   }
 
+  .site-header__app-link {
+    color: var(--brand-muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .site-header__app-link:hover {
+    color: var(--foreground);
+  }
+
   .action-link {
     display: inline-flex;
     min-height: 3rem;
@@ -453,6 +464,12 @@
     width: 1rem;
     height: 1rem;
     color: var(--brand-teal);
+  }
+
+  .hero-app-note {
+    margin: 0.7rem 0 0;
+    color: var(--brand-muted);
+    font-size: 0.78rem;
   }
 
   .hero-showcase {
@@ -1837,6 +1854,15 @@
 
   .content-page__hero-media {
     width: 100%;
+  }
+
+  .content-page__hero-video {
+    width: 100%;
+    max-height: 38rem;
+    border: 1px solid var(--border);
+    border-radius: 1.1rem;
+    background: var(--foreground);
+    object-fit: contain;
   }
 
   .content-page__hero-media--teal .media-slot__surface {

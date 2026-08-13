@@ -145,7 +145,7 @@ export function VideoResourceCard({ resource }: { resource: VideoResource }) {
       </div>
       {availableHref ? (
         <ActionLink external href={availableHref} variant="secondary">
-          Facebook မှာကြည့်ရန်
+          {resource.linkLabel ?? "Facebook မှာကြည့်ရန်"}
           <ExternalLink aria-hidden="true" />
         </ActionLink>
       ) : (
@@ -718,13 +718,16 @@ export function ToolDetailPage({ tool }: { tool: Tool }) {
       }
       heroAside={
         tool.slug === "movie-recap" ? (
-          <MediaSlot
-            alt={`${tool.name} product screenshot or output example`}
-            className={`content-page__hero-media content-page__hero-media--${tool.accent}`}
-            detail="Approved dashboard or output screenshot ထည့်ရန်နေရာ။"
-            eyebrow={`${tool.name} media slot`}
-            title={`${tool.name} in use`}
-          />
+          <video
+            aria-label="One Click AI Movie Recap finished output"
+            className="content-page__hero-video"
+            controls
+            playsInline
+            preload="metadata"
+          >
+            <source src="/videos/movie-recap-output.mp4" type="video/mp4" />
+            Your browser does not support HTML video.
+          </video>
         ) : undefined
       }
       title={tool.label}

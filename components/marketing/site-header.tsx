@@ -39,6 +39,9 @@ export function SiteHeader() {
           <Link className="site-header__login" href="/#support">
             Support
           </Link>
+          <a className="site-header__app-link" href={siteConfig.appUrl}>
+            App ဝင်ရန်
+          </a>
           <ActionLink
             external={planHref.startsWith("http")}
             href={planHref}

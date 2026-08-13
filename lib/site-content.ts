@@ -68,6 +68,7 @@ export type VideoResource = {
   description: string
   type: "walkthrough" | "quality-guide"
   href?: string
+  linkLabel?: string
   status: "available" | "coming-soon"
 }
 
@@ -112,6 +113,7 @@ export const siteConfig = {
   company: "AI Code Lab",
   description: "Creator တွေအတွက် တစ်ခုတည်းသော AI-assisted content tool suite.",
   siteUrl,
+  appUrl: "https://app.oneclickai.studio",
   support: {
     messenger:
       process.env.NEXT_PUBLIC_MESSENGER_URL ?? "https://m.me/AICodeLab",
@@ -576,7 +578,8 @@ export const videoResources: VideoResource[] = [
     description:
       "Movie Recap workflow နဲ့ source တင်ပြီး output ထုတ်ပုံကို ကြည့်ပါ။",
     type: "walkthrough",
-    href: "https://www.facebook.com/reel/969633642350390",
+    href: "https://www.youtube.com/watch?v=8afdKldjsPI&t=30s",
+    linkLabel: "YouTube မှာကြည့်ရန်",
     status: "available",
   },
   {
