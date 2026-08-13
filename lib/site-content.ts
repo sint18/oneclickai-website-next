@@ -88,6 +88,7 @@ export type PricingPlan = {
   price: string
   description: string
   badge?: string
+  valueSummary?: string
   features: string[]
 }
 
@@ -427,12 +428,11 @@ export const plans: PricingPlan[] = [
   {
     name: "VIP",
     price: "35,000 MMK",
-    description:
-      "Movie Recap စလုပ်ပြီး content ကို မှန်မှန်တင်ချင်တဲ့ creator အတွက်။",
-    badge: "Beginner Choice",
+    description: "Movie Recap ကို အခုမှ စပြီး ပုံမှန်တင်ချင်တဲ့ creator အတွက်။",
+    badge: "အခုမှ စမယ့်သူတွေအတွက်",
     features: [
       "60 monthly credits",
-      "Main features တစ်နေ့ 5 ကြိမ်အထိ",
+      "Movie Recap ကို တစ်နေ့ 5 ကြိမ်အထိ",
       "Movie Recap source video 5 minutes အထိ",
       "Normal processing",
       "Movie Recap ATS Standard + ATS Pro",
@@ -446,13 +446,15 @@ export const plans: PricingPlan[] = [
     name: "VVIP",
     price: "59,000 MMK",
     description:
-      "နေ့တိုင်း output ပိုများများထုတ်မယ်၊ priority processing လိုမယ်ဆိုရင်။",
-    badge: "Best Value",
+      "Movie Recap ကို seriously run မယ်၊ source ပိုရှည်မယ်၊ output ပိုများမယ်ဆိုရင်။",
+    badge: "အတန်ဆုံး",
+    valueSummary:
+      "24,000 MMK ပိုပေးပြီး 2× credits, 6× ပိုရှည်တဲ့ source နဲ့ 5× ပိုမြန်တဲ့ processing ကို ရယူပါ။",
     features: [
       "120 monthly credits",
-      "Main features တစ်နေ့ 10 ကြိမ်အထိ",
+      "Movie Recap, Football, Shorts နဲ့ Dhamma ကို တစ်နေ့ 10 ကြိမ်အထိ",
       "Movie Recap source video 30 minutes အထိ",
-      "VIP entitlement အားလုံးပါဝင်",
+      "VIP မှာပါဝင်တဲ့ features အားလုံး + VVIP-only tools",
       "VIP ထက် 5x အထိပိုမြန်တဲ့ priority processing",
       "Styled Myanmar subtitle burn-in",
       "Football + One Click Shorts + Dhamma",

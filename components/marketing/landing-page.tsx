@@ -514,9 +514,10 @@ export function LandingPage() {
               ))}
             </div>
             <p className="pricing-note">
-              Plan ဝယ်ပြီးနောက် payment နဲ့ account activation ကို
-              Messenger/Telegram support က ကူညီပေးပါမယ်။ Generate မလုပ်ခင် exact
-              credit estimate ကို screen ပေါ်မှာ စစ်နိုင်ပါတယ်။
+              Messenger/Telegram ကနေ ဝယ်ယူလို့ရပါပြီ။ ဝယ်ယူလိုတဲ့ plan နဲ့
+              ကိုယ်သုံးမယ့် workflow ကို ပြောပေးပါ။ Credit သုံးစွဲမှုက source
+              duration နဲ့ ATS mode ပေါ်မူတည်ပြီး generate မလုပ်ခင် exact credit
+              estimate ကို app မှာ စစ်နိုင်ပါတယ်။
             </p>
           </div>
         </section>

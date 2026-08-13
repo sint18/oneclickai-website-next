@@ -200,8 +200,11 @@ export function PricingCard({ plan }: { plan: PricingPlan }) {
         ) : null}
       </div>
       <p className="pricing-card__price">{plan.price}</p>
-      <p className="pricing-card__period">per month</p>
+      <p className="pricing-card__period">တစ်လစာ</p>
       <p className="pricing-card__description">{plan.description}</p>
+      {plan.valueSummary ? (
+        <p className="pricing-card__value-summary">{plan.valueSummary}</p>
+      ) : null}
       <ul className="check-list">
         {plan.features.map((feature) => (
           <li key={feature}>
@@ -216,7 +219,7 @@ export function PricingCard({ plan }: { plan: PricingPlan }) {
         href={href}
         variant={isFeatured ? "primary" : "secondary"}
       >
-        {isFeatured ? "VVIP Plan ဝယ်ရန်" : "VIP Plan ဝယ်ရန်"}
+        {isFeatured ? "VVIP Plan ဝယ်ရန်" : "VIP plan ကို မေးရန်"}
       </ActionLink>
       {isFeatured ? (
         <Link
