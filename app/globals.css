@@ -1856,13 +1856,21 @@
     width: 100%;
   }
 
-  .content-page__hero-video {
+  .content-page__hero-visual {
     width: 100%;
-    max-height: 38rem;
+    max-width: 31rem;
+    margin: 0;
+    justify-self: end;
+    overflow: hidden;
     border: 1px solid var(--border);
     border-radius: 1.1rem;
     background: var(--foreground);
-    object-fit: contain;
+  }
+
+  .content-page__hero-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   .content-page__hero-media--teal .media-slot__surface {

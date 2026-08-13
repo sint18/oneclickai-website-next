@@ -718,16 +718,16 @@ export function ToolDetailPage({ tool }: { tool: Tool }) {
       }
       heroAside={
         tool.slug === "movie-recap" ? (
-          <video
-            aria-label="One Click AI Movie Recap finished output"
-            className="content-page__hero-video"
-            controls
-            playsInline
-            preload="metadata"
-          >
-            <source src="/videos/movie-recap-output.mp4" type="video/mp4" />
-            Your browser does not support HTML video.
-          </video>
+          <figure className="content-page__hero-visual">
+            <Image
+              alt="A cinematic source transforming into a Burmese movie recap with narration and subtitle cues"
+              height={1402}
+              priority
+              sizes="(max-width: 52rem) 100vw, 40vw"
+              src="/images/movie-recap-concept.png"
+              width={1122}
+            />
+          </figure>
         ) : undefined
       }
       title={tool.label}

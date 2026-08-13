@@ -175,7 +175,7 @@ export function LandingPage() {
                 <h1>
                   One Click AI
                   <span>
-                    Movie Recap video ကို Burmese voice, subtitle နဲ့
+                    Movie Recap video ကို မြန်မာ အသံ, subtitle နဲ့
                     အချိန်တိုအတွင်း ဖန်တီးပါ။
                   </span>
                 </h1>
