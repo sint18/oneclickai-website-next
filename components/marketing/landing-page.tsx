@@ -9,7 +9,6 @@ import {
   Gauge,
   MonitorSmartphone,
   ShieldCheck,
-  Upload,
   WandSparkles,
 } from "lucide-react"
 import Image from "next/image"
@@ -23,14 +22,19 @@ import {
   PricingCard,
   SectionHeading,
   ToolCard,
+  VideoSlot,
 } from "@/components/marketing/marketing-ui"
 import {
   faqs,
   getPlanCtaHref,
+  getVideoResourceBySlug,
   plans,
   siteConfig,
   tools,
 } from "@/lib/site-content"
+
+const heroDemoHref =
+  getVideoResourceBySlug("movie-recap-walkthrough")?.href ?? "/examples"
 
 const proofItems = [
   {
@@ -72,6 +76,35 @@ const workflowSteps = [
       "Voice, subtitle နဲ့ timing ကို ပြန်စစ်ပြီး အဆင်ပြေရင် download လုပ်ကာ platform ပေါ်တင်ပါ။",
   },
 ]
+
+const movieRecapOutputSampleSrc = "/videos/movie-recap-output-sample.mp4"
+
+const outputDeliverables = [
+  {
+    icon: WandSparkles,
+    title: "Burmese Voice ပါပြီးသား Recap Video",
+    description:
+      "ဇာတ်လမ်း flow အတိုင်း ညှပ်ထားတဲ့ visual နဲ့ နားထောင်လို့ကောင်းတဲ့ မြန်မာအသံ narration ကို တစ်ခါတည်း ပေါင်းစပ်ပေးပါတယ်။",
+  },
+  {
+    icon: Captions,
+    title: "Timing ကိုက် Burmese Subtitle",
+    description:
+      "စာလုံးအထားအသိုနဲ့ timing ကို လက်နဲ့ လိုက်ညှိစရာမလိုဘဲ အသံနဲ့ အတိအကျ ကိုက်ညီတဲ့ စာတန်းထိုး ပါဝင်ပြီးဖြစ်ပါတယ်။",
+  },
+  {
+    icon: MonitorSmartphone,
+    title: "Shorts, Reels & TikTok Format",
+    description:
+      "Platform တွေပေါ် တန်းတင်နိုင်ဖို့ အချိုးအစား မှန်ကန်တဲ့ vertical format (9:16) အဖြစ် ထွက်ရှိပေးပါတယ်။",
+  },
+  {
+    icon: Download,
+    title: "SRT Subtitle File ပါဝင်မှု",
+    description:
+      "Video ထဲမှာ စာတန်းထိုး ပါပြီးသားအပြင် platform captions အတွက် လိုအပ်ရင် သုံးနိုင်ဖို့ SRT file ကိုပါ ထည့်သွင်းပေးထားပါတယ်။",
+  },
+] as const
 
 const benefitItems = [
   "Voice, subtitle နဲ့ timing ကို workflow တစ်ခုတည်းမှာ ပြင်ဆင်နိုင်မယ်",
@@ -170,39 +203,41 @@ export function LandingPage() {
             <div className="site-shell hero-section__inner">
               <div className="hero-copy">
                 <p className="eyebrow eyebrow--light">
-                  One Click AI by AI Code Lab
+                  The Content Engine for Myanmar Creators
                 </p>
                 <h1>
-                  One Click AI
+                  Manual Editing ခေတ် ကုန်သွားပြီ။
                   <span>
-                    Movie Recap video ကို မြန်မာ အသံ, subtitle နဲ့
-                    အချိန်တိုအတွင်း ဖန်တီးပါ။
+                    သင့်ရဲ့ အချိန်ကို ပြန်ဝယ်ပေးမယ့် Content Engine။
                   </span>
                 </h1>
                 <p className="hero-copy__description">
-                  Movie Recap video တစ်ပုဒ်ထုတ်ဖို့ AI tool
-                  အများကြီးပြောင်းသုံးပြီး voice, subtitle နဲ့ timing ကို manual
-                  ပြင်နေစရာမလိုတော့ပါဘူး။ One Click AI နဲ့ source video တင်၊
-                  setting ရွေးပြီး TikTok, Facebook Reels နဲ့ YouTube Shorts
-                  အတွက် content output ကို workflow တစ်နေရာတည်းမှာ ပြင်ဆင်ပါ။
+                  Video တစ်ပုဒ်အတွက် Tool တွေအများကြီးပြောင်းသုံးပြီး Subtitle
+                  နဲ့ Voice ကို နာရီနဲ့ချီ လိုက်ညှိနေစရာ မလိုတော့ပါဘူး။ One Click
+                  AI က Source ကနေ Upload-ready Output အထိ Workflow
+                  တစ်ခုလုံးကို စက္ကန့်ပိုင်းအတွင်း အလိုအလျောက်
+                  စီမံပေးပါတယ်။
                 </p>
                 <div className="hero-actions">
                   <ActionLink
                     external={getPlanCtaHref().startsWith("http")}
                     href={getPlanCtaHref()}
                   >
-                    VVIP Plan ကို စတင်ဝယ်ရန်
+                    စနစ်သစ်ကို စတင်အသုံးပြုရန်
                     <ArrowRight aria-hidden="true" />
                   </ActionLink>
-                  <ActionLink href={siteConfig.appUrl} variant="light">
-                    App ဝင်ရန်
+                  <ActionLink
+                    external={heroDemoHref.startsWith("http")}
+                    href={heroDemoHref}
+                    variant="light"
+                  >
+                    Live Demo ကြည့်ရန်
                   </ActionLink>
                 </div>
                 <div className="hero-note">
                   <BadgeCheck aria-hidden="true" />
                   <span>
-                    VVIP 59,000 MMK / month · Messenger/Telegram ကနေ
-                    ဝယ်ယူလို့ရပါပြီ။
+                    KBZPay / WavePay ဖြင့် အလွယ်တကူ စတင်နိုင်ပါသည်။
                   </span>
                 </div>
                 <p className="hero-app-note">
@@ -312,8 +347,8 @@ export function LandingPage() {
                 Movie Recap workflow တစ်နေရာတည်းမှာ
               </p>
               <h2 id="solution-title">
-                Source တင်၊ setting ရွေး၊ Burmese recap output ကို ပြန်စစ်ပြီး
-                တင်ပါ။
+                Source တင်ပြီး၊ upload-ready Burmese recap output ကို တစ်နေရာတည်းမှာ
+                ရယူပါ။
               </h2>
               <p>
                 One Click AI က Movie Recap workflow အတွက် source video, Burmese
@@ -412,52 +447,33 @@ export function LandingPage() {
 
         <section className="section" id="output">
           <div className="site-shell output-section">
-            <div className="output-section__copy">
-              <SectionHeading
-                eyebrow="Output ရပြီးနောက် လုပ်စရာတွေ"
-                title="Video တစ်ပုဒ်တည်းမဟုတ်ဘဲ၊ publish မလုပ်ခင် လိုအပ်တာတွေကို ပြန်စစ်နိုင်အောင်။"
-                description="Output ရလာတဲ့အခါ voice, subtitle နဲ့ timing ကို review လုပ်ပါ။ လိုအပ်ရင် SRT file ကို သီးခြားယူပြီး ကိုယ့် editing workflow ထဲမှာ ဆက်သုံးနိုင်ပါတယ်။"
-              />
-            </div>
+            <SectionHeading
+              align="center"
+              eyebrow="Upload-Ready Output"
+              title="Recap Video, Burmese Voice, Timed Subtitle — အားလုံး အသင့်ပါပြီးသား။"
+              description="Tool တွေ တစ်ခုပြီးတစ်ခု လိုက်ပြောင်းမနေရတော့ပါဘူး။ Generate နှိပ်လိုက်တာနဲ့ TikTok, Reels နဲ့ Shorts ပေါ် တန်းတင်နိုင်တဲ့ video file အပြည့်အစုံကို ချက်ချင်း ရရှိပါမယ်။"
+            />
+            <VideoSlot
+              caption="Movie Recap output sample — Burmese voice, timed subtitle နဲ့ edited recap ကို တစ်ခါတည်း ရရှိပါမယ်။"
+              className="output-section__showcase"
+              src={movieRecapOutputSampleSrc}
+              title="Movie Recap output sample with Burmese voice and timed subtitles"
+            />
             <div className="output-section__proof">
               <div className="output-feature-grid">
-                <article className="output-feature">
-                  <IconTile>
-                    <Captions aria-hidden="true" />
-                  </IconTile>
-                  <h3>Voice နဲ့ subtitle ကို တိုက်စစ်ပါ</h3>
-                  <p>မတင်ခင် အသံ၊ စာသားနဲ့ visual ကိုက်ညီမှုကို ပြန်ကြည့်ပါ။</p>
-                </article>
-                <article className="output-feature">
-                  <IconTile>
-                    <Download aria-hidden="true" />
-                  </IconTile>
-                  <h3>SRT export</h3>
-                  <p>
-                    Video ထဲ subtitle တန်းမထည့်ချင်သေးရင် SRT file ကို
-                    သီးခြားရယူနိုင်ပါတယ်။
-                  </p>
-                </article>
-                <article className="output-feature">
-                  <IconTile>
-                    <MonitorSmartphone aria-hidden="true" />
-                  </IconTile>
-                  <h3>Short-form platform အတွက် output</h3>
-                  <p>
-                    TikTok, Facebook Reels နဲ့ YouTube Shorts မှာ ဆက်တင်ဖို့
-                    output ကို ပြင်ဆင်နိုင်ပါတယ်။
-                  </p>
-                </article>
-                <article className="output-feature">
-                  <IconTile>
-                    <Upload aria-hidden="true" />
-                  </IconTile>
-                  <h3>Source guidance ပါတယ်</h3>
-                  <p>
-                    Tool နဲ့ကိုက်တဲ့ source ကို ရွေးနိုင်အောင်
-                    အခြေခံလမ်းညွှန်ချက်တွေကို ကြည့်နိုင်ပါတယ်။
-                  </p>
-                </article>
+                {outputDeliverables.map((item) => {
+                  const Icon = item.icon
+
+                  return (
+                    <article className="output-feature" key={item.title}>
+                      <IconTile>
+                        <Icon aria-hidden="true" />
+                      </IconTile>
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+                    </article>
+                  )
+                })}
               </div>
             </div>
           </div>

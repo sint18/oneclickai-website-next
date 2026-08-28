@@ -729,6 +729,35 @@
     text-transform: uppercase;
   }
 
+  .video-slot {
+    margin: 0;
+    min-width: 0;
+  }
+
+  .video-slot__surface {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    background: var(--brand-ink);
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-slot__player {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: var(--brand-ink);
+  }
+
+  .video-slot figcaption {
+    margin-top: 0.75rem;
+    color: var(--brand-muted);
+    font-size: 0.78rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
   .icon-tile {
     display: inline-flex;
     width: 2.8rem;
@@ -1253,13 +1282,21 @@
 
   .output-section {
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(28rem, 1.2fr);
-    align-items: start;
-    gap: clamp(3rem, 8vw, 8rem);
+    gap: clamp(2rem, 5vw, 3rem);
   }
 
-  .output-section__copy .section-heading {
+  .output-section .section-heading {
+    max-width: 52rem;
+    margin-inline: auto;
     margin-bottom: 0;
+    text-align: center;
+  }
+
+  .output-section__showcase {
+    width: 100%;
+    max-width: 62rem;
+    margin-inline: auto;
+    min-width: 0;
   }
 
   .output-section__proof {
@@ -2575,6 +2612,22 @@
     grid-template-columns: 1fr;
   }
 
+  .output-section {
+    gap: 2rem;
+  }
+
+  .output-section__showcase {
+    max-width: none;
+  }
+
+  .output-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .output-feature {
+    min-height: auto;
+  }
+
   .content-page__section--split > div + div {
     padding-top: 2rem;
     padding-left: 0;
@@ -2855,6 +2908,42 @@
 
   .section-heading {
     margin-bottom: 2rem;
+  }
+
+  .output-section {
+    gap: 1.75rem;
+  }
+
+  .output-section .section-heading__description {
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .output-section__showcase {
+    max-width: none;
+  }
+
+  .video-slot__surface {
+    border-radius: var(--radius-lg);
+  }
+
+  .video-slot figcaption {
+    font-size: 0.72rem;
+    line-height: 1.55;
+    padding-inline: 0.25rem;
+  }
+
+  .output-feature {
+    padding: 1.25rem;
+  }
+
+  .output-feature h3 {
+    font-size: 1.1rem;
+  }
+
+  .output-feature p {
+    font-size: 0.86rem;
+    line-height: 1.65;
   }
 
   .section-heading h2,
