@@ -1,5 +1,6 @@
 import localFont from "next/font/local"
 import type { Metadata } from "next"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -83,6 +84,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-R75SP95XBT" />
     </html>
   )
 }
