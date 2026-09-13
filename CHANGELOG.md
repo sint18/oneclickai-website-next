@@ -10,6 +10,7 @@
 
 - Point header and footer Pricing links to `/pricing`, and remove the homepage pricing cards.
 - Show included and excluded plan features with check and X icons.
+- Stack the pricing comparison on small screens so VIP vs VVIP stays readable.
 
 ## [0.0.2] - 2026-09-12
 
