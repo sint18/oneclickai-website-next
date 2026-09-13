@@ -19,7 +19,6 @@ import { SiteHeader } from "@/components/marketing/site-header"
 import {
   ActionLink,
   FAQList,
-  PricingCard,
   SectionHeading,
   ToolCard,
   VideoSlot,
@@ -513,28 +512,6 @@ export function LandingPage() {
                 <ArrowRight aria-hidden="true" />
               </ActionLink>
             </div>
-          </div>
-        </section>
-
-        <section className="section section--wash" id="pricing">
-          <div className="site-shell">
-            <SectionHeading
-              eyebrow="Choose your pace"
-              title="Movie Recap နဲ့ အခုပဲငွေရှာလိုက်ပါ"
-              description="Movie Recap ကို စမ်းသုံးပြီး စတင်ချင်ရင် VIP။ Source video ပိုရှည်တင်မယ်၊ priority processing လိုမယ်၊ Football, Shorts, Dhamma နဲ့ Original Content workflows ကိုပါ သုံးမယ်ဆို VVIP က ပိုကိုက်ပါတယ်။"
-              align="center"
-            />
-            <div className="pricing-grid">
-              {plans.map((plan) => (
-                <PricingCard key={plan.name} plan={plan} />
-              ))}
-            </div>
-            <p className="pricing-note">
-              Messenger/Telegram ကနေ ဝယ်ယူလို့ရပါပြီ။ ဝယ်ယူလိုတဲ့ plan နဲ့
-              ကိုယ်သုံးမယ့် workflow ကို ပြောပေးပါ။ Credit သုံးစွဲမှုက source
-              duration နဲ့ ATS mode ပေါ်မူတည်ပြီး generate မလုပ်ခင် exact credit
-              estimate ကို app မှာ စစ်နိုင်ပါတယ်။
-            </p>
           </div>
         </section>
 
