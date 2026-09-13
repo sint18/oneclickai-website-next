@@ -92,6 +92,26 @@ export type PricingPlan = {
   features: string[]
 }
 
+export type PlanComparisonValueKind =
+  | "included"
+  | "excluded"
+  | "upcoming"
+  | "text"
+
+export type PlanComparisonValue = {
+  kind: PlanComparisonValueKind
+  label: string
+}
+
+export type PlanComparisonGroup = {
+  heading?: string
+  rows: {
+    feature: string
+    vip: PlanComparisonValue
+    vvip: PlanComparisonValue
+  }[]
+}
+
 export type FAQItem = {
   question: string
   answer: string
@@ -132,7 +152,7 @@ export const navigation = [
   { label: "Product", href: "/#product" },
   { label: "Tools", href: "/tools" },
   { label: "Guide", href: "/guide" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Pricing", href: "/pricing" },
   { label: "FAQ", href: "/#faq" },
 ] as const
 
@@ -435,7 +455,6 @@ export const plans: PricingPlan[] = [
       "Movie Recap ကို တစ်နေ့ 5 ကြိမ်အထိ",
       "Movie Recap source video 5 minutes အထိ",
       "Normal processing",
-      "Movie Recap ATS Standard + ATS Pro",
       "Voice, video and subtitle timing sync",
       "SRT subtitle download",
       "Hook Maker + Thumbnail Generator",
@@ -463,6 +482,121 @@ export const plans: PricingPlan[] = [
     ],
   },
 ]
+
+const included: PlanComparisonValue = { kind: "included", label: "ပါဝင်ပါတယ်" }
+const excluded: PlanComparisonValue = { kind: "excluded", label: "မပါဝင်ပါ" }
+const upcoming: PlanComparisonValue = { kind: "upcoming", label: "မကြာမီ" }
+const free: PlanComparisonValue = { kind: "included", label: "အခမဲ့" }
+
+export const planComparisonGroups: PlanComparisonGroup[] = [
+  {
+    rows: [
+      {
+        feature: "လစဉ်ကြေး",
+        vip: { kind: "text", label: "35,000 MMK" },
+        vvip: { kind: "text", label: "59,000 MMK" },
+      },
+      {
+        feature: "Monthly credits",
+        vip: { kind: "text", label: "60" },
+        vvip: { kind: "text", label: "120" },
+      },
+      {
+        feature: "Movie Recap source limit",
+        vip: { kind: "text", label: "5 minutes" },
+        vvip: { kind: "text", label: "30 minutes" },
+      },
+      {
+        feature: "Daily main-feature generations",
+        vip: { kind: "text", label: "5" },
+        vvip: { kind: "text", label: "10" },
+      },
+      {
+        feature: "Processing",
+        vip: { kind: "text", label: "Normal" },
+        vvip: { kind: "text", label: "Priority, VIP ထက် 5× အထိပိုမြန်" },
+      },
+    ],
+  },
+  {
+    heading: "Features",
+    rows: [
+      {
+        feature: "Voice, video and subtitle timing sync",
+        vip: included,
+        vvip: included,
+      },
+      {
+        feature: "SRT subtitle download",
+        vip: included,
+        vvip: included,
+      },
+      {
+        feature: "Styled Myanmar subtitle burn-in",
+        vip: excluded,
+        vvip: included,
+      },
+      {
+        feature: "Thumbnail Generator",
+        vip: included,
+        vvip: included,
+      },
+      {
+        feature: "Video Splitter",
+        vip: free,
+        vvip: free,
+      },
+      {
+        feature: "Source Finder",
+        vip: excluded,
+        vvip: included,
+      },
+      {
+        feature: "Voice Cloning",
+        vip: excluded,
+        vvip: included,
+      },
+      {
+        feature: "New premium feature priority access",
+        vip: excluded,
+        vvip: included,
+      },
+    ],
+  },
+  {
+    heading: "Extra features",
+    rows: [
+      {
+        feature: "Hook Maker",
+        vip: included,
+        vvip: included,
+      },
+      {
+        feature: "Football Content Maker",
+        vip: excluded,
+        vvip: included,
+      },
+      {
+        feature: "One Click Shorts",
+        vip: excluded,
+        vvip: included,
+      },
+      {
+        feature: "Dhamma Content",
+        vip: excluded,
+        vvip: included,
+      },
+      {
+        feature: "Knowledge Video",
+        vip: excluded,
+        vvip: upcoming,
+      },
+    ],
+  },
+]
+
+export const pricingDailyLimitNote =
+  "Daily generation limit က Movie Recap, One Click Shorts, Dhamma Content Maker နဲ့ Football Content Maker အတွက်ပဲ သက်ရောက်ပါတယ်။ Hook Maker, Thumbnail Generator နဲ့ Video Splitter က daily limit ထဲမပါဝင်ပါ။"
 
 export const faqs: FAQItem[] = [
   {

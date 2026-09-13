@@ -1,13 +1,15 @@
-import type { ReactNode } from "react"
+import { Fragment, type ReactNode } from "react"
 
 import Image from "next/image"
 import Link from "next/link"
 import {
   ArrowRight,
   BookOpen,
+  Check,
   CheckCircle2,
   ExternalLink,
   PlayCircle,
+  X,
 } from "lucide-react"
 
 import { SiteFooter } from "@/components/marketing/site-footer"
@@ -22,6 +24,7 @@ import {
   type ExampleItem,
   type GuideArticle,
   type GuideSection,
+  type PlanComparisonValue,
   type Tool,
   type VideoResource,
   customerChannels,
@@ -35,6 +38,9 @@ import {
   guides,
   hasApprovedExampleAssets,
   movieRecapTestimonials,
+  planComparisonGroups,
+  plans,
+  pricingDailyLimitNote,
   tools,
 } from "@/lib/site-content"
 import { cn } from "@/lib/utils"
@@ -436,6 +442,135 @@ export function ToolsIndexPage() {
       <ContentCta
         description="ကိုယ့် content type နဲ့နေ့စဉ် output volume ကို support မှာ မေးပြီး သင့်တော်တဲ့ plan ကို ရွေးနိုင်ပါတယ်။"
         title="ကိုယ့် workflow အတွက် tool ကို စတင်ရွေးပါ။"
+      />
+    </ContentPageFrame>
+  )
+}
+
+function PlanValue({ value }: { value: PlanComparisonValue }) {
+  if (value.kind === "included") {
+    return (
+      <span
+        aria-label="ပါဝင်ပါတယ်"
+        className="pricing-compare__value pricing-compare__value--included"
+      >
+        <Check aria-hidden="true" />
+        {value.label === "ပါဝင်ပါတယ်" ? null : (
+          <span>{value.label}</span>
+        )}
+      </span>
+    )
+  }
+
+  if (value.kind === "excluded") {
+    return (
+      <span
+        aria-label="မပါဝင်ပါ"
+        className="pricing-compare__value pricing-compare__value--excluded"
+      >
+        <X aria-hidden="true" />
+      </span>
+    )
+  }
+
+  return (
+    <span
+      className={cn(
+        "pricing-compare__value",
+        `pricing-compare__value--${value.kind}`
+      )}
+    >
+      {value.label}
+    </span>
+  )
+}
+
+export function PricingPage() {
+  const href = getPlanCtaHref()
+
+  return (
+    <ContentPageFrame
+      breadcrumbs={[{ label: "Pricing" }]}
+      description="VIP နဲ့ VVIP မှာ ပါဝင်တဲ့ features တွေကို နှိုင်းယှဉ်ပြီး ကိုယ့် workflow နဲ့ကိုက်တဲ့ plan ကို ရွေးပါ။ လစဉ်ကြေး၊ credits နဲ့ Movie Recap source limit က လက်ရှိ ရောင်းနေတဲ့ monthly plan အတိုင်းပါ။"
+      eyebrow="Plans"
+      title="VIP နဲ့ VVIP ကို နှိုင်းယှဉ်ပါ"
+      structuredData={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "One Click AI Pricing",
+        description: "VIP နဲ့ VVIP plan comparison for One Click AI.",
+      }}
+    >
+      <section className="content-page__section">
+        <div className="pricing-compare">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                {plans.map((plan) => (
+                  <th key={plan.name} scope="col">
+                    <span className="pricing-compare__plan">{plan.name}</span>
+                    <span className="pricing-compare__price">
+                      {plan.price}
+                      <span> / တစ်လ</span>
+                    </span>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {planComparisonGroups.map((group) => (
+                <Fragment key={group.heading ?? "plan"}>
+                  {group.heading ? (
+                    <tr className="pricing-compare__group">
+                      <th colSpan={3} scope="colgroup">
+                        {group.heading}
+                      </th>
+                    </tr>
+                  ) : null}
+                  {group.rows.map((row) => (
+                    <tr key={row.feature}>
+                      <th scope="row">{row.feature}</th>
+                      <td>
+                        <PlanValue value={row.vip} />
+                      </td>
+                      <td>
+                        <PlanValue value={row.vvip} />
+                      </td>
+                    </tr>
+                  ))}
+                </Fragment>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="pricing-compare__actions">
+          <ActionLink
+            external={isExternalHref(href)}
+            href={href}
+            variant="secondary"
+          >
+            VIP plan ကို မေးရန်
+          </ActionLink>
+          <ActionLink
+            external={isExternalHref(href)}
+            href={href}
+            variant="primary"
+          >
+            VVIP Plan ဝယ်ရန်
+            <ArrowRight aria-hidden="true" />
+          </ActionLink>
+        </div>
+        <p className="pricing-compare__note">{pricingDailyLimitNote}</p>
+        <p className="pricing-compare__note">
+          Messenger/Telegram ကနေ ဝယ်ယူလို့ရပါပြီ။ Credit rates နဲ့ estimate
+          စစ်နည်းကို <Link href="/credit">Credit Rules</Link> မှာ
+          ဖတ်နိုင်ပါတယ်။
+        </p>
+      </section>
+      <ContentCta
+        description="ကိုယ့် content type နဲ့ source video ဘယ်လောက်ရှည်လဲ ပြောပါ။ သင့်တော်တဲ့ monthly plan ကို support က ကူညီရွေးပေးပါမယ်။"
+        title="ကိုယ့် plan ကို ရွေးပြီး စတင်ပါ။"
       />
     </ContentPageFrame>
   )
