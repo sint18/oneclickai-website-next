@@ -2820,6 +2820,7 @@
 
   .content-page__hero h1 {
     max-width: none;
+    text-wrap: balance;
   }
 
   .pricing-compare {
@@ -2909,13 +2910,16 @@
     border-bottom: 0;
   }
 
-  .pricing-compare__group {
-    margin-bottom: 0.35rem;
+  .pricing-compare tbody tr.pricing-compare__group {
+    margin: 0.85rem 0 0.25rem;
+    overflow: visible;
     border: 0;
+    border-radius: 0;
     background: transparent;
   }
 
-  .pricing-compare__group th {
+  .pricing-compare tbody tr.pricing-compare__group th {
+    display: block;
     padding: 0.45rem 0.15rem;
     background: transparent;
   }
