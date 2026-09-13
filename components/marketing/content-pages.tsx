@@ -5,9 +5,11 @@ import Link from "next/link"
 import {
   ArrowRight,
   BookOpen,
+  Check,
   CheckCircle2,
   ExternalLink,
   PlayCircle,
+  X,
 } from "lucide-react"
 
 import { SiteFooter } from "@/components/marketing/site-footer"
@@ -446,6 +448,31 @@ export function ToolsIndexPage() {
 }
 
 function PlanValue({ value }: { value: PlanComparisonValue }) {
+  if (value.kind === "included") {
+    return (
+      <span
+        aria-label="ပါဝင်ပါတယ်"
+        className="pricing-compare__value pricing-compare__value--included"
+      >
+        <Check aria-hidden="true" />
+        {value.label === "ပါဝင်ပါတယ်" ? null : (
+          <span>{value.label}</span>
+        )}
+      </span>
+    )
+  }
+
+  if (value.kind === "excluded") {
+    return (
+      <span
+        aria-label="မပါဝင်ပါ"
+        className="pricing-compare__value pricing-compare__value--excluded"
+      >
+        <X aria-hidden="true" />
+      </span>
+    )
+  }
+
   return (
     <span
       className={cn(

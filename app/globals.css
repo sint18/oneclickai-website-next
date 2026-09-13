@@ -2613,6 +2613,7 @@
     color: var(--brand-muted);
     font-size: 0.9rem;
     line-height: 1.55;
+    vertical-align: middle;
   }
 
   .pricing-compare tbody tr:last-child th,
@@ -2646,9 +2647,20 @@
     text-transform: uppercase;
   }
 
+  .pricing-compare__value {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .pricing-compare__value svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    flex: 0 0 auto;
+  }
+
   .pricing-compare__value--included {
-    color: var(--brand-teal-deep);
-    font-weight: 700;
+    color: var(--brand-teal);
   }
 
   .pricing-compare__value--excluded {
