@@ -2569,10 +2569,12 @@
   }
 
   .pricing-compare {
-    overflow-x: auto;
+    overflow: auto;
+    overscroll-behavior: contain;
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
     background: var(--card);
+    -webkit-overflow-scrolling: touch;
   }
 
   .pricing-compare table {
@@ -2580,10 +2582,6 @@
     min-width: 40rem;
     border-collapse: collapse;
     text-align: left;
-  }
-
-  .pricing-compare__legend {
-    display: none;
   }
 
   .pricing-compare th,
@@ -2594,6 +2592,9 @@
   }
 
   .pricing-compare thead th {
+    position: sticky;
+    z-index: 1;
+    top: 0;
     background: var(--muted);
     color: var(--foreground);
     font-size: 0.82rem;
@@ -2701,6 +2702,11 @@
     text-decoration: underline;
     text-underline-offset: 0.18em;
   }
+}
+
+.dark .pricing-compare thead th:nth-child(3),
+.dark .pricing-compare thead th:nth-child(3) .pricing-compare__price {
+  color: var(--accent-foreground);
 }
 
 @media (max-width: 70rem) {
@@ -2824,104 +2830,12 @@
   }
 
   .pricing-compare {
-    overflow: visible;
-    border: 0;
-    background: transparent;
+    max-height: 70dvh;
   }
 
-  .pricing-compare__legend {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .pricing-compare__legend-plan {
-    min-width: 0;
-    padding: 0.85rem 0.95rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card);
-    background: var(--card);
-  }
-
-  .pricing-compare__legend-plan--featured {
-    border-color: var(--brand-teal);
-    background: var(--brand-teal-soft);
-  }
-
-  .pricing-compare__legend-plan .pricing-compare__price {
-    overflow-wrap: anywhere;
-  }
-
-  .pricing-compare table,
-  .pricing-compare tbody,
-  .pricing-compare tbody tr {
-    display: block;
-    width: 100%;
-    min-width: 0;
-  }
-
-  .pricing-compare thead {
-    display: none;
-  }
-
-  .pricing-compare tbody tr {
-    margin-bottom: 0.65rem;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card);
-    background: var(--card);
-  }
-
-  .pricing-compare tbody th,
-  .pricing-compare tbody td {
-    display: flex;
-    width: 100%;
-    max-width: 100%;
-    align-items: flex-start;
-    padding: 0.75rem 0.95rem;
-    border-bottom: 0;
-    overflow-wrap: anywhere;
-  }
-
-  .pricing-compare tbody td {
-    justify-content: space-between;
-    gap: 1rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .pricing-compare tbody td::before {
-    flex: 0 0 auto;
-    color: var(--foreground);
-    content: attr(data-label);
-    font-size: 0.75rem;
-    font-weight: 700;
-  }
-
-  .pricing-compare tbody td .pricing-compare__value {
-    justify-content: flex-end;
-    max-width: 70%;
-    min-width: 0;
-    text-align: right;
-  }
-
-  .pricing-compare tbody tr:last-child th,
-  .pricing-compare tbody tr:last-child td {
-    border-bottom: 0;
-  }
-
-  .pricing-compare tbody tr.pricing-compare__group {
-    margin: 0.85rem 0 0.25rem;
-    overflow: visible;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-  }
-
-  .pricing-compare tbody tr.pricing-compare__group th {
-    display: block;
-    padding: 0.45rem 0.15rem;
-    background: transparent;
+  .pricing-compare th,
+  .pricing-compare td {
+    padding: 0.8rem 0.9rem;
   }
 
   .pricing-compare__actions {

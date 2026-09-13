@@ -503,23 +503,6 @@ export function PricingPage() {
     >
       <section className="content-page__section">
         <div className="pricing-compare">
-          <div className="pricing-compare__legend">
-            {plans.map((plan) => (
-              <div
-                className={cn(
-                  "pricing-compare__legend-plan",
-                  plan.name === "VVIP" && "pricing-compare__legend-plan--featured"
-                )}
-                key={plan.name}
-              >
-                <span className="pricing-compare__plan">{plan.name}</span>
-                <span className="pricing-compare__price">
-                  {plan.price}
-                  <span> / တစ်လ</span>
-                </span>
-              </div>
-            ))}
-          </div>
           <table>
             <thead>
               <tr>
@@ -548,10 +531,10 @@ export function PricingPage() {
                   {group.rows.map((row) => (
                     <tr key={row.feature}>
                       <th scope="row">{row.feature}</th>
-                      <td data-label="VIP">
+                      <td>
                         <PlanValue value={row.vip} />
                       </td>
-                      <td data-label="VVIP">
+                      <td>
                         <PlanValue value={row.vvip} />
                       </td>
                     </tr>

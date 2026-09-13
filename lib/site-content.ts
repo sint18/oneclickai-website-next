@@ -537,11 +537,6 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
         vvip: included,
       },
       {
-        feature: "Hook Maker",
-        vip: included,
-        vvip: included,
-      },
-      {
         feature: "Thumbnail Generator",
         vip: included,
         vvip: included,
@@ -550,6 +545,31 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
         feature: "Video Splitter",
         vip: free,
         vvip: free,
+      },
+      {
+        feature: "Source Finder",
+        vip: excluded,
+        vvip: included,
+      },
+      {
+        feature: "Voice Cloning",
+        vip: excluded,
+        vvip: included,
+      },
+      {
+        feature: "New premium feature priority access",
+        vip: excluded,
+        vvip: included,
+      },
+    ],
+  },
+  {
+    heading: "Extra features",
+    rows: [
+      {
+        feature: "Hook Maker",
+        vip: included,
+        vvip: included,
       },
       {
         feature: "Football Content Maker",
@@ -567,29 +587,9 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
         vvip: included,
       },
       {
-        feature: "New premium feature priority access",
-        vip: excluded,
-        vvip: included,
-      },
-    ],
-  },
-  {
-    heading: "Extra features",
-    rows: [
-      {
-        feature: "Source Finder",
-        vip: excluded,
-        vvip: included,
-      },
-      {
         feature: "Knowledge Video",
         vip: excluded,
         vvip: upcoming,
-      },
-      {
-        feature: "Voice Cloning",
-        vip: excluded,
-        vvip: included,
       },
     ],
   },
