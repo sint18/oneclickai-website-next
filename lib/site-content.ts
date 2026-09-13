@@ -602,7 +602,7 @@ export const faqs: FAQItem[] = [
   {
     question: "VVIP ဝယ်ပြီး ဘယ်လိုစတင်ရမလဲ?",
     answer:
-      "Messenger သို့မဟုတ် Telegram ကနေ VVIP Plan ဝယ်လိုကြောင်း ပြောပါ။ Payment နဲ့ account activation အတွက် support က လိုအပ်တဲ့အချက်တွေကို ကူညီပေးပါမယ်။ Account ရပြီးရင် Movie Recap source တင်ကာ workflow ကို စတင်နိုင်ပါတယ်။",
+      "app.oneclickai.studio မှာ VVIP Plan ကို ဝယ်ယူပါ။ Payment နဲ့ account activation အတွက် အခက်အခဲရှိရင် Messenger သို့မဟုတ် Telegram support က ကူညီပေးပါမယ်။ Account ရပြီးရင် Movie Recap source တင်ကာ workflow ကို စတင်နိုင်ပါတယ်။",
   },
   {
     question: "One Click AI ဆိုတာဘာလဲ?",
@@ -1101,7 +1101,5 @@ export function getExamplesForTool(toolSlug: ToolSlug) {
 }
 
 export function getPlanCtaHref() {
-  return (
-    siteConfig.support.messenger || siteConfig.support.telegram || "/#support"
-  )
+  return siteConfig.appUrl
 }

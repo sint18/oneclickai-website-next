@@ -563,8 +563,8 @@ export function PricingPage() {
         </div>
         <p className="pricing-compare__note">{pricingDailyLimitNote}</p>
         <p className="pricing-compare__note">
-          Messenger/Telegram ကနေ ဝယ်ယူလို့ရပါပြီ။ Credit rates နဲ့ estimate
-          စစ်နည်းကို <Link href="/credit">Credit Rules</Link> မှာ
+          app.oneclickai.studio မှာ ဝယ်ယူလို့ရပါပြီ။ Credit rates နဲ့
+          estimate စစ်နည်းကို <Link href="/credit">Credit Rules</Link> မှာ
           ဖတ်နိုင်ပါတယ်။
         </p>
       </section>
@@ -847,7 +847,7 @@ export function ToolDetailPage({ tool }: { tool: Tool }) {
               VVIP Plan ဝယ်ရန်
               <ArrowRight aria-hidden="true" />
             </ActionLink>
-            <span>Messenger/Telegram ကနေ ဝယ်ယူလို့ရပါပြီ။</span>
+            <span>app.oneclickai.studio မှာ ဝယ်ယူလို့ရပါပြီ။</span>
           </div>
         ) : undefined
       }
