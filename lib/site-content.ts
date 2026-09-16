@@ -169,7 +169,6 @@ export const tools: Tool[] = [
     audience:
       "Movie recap စလုပ်ချင်ပြီး source quality ကို သေချာဂရုစိုက်တဲ့ creator တွေအတွက်ပါ။",
     sourceGuidance: [
-      "VIP မှာ 5 minutes အထိ၊ VVIP မှာ 30 minutes အထိ source video တင်နိုင်ပါတယ်။",
       "Story flow ရှင်းတဲ့ movie recap-style video ဖြစ်ရပါမယ်။",
       "Scene တွေက ဇာတ်လမ်းအတိုင်း ဆက်သွားတာ ပိုကောင်းပါတယ်။",
       "Voiceover သို့မဟုတ် narration ပါရင် context ကို ပိုနားလည်လွယ်ပါတယ်။",
@@ -452,8 +451,6 @@ export const plans: PricingPlan[] = [
     badge: "အခုမှ စမယ့်သူတွေအတွက်",
     features: [
       "60 monthly credits",
-      "Movie Recap ကို တစ်နေ့ 5 ကြိမ်အထိ",
-      "Movie Recap source video 5 minutes အထိ",
       "Normal processing",
       "Voice, video and subtitle timing sync",
       "SRT subtitle download",
@@ -465,14 +462,12 @@ export const plans: PricingPlan[] = [
     name: "VVIP",
     price: "59,000 MMK",
     description:
-      "Movie Recap ကို seriously run မယ်၊ source ပိုရှည်မယ်၊ output ပိုများမယ်ဆိုရင်။",
+      "Movie Recap ကို seriously run မယ်၊ output ပိုများမယ်၊ VVIP-only tools လိုအပ်မယ်ဆိုရင်။",
     badge: "အတန်ဆုံး",
     valueSummary:
-      "24,000 MMK ပိုပေးပြီး 2× credits, 6× ပိုရှည်တဲ့ source နဲ့ 5× ပိုမြန်တဲ့ processing ကို ရယူပါ။",
+      "24,000 MMK ပိုပေးပြီး 2× credits နဲ့ 5× ပိုမြန်တဲ့ processing ကို ရယူပါ။",
     features: [
       "120 monthly credits",
-      "Movie Recap, Football, Shorts နဲ့ Dhamma ကို တစ်နေ့ 10 ကြိမ်အထိ",
-      "Movie Recap source video 30 minutes အထိ",
       "VIP မှာပါဝင်တဲ့ features အားလုံး + VVIP-only tools",
       "VIP ထက် 5x အထိပိုမြန်တဲ့ priority processing",
       "Styled Myanmar subtitle burn-in",
@@ -500,16 +495,6 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
         feature: "Monthly credits",
         vip: { kind: "text", label: "60" },
         vvip: { kind: "text", label: "120" },
-      },
-      {
-        feature: "Movie Recap source limit",
-        vip: { kind: "text", label: "5 minutes" },
-        vvip: { kind: "text", label: "30 minutes" },
-      },
-      {
-        feature: "Daily main-feature generations",
-        vip: { kind: "text", label: "5" },
-        vvip: { kind: "text", label: "10" },
       },
       {
         feature: "Processing",
@@ -595,9 +580,6 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
   },
 ]
 
-export const pricingDailyLimitNote =
-  "Daily generation limit က Movie Recap, One Click Shorts, Dhamma Content Maker နဲ့ Football Content Maker အတွက်ပဲ သက်ရောက်ပါတယ်။ Hook Maker, Thumbnail Generator နဲ့ Video Splitter က daily limit ထဲမပါဝင်ပါ။"
-
 export const faqs: FAQItem[] = [
   {
     question: "VVIP ဝယ်ပြီး ဘယ်လိုစတင်ရမလဲ?",
@@ -647,7 +629,7 @@ export const faqs: FAQItem[] = [
   {
     question: "VIP နဲ့ VVIP ဘယ်ဟာရွေးရမလဲ?",
     answer:
-      "Movie Recap စလုပ်မယ်၊ source video 5 minutes အထိပဲ တင်မယ်၊ normal processing အဆင်ပြေတယ်ဆို VIP က သင့်တော်ပါတယ်။ Movie Recap 30 minutes အထိ တင်ချင်တာ၊ priority processing, styled subtitle burn-in, Football, Shorts သို့မဟုတ် Dhamma workflow လိုတာဆို VVIP ကို ရွေးပါ။",
+      "Movie Recap စလုပ်မယ်၊ normal processing အဆင်ပြေတယ်ဆို VIP က သင့်တော်ပါတယ်။ Priority processing, styled subtitle burn-in, Football, Shorts သို့မဟုတ် Dhamma workflow လိုတာဆို VVIP ကို ရွေးပါ။",
   },
 ]
 
@@ -816,7 +798,6 @@ export const guides: GuideArticle[] = [
         title: "Movie Recap အတွက် သင့်တော်တဲ့ source",
         paragraphs: [
           "Movie recap content အတွက် design လုပ်ထားတဲ့ tool ဖြစ်လို့ ဇာတ်လမ်း flow နဲ့ context ရှင်းတဲ့ video ကို သုံးပါ။",
-          "Movie Recap source video limit က VIP မှာ 5 minutes အထိ၊ VVIP မှာ 30 minutes အထိ ဖြစ်ပါတယ်။",
         ],
         bullets: [
           "Movie story ပြောထားတဲ့ recap video",
@@ -1061,13 +1042,6 @@ export const dhammaCreditRules = [
   "Over 1.5 hours to 2 hours: Standard 35 credits, Pro 45 credits",
   "Over 2 hours to 2.5 hours: Standard 40 credits, Pro 50 credits",
   "Over 2.5 hours to 3 hours: Standard 45 credits, Pro 55 credits",
-]
-
-export const dailyLimitRules = [
-  "VIP: main features ကို တစ်နေ့ 5 generations အထိ",
-  "VVIP: main features ကို တစ်နေ့ 10 generations အထိ",
-  "Daily limit က Movie Recap, One Click Shorts, Dhamma Content Maker နဲ့ Football Content Maker အတွက်ပဲ သက်ရောက်ပါတယ်။",
-  "Hook Maker, Thumbnail Generator နဲ့ Video Splitter က daily limit ထဲ မပါဝင်ပါ။",
 ]
 
 export function getSupportUrl(channel: SupportChannel) {

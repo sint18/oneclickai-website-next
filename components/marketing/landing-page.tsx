@@ -490,8 +490,7 @@ export function LandingPage() {
               </h2>
               <p>
                 Generate မလုပ်ခင် source guidance နဲ့ credit estimate ကို
-                ကြည့်နိုင်ပါတယ်။ Daily limit က main features လေးခုအတွက်ပဲ
-                သက်ရောက်ပြီး supporting tools တွေက daily limit ထဲ မပါဝင်ပါ။
+                ကြည့်နိုင်ပါတယ်။
               </p>
               <div className="reliability-points">
                 <span>
@@ -502,9 +501,6 @@ export function LandingPage() {
                 </span>
                 <span>
                   <Check aria-hidden="true" /> Clear error messages
-                </span>
-                <span>
-                  <Check aria-hidden="true" /> Daily limit scope is clear
                 </span>
               </div>
               <ActionLink href="/credit" variant="secondary">

@@ -5,7 +5,6 @@ import {
   creditRules,
   creditSupportingToolRules,
   creditVideoRates,
-  dailyLimitRules,
   dhammaCreditRules,
   hookMakerCreditRules,
 } from "@/lib/site-content"
@@ -13,13 +12,13 @@ import {
 export const metadata: Metadata = {
   title: "Credit Rules",
   description:
-    "Credit rates, daily limits, and estimate-checking rules for One Click AI users.",
+    "Credit rates and estimate-checking rules for One Click AI users.",
 }
 
 export default function CreditPage() {
   return (
     <PolicyPage
-      description="Generate မလုပ်ခင် credit ဘယ်လိုတွက်မလဲ၊ ဘယ် tool တွေ daily limit ထဲပါလဲ၊ exact estimate ကို ဘယ်မှာစစ်ရမလဲဆိုတာ ဒီမှာဖတ်ပါ။"
+      description="Generate မလုပ်ခင် credit ဘယ်လိုတွက်မလဲ၊ exact estimate ကို ဘယ်မှာစစ်ရမလဲဆိုတာ ဒီမှာဖတ်ပါ။"
       eyebrow="One Click AI · Credit Rules"
       title="Credit Rules"
       sections={[
@@ -71,22 +70,11 @@ export default function CreditPage() {
           title: "Supporting tools",
           body: (
             <p>
-              Thumbnail Generator နဲ့ Video Splitter က main-feature daily limit
-              ထဲ မပါဝင်ပါ။ Credit သုံးစွဲမှုက သက်ဆိုင်ရာ rule အတိုင်း
-              ဆက်သက်ရောက်ပါတယ်။
+              Thumbnail Generator နဲ့ Video Splitter ရဲ့ credit သုံးစွဲမှုက
+              သက်ဆိုင်ရာ rule အတိုင်း သက်ရောက်ပါတယ်။
             </p>
           ),
           bullets: creditSupportingToolRules,
-        },
-        {
-          title: "Daily generation limits",
-          body: (
-            <p>
-              Daily limit က main features လေးခုအတွက်ပဲ သက်ရောက်ပါတယ်။ Supporting
-              tools တွေက daily limit ထဲမပါဝင်ပါ။
-            </p>
-          ),
-          bullets: dailyLimitRules,
         },
       ]}
     />
