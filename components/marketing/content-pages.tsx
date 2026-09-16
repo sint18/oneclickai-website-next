@@ -40,7 +40,6 @@ import {
   movieRecapTestimonials,
   planComparisonGroups,
   plans,
-  pricingDailyLimitNote,
   tools,
 } from "@/lib/site-content"
 import { cn } from "@/lib/utils"
@@ -410,7 +409,7 @@ export function GuidesIndexPage() {
       </section>
 
       <ContentCta
-        description="အသုံးပြုပုံနဲ့အတူ credit rates, daily limits နဲ့ estimate စစ်ရမယ့်အချက်တွေကိုလည်း ကြိုဖတ်ထားပါ။"
+        description="အသုံးပြုပုံနဲ့အတူ credit rates နဲ့ estimate စစ်ရမယ့်အချက်တွေကိုလည်း ကြိုဖတ်ထားပါ။"
         title="အသုံးပြုနည်းသိပြီးမှ plan ရွေးပါ။"
       />
     </ContentPageFrame>
@@ -491,7 +490,7 @@ export function PricingPage() {
   return (
     <ContentPageFrame
       breadcrumbs={[{ label: "Pricing" }]}
-      description="VIP နဲ့ VVIP မှာ ပါဝင်တဲ့ features တွေကို နှိုင်းယှဉ်ပြီး ကိုယ့် workflow နဲ့ကိုက်တဲ့ plan ကို ရွေးပါ။ လစဉ်ကြေး၊ credits နဲ့ Movie Recap source limit က လက်ရှိ ရောင်းနေတဲ့ monthly plan အတိုင်းပါ။"
+      description="VIP နဲ့ VVIP မှာ ပါဝင်တဲ့ features တွေကို နှိုင်းယှဉ်ပြီး ကိုယ့် workflow နဲ့ကိုက်တဲ့ plan ကို ရွေးပါ။ လစဉ်ကြေးနဲ့ credits က လက်ရှိ ရောင်းနေတဲ့ monthly plan အတိုင်းပါ။"
       eyebrow="Plans"
       title="VIP နဲ့ VVIP ကို နှိုင်းယှဉ်ပါ"
       structuredData={{
@@ -561,7 +560,6 @@ export function PricingPage() {
             <ArrowRight aria-hidden="true" />
           </ActionLink>
         </div>
-        <p className="pricing-compare__note">{pricingDailyLimitNote}</p>
         <p className="pricing-compare__note">
           app.oneclickai.studio မှာ ဝယ်ယူလို့ရပါပြီ။ Credit rates နဲ့
           estimate စစ်နည်းကို <Link href="/credit">Credit Rules</Link> မှာ
@@ -823,7 +821,7 @@ export function GuideArticlePage({ guide }: { guide: GuideArticle }) {
 
       <RelatedTools slugs={guide.relatedToolSlugs} />
       <ContentCta
-        description="Credit rates, daily limits နဲ့ estimate စစ်ရမယ့်အချက်တွေကို Credit Rules မှာ ဖတ်ပါ။"
+        description="Credit rates နဲ့ estimate စစ်ရမယ့်အချက်တွေကို Credit Rules မှာ ဖတ်ပါ။"
         title="အသုံးမပြုခင် rules တွေကို သိထားပါ။"
       />
     </ContentPageFrame>
