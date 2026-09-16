@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.0.4] - 2026-09-16
+
 ### Changed
 
 - Remove Movie Recap source-minute caps and daily generation limits from `/pricing`, `/credit`, and related plan copy.
