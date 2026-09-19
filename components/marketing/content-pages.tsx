@@ -16,6 +16,7 @@ import { SiteFooter } from "@/components/marketing/site-footer"
 import { SiteHeader } from "@/components/marketing/site-header"
 import {
   ActionLink,
+  CreditExamples,
   MediaSlot,
   SectionHeading,
   ToolIcon,
@@ -39,6 +40,7 @@ import {
   hasApprovedExampleAssets,
   movieRecapTestimonials,
   planComparisonGroups,
+  planCtaLabels,
   plans,
   tools,
 } from "@/lib/site-content"
@@ -93,6 +95,7 @@ export function ContentPageFrame({
   heroAside,
   title,
   structuredData,
+  className,
 }: {
   breadcrumbs: BreadcrumbItem[]
   children: ReactNode
@@ -101,12 +104,17 @@ export function ContentPageFrame({
   heroAction?: ReactNode
   heroAside?: ReactNode
   title: string
+  className?: string
   structuredData?: Record<string, unknown>
 }) {
   return (
     <>
       <SiteHeader />
-      <main id="main-content" tabIndex={-1} className="content-page">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className={cn("content-page", className)}
+      >
         <div className="site-shell">
           <Breadcrumbs items={breadcrumbs} />
           <header
@@ -185,6 +193,7 @@ function ToolDirectoryCard({ tool }: { tool: Tool }) {
       </span>
       <p className="content-card__eyebrow">
         {tool.name} · {tool.access}
+        {tool.availability === "coming-soon" ? " · မကြာမီ" : ""}
       </p>
       <h2>{tool.label}</h2>
       <p>{tool.description}</p>
@@ -301,7 +310,7 @@ function ContentCta({
         </p>
       </div>
       <ActionLink external={isExternalHref(href)} href={href} variant="light">
-        VVIP Plan ဝယ်ရန်
+        {planCtaLabels.vvip}
         <ArrowRight aria-hidden="true" />
       </ActionLink>
     </section>
@@ -420,7 +429,7 @@ export function ToolsIndexPage() {
   return (
     <ContentPageFrame
       breadcrumbs={[{ label: "Tools" }]}
-      description="Movie Recap, Football, Dhamma, Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter ထဲက ကိုယ့် source နဲ့ content ရည်ရွယ်ချက်နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။"
+      description="ကိုယ့် source နဲ့ content ရည်ရွယ်ချက်နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။ လက်ရှိအသုံးပြုနိုင်မှုနဲ့ မကြာမီထွက်မယ့် tool တွေကို သီးခြားဖော်ပြထားပါတယ်။"
       eyebrow="Creator tools"
       title="ကိုယ့် niche အတွက် tool ကို ရွေးပါ။"
       structuredData={{
@@ -487,8 +496,9 @@ export function PricingPage() {
 
   return (
     <ContentPageFrame
+      className="content-page--pricing"
       breadcrumbs={[{ label: "Pricing" }]}
-      description="VIP နဲ့ VVIP မှာ ပါဝင်တဲ့ features တွေကို နှိုင်းယှဉ်ပြီး ကိုယ့် workflow နဲ့ကိုက်တဲ့ plan ကို ရွေးပါ။ လစဉ်ကြေးနဲ့ credits က လက်ရှိ ရောင်းနေတဲ့ monthly plan အတိုင်းပါ။"
+      description="လစဉ်ကြေး၊ credits နဲ့ ပါဝင်တဲ့ tools တွေကို နှိုင်းယှဉ်ပါ။"
       eyebrow="Plans"
       title="VIP နဲ့ VVIP ကို နှိုင်းယှဉ်ပါ"
       structuredData={{
@@ -500,7 +510,7 @@ export function PricingPage() {
     >
       <section className="content-page__section">
         <div className="pricing-compare">
-          <table>
+          <table aria-label="VIP and VVIP monthly plan comparison">
             <thead>
               <tr>
                 <th scope="col">Feature</th>
@@ -541,20 +551,21 @@ export function PricingPage() {
             </tbody>
           </table>
         </div>
+        <CreditExamples />
         <div className="pricing-compare__actions">
           <ActionLink
             external={isExternalHref(href)}
             href={href}
             variant="secondary"
           >
-            VIP plan ကို မေးရန်
+            {planCtaLabels.vip}
           </ActionLink>
           <ActionLink
             external={isExternalHref(href)}
             href={href}
             variant="primary"
           >
-            VVIP Plan ဝယ်ရန်
+            {planCtaLabels.vvip}
             <ArrowRight aria-hidden="true" />
           </ActionLink>
         </div>
@@ -826,6 +837,32 @@ export function GuideArticlePage({ guide }: { guide: GuideArticle }) {
 }
 
 export function ToolDetailPage({ tool }: { tool: Tool }) {
+  if (tool.availability === "coming-soon") {
+    return (
+      <ContentPageFrame
+        breadcrumbs={[{ label: "Tools", href: "/tools" }, { label: tool.name }]}
+        title={tool.label}
+        eyebrow="မကြာမီ"
+        description={tool.description}
+      >
+        <section className="content-page__section">
+          <SectionHeading
+            title="လက်ရှိ အသုံးပြုနိုင်တဲ့ feature မဟုတ်သေးပါ။"
+            description={tool.purpose}
+          />
+          <p>
+            ရရှိနိုင်မယ့်ရက်ကို မကြေညာသေးပါ။ လက်ရှိအသုံးပြုနိုင်တဲ့ tools တွေကို
+            အရင်လေ့လာနိုင်ပါတယ်။
+          </p>
+          <ActionLink href="/tools" variant="secondary">
+            လက်ရှိ Tools ကြည့်ရန်
+            <ArrowRight aria-hidden="true" />
+          </ActionLink>
+        </section>
+      </ContentPageFrame>
+    )
+  }
+
   const resources = getVideoResourcesForTool(tool.slug)
   const examples = getExamplesForTool(tool.slug)
   const planHref = getPlanCtaHref()
@@ -839,7 +876,7 @@ export function ToolDetailPage({ tool }: { tool: Tool }) {
         tool.slug === "movie-recap" ? (
           <div className="content-page__hero-action">
             <ActionLink external={isExternalHref(planHref)} href={planHref}>
-              VVIP Plan ဝယ်ရန်
+              {planCtaLabels.vvip}
               <ArrowRight aria-hidden="true" />
             </ActionLink>
             <span>app.oneclickai.studio မှာ ဝယ်ယူလို့ရပါပြီ။</span>

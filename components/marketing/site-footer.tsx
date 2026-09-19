@@ -6,7 +6,7 @@ import {
   SupportLink,
   SupportIcon,
 } from "@/components/marketing/marketing-ui"
-import { getPlanCtaHref, siteConfig } from "@/lib/site-content"
+import { getPlanCtaHref, planCtaLabels, siteConfig } from "@/lib/site-content"
 
 export function SiteFooter() {
   return (
@@ -36,7 +36,7 @@ export function SiteFooter() {
               Telegram Support
             </SupportLink>
             <ActionLink external href={getPlanCtaHref()} variant="light">
-              VVIP ဝယ်ရန်
+              {planCtaLabels.vvip}
             </ActionLink>
             <ActionLink external href={siteConfig.appUrl} variant="light">
               App ဝင်ရန်

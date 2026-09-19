@@ -1,10 +1,14 @@
-import { MobileNavigation } from "@/components/marketing/mobile-navigation"
-
 import Image from "next/image"
 import Link from "next/link"
 
+import { MobileNavigation } from "@/components/marketing/mobile-navigation"
 import { ActionLink } from "@/components/marketing/marketing-ui"
-import { getPlanCtaHref, navigation, siteConfig } from "@/lib/site-content"
+import {
+  getPlanCtaHref,
+  navigation,
+  planCtaLabels,
+  siteConfig,
+} from "@/lib/site-content"
 
 export function SiteHeader() {
   const planHref = getPlanCtaHref()
@@ -52,7 +56,7 @@ export function SiteHeader() {
             href={planHref}
             variant="primary"
           >
-            VVIP ဝယ်ရန်
+            {planCtaLabels.vvip}
           </ActionLink>
         </div>
         <MobileNavigation />

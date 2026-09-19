@@ -16,6 +16,43 @@ export const toolSlugSchema = z.enum([
 
 export type ToolSlug = z.infer<typeof toolSlugSchema>
 
+export const toolAvailabilitySchema = z.enum(["available", "coming-soon"])
+export type ToolAvailability = z.infer<typeof toolAvailabilitySchema>
+export const toolAvailability = z
+  .record(toolSlugSchema, toolAvailabilitySchema)
+  .parse({
+    "movie-recap": "available",
+    football: "available",
+    dhamma: "available",
+    shorts: "available",
+    "hook-maker": "available",
+    "thumbnail-generator": "available",
+    "video-splitter": "available",
+    "knowledge-video": "coming-soon",
+    "voice-library": "available",
+  })
+export const knowledgeVideoNotice =
+  toolAvailability["knowledge-video"] === "coming-soon"
+    ? "Knowledge Video — မကြာမီ။ လက်ရှိအသုံးပြုနိုင်တဲ့ feature မဟုတ်သေးပါ။"
+    : "Knowledge Video ကို VVIP plan မှာ အသုံးပြုနိုင်ပါတယ်။"
+
+export const recapCreditExample = z
+  .object({
+    sourceMinutes: z.number().positive(),
+    standardPerMinute: z.number().positive(),
+    proPerMinute: z.number().positive(),
+    monthlyCredits: z.object({
+      VIP: z.number().int().positive(),
+      VVIP: z.number().int().positive(),
+    }),
+  })
+  .parse({
+    sourceMinutes: 5,
+    standardPerMinute: 1,
+    proPerMinute: 3,
+    monthlyCredits: { VIP: 60, VVIP: 120 },
+  })
+
 export const guideSlugSchema = z.enum([
   "getting-started",
   "choose-a-source",
@@ -29,6 +66,7 @@ export type ToolIcon =
   "film" | "football" | "image" | "leaf" | "scissors" | "sparkles"
 
 export type Tool = {
+  availability: ToolAvailability
   slug: ToolSlug
   name: string
   label: string
@@ -93,10 +131,7 @@ export type PricingPlan = {
 }
 
 export type PlanComparisonValueKind =
-  | "included"
-  | "excluded"
-  | "upcoming"
-  | "text"
+  "included" | "excluded" | "upcoming" | "text"
 
 export type PlanComparisonValue = {
   kind: PlanComparisonValueKind
@@ -159,6 +194,7 @@ export const navigation = [
 export const tools: Tool[] = [
   {
     slug: "movie-recap",
+    availability: toolAvailability["movie-recap"],
     name: "Movie Recap",
     label: "Movie Recap Generator",
     description:
@@ -195,6 +231,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "football",
+    availability: toolAvailability["football"],
     name: "Football",
     label: "Football Content Maker",
     description:
@@ -228,6 +265,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "dhamma",
+    availability: toolAvailability["dhamma"],
     name: "Dhamma",
     label: "Dhamma Content Maker",
     description:
@@ -260,6 +298,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "shorts",
+    availability: toolAvailability["shorts"],
     name: "Shorts",
     label: "One Click Shorts",
     description:
@@ -291,6 +330,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "hook-maker",
+    availability: toolAvailability["hook-maker"],
     name: "Hook Maker",
     label: "Hook Maker",
     description:
@@ -321,6 +361,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "thumbnail-generator",
+    availability: toolAvailability["thumbnail-generator"],
     name: "Thumbnail",
     label: "Thumbnail Generator",
     description:
@@ -353,6 +394,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "video-splitter",
+    availability: toolAvailability["video-splitter"],
     name: "Video Splitter",
     label: "Video Splitter",
     description:
@@ -385,28 +427,28 @@ export const tools: Tool[] = [
   },
   {
     slug: "knowledge-video",
+    availability: toolAvailability["knowledge-video"],
     name: "Knowledge Video",
     label: "Knowledge Video",
-    description:
-      "Knowledge-sharing style original content တွေထုတ်လို့ရမယ်။ VVIP plan မှာ အသုံးပြုနိုင်ပါတယ်။",
+    description: knowledgeVideoNotice,
     access: "VVIP only",
     purpose:
-      "Knowledge-video workflow ကို launch လုပ်ထားပြီး VVIP creator တွေအတွက် supported workflow အဖြစ် အသုံးပြုနိုင်ပါတယ်။",
+      "Knowledge-sharing video ဖန်တီးဖို့ စီစဉ်ထားတဲ့ VVIP workflow ဖြစ်ပါတယ်။ လက်ရှိ မရရှိသေးပါ။",
     audience:
       "Knowledge-style content ကို VVIP workflow ထဲကနေ ပြင်ဆင်ချင်တဲ့ creator တွေအတွက်ပါ။",
     sourceGuidance: [
       "VVIP only feature ဖြစ်ပါတယ်။",
-      "Original Content မို့လို့ Copyright 100% လွတ်ပါတယ်",
+      "Source rights နဲ့ အသုံးပြုခွင့်ကို ကိုယ်တိုင်စစ်ပါ။",
       "Source facts နဲ့ final output ကို publish မလုပ်ခင် ကိုယ်တိုင် review လုပ်ပါ။",
     ],
     outputs: [
       "Knowledge-style video workflow output",
-      "Copyright-free Original content output",
+      "ဖန်တီးပြီးနောက် facts နဲ့ rights ကို ပြန်စစ်ရမယ့် output",
     ],
     workflow: [
-      "Content အတွက် source context ကို ပြင်ဆင်ပါ။",
-      "Knowledge Video workflow ထဲမှာ setting ကို ရွေးပါ။",
-      "Generate လုပ်ပြီး facts, wording နဲ့ final output ကို ပြန်စစ်ပါ။",
+      "Content အတွက် source context ကို ပြင်ဆင်ထားပါ။",
+      "Workflow ရရှိချိန်မှာ အသုံးပြုနည်းကို ဖော်ပြပေးပါမယ်။",
+      "Source facts နဲ့ rights ကို ကိုယ်တိုင်စစ်ရန် လိုအပ်ပါမယ်။",
     ],
     relatedGuideSlugs: ["getting-started", "review-and-publish"],
     icon: "sparkles",
@@ -414,6 +456,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "voice-library",
+    availability: toolAvailability["voice-library"],
     name: "Voice Cloning",
     label: "Voice Cloning",
     description:
@@ -450,7 +493,7 @@ export const plans: PricingPlan[] = [
     description: "Movie Recap ကို အခုမှ စပြီး ပုံမှန်တင်ချင်တဲ့ creator အတွက်။",
     badge: "အခုမှ စမယ့်သူတွေအတွက်",
     features: [
-      "60 monthly credits",
+      `${recapCreditExample.monthlyCredits.VIP} monthly credits`,
       "Normal processing",
       "Voice, video and subtitle timing sync",
       "SRT subtitle download",
@@ -465,14 +508,17 @@ export const plans: PricingPlan[] = [
       "Movie Recap ကို seriously run မယ်၊ output ပိုများမယ်၊ VVIP-only tools လိုအပ်မယ်ဆိုရင်။",
     badge: "အတန်ဆုံး",
     valueSummary:
-      "24,000 MMK ပိုပေးပြီး 2× credits နဲ့ 5× ပိုမြန်တဲ့ processing ကို ရယူပါ။",
+      "24,000 MMK ပိုပေးပြီး 2× credits နဲ့ priority processing ကို ရယူပါ။",
     features: [
-      "120 monthly credits",
+      `${recapCreditExample.monthlyCredits.VVIP} monthly credits`,
       "VIP မှာပါဝင်တဲ့ features အားလုံး + VVIP-only tools",
-      "VIP ထက် 5x အထိပိုမြန်တဲ့ priority processing",
+      "Priority processing",
       "Styled Myanmar subtitle burn-in",
       "Football + One Click Shorts + Dhamma",
-      "Knowledge Video + Voice Cloning",
+      "Voice Cloning",
+      toolAvailability["knowledge-video"] === "coming-soon"
+        ? "Knowledge Video — မကြာမီ"
+        : "Knowledge Video",
       "New premium features priority access",
     ],
   },
@@ -493,13 +539,19 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
       },
       {
         feature: "Monthly credits",
-        vip: { kind: "text", label: "60" },
-        vvip: { kind: "text", label: "120" },
+        vip: {
+          kind: "text",
+          label: String(recapCreditExample.monthlyCredits.VIP),
+        },
+        vvip: {
+          kind: "text",
+          label: String(recapCreditExample.monthlyCredits.VVIP),
+        },
       },
       {
         feature: "Processing",
         vip: { kind: "text", label: "Normal" },
-        vvip: { kind: "text", label: "Priority, VIP ထက် 5× အထိပိုမြန်" },
+        vvip: { kind: "text", label: "Priority" },
       },
     ],
   },
@@ -574,7 +626,10 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
       {
         feature: "Knowledge Video",
         vip: excluded,
-        vvip: upcoming,
+        vvip:
+          toolAvailability["knowledge-video"] === "coming-soon"
+            ? upcoming
+            : included,
       },
     ],
   },
@@ -593,8 +648,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "ဘယ် content အမျိုးအစားတွေ လုပ်လို့ရလဲ?",
-    answer:
-      "Movie Recap, Football Content, Dhamma Content, One Click Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter တွေကို သုံးနိုင်ပါတယ်။ ဘယ် tool တွေပါမလဲဆိုတာက သင့် plan နဲ့ လက်ရှိ product rules ပေါ်မူတည်နိုင်ပါတယ်။",
+    answer: `Movie Recap, Football Content, Dhamma Content, One Click Shorts, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter တွေကို plan အလိုက် သုံးနိုင်ပါတယ်။ ${knowledgeVideoNotice}`,
   },
   {
     question: "Software install လုပ်ရလား?",
@@ -608,8 +662,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "ATS Standard နဲ့ ATS Pro ဘာကွာလဲ?",
-    answer:
-      "Movie Recap အတွက် ATS Standard က source footage duration အလိုက် approximately 1 credit per source minute ဖြစ်ပြီး ATS Pro က approximately 3 credits per source minute ဖြစ်ပါတယ်။ Exact credit ကို generate screen ပေါ်က estimate မှာ စစ်ပါ။",
+    answer: `Movie Recap ATS Standard က source တစ်မိနစ်လျှင် ခန့်မှန်း ${recapCreditExample.standardPerMinute} credit၊ ATS Pro က ခန့်မှန်း ${recapCreditExample.proPerMinute} credits ဖြစ်ပါတယ်။ Exact credit ကို generate screen ပေါ်က estimate မှာ စစ်ပါ။`,
   },
   {
     question: "Phone နဲ့သုံးလို့ရလား?",
@@ -734,14 +787,14 @@ export const guides: GuideArticle[] = [
       {
         title: "၁။ ကိုယ်လုပ်မယ့် content type ကို ရွေးပါ",
         paragraphs: [
-          "Movie Recap, Football, Dhamma, Shorts, Knowledge Video, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter ထဲက ကိုယ်ထုတ်ချင်တဲ့ content နဲ့ ကိုက်တဲ့ tool ကို ရွေးပါ။ Tool ကို source ပုံစံနဲ့ ကိုက်အောင် ရွေးရင် output ကို နားလည်ပြီး review လုပ်ရတာ ပိုလွယ်ပါတယ်။",
+          `Movie Recap, Football, Dhamma, Shorts, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter ထဲက ကိုယ့် content နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။ ${knowledgeVideoNotice}`,
         ],
         bullets: [
           "Movie recap-style source အတွက် Movie Recap",
           "Match clip သို့မဟုတ် highlight အတွက် Football",
           "Sermon audio အတွက် Dhamma",
           "Long video သို့မဟုတ် stream အတွက် Shorts",
-          "Knowledge-style content အတွက် Knowledge Video",
+          knowledgeVideoNotice,
           "Opening angle လိုရင် Hook Maker",
           "Video idea ကနေ thumbnail လိုရင် Thumbnail Generator",
           "ကိုယ်ပိုင်အသံကို content မှာသုံးချင်ရင် Voice Cloning",
@@ -847,13 +900,13 @@ export const guides: GuideArticle[] = [
       {
         title: "ATS Standard",
         paragraphs: [
-          "ATS Standard က source footage duration အလိုက် approximately 1 credit per source minute ဖြစ်ပါတယ်။ Credit usage ကို ထိန်းပြီး Movie Recap content ကို မှန်မှန်ထုတ်ချင်တဲ့ workflow အတွက် သင့်တော်ပါတယ်။",
+          `ATS Standard က source footage duration အလိုက် approximately ${recapCreditExample.standardPerMinute} credit per source minute ဖြစ်ပါတယ်။ Credit usage ကို ထိန်းပြီး Movie Recap content ကို မှန်မှန်ထုတ်ချင်တဲ့ workflow အတွက် သင့်တော်ပါတယ်။`,
         ],
       },
       {
         title: "ATS Pro",
         paragraphs: [
-          "ATS Pro က source footage duration အလိုက် approximately 3 credits per source minute ဖြစ်ပါတယ်။ Quality priority ကို ပိုဂရုစိုက်ချင်တဲ့ Movie Recap content အတွက် သုံးနိုင်ပါတယ်။",
+          `ATS Pro က source footage duration အလိုက် approximately ${recapCreditExample.proPerMinute} credits per source minute ဖြစ်ပါတယ်။ Quality priority ကို ပိုဂရုစိုက်ချင်တဲ့ Movie Recap content အတွက် သုံးနိုင်ပါတယ်။`,
         ],
       },
       {
@@ -987,7 +1040,7 @@ export const exampleItems: ExampleItem[] = [
   {
     slug: "knowledge-video-output",
     toolSlug: "knowledge-video",
-    title: "Knowledge Video example",
+    title: knowledgeVideoNotice,
     sourceLabel: "Knowledge-style source context",
     outputLabel: "Review-ready knowledge video workflow",
     caption: "Approved Knowledge Video output sample ထည့်ရန်နေရာ။",
@@ -1017,8 +1070,8 @@ export const creditRules = [
 ]
 
 export const creditVideoRates = [
-  "Movie Recap ATS Standard: source footage duration အလိုက် approximately 1 credit per source minute",
-  "Movie Recap ATS Pro: source footage duration အလိုက် approximately 3 credits per source minute",
+  `Movie Recap ATS Standard: source footage duration အလိုက် approximately ${recapCreditExample.standardPerMinute} credit per source minute`,
+  `Movie Recap ATS Pro: source footage duration အလိုက် approximately ${recapCreditExample.proPerMinute} credits per source minute`,
   "Football Content Maker: source footage duration အလိုက် approximately 2 credits per source minute",
   "One Click Shorts: source footage duration အလိုက် approximately 1 credit per source minute",
 ]
@@ -1077,3 +1130,8 @@ export function getExamplesForTool(toolSlug: ToolSlug) {
 export function getPlanCtaHref() {
   return siteConfig.appUrl
 }
+
+export const planCtaLabels = {
+  vip: "VIP ကို App မှာ ဝယ်ရန်",
+  vvip: "VVIP ကို App မှာ ဝယ်ရန်",
+} as const

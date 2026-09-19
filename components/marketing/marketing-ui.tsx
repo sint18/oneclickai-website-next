@@ -23,6 +23,8 @@ import {
   type SupportChannel,
   type Tool,
   getPlanCtaHref,
+  planCtaLabels,
+  recapCreditExample,
   getSupportUrl,
 } from "@/lib/site-content"
 
@@ -41,15 +43,20 @@ export function ActionLink({
   className,
   external = false,
 }: ActionLinkProps) {
+  const classes = cn("action-link", `action-link--${variant}`, className)
+
+  if (external) {
+    return (
+      <a className={classes} href={href} rel="noreferrer" target="_blank">
+        {children}
+      </a>
+    )
+  }
+
   return (
-    <a
-      className={cn("action-link", `action-link--${variant}`, className)}
-      href={href}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noreferrer" : undefined}
-    >
+    <Link className={classes} href={href}>
       {children}
-    </a>
+    </Link>
   )
 }
 
@@ -124,20 +131,25 @@ type VideoSlotProps = {
   className?: string
   src: string
   title: string
+  poster?: string
 }
 
-export function VideoSlot({ caption, className, src, title }: VideoSlotProps) {
+export function VideoSlot({
+  caption,
+  className,
+  src,
+  title,
+  poster,
+}: VideoSlotProps) {
   return (
     <figure className={cn("video-slot", className)}>
       <div className="video-slot__surface">
         <video
-          autoPlay
           className="video-slot__player"
           controls
-          loop
-          muted
           playsInline
-          preload="metadata"
+          preload="none"
+          poster={poster}
           title={title}
         >
           <source src={src} type="video/mp4" />
@@ -206,6 +218,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
       <div>
         <p className="tool-card__label">
           {tool.name} · {tool.access}
+          {tool.availability === "coming-soon" ? " · မကြာမီ" : ""}
         </p>
         <h3>{tool.label}</h3>
         <p>{tool.description}</p>
@@ -251,7 +264,7 @@ export function PricingCard({ plan }: { plan: PricingPlan }) {
         href={href}
         variant={isFeatured ? "primary" : "secondary"}
       >
-        {isFeatured ? "VVIP Plan ဝယ်ရန်" : "VIP plan ကို မေးရန်"}
+        {isFeatured ? planCtaLabels.vvip : planCtaLabels.vip}
       </ActionLink>
       {isFeatured ? (
         <Link
@@ -285,4 +298,39 @@ export function FAQList({ items }: { items: FAQItem[] }) {
 export function SupportIcon({ channel }: { channel: SupportChannel }) {
   const Icon = channel === "messenger" ? MessageCircle : Send
   return <Icon aria-hidden="true" />
+}
+
+export function CreditExamples() {
+  const { sourceMinutes, standardPerMinute, proPerMinute, monthlyCredits } =
+    recapCreditExample
+  const standardCost = sourceMinutes * standardPerMinute
+  const proCost = sourceMinutes * proPerMinute
+  return (
+    <div className="credit-examples">
+      <h3>{sourceMinutes} မိနစ် source တစ်ပုဒ်အတွက် credit ဘယ်လောက်လိုမလဲ?</h3>
+      <p>
+        ATS Standard မှာ ခန့်မှန်း {standardCost} credits၊ ATS Pro မှာ ခန့်မှန်း{" "}
+        {proCost} credits သုံးပါတယ်။
+      </p>
+      <dl className="credit-examples__plans">
+        {Object.entries(monthlyCredits).map(([name, credits]) => (
+          <div key={name}>
+            <dt>
+              {name} · {credits} monthly credits
+            </dt>
+            <dd>
+              Standard ခန့်မှန်း {Math.floor(credits / standardCost)} ပုဒ် / Pro
+              ခန့်မှန်း {Math.floor(credits / proCost)} ပုဒ်
+            </dd>
+          </div>
+        ))}
+      </dl>
+      <p>
+        Credits အားလုံးကို ဒီလို source တွေအတွက်ပဲ သုံးထားတယ်လို့ ယူဆထားတဲ့
+        နမူနာပါ။ လက်ရှိဖော်ပြထားတဲ့ ခန့်မှန်းနှုန်းထားအပေါ် အခြေခံထားပြီး
+        အမှန်တကယ်ကုန်မယ့် credit ကို app ရဲ့ generation estimate မှာ စစ်ပါ။{" "}
+        <Link href="/credit">Credit Rules ဖတ်ရန်</Link>
+      </p>
+    </div>
+  )
 }

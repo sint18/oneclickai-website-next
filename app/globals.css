@@ -87,7 +87,14 @@
   --action-foreground: #fefefd;
   --action-hover: #10443f;
   --focus-color: #18655f;
+  --header-height: 5rem;
   --header-offset: 6rem;
+  --space-compact: 1rem;
+  --space-section: 3rem;
+  --font-body: 1rem;
+  --font-small: 0.875rem;
+  --font-hero: 2.75rem;
+  --sample-width: 17rem;
   --sidebar: #fdfcfb;
   --sidebar-foreground: #0f0f00;
   --sidebar-primary: #28a99e;
@@ -199,7 +206,7 @@
 
   .site-header__inner {
     display: flex;
-    min-height: 5rem;
+    min-height: var(--header-height);
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
@@ -786,9 +793,9 @@
 
   .trust-strip {
     display: grid;
-    grid-template-columns: minmax(11rem, 0.7fr) minmax(8rem, 0.55fr) minmax(
+    grid-template-columns: minmax(12rem, 0.5fr) minmax(16rem, 0.9fr) minmax(
         0,
-        1.75fr
+        1.6fr
       );
     align-items: stretch;
     gap: 2rem;
@@ -1124,9 +1131,12 @@
 
   .tool-card {
     position: relative;
+    display: block;
     grid-column: span 4;
     min-height: 18rem;
     padding: 1.4rem;
+    color: inherit;
+    text-decoration: none;
   }
 
   .tool-card--teal {
@@ -2578,8 +2588,7 @@
   }
 
   .pricing-compare {
-    overflow: auto;
-    overscroll-behavior: contain;
+    overflow: visible;
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
     background: var(--card);
@@ -2588,7 +2597,7 @@
 
   .pricing-compare table {
     width: 100%;
-    min-width: 40rem;
+    table-layout: fixed;
     border-collapse: collapse;
     text-align: left;
   }
@@ -2603,7 +2612,7 @@
   .pricing-compare thead th {
     position: sticky;
     z-index: 1;
-    top: 0;
+    top: var(--header-offset);
     background: var(--muted);
     color: var(--foreground);
     font-size: 0.82rem;
@@ -2835,11 +2844,12 @@
 
   .content-page__hero h1 {
     max-width: none;
+    letter-spacing: 0;
     text-wrap: balance;
   }
 
   .pricing-compare {
-    max-height: 70dvh;
+    max-height: none;
   }
 
   .pricing-compare th,
@@ -2879,9 +2889,23 @@
     width: clamp(8.5rem, 31vw, 11.5rem);
   }
 
+  .trust-strip {
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.85fr);
+  }
+
+  .trust-strip__evidence {
+    padding-right: 0;
+    border-right: 0;
+  }
+
   .trust-strip__items {
+    grid-column: 1 / -1;
     grid-template-columns: 1fr;
     border-top: 1px solid var(--border);
+  }
+
+  .trust-strip__disclaimer {
+    grid-column: 1 / -1;
   }
 
   .trust-strip__item,
@@ -2894,10 +2918,6 @@
 
   .trust-strip__item:last-child {
     border-bottom: 0;
-  }
-
-  .trust-strip__disclaimer {
-    grid-column: auto;
   }
 
   .problem-grid,
@@ -2952,8 +2972,13 @@
     width: min(calc(100% - 1.5rem), 80rem);
   }
 
+  :root {
+    --header-height: 4.5rem;
+    --header-offset: 5.5rem;
+  }
+
   .site-header__inner {
-    min-height: 4.5rem;
+    min-height: var(--header-height);
   }
 
   .brand-lockup__company {
@@ -3217,9 +3242,6 @@
   .mobile-navigation {
     display: none;
   }
-  .tool-card {
-    display: block;
-  }
 }
 @media (max-width: 52rem) {
   .mobile-navigation {
@@ -3253,9 +3275,12 @@
     height: 1.25rem;
   }
   .mobile-navigation__panel {
-    position: absolute;
-    inset: 100% 0 auto;
-    max-height: calc(100dvh - var(--header-offset));
+    position: fixed;
+    z-index: 1;
+    top: var(--header-height);
+    right: 0;
+    left: 0;
+    max-height: calc(100dvh - var(--header-height));
     overflow-y: auto;
     background: var(--background);
     border-bottom: 1px solid var(--border);
@@ -3265,11 +3290,165 @@
     padding: 0.75rem 1rem;
   }
   .mobile-navigation__links a {
+    display: flex;
+    align-items: center;
     padding: 0.75rem;
     min-height: 2.75rem;
     border-radius: var(--radius);
+    color: var(--foreground);
+    text-decoration: none;
   }
   .mobile-navigation__links a:hover {
     background: var(--muted);
+  }
+}
+
+@layer components {
+  .hero-section--compact .hero-section__inner {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    min-height: 0;
+    padding-block: var(--space-section);
+    gap: var(--space-section);
+  }
+  .hero-section--compact .hero-copy h1 {
+    max-width: none;
+    font-size: var(--font-hero);
+    line-height: 1.5;
+    letter-spacing: 0;
+    text-wrap: pretty;
+  }
+  .hero-section--compact .hero-copy__description {
+    margin-top: var(--space-compact);
+    font-size: var(--font-body);
+  }
+  .hero-section--compact .hero-actions {
+    margin-top: var(--space-compact);
+  }
+  .hero-sample {
+    width: 100%;
+    max-width: var(--sample-width);
+    justify-self: center;
+  }
+  .hero-sample .video-slot__surface {
+    aspect-ratio: 9 / 16;
+  }
+  .hero-sample .video-slot__player {
+    object-fit: contain;
+  }
+  .hero-sample figcaption {
+    color: #cfcfcc;
+    line-height: 1.7;
+  }
+  .hero-deliverables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    padding: 0;
+    margin: var(--space-compact) 0 0;
+    list-style: none;
+    color: #cfcfcc;
+    font-size: var(--font-small);
+  }
+  .hero-section--compact + .trust-strip {
+    margin-block: var(--space-section);
+  }
+  .credit-examples {
+    margin-block: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    background: var(--card);
+  }
+  .credit-examples h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+  .credit-examples p {
+    font-size: var(--font-small);
+    line-height: 1.85;
+    color: var(--muted-foreground);
+  }
+  .credit-examples a {
+    color: var(--foreground);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .credit-examples__plans {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-compact);
+  }
+  .credit-examples dt {
+    font-weight: 700;
+  }
+  .credit-examples dd {
+    margin: 0.5rem 0 0;
+    line-height: 1.8;
+  }
+  .content-page--pricing .content-page__hero {
+    padding-block: 2rem;
+  }
+  .content-page--pricing .content-page__hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.5;
+  }
+  .content-page--pricing .content-page__section {
+    margin-top: 2rem;
+  }
+  .pricing-compare th,
+  .pricing-compare td {
+    overflow-wrap: anywhere;
+  }
+  .pricing-compare thead th:first-child {
+    width: 40%;
+  }
+  .pricing-compare thead th:not(:first-child) {
+    width: 30%;
+  }
+  .pricing-compare__group th {
+    color: var(--foreground);
+  }
+  .pricing-compare__value--included {
+    color: var(--action-background);
+  }
+  .tool-card__label {
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 52rem) {
+  .hero-section--compact .hero-section__inner {
+    grid-template-columns: 1fr;
+  }
+  .hero-section--compact .hero-copy h1 {
+    font-size: 2rem;
+    letter-spacing: 0;
+  }
+  .hero-section--compact .hero-copy {
+    max-width: none;
+  }
+  .credit-examples__plans {
+    grid-template-columns: 1fr;
+  }
+  .content-page--pricing .content-page__hero h1 {
+    font-size: 1.75rem;
+    letter-spacing: 0;
+  }
+  .pricing-compare th,
+  .pricing-compare td {
+    padding: 0.75rem 0.5rem;
+    font-size: var(--font-small);
+  }
+  .pricing-compare__plan,
+  .pricing-compare__price,
+  .pricing-compare__group th {
+    font-size: var(--font-small);
+  }
+  .pricing-compare thead th {
+    top: var(--header-offset);
+  }
+  .pricing-compare__value--upcoming {
+    padding: 0;
+    font-size: var(--font-small);
   }
 }
