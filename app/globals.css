@@ -86,6 +86,12 @@
   --action-background: #18655f;
   --action-foreground: #fefefd;
   --action-hover: #10443f;
+  --action-secondary-hover-background: #eaf7f5;
+  --action-secondary-hover-border: #18655f;
+  --action-inverse-background: #fefefd;
+  --action-inverse-foreground: #10443f;
+  --action-inverse-hover-background: #d4eeeb;
+  --eyebrow-foreground: #10443f;
   --focus-color: #18655f;
   --header-height: 5rem;
   --header-offset: 6rem;
@@ -114,6 +120,12 @@
   --action-background: #53bbb1;
   --action-foreground: #020200;
   --action-hover: #a9ddd8;
+  --action-secondary-hover-background: #1a3836;
+  --action-secondary-hover-border: #53bbb1;
+  --action-inverse-background: #fefefd;
+  --action-inverse-foreground: #10443f;
+  --action-inverse-hover-background: #d4eeeb;
+  --eyebrow-foreground: #53bbb1;
   --focus-color: #a9ddd8;
   --background: #121314;
   --foreground: #e7e7e6;
@@ -326,17 +338,19 @@
   }
 
   .action-link--secondary:hover {
-    border-color: var(--brand-teal);
-    color: var(--brand-teal-deep);
+    border-color: var(--action-secondary-hover-border);
+    background: var(--action-secondary-hover-background);
+    color: var(--foreground);
   }
 
   .action-link--light {
-    background: #fefefd;
-    color: var(--brand-teal-deep);
+    background: var(--action-inverse-background);
+    color: var(--action-inverse-foreground);
   }
 
   .action-link--light:hover {
-    background: var(--brand-teal-soft);
+    background: var(--action-inverse-hover-background);
+    color: var(--action-inverse-foreground);
   }
 
   .action-link--text {
@@ -431,7 +445,7 @@
 
   .eyebrow {
     margin: 0 0 1.25rem;
-    color: var(--brand-teal-deep);
+    color: var(--eyebrow-foreground);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -1175,40 +1189,47 @@
     grid-column: span 4;
     min-height: 18rem;
     padding: 1.4rem;
+    background: var(--card);
     color: inherit;
     text-decoration: none;
   }
 
-  .tool-card--teal {
-    background: var(--brand-teal-soft);
+  .tool-card--featured {
+    border-color: color-mix(in oklch, var(--brand-teal), var(--border) 45%);
+    background: color-mix(in oklch, var(--card), var(--brand-teal-soft) 14%);
   }
 
-  .tool-card--ink {
-    background: var(--brand-ink);
-    color: #fefefd;
-  }
-
-  .tool-card--ink p,
-  .tool-card--ink .tool-card__label {
-    color: #cfcfcc;
-  }
-
-  .tool-card--sand {
-    background: var(--muted);
-  }
-
-  .tool-card__label,
-  .mode-card__label {
+  .tool-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
     margin: 1rem 0 0;
-    color: var(--brand-teal-deep);
+  }
+
+  .tool-card__name,
+  .mode-card__label {
+    color: var(--eyebrow-foreground);
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
-  .tool-card--ink .tool-card__label {
-    color: #a9ddd8;
+  .tool-card__badge {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--brand-muted);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    padding: 0.1rem 0.45rem;
+    text-transform: uppercase;
+  }
+
+  .tool-card__badge--coming-soon {
+    border-color: var(--eyebrow-foreground);
+    color: var(--eyebrow-foreground);
   }
 
   .tool-card__arrow {
@@ -1222,16 +1243,12 @@
     justify-content: center;
     border: 1px solid currentColor;
     border-radius: 50%;
-    color: var(--brand-teal-deep);
+    color: var(--action-background);
   }
 
   .tool-card__arrow svg {
     width: 1rem;
     height: 1rem;
-  }
-
-  .tool-card--ink .tool-card__arrow {
-    color: #a9ddd8;
   }
 
   .steps-grid {
@@ -3717,7 +3734,7 @@
   .pricing-compare__value--included {
     color: var(--action-background);
   }
-  .tool-card__label {
+  .tool-card__name {
     overflow-wrap: anywhere;
   }
 }

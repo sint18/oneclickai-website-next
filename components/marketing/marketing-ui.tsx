@@ -191,20 +191,26 @@ export function MediaSlot({
 
 export function ToolCard({ tool }: { tool: Tool }) {
   const Icon = toolIcons[tool.icon]
+  const isFeatured = tool.slug === "movie-recap"
 
   return (
     <Link
       href={`/tools/${tool.slug}`}
-      className={cn("tool-card", `tool-card--${tool.accent}`)}
+      className={cn("tool-card", isFeatured && "tool-card--featured")}
     >
       <div className="tool-card__icon" aria-hidden="true">
         <Icon />
       </div>
       <div>
-        <p className="tool-card__label">
-          {tool.name} · {tool.access}
-          {tool.availability === "coming-soon" ? " · မကြာမီ" : ""}
-        </p>
+        <div className="tool-card__meta">
+          <span className="tool-card__name">{tool.name}</span>
+          <span className="tool-card__badge">{tool.access}</span>
+          {tool.availability === "coming-soon" ? (
+            <span className="tool-card__badge tool-card__badge--coming-soon">
+              မကြာမီ
+            </span>
+          ) : null}
+        </div>
         <h3>{tool.label}</h3>
         <p>{tool.description}</p>
       </div>
