@@ -751,6 +751,7 @@
   }
 
   .video-slot__surface {
+    position: relative;
     overflow: hidden;
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
@@ -764,6 +765,45 @@
     height: 100%;
     object-fit: contain;
     background: var(--brand-ink);
+  }
+
+  .video-slot__player:not([controls])::-webkit-media-controls {
+    display: none;
+  }
+
+  .video-slot__play {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: color-mix(in oklch, var(--brand-ink), transparent 55%);
+    color: var(--action-foreground);
+    cursor: pointer;
+  }
+
+  .video-slot__play:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: -0.35rem;
+  }
+
+  .video-slot__play-mark {
+    display: grid;
+    place-items: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    border: 1px solid
+      color-mix(in oklch, var(--action-foreground), transparent 54%);
+    border-radius: 999px;
+    background: color-mix(in oklch, var(--brand-ink), transparent 22%);
+  }
+
+  .video-slot__play-mark svg {
+    width: 1.35rem;
+    height: 1.35rem;
+    margin-inline-start: 0.15rem;
   }
 
   .video-slot figcaption {
@@ -3231,6 +3271,27 @@
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .video-slot__play:active .video-slot__play-mark {
+    transform: scale(0.97);
+  }
+
+  .hero-sample .video-slot__player--idle {
+    animation: hero-sample-drift 24s ease-in-out infinite;
+  }
+
+  @keyframes hero-sample-drift {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.035);
+    }
+  }
+}
+
 /* Shared keyboard access and mobile navigation. */
 @layer components {
   [id] {
@@ -3485,6 +3546,10 @@
   }
   .hero-sample .video-slot__surface {
     aspect-ratio: 9 / 16;
+    border-color: color-mix(in oklch, #fefefd, transparent 82%);
+    box-shadow:
+      0 1.5rem 3rem -1rem color-mix(in oklch, #000, transparent 45%),
+      0 0 0 1px color-mix(in oklch, #fefefd, transparent 88%);
   }
   .hero-sample .video-slot__player {
     object-fit: contain;

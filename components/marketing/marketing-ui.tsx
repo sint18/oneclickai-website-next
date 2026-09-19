@@ -145,40 +145,6 @@ export function SectionHeading({
   )
 }
 
-type VideoSlotProps = {
-  caption: string
-  className?: string
-  src: string
-  title: string
-  poster?: string
-}
-
-export function VideoSlot({
-  caption,
-  className,
-  src,
-  title,
-  poster,
-}: VideoSlotProps) {
-  return (
-    <figure className={cn("video-slot", className)}>
-      <div className="video-slot__surface">
-        <video
-          className="video-slot__player"
-          controls
-          playsInline
-          preload="none"
-          poster={poster}
-          title={title}
-        >
-          <source src={src} type="video/mp4" />
-        </video>
-      </div>
-      <figcaption>{caption}</figcaption>
-    </figure>
-  )
-}
-
 type MediaSlotProps = {
   alt: string
   detail: string

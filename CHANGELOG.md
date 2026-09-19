@@ -5,6 +5,7 @@
 ### Added
 
 - Add a compact homepage hero with a 9:16 Movie Recap sample that plays with audio after a click.
+- Add a custom play overlay and a slow idle drift on the homepage sample video poster.
 - Add a skip-to-content link and keyboard-accessible mobile navigation.
 - Add homepage How to buy steps for opening the app, paying with KBZPay, and sending a screenshot.
 

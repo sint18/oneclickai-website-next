@@ -9,8 +9,8 @@ import {
   SupportIcon,
   SupportLink,
   ToolCard,
-  VideoSlot,
 } from "@/components/marketing/marketing-ui"
+import { VideoSlot } from "@/components/marketing/video-slot"
 import { SiteFooter } from "@/components/marketing/site-footer"
 import { SiteHeader } from "@/components/marketing/site-header"
 import {
