@@ -2,6 +2,27 @@
 
 ## [Unreleased]
 
+## [0.0.5] - 2026-09-19
+
+### Added
+
+- Add a compact homepage hero with a 9:16 Movie Recap sample that plays with audio after a click.
+- Add 5-minute Movie Recap credit examples on the homepage and `/pricing`.
+- Add a skip-to-content link and keyboard-accessible mobile navigation.
+
+### Changed
+
+- Point the homepage primary CTA to `/pricing`.
+- Keep both VIP and VVIP columns visible on small screens without horizontal scroll.
+- Mark Knowledge Video as coming soon across tools, plans, and FAQs.
+- Use VIP- and VVIP-specific labels on app purchase CTAs.
+- Restore Messenger and Telegram support links in the header, footer, and mobile menu.
+
+### Fixed
+
+- Darken the primary action color so small button text meets contrast.
+- Enlarge homepage proof screenshots so they stay readable beside the trust metrics.
+
 ## [0.0.4] - 2026-09-16
 
 ### Changed
