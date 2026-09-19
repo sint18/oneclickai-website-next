@@ -16,7 +16,8 @@ import {
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
-import { cn } from "@/lib/utils"
+import { GaClickLink } from "@/components/marketing/ga-click-link"
+import type { GaClickLocation } from "@/lib/analytics"
 import {
   type FAQItem,
   type PricingPlan,
@@ -25,6 +26,7 @@ import {
   getPlanCtaHref,
   getSupportUrl,
 } from "@/lib/site-content"
+import { cn } from "@/lib/utils"
 
 type ActionLinkProps = {
   href: string
@@ -32,6 +34,7 @@ type ActionLinkProps = {
   variant?: "primary" | "secondary" | "light" | "text"
   className?: string
   external?: boolean
+  analyticsLocation?: GaClickLocation
 }
 
 export function ActionLink({
@@ -40,16 +43,18 @@ export function ActionLink({
   variant = "primary",
   className,
   external = false,
+  analyticsLocation,
 }: ActionLinkProps) {
   return (
-    <a
+    <GaClickLink
+      analyticsLocation={analyticsLocation}
       className={cn("action-link", `action-link--${variant}`, className)}
       href={href}
-      target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
+      target={external ? "_blank" : undefined}
     >
       {children}
-    </a>
+    </GaClickLink>
   )
 }
 
@@ -243,6 +248,7 @@ export function PricingCard({ plan }: { plan: PricingPlan }) {
         ))}
       </ul>
       <ActionLink
+        analyticsLocation={isFeatured ? "pricing_vvip" : "pricing_vip"}
         className="pricing-card__cta"
         external={href.startsWith("http")}
         href={href}

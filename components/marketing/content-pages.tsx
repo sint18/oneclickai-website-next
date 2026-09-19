@@ -149,7 +149,12 @@ export function VideoResourceCard({ resource }: { resource: VideoResource }) {
         <p>{resource.description}</p>
       </div>
       {availableHref ? (
-        <ActionLink external href={availableHref} variant="secondary">
+        <ActionLink
+          analyticsLocation="resource_card"
+          external
+          href={availableHref}
+          variant="secondary"
+        >
           {resource.linkLabel ?? "Facebook မှာကြည့်ရန်"}
           <ExternalLink aria-hidden="true" />
         </ActionLink>
@@ -300,7 +305,12 @@ function ContentCta({
           ကူညီပေးပါမယ်။
         </p>
       </div>
-      <ActionLink external={isExternalHref(href)} href={href} variant="light">
+      <ActionLink
+        analyticsLocation="content_cta"
+        external={isExternalHref(href)}
+        href={href}
+        variant="light"
+      >
         VVIP Plan ဝယ်ရန်
         <ArrowRight aria-hidden="true" />
       </ActionLink>
@@ -454,9 +464,7 @@ function PlanValue({ value }: { value: PlanComparisonValue }) {
         className="pricing-compare__value pricing-compare__value--included"
       >
         <Check aria-hidden="true" />
-        {value.label === "ပါဝင်ပါတယ်" ? null : (
-          <span>{value.label}</span>
-        )}
+        {value.label === "ပါဝင်ပါတယ်" ? null : <span>{value.label}</span>}
       </span>
     )
   }
@@ -545,6 +553,7 @@ export function PricingPage() {
         </div>
         <div className="pricing-compare__actions">
           <ActionLink
+            analyticsLocation="pricing_vip"
             external={isExternalHref(href)}
             href={href}
             variant="secondary"
@@ -552,6 +561,7 @@ export function PricingPage() {
             VIP plan ကို မေးရန်
           </ActionLink>
           <ActionLink
+            analyticsLocation="pricing_vvip"
             external={isExternalHref(href)}
             href={href}
             variant="primary"
@@ -561,9 +571,8 @@ export function PricingPage() {
           </ActionLink>
         </div>
         <p className="pricing-compare__note">
-          app.oneclickai.studio မှာ ဝယ်ယူလို့ရပါပြီ။ Credit rates နဲ့
-          estimate စစ်နည်းကို <Link href="/credit">Credit Rules</Link> မှာ
-          ဖတ်နိုင်ပါတယ်။
+          app.oneclickai.studio မှာ ဝယ်ယူလို့ရပါပြီ။ Credit rates နဲ့ estimate
+          စစ်နည်းကို <Link href="/credit">Credit Rules</Link> မှာ ဖတ်နိုင်ပါတယ်။
         </p>
       </section>
       <ContentCta
@@ -841,7 +850,11 @@ export function ToolDetailPage({ tool }: { tool: Tool }) {
       heroAction={
         tool.slug === "movie-recap" ? (
           <div className="content-page__hero-action">
-            <ActionLink external={isExternalHref(planHref)} href={planHref}>
+            <ActionLink
+              analyticsLocation="movie_recap"
+              external={isExternalHref(planHref)}
+              href={planHref}
+            >
               VVIP Plan ဝယ်ရန်
               <ArrowRight aria-hidden="true" />
             </ActionLink>
