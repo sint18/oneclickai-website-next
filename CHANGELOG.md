@@ -17,6 +17,7 @@
 - Restore Messenger and Telegram support links in the header, footer, and mobile menu.
 - Tighten homepage hero copy and remove the output-includes list.
 - Replace the boxed mobile Menu control with an icon-only menu and grouped glass panel.
+- Animate the mobile menu with a scrim fade, sliding panel, and menu-to-close icon morph.
 - Replace the homepage credit examples with the How to buy flow.
 - Remove the 5-minute credit calculator from `/pricing`.
 - Fix the homepage How to buy step grid so desktop cells align evenly.
