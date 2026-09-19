@@ -15,6 +15,8 @@ export const gaClickLocationSchema = z.enum([
   "footer_app",
   "resource_card",
   "footer_social",
+  "how_to_buy_app",
+  "how_to_buy_support",
 ])
 
 export type GaClickLocation = z.infer<typeof gaClickLocationSchema>

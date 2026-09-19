@@ -1,32 +1,23 @@
-import {
-  ArrowRight,
-  BadgeCheck,
-  Captions,
-  Check,
-  CheckCircle2,
-  Clock3,
-  Download,
-  Gauge,
-  MonitorSmartphone,
-  ShieldCheck,
-  WandSparkles,
-} from "lucide-react"
+import { ArrowRight, BadgeCheck, ShieldCheck, WandSparkles } from "lucide-react"
 import Image from "next/image"
 
-import { SiteFooter } from "@/components/marketing/site-footer"
-import { HeroShowcase } from "@/components/marketing/hero-showcase"
-import { SiteHeader } from "@/components/marketing/site-header"
+import { CopyAppLink } from "@/components/marketing/copy-app-link"
 import {
   ActionLink,
   FAQList,
   SectionHeading,
+  SupportIcon,
+  SupportLink,
   ToolCard,
-  VideoSlot,
 } from "@/components/marketing/marketing-ui"
+import { VideoSlot } from "@/components/marketing/video-slot"
+import { SiteFooter } from "@/components/marketing/site-footer"
+import { SiteHeader } from "@/components/marketing/site-header"
 import {
   faqs,
   getPlanCtaHref,
   getVideoResourceBySlug,
+  howToBuySteps,
   plans,
   siteConfig,
   tools,
@@ -70,66 +61,11 @@ const workflowSteps = [
   },
   {
     number: "03",
-    title: "Output ကို review လုပ်ပြီး တင်ပါ",
+    title: "Download လုပ်ပြီး တင်ပါ",
     description:
-      "Voice, subtitle နဲ့ timing ကို ပြန်စစ်ပြီး အဆင်ပြေရင် download လုပ်ကာ platform ပေါ်တင်ပါ။",
+      "Recap video ကို download လုပ်ပြီး TikTok, Reels နဲ့ Shorts မှာ တင်နိုင်ပါတယ်။",
   },
 ]
-
-const movieRecapOutputSampleSrc = "/videos/movie-recap-output-sample.mp4"
-
-const outputDeliverables = [
-  {
-    icon: WandSparkles,
-    title: "Burmese Voice ပါပြီးသား Recap Video",
-    description:
-      "ဇာတ်လမ်း flow အတိုင်း ညှပ်ထားတဲ့ visual နဲ့ နားထောင်လို့ကောင်းတဲ့ မြန်မာအသံ narration ကို တစ်ခါတည်း ပေါင်းစပ်ပေးပါတယ်။",
-  },
-  {
-    icon: Captions,
-    title: "Timing ကိုက် Burmese Subtitle",
-    description:
-      "စာလုံးအထားအသိုနဲ့ timing ကို လက်နဲ့ လိုက်ညှိစရာမလိုဘဲ အသံနဲ့ အတိအကျ ကိုက်ညီတဲ့ စာတန်းထိုး ပါဝင်ပြီးဖြစ်ပါတယ်။",
-  },
-  {
-    icon: MonitorSmartphone,
-    title: "Shorts, Reels & TikTok Format",
-    description:
-      "Platform တွေပေါ် တန်းတင်နိုင်ဖို့ အချိုးအစား မှန်ကန်တဲ့ vertical format (9:16) အဖြစ် ထွက်ရှိပေးပါတယ်။",
-  },
-  {
-    icon: Download,
-    title: "SRT Subtitle File ပါဝင်မှု",
-    description:
-      "Video ထဲမှာ စာတန်းထိုး ပါပြီးသားအပြင် platform captions အတွက် လိုအပ်ရင် သုံးနိုင်ဖို့ SRT file ကိုပါ ထည့်သွင်းပေးထားပါတယ်။",
-  },
-] as const
-
-const benefitItems = [
-  "Voice, subtitle နဲ့ timing ကို workflow တစ်ခုတည်းမှာ ပြင်ဆင်နိုင်မယ်",
-  "File ဟိုပို့ဒီပို့လုပ်ရတဲ့အလုပ် လျော့မယ်",
-  "Output ကို review လုပ်ပြီး TikTok, Reels နဲ့ Shorts မှာ ဆက်တင်နိုင်မယ်",
-  "VVIP နဲ့ Football, Shorts, Dhamma နဲ့ Original Content workflows ကိုပါ သုံးနိုင်မယ်",
-]
-
-const audienceItems = [
-  "Movie Recap ကို စနစ်တကျ စလုပ်ချင်သူ",
-  "Movie Recap content ကို ပုံမှန်တင်ချင်သူ",
-  "Editing အချိန်အများကြီးမပေးနိုင်တဲ့ creator",
-  "TikTok, Reels, Shorts အတွက် content မှန်မှန်တင်ချင်သူ",
-  "Football content ကို vertical format နဲ့ ထုတ်ချင်သူ",
-  "Dhamma audio ကို video content အဖြစ် ပြောင်းချင်သူ",
-  "Stream နဲ့ long video ကို short clips ပြန်လုပ်ချင်သူ",
-  "Video idea ကနေ thumbnail အမြန်ဖန်တီးချင်သူ",
-  "ပြီးစီးထားတဲ့ video ကို shorter clips အဖြစ် ခွဲချင်သူ",
-  "Original content တွေ ထုတ်ချင်သူ",
-  "Voice Cloning နဲ့ ကိုယ်ပိုင်အသံကို အသုံးပြုချင်သူ",
-  "Page အများကြီး run နေပြီး output speed မြှင့်ချင်တဲ့သူ",
-]
-
-function IconTile({ children }: { children: React.ReactNode }) {
-  return <span className="icon-tile">{children}</span>
-}
 
 function StructuredData() {
   const schema = {
@@ -182,45 +118,24 @@ export function LandingPage() {
   return (
     <>
       <SiteHeader />
-      <main>
-        <section className="hero-section">
+      <main id="main-content" tabIndex={-1}>
+        <section className="hero-section hero-section--compact">
           <div className="hero-section__stage">
-            {/*<div className="hero-section__backdrop" aria-hidden="true">*/}
-            {/*  <video*/}
-            {/*    autoPlay*/}
-            {/*    className="hero-section__video"*/}
-            {/*    loop*/}
-            {/*    muted*/}
-            {/*    playsInline*/}
-            {/*    preload="auto"*/}
-            {/*  >*/}
-            {/*    <source src="/abstract-forest.mp4" type="video/mp4" />*/}
-            {/*  </video>*/}
-            {/*  <div className="hero-section__scrim" />*/}
-            {/*</div>*/}
-
             <div className="site-shell hero-section__inner">
               <div className="hero-copy">
                 <p className="eyebrow eyebrow--light">
-                  The Content Engine for Myanmar Creators
+                  Movie Recap for Myanmar creators
                 </p>
                 <h1>
-                  Manual Editing ခေတ် ကုန်သွားပြီ။
-                  <span>သင့်ရဲ့ အချိန်ကို ပြန်ဝယ်ပေးမယ့် Content Engine။</span>
+                  မြန်မာအသံနဲ့ စာတန်းထိုးပါတဲ့ Movie Recap Video ဖန်တီးပါ။
                 </h1>
                 <p className="hero-copy__description">
-                  Video တစ်ပုဒ်အတွက် Tool တွေအများကြီးပြောင်းသုံးပြီး Subtitle
-                  နဲ့ Voice ကို နာရီနဲ့ချီ လိုက်ညှိနေစရာ မလိုတော့ပါဘူး။ One
-                  Click AI က Source ကနေ Upload-ready Output အထိ Workflow
-                  တစ်ခုလုံးကို စက္ကန့်ပိုင်းအတွင်း အလိုအလျောက် စီမံပေးပါတယ်။
+                  Editing မတတ်လည်း Movie Recap စလုပ်နိုင်ပါတယ်။ Source video
+                  တင်ပြီး Click တစ်ချက်နှိပ်ရုံပါပဲ
                 </p>
                 <div className="hero-actions">
-                  <ActionLink
-                    analyticsLocation="hero_start"
-                    external={getPlanCtaHref().startsWith("http")}
-                    href={getPlanCtaHref()}
-                  >
-                    စနစ်သစ်ကို စတင်အသုံးပြုရန်
+                  <ActionLink href="/pricing">
+                    Plan နှင့် ဈေးနှုန်း ကြည့်ရန်
                     <ArrowRight aria-hidden="true" />
                   </ActionLink>
                   <ActionLink
@@ -229,169 +144,77 @@ export function LandingPage() {
                     href={heroDemoHref}
                     variant="light"
                   >
-                    Live Demo ကြည့်ရန်
+                    အသုံးပြုပုံ Video ကြည့်ရန်
                   </ActionLink>
                 </div>
                 <div className="hero-note">
                   <BadgeCheck aria-hidden="true" />
-                  <span>KBZPay / WavePay ဖြင့် အလွယ်တကူ စတင်နိုင်ပါသည်။</span>
+                  <span>KBZPay ဖြင့် ဝယ်ယူနိုင်ပါတယ်။</span>
                 </div>
-                <p className="hero-app-note">
-                  အကောင့်ရှိပြီးသားဆို app.oneclickai.studio မှာ ဝင်ပါ။
-                </p>
               </div>
-              <HeroShowcase />
-            </div>
-          </div>
-
-          <div
-            className="site-shell trust-strip"
-            aria-label="Real creator result"
-          >
-            <div className="trust-strip__intro">
-              <p className="eyebrow">Real creator result</p>
-              <strong>
-                Movie Recap content တင်ပြီး ၅ ရက်အတွင်း monetization ရခဲ့တဲ့
-                VVIP creator
-              </strong>
-            </div>
-            <div
-              className="trust-strip__evidence"
-              aria-label="Customer result screenshots"
-            >
-              <Image
-                alt="Aung Khant Kyaw's Facebook page with 5.6K followers and 16 posts"
-                height={600}
-                src="/images/customer-results/aung-khant-kyaw-page.webp"
-                width={360}
-              />
-              <Image
-                alt="Aung Khant Kyaw's Facebook analytics dashboard showing 1.2M views and 4,759 net followers"
-                height={600}
-                src="/images/customer-results/aung-khant-kyaw-analytics.webp"
-                width={360}
-              />
-            </div>
-            <div className="trust-strip__items">
-              {proofItems.map((item, index) => (
-                <div className="trust-strip__item" key={item.label}>
-                  <span className="trust-strip__index">0{index + 1}</span>
-                  <strong>{item.label}</strong>
-                  <small>{item.detail}</small>
-                </div>
-              ))}
-            </div>
-            <p className="trust-strip__disclaimer">
-              Aung Khant Kyaw ရဲ့ individual result ပါ။ Result က source, content
-              quality, audience နဲ့ platform rules ပေါ်မူတည်နိုင်ပါတယ်။
-            </p>
-          </div>
-        </section>
-
-        <section className="section" id="product">
-          <div className="site-shell">
-            <SectionHeading
-              eyebrow="The friction"
-              title="ဇာတ်ကား recap idea ရှိတယ်။ Video တစ်ပုဒ်ပြီးဖို့ အချိန်ပဲ မရှိတာ။"
-              description="Source ရှာ၊ voice ထုတ်၊ editor ထဲထည့်၊ subtitle ထိုးပြီး timing ပြန်ညှိနေရင် video တစ်ပုဒ်ပြီးဖို့ အချိန်အများကြီးကုန်ပါတယ်။ အဲ့လိုနဲ့ တစ်ပုဒ်ပြီးရင် နောက်တစ်ပုဒ် မစနိုင်တော့ပါဘူး။"
-            />
-            <div className="problem-grid">
-              <article className="problem-card problem-card--lead">
-                <span className="problem-card__index">01</span>
-                <IconTile>
-                  <WandSparkles aria-hidden="true" />
-                </IconTile>
-                <h3>Tool တွေအများကြီးပြောင်းသုံးနေရတယ်</h3>
-                <p>
-                  Voice tool, video editor နဲ့ subtitle tool ကို တစ်ခုချင်းစီ
-                  ပြောင်းသုံးနေရတာက content ထုတ်တဲ့အရှိန်ကို နှေးစေပါတယ်။
-                </p>
-              </article>
-              <article className="problem-card">
-                <span className="problem-card__index">02</span>
-                <IconTile>
-                  <Captions aria-hidden="true" />
-                </IconTile>
-                <h3>Subtitle timing ကို ပြန်လိုက်ညှိနေရတယ်</h3>
-                <p>
-                  Burmese line တွေ ရှည်သွားတာ၊ voice နဲ့ visual မတည့်တာတွေကို
-                  မတင်ခင် ထပ်ပြီးပြင်နေရပါတယ်။
-                </p>
-              </article>
-              <article className="problem-card">
-                <span className="problem-card__index">03</span>
-                <IconTile>
-                  <Clock3 aria-hidden="true" />
-                </IconTile>
-                <h3>Content ကို မှန်မှန်မတင်နိုင်တော့ဘူး</h3>
-                <p>
-                  Manual editing အချိန်များလာတာနဲ့ page အတွက် content calendar က
-                  ဆက်မသွားတော့ပါဘူး။
-                </p>
-              </article>
+              <div className="hero-sample" id="output">
+                <VideoSlot
+                  caption="နမူနာကို ဖွင့်ပြီး မြန်မာအသံနဲ့ subtitle ကို ကြည့်ရှုနားထောင်ပါ။"
+                  src="/videos/movie-recap-output-sample.mp4"
+                  poster="/images/movie-recap-output-poster.jpg"
+                  title="Movie Recap output sample with Burmese voice and subtitles"
+                />
+              </div>
             </div>
           </div>
         </section>
-
-        <section
-          className="section section--teal"
-          aria-labelledby="solution-title"
+        <div
+          className="site-shell trust-strip"
+          aria-label="Real creator result"
         >
-          <div className="site-shell solution-section">
-            <div className="solution-section__copy">
-              <p className="eyebrow eyebrow--light">
-                Movie Recap workflow တစ်နေရာတည်းမှာ
-              </p>
-              <h2 id="solution-title">
-                Source တင်ပြီး၊ upload-ready Burmese recap output ကို
-                တစ်နေရာတည်းမှာ ရယူပါ။
-              </h2>
-              <p>
-                One Click AI က Movie Recap workflow အတွက် source video, Burmese
-                voice, subtitle နဲ့ timing ကို တစ်နေရာတည်းမှာ စီမံနိုင်အောင်
-                ပြုလုပ်ထားပါတယ်။ Tool တစ်ခုချင်းစီကို
-                လိုက်ပြောင်းသုံးရတဲ့အလုပ်ကို လျှော့ပြီး content ထုတ်တဲ့ flow ကို
-                ပိုရှင်းစေပါတယ်။
-              </p>
-              <ActionLink href="/tools/movie-recap" variant="light">
-                Movie Recap Tool ကို ကြည့်ရန်
-                <ArrowRight aria-hidden="true" />
-              </ActionLink>
-            </div>
-            <ul className="outcome-list">
-              {benefitItems.map((item) => (
-                <li key={item}>
-                  <CheckCircle2 aria-hidden="true" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+          <div className="trust-strip__intro">
+            <p className="eyebrow">Real creator result</p>
+            <strong>
+              Movie Recap content တင်ပြီး ၅ ရက်အတွင်း monetization ရခဲ့တဲ့ VVIP
+              creator
+            </strong>
           </div>
-        </section>
-
-        <section className="section" id="tools">
-          <div className="site-shell">
-            <SectionHeading
-              eyebrow="Creator tools"
-              title="Movie Recap ကနေစပြီး၊ နောက်ထပ် content အမျိုးအစားတွေကို VVIP tools တွေနဲ့ ဆက်လုပ်ပါ။"
-              description="Movie Recap အပြင် Football Content, One Click Shorts, Dhamma Content, Knowledge Video နဲ့ Voice Cloning ကို VVIP plan မှာ အသုံးပြုနိုင်ပါတယ်။ ကိုယ့် page နဲ့ niche ပိုများလာတဲ့အခါ workflow အသစ်တွေကို တစ်နေရာတည်းကနေ ဆက်သုံးပါ။"
+          <div
+            className="trust-strip__evidence"
+            aria-label="Customer result screenshots"
+          >
+            <Image
+              alt="Aung Khant Kyaw's Facebook page with 5.6K followers and 16 posts"
+              height={600}
+              src="/images/customer-results/aung-khant-kyaw-page.webp"
+              width={360}
             />
-            <div className="tool-grid">
-              {tools.map((tool) => (
-                <ToolCard key={tool.name} tool={tool} />
-              ))}
-            </div>
+            <Image
+              alt="Aung Khant Kyaw's Facebook analytics dashboard showing 1.2M views and 4,759 net followers"
+              height={600}
+              src="/images/customer-results/aung-khant-kyaw-analytics.webp"
+              width={360}
+            />
           </div>
-        </section>
+          <div className="trust-strip__items">
+            {proofItems.map((item, index) => (
+              <div className="trust-strip__item" key={item.label}>
+                <span className="trust-strip__index">0{index + 1}</span>
+                <strong>{item.label}</strong>
+                <small>{item.detail}</small>
+              </div>
+            ))}
+          </div>
+          <p className="trust-strip__disclaimer">
+            Aung Khant Kyaw ရဲ့ individual result ပါ။ Result က source, content
+            quality, audience နဲ့ platform rules ပေါ်မူတည်နိုင်ပါတယ်။
+          </p>
+        </div>
 
-        <section className="section section--wash" id="how-it-works">
-          <div className="site-shell">
-            <SectionHeading
-              eyebrow="Simple by design"
-              title="Movie Recap ကို အဆင့် ၃ ဆင့်တည်းနဲ့ ထုတ်ပါ"
-              description="Editing ကို ကျွမ်းကျင်ဖို့မလိုပါဘူး။ Tool နဲ့ကိုက်တဲ့ source ကို ရွေး၊ setting သတ်မှတ်ပြီး output ကို review လုပ်ပါ။"
-              align="center"
-            />
+        <section className="section section--wash" id="product">
+          <div className="site-shell" id="how-it-works">
+            <div id="audience">
+              <SectionHeading
+                eyebrow="Simple by design"
+                title="Source ကနေ output အထိ အဆင့် ၃ ဆင့်"
+                description="Movie Recap ပုံမှန်တင်ချင်တဲ့ creator တွေအတွက် voice tool၊ editor နဲ့ subtitle tool တွေကို သီးခြားပြောင်းသုံးရတဲ့အလုပ် လျှော့ပေးပါတယ်။"
+              />
+            </div>
             <ol className="steps-grid">
               {workflowSteps.map((step) => (
                 <li className="step-card" key={step.number}>
@@ -403,146 +226,85 @@ export function LandingPage() {
             </ol>
           </div>
         </section>
-
-        <section className="section section--ink" id="ats">
+        <section className="section" id="tools">
           <div className="site-shell">
             <SectionHeading
-              eyebrow="Quality modes"
-              title="Credit ကိုချွေတာမလား၊ quality ကိုပိုဦးစားပေးမလား ကိုယ့် content ပုံစံအလိုက် ရွေးပါ"
-              description="ATS Standard က content ကို ပုံမှန်ထုတ်ဖို့။ ATS Pro က quality နဲ့ timing ကို ပိုဂရုစိုက်ချင်တဲ့ Movie Recap တွေအတွက်ပါ။"
-              align="center"
+              eyebrow="Creator tools"
+              title="ကိုယ့် content အတွက် tool ကို ရွေးပါ"
+              description="Tool တစ်ခုချင်းစီရဲ့ အသုံးပြုပုံနဲ့ plan မှာ ပါဝင်မှုကို ကြည့်ပါ။ မကြာမီ ထွက်မယ့် tool တွေကို သီးခြားဖော်ပြထားပါတယ်။"
             />
-            <div className="mode-grid">
-              <article className="mode-card">
-                <div className="mode-card__icon">
-                  <Gauge aria-hidden="true" />
-                </div>
-                <p className="mode-card__label">ATS Standard</p>
-                <h3>နေ့တိုင်း content ထုတ်ချင်တဲ့ creator အတွက်</h3>
-                <p>
-                  Credit usage နဲ့ output quality ကို balance လုပ်ထားတဲ့ mode
-                  ပါ။
-                </p>
-                <span className="mode-card__note">Volume-first mode</span>
-              </article>
-              <article className="mode-card mode-card--accent">
-                <div className="mode-card__icon">
-                  <ShieldCheck aria-hidden="true" />
-                </div>
-                <p className="mode-card__label">ATS Pro</p>
-                <h3>Quality အမြင့်ဆုံး Movie Recap content အတွက်</h3>
-                <p>
-                  Voice, visual နဲ့ subtitle timing ကို ပိုဂရုစိုက်ချင်တဲ့အခါ
-                  ရွေးပါ။
-                </p>
-                <span className="mode-card__note">Quality-first mode</span>
-              </article>
+            <div className="tool-grid">
+              {tools.map((tool) => (
+                <ToolCard key={tool.slug} tool={tool} />
+              ))}
             </div>
           </div>
         </section>
-
-        <section className="section" id="output">
-          <div className="site-shell output-section">
+        <section className="section section--wash" id="pricing">
+          <div className="site-shell" id="reliability">
             <SectionHeading
-              align="center"
-              eyebrow="Upload-Ready Output"
-              title="Recap Video, Burmese Voice, Timed Subtitle — အားလုံး အသင့်ပါပြီးသား။"
-              description="Tool တွေ တစ်ခုပြီးတစ်ခု လိုက်ပြောင်းမနေရတော့ပါဘူး။ Generate နှိပ်လိုက်တာနဲ့ TikTok, Reels နဲ့ Shorts ပေါ် တန်းတင်နိုင်တဲ့ video file အပြည့်အစုံကို ချက်ချင်း ရရှိပါမယ်။"
+              eyebrow="How to buy"
+              title="Plan ဝယ်ပြီး စတင်ရန်"
+              description="App မှာ VIP သို့မဟုတ် VVIP ရွေးပြီး KBZPay နဲ့ ငွေလွှဲပါ။ Payment screenshot တင်ရင် Support က approve လုပ်ပေးပါမယ်။"
             />
-            <VideoSlot
-              caption="Movie Recap output sample — Burmese voice, timed subtitle နဲ့ edited recap ကို တစ်ခါတည်း ရရှိပါမယ်။"
-              className="output-section__showcase"
-              src={movieRecapOutputSampleSrc}
-              title="Movie Recap output sample with Burmese voice and timed subtitles"
-            />
-            <div className="output-section__proof">
-              <div className="output-feature-grid">
-                {outputDeliverables.map((item) => {
-                  const Icon = item.icon
-
-                  return (
-                    <article className="output-feature" key={item.title}>
-                      <IconTile>
-                        <Icon aria-hidden="true" />
-                      </IconTile>
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
-                    </article>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section section--sand" id="reliability">
-          <div className="site-shell reliability-section">
-            <div className="reliability-section__icon">
-              <ShieldCheck aria-hidden="true" />
-            </div>
-            <div>
-              <p className="eyebrow">Built for fewer surprises</p>
-              <h2>
-                Credit ဘယ်လိုကုန်မလဲ မရှုပ်စေဖို့ rules တွေကို ရှင်းထားပါတယ်။
-              </h2>
-              <p>
-                Generate မလုပ်ခင် source guidance နဲ့ credit estimate ကို
-                ကြည့်နိုင်ပါတယ်။
-              </p>
-              <div className="reliability-points">
-                <span>
-                  <Check aria-hidden="true" /> Credit estimate before generation
-                </span>
-                <span>
-                  <Check aria-hidden="true" /> Source guidance
-                </span>
-                <span>
-                  <Check aria-hidden="true" /> Clear error messages
-                </span>
-              </div>
-              <ActionLink href="/credit" variant="secondary">
-                Credit Rules ဖတ်ရန်
+            <ol className="how-to-buy-steps">
+              {howToBuySteps.map((step) => (
+                <li className="how-to-buy-step" key={step.number}>
+                  <span className="how-to-buy-step__number">{step.number}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="how-to-buy-actions">
+              <ActionLink
+                analyticsLocation="how_to_buy_app"
+                external
+                href={getPlanCtaHref()}
+              >
+                App မှာ Plan ဝယ်ရန်
+                <ArrowRight aria-hidden="true" />
+              </ActionLink>
+              <CopyAppLink />
+              <SupportLink
+                analyticsLocation="how_to_buy_support"
+                channel="messenger"
+                variant="secondary"
+              >
+                <SupportIcon channel="messenger" />
+                Messenger
+              </SupportLink>
+              <SupportLink
+                analyticsLocation="how_to_buy_support"
+                channel="telegram"
+                variant="secondary"
+              >
+                <SupportIcon channel="telegram" />
+                Telegram
+              </SupportLink>
+              <ActionLink href="/pricing" variant="text">
+                VIP နှင့် VVIP ကို နှိုင်းယှဉ်ရန်
                 <ArrowRight aria-hidden="true" />
               </ActionLink>
             </div>
           </div>
         </section>
-
-        <section className="section" id="audience">
-          <div className="site-shell audience-section">
-            <SectionHeading
-              eyebrow="Made for Myanmar creators"
-              title="Movie Recap ကို ပုံမှန်တင်ပြီး page ကိုတကယ် grow ချင်တဲ့ creator တွေအတွက်။"
-              description="Editing skill အများကြီးမလိုဘဲ content ကို ပိုလွယ်ကူအောင်၊ ပိုမှန်မှန်ထုတ်ချင်တဲ့ Myanmar creator တွေအတွက်ပါ။"
-            />
-            <ul className="audience-list">
-              {audienceItems.map((item) => (
-                <li key={item}>
-                  <CheckCircle2 aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="section section--wash" id="faq">
+        <section className="section" id="faq">
           <div className="site-shell faq-section">
             <SectionHeading
               eyebrow="Before you start"
-              title="VVIP မဝယ်ခင် သိထားသင့်တာတွေ"
-              description="Plan, source နဲ့ output အကြောင်းကို မဝယ်ခင် ရှင်းအောင် ဖတ်ပါ။"
+              title="မဝယ်ခင် သိထားသင့်တာတွေ"
+              description="Plan၊ source နဲ့ output အကြောင်း ကြိုဖတ်ပါ။"
             />
             <FAQList items={faqs} />
           </div>
         </section>
-
         <section className="section policy-strip">
           <div className="site-shell policy-strip__inner">
             <div>
               <p className="eyebrow">Use it with confidence</p>
               <h2>
-                မတင်ခင် source rights နဲ့ platform rules ကို ကိုယ်တိုင်စစ်ပါ။
+                Advanced AI နဲ့ ready-to-post output ကို ယုံကြည်စွာ အသုံးပြုပါ။
               </h2>
             </div>
             <div className="policy-grid">
@@ -550,8 +312,8 @@ export function LandingPage() {
                 <ShieldCheck aria-hidden="true" />
                 <strong>Copyright</strong>
                 <p>
-                  Source rights မရှိဘဲ အသုံးပြုတာနဲ့ platform enforcement အတွက်
-                  One Click AI က အာမခံမပေးပါ။
+                  Advanced AI နဲ့ source ကို transform လုပ်ပေးပေမယ့် copyright
+                  claim နဲ့ platform enforcement ကို အာမခံမပေးပါ။
                 </p>
               </div>
               <div>
@@ -564,10 +326,10 @@ export function LandingPage() {
               </div>
               <div>
                 <WandSparkles aria-hidden="true" />
-                <strong>AI output</strong>
+                <strong>Highest Quality</strong>
                 <p>
-                  Source quality နဲ့ mode ပေါ်မူတည်ပြီး output ကွာနိုင်လို့
-                  မတင်ခင် ပြန်စစ်ပါ။
+                  အကောင်းဆုံး ready-to-post quality နဲ့ ထုတ်ပေးလို့ download
+                  လုပ်ပြီး တန်းတင်နိုင်ပါတယ်။
                 </p>
               </div>
             </div>

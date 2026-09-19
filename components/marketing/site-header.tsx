@@ -2,14 +2,23 @@ import Image from "next/image"
 import Link from "next/link"
 
 import { GaClickLink } from "@/components/marketing/ga-click-link"
+import { MobileNavigation } from "@/components/marketing/mobile-navigation"
 import { ActionLink } from "@/components/marketing/marketing-ui"
-import { getPlanCtaHref, navigation, siteConfig } from "@/lib/site-content"
+import {
+  getPlanCtaHref,
+  navigation,
+  planCtaLabels,
+  siteConfig,
+} from "@/lib/site-content"
 
 export function SiteHeader() {
   const planHref = getPlanCtaHref()
 
   return (
     <header className="site-header">
+      <a className="skip-link" href="#main-content">
+        အဓိကအကြောင်းအရာသို့ ကျော်ရန်
+      </a>
       <div className="site-shell site-header__inner">
         <Link className="brand-lockup" href="/" aria-label="One Click AI home">
           <Image
@@ -53,9 +62,10 @@ export function SiteHeader() {
             href={planHref}
             variant="primary"
           >
-            VVIP ဝယ်ရန်
+            {planCtaLabels.vvip}
           </ActionLink>
         </div>
+        <MobileNavigation />
       </div>
     </header>
   )

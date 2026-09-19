@@ -24,6 +24,7 @@ import {
   type SupportChannel,
   type Tool,
   getPlanCtaHref,
+  planCtaLabels,
   getSupportUrl,
 } from "@/lib/site-content"
 import { cn } from "@/lib/utils"
@@ -45,27 +46,41 @@ export function ActionLink({
   external = false,
   analyticsLocation,
 }: ActionLinkProps) {
+  const classes = cn("action-link", `action-link--${variant}`, className)
+
+  if (external) {
+    return (
+      <GaClickLink
+        analyticsLocation={analyticsLocation}
+        className={classes}
+        href={href}
+        rel="noreferrer"
+        target="_blank"
+      >
+        {children}
+      </GaClickLink>
+    )
+  }
+
   return (
-    <GaClickLink
-      analyticsLocation={analyticsLocation}
-      className={cn("action-link", `action-link--${variant}`, className)}
-      href={href}
-      rel={external ? "noreferrer" : undefined}
-      target={external ? "_blank" : undefined}
-    >
+    <Link className={classes} href={href}>
       {children}
-    </GaClickLink>
+    </Link>
   )
 }
 
 export function SupportLink({
+  analyticsLocation,
   channel,
   children,
   className,
+  variant = "light",
 }: {
+  analyticsLocation?: GaClickLocation
   channel: SupportChannel
   children: ReactNode
   className?: string
+  variant?: ActionLinkProps["variant"]
 }) {
   const href = getSupportUrl(channel)
 
@@ -82,7 +97,13 @@ export function SupportLink({
   }
 
   return (
-    <ActionLink className={className} external href={href} variant="light">
+    <ActionLink
+      analyticsLocation={analyticsLocation}
+      className={className}
+      external
+      href={href}
+      variant={variant}
+    >
       {children}
     </ActionLink>
   )
@@ -121,35 +142,6 @@ export function SectionHeading({
         <p className="section-heading__description">{description}</p>
       ) : null}
     </div>
-  )
-}
-
-type VideoSlotProps = {
-  caption: string
-  className?: string
-  src: string
-  title: string
-}
-
-export function VideoSlot({ caption, className, src, title }: VideoSlotProps) {
-  return (
-    <figure className={cn("video-slot", className)}>
-      <div className="video-slot__surface">
-        <video
-          autoPlay
-          className="video-slot__player"
-          controls
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          title={title}
-        >
-          <source src={src} type="video/mp4" />
-        </video>
-      </div>
-      <figcaption>{caption}</figcaption>
-    </figure>
   )
 }
 
@@ -201,13 +193,17 @@ export function ToolCard({ tool }: { tool: Tool }) {
   const Icon = toolIcons[tool.icon]
 
   return (
-    <article className={cn("tool-card", `tool-card--${tool.accent}`)}>
+    <Link
+      href={`/tools/${tool.slug}`}
+      className={cn("tool-card", `tool-card--${tool.accent}`)}
+    >
       <div className="tool-card__icon" aria-hidden="true">
         <Icon />
       </div>
       <div>
         <p className="tool-card__label">
           {tool.name} · {tool.access}
+          {tool.availability === "coming-soon" ? " · မကြာမီ" : ""}
         </p>
         <h3>{tool.label}</h3>
         <p>{tool.description}</p>
@@ -215,7 +211,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
       <span className="tool-card__arrow" aria-hidden="true">
         <ArrowUpRight />
       </span>
-    </article>
+    </Link>
   )
 }
 
@@ -254,7 +250,7 @@ export function PricingCard({ plan }: { plan: PricingPlan }) {
         href={href}
         variant={isFeatured ? "primary" : "secondary"}
       >
-        {isFeatured ? "VVIP Plan ဝယ်ရန်" : "VIP plan ကို မေးရန်"}
+        {isFeatured ? planCtaLabels.vvip : planCtaLabels.vip}
       </ActionLink>
       {isFeatured ? (
         <Link

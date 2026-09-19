@@ -2,6 +2,38 @@
 
 ## [Unreleased]
 
+## [0.0.6] - 2026-09-19
+
+### Added
+
+- Add a compact homepage hero with a 9:16 Movie Recap sample that plays with audio after a click.
+- Add a custom play overlay and a slow idle drift on the homepage sample video poster.
+- Add a skip-to-content link and keyboard-accessible mobile navigation.
+- Add homepage How to buy steps for opening the app, paying with KBZPay, and sending a screenshot.
+
+### Changed
+
+- Point the homepage primary CTA to `/pricing`.
+- Keep both VIP and VVIP columns visible on small screens without horizontal scroll.
+- Mark Knowledge Video as coming soon across tools, plans, and FAQs.
+- Use VIP- and VVIP-specific labels on app purchase CTAs.
+- Restore Messenger and Telegram support links in the header, footer, and mobile menu.
+- Tighten homepage hero copy and remove the output-includes list.
+- Replace the boxed mobile Menu control with an icon-only menu and grouped glass panel.
+- Animate the mobile menu with a scrim fade, sliding panel, and menu-to-close icon morph.
+- Replace the homepage credit examples with the How to buy flow.
+- Remove the 5-minute credit calculator from `/pricing`.
+- Fix the homepage How to buy step grid so desktop cells align evenly.
+- Show KBZPay as the only payment method on the homepage.
+- Present Movie Recap output as ready to post and clarify the AI copyright disclaimer.
+- Refine the compact homepage hero with a soft ink gradient, vignette, and film grain.
+
+### Fixed
+
+- Round the `/pricing` comparison table corners without breaking sticky plan headers.
+- Darken the primary action color so small button text meets contrast.
+- Enlarge homepage proof screenshots so they stay readable beside the trust metrics.
+
 ## [0.0.5] - 2026-09-19
 
 ### Added

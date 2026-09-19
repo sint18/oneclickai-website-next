@@ -29,7 +29,7 @@ export function PolicyPage({
   return (
     <>
       <SiteHeader />
-      <main className="policy-page">
+      <main id="main-content" tabIndex={-1} className="policy-page">
         <div className="site-shell">
           <div className="policy-page__back">
             <ActionLink href="/" variant="text">
@@ -41,7 +41,9 @@ export function PolicyPage({
             <p className="eyebrow">{eyebrow}</p>
             <h1>{title}</h1>
             <p>{description}</p>
-            <span className="policy-page__meta">{siteConfig.company} · Public information</span>
+            <span className="policy-page__meta">
+              {siteConfig.company} · Public information
+            </span>
           </header>
           <div className="policy-page__body">
             {sections.map((section) => (
@@ -61,7 +63,9 @@ export function PolicyPage({
               </section>
             ))}
           </div>
-          {callout ? <div className="policy-page__callout">{callout}</div> : null}
+          {callout ? (
+            <div className="policy-page__callout">{callout}</div>
+          ) : null}
           <div className="policy-page__next">
             <ActionLink href="/" variant="secondary">
               Back to One Click AI
