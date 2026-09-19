@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
+import { GaClickLink } from "@/components/marketing/ga-click-link"
 import { MobileNavigation } from "@/components/marketing/mobile-navigation"
 import { ActionLink } from "@/components/marketing/marketing-ui"
 import {
@@ -48,10 +49,15 @@ export function SiteHeader() {
           <Link className="site-header__login" href="/#support">
             Support
           </Link>
-          <a className="site-header__app-link" href={siteConfig.appUrl}>
+          <GaClickLink
+            analyticsLocation="header_app"
+            className="site-header__app-link"
+            href={siteConfig.appUrl}
+          >
             App ဝင်ရန်
-          </a>
+          </GaClickLink>
           <ActionLink
+            analyticsLocation="header_vvip"
             external={planHref.startsWith("http")}
             href={planHref}
             variant="primary"

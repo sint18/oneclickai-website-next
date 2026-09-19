@@ -1,10 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
 
+import { GaClickLink } from "@/components/marketing/ga-click-link"
 import {
   ActionLink,
-  SupportLink,
   SupportIcon,
+  SupportLink,
 } from "@/components/marketing/marketing-ui"
 import { getPlanCtaHref, planCtaLabels, siteConfig } from "@/lib/site-content"
 
@@ -35,10 +36,20 @@ export function SiteFooter() {
               <SupportIcon channel="telegram" />
               Telegram Support
             </SupportLink>
-            <ActionLink external href={getPlanCtaHref()} variant="light">
+            <ActionLink
+              analyticsLocation="footer_vvip"
+              external
+              href={getPlanCtaHref()}
+              variant="light"
+            >
               {planCtaLabels.vvip}
             </ActionLink>
-            <ActionLink external href={siteConfig.appUrl} variant="light">
+            <ActionLink
+              analyticsLocation="footer_app"
+              external
+              href={siteConfig.appUrl}
+              variant="light"
+            >
               App ဝင်ရန်
             </ActionLink>
           </div>
@@ -82,14 +93,15 @@ export function SiteFooter() {
             <div>
               <p className="site-footer__label">Follow AI Code Lab</p>
               {siteConfig.social.map((social) => (
-                <a
+                <GaClickLink
+                  analyticsLocation="footer_social"
                   href={social.href}
                   key={social.href}
                   rel="noreferrer"
                   target="_blank"
                 >
                   {social.label}
-                </a>
+                </GaClickLink>
               ))}
             </div>
           </div>

@@ -2,12 +2,10 @@
 
 ## [Unreleased]
 
-## [0.0.5] - 2026-09-19
-
 ### Added
 
 - Add a compact homepage hero with a 9:16 Movie Recap sample that plays with audio after a click.
-- Add 5-minute Movie Recap credit examples on the homepage and `/pricing`.
+- Add 5-minute Movie Recap credit examples on `/pricing`.
 - Add a skip-to-content link and keyboard-accessible mobile navigation.
 
 ### Changed
@@ -22,6 +20,12 @@
 
 - Darken the primary action color so small button text meets contrast.
 - Enlarge homepage proof screenshots so they stay readable beside the trust metrics.
+
+## [0.0.5] - 2026-09-19
+
+### Added
+
+- Track marketing CTA and outbound clicks in Google Analytics (`cta_clicked`, `outbound_click`) and disclose Analytics on `/privacy`.
 
 ## [0.0.4] - 2026-09-16
 

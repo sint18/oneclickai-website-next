@@ -157,7 +157,12 @@ export function VideoResourceCard({ resource }: { resource: VideoResource }) {
         <p>{resource.description}</p>
       </div>
       {availableHref ? (
-        <ActionLink external href={availableHref} variant="secondary">
+        <ActionLink
+          analyticsLocation="resource_card"
+          external
+          href={availableHref}
+          variant="secondary"
+        >
           {resource.linkLabel ?? "Facebook မှာကြည့်ရန်"}
           <ExternalLink aria-hidden="true" />
         </ActionLink>
@@ -309,7 +314,12 @@ function ContentCta({
           ကူညီပေးပါမယ်။
         </p>
       </div>
-      <ActionLink external={isExternalHref(href)} href={href} variant="light">
+      <ActionLink
+        analyticsLocation="content_cta"
+        external={isExternalHref(href)}
+        href={href}
+        variant="light"
+      >
         {planCtaLabels.vvip}
         <ArrowRight aria-hidden="true" />
       </ActionLink>
@@ -554,6 +564,7 @@ export function PricingPage() {
         <CreditExamples />
         <div className="pricing-compare__actions">
           <ActionLink
+            analyticsLocation="pricing_vip"
             external={isExternalHref(href)}
             href={href}
             variant="secondary"
@@ -561,6 +572,7 @@ export function PricingPage() {
             {planCtaLabels.vip}
           </ActionLink>
           <ActionLink
+            analyticsLocation="pricing_vvip"
             external={isExternalHref(href)}
             href={href}
             variant="primary"
@@ -875,7 +887,11 @@ export function ToolDetailPage({ tool }: { tool: Tool }) {
       heroAction={
         tool.slug === "movie-recap" ? (
           <div className="content-page__hero-action">
-            <ActionLink external={isExternalHref(planHref)} href={planHref}>
+            <ActionLink
+              analyticsLocation="movie_recap"
+              external={isExternalHref(planHref)}
+              href={planHref}
+            >
               {planCtaLabels.vvip}
               <ArrowRight aria-hidden="true" />
             </ActionLink>

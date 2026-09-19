@@ -18,9 +18,10 @@ export default function PrivacyPage() {
           title: "Information used to provide the service",
           body: (
             <p>
-              Account access, uploaded source files, project settings နဲ့ output information
-              တွေက video generation ကို ဆောင်ရွက်ဖို့ လိုအပ်နိုင်ပါတယ်။ Support ကို ဆက်သွယ်တဲ့
-              အခါ မလိုအပ်တဲ့ sensitive information တွေ မပို့ပါနဲ့။
+              Account access, uploaded source files, project settings နဲ့ output
+              information တွေက video generation ကို ဆောင်ရွက်ဖို့
+              လိုအပ်နိုင်ပါတယ်။ Support ကို ဆက်သွယ်တဲ့ အခါ မလိုအပ်တဲ့ sensitive
+              information တွေ မပို့ပါနဲ့။
             </p>
           ),
         },
@@ -28,9 +29,10 @@ export default function PrivacyPage() {
           title: "Use the service safely",
           body: (
             <p>
-              ကိုယ်ပိုင်အချက်အလက်၊ third-party personal information နဲ့ အသုံးပြုခွင့်မရှိတဲ့
-              source material တွေကို မတင်မီ သေချာစဉ်းစားပါ။ သင့် source rights နဲ့ sharing
-              permission ကို သင်ကိုယ်တိုင် တာဝန်ယူရပါမယ်။
+              ကိုယ်ပိုင်အချက်အလက်၊ third-party personal information နဲ့
+              အသုံးပြုခွင့်မရှိတဲ့ source material တွေကို မတင်မီ သေချာစဉ်းစားပါ။
+              သင့် source rights နဲ့ sharing permission ကို သင်ကိုယ်တိုင်
+              တာဝန်ယူရပါမယ်။
             </p>
           ),
         },
@@ -38,9 +40,20 @@ export default function PrivacyPage() {
           title: "Support and account help",
           body: (
             <p>
-              Plan ရွေးချယ်မှု၊ account activation နဲ့ project အခက်အခဲတွေကို support ဆီ
-              ဆက်သွယ်နိုင်ပါတယ်။ Support ဆီကို လိုအပ်တဲ့ project detail ပဲ ပေးပြီး payment
-              account information သို့မဟုတ် password ကို မမျှဝေပါနဲ့။
+              Plan ရွေးချယ်မှု၊ account activation နဲ့ project အခက်အခဲတွေကို
+              support ဆီ ဆက်သွယ်နိုင်ပါတယ်။ Support ဆီကို လိုအပ်တဲ့ project
+              detail ပဲ ပေးပြီး payment account information သို့မဟုတ် password
+              ကို မမျှဝေပါနဲ့။
+            </p>
+          ),
+        },
+        {
+          title: "Analytics",
+          body: (
+            <p>
+              Marketing site မှာ Google Analytics 4 ကို သုံးပြီး page view နဲ့
+              CTA click တွေကို တိုင်းတာပါတယ်။ Event တွေထဲမှာ name, email,
+              သို့မဟုတ် payment detail တွေ မပို့ပါဘူး။
             </p>
           ),
         },
@@ -48,9 +61,10 @@ export default function PrivacyPage() {
           title: "Policy review",
           body: (
             <p>
-              ဒီစာမျက်နှာက public privacy overview ဖြစ်ပါတယ်။ Data retention, third-party
-              processors, deletion requests နဲ့ applicable legal requirements တွေအတွက် AI Code
-              Lab ရဲ့ official policy version ကို ဒီစာမျက်နှာမှာ ဆက်လက် update လုပ်ပါမယ်။
+              ဒီစာမျက်နှာက public privacy overview ဖြစ်ပါတယ်။ Data retention,
+              third-party processors, deletion requests နဲ့ applicable legal
+              requirements တွေအတွက် AI Code Lab ရဲ့ official policy version ကို
+              ဒီစာမျက်နှာမှာ ဆက်လက် update လုပ်ပါမယ်။
             </p>
           ),
         },

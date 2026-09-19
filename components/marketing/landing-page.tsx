@@ -136,6 +136,7 @@ export function LandingPage() {
                     <ArrowRight aria-hidden="true" />
                   </ActionLink>
                   <ActionLink
+                    analyticsLocation="hero_demo"
                     external={heroDemoHref.startsWith("http")}
                     href={heroDemoHref}
                     variant="light"
