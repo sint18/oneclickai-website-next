@@ -46,7 +46,6 @@ export const planCreditAllocation = z
 export const guideSlugSchema = z.enum([
   "getting-started",
   "choose-a-source",
-  "review-and-publish",
 ])
 
 export type GuideSlug = z.infer<typeof guideSlugSchema>
@@ -213,7 +212,6 @@ export const tools: Tool[] = [
     relatedGuideSlugs: [
       "getting-started",
       "choose-a-source",
-      "review-and-publish",
     ],
     icon: "film",
     accent: "teal",
@@ -248,7 +246,7 @@ export const tools: Tool[] = [
       "Football Content Maker ထဲ တင်ပြီး output setting ကို ရွေးပါ။",
       "Generate လုပ်ပြီး မတင်ခင် source rights နဲ့ output ကို ပြန်စစ်ပါ။",
     ],
-    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    relatedGuideSlugs: ["getting-started"],
     icon: "football",
     accent: "ink",
   },
@@ -281,7 +279,7 @@ export const tools: Tool[] = [
       "Dhamma Content Maker ထဲ audio တင်ပြီး background နဲ့ subtitle setting ကို ရွေးပါ။",
       "Generate လုပ်ပြီး အကြောင်းအရာ မှန်မမှန် ပြန်ကြည့်ပါ။",
     ],
-    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    relatedGuideSlugs: ["getting-started"],
     icon: "leaf",
     accent: "sand",
   },
@@ -313,7 +311,7 @@ export const tools: Tool[] = [
       "One Click Shorts ထဲ source တင်ပြီး clip/output setting ကို ရွေးပါ။",
       "ထွက်လာတဲ့ short clips ကို ပြန်ကြည့်ပြီး download လုပ်ပါ။",
     ],
-    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    relatedGuideSlugs: ["getting-started"],
     icon: "scissors",
     accent: "teal",
   },
@@ -344,7 +342,7 @@ export const tools: Tool[] = [
       "Hook Maker ထဲ ထည့်ပြီး ကိုယ့် content အမျိုးအစားကို ရွေးပါ။",
       "ထွက်လာတဲ့ hook angle ကို ပြန်ရွေးပြီး script workflow ထဲ ဆက်သုံးပါ။",
     ],
-    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    relatedGuideSlugs: ["getting-started"],
     icon: "sparkles",
     accent: "ink",
   },
@@ -377,7 +375,7 @@ export const tools: Tool[] = [
       "Headline, subject, setting, action, mood နဲ့ format ကို ရွေးပါ။",
       "Generate လုပ်ပြီး thumbnail ကို review လုပ်ကာ လိုရင် ထပ် generate လုပ်ပါ။",
     ],
-    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    relatedGuideSlugs: ["getting-started"],
     icon: "image",
     accent: "sand",
   },
@@ -410,7 +408,7 @@ export const tools: Tool[] = [
       "Preset သို့မဟုတ် custom clip length ကို ရွေးပါ။",
       "Estimated clip count ကို စစ်ပြီး split လုပ်ပါ။",
     ],
-    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    relatedGuideSlugs: ["getting-started"],
     icon: "scissors",
     accent: "teal",
   },
@@ -439,7 +437,7 @@ export const tools: Tool[] = [
       "Workflow ရရှိချိန်မှာ အသုံးပြုနည်းကို ဖော်ပြပေးပါမယ်။",
       "Source facts နဲ့ rights ကို ကိုယ်တိုင်စစ်ရန် လိုအပ်ပါမယ်။",
     ],
-    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    relatedGuideSlugs: ["getting-started"],
     icon: "sparkles",
     accent: "ink",
   },
@@ -469,7 +467,7 @@ export const tools: Tool[] = [
       "Voice Cloning ထဲမှာ cloned voice ကို manage လုပ်ပါ။",
       "Supported workflow ထဲမှာ voice ကို ရွေးပြီး output ကို review လုပ်ပါ။",
     ],
-    relatedGuideSlugs: ["getting-started", "review-and-publish"],
+    relatedGuideSlugs: ["getting-started"],
     icon: "film",
     accent: "sand",
   },
@@ -872,52 +870,6 @@ export const guides: GuideArticle[] = [
     ],
     relatedToolSlugs: ["movie-recap"],
     videoResourceSlugs: ["movie-recap-walkthrough", "movie-recap-source-guide"],
-  },
-  {
-    slug: "review-and-publish",
-    eyebrow: "Before you publish",
-    title: "Output ကို review လုပ်ပြီးမှ publish လုပ်ပါ",
-    description:
-      "Voice, subtitle, timing, source rights နဲ့ platform rules ကို နောက်ဆုံးတစ်ကြိမ် စစ်ဆေးပါ။",
-    intro:
-      "AI output ရတာနဲ့ တန်းတင်တာထက် ကိုယ့် content အဖြစ် publish မလုပ်ခင် source နဲ့ output ကို တစ်ခါပြန်စစ်တာက ပိုလုံခြုံပါတယ်။",
-    sections: [
-      {
-        title: "Voice နဲ့ subtitle ကို နားထောင်ဖတ်ကြည့်ပါ",
-        paragraphs: [
-          "အသံနဲ့ စာသား ကိုက်ညီမှု၊ Burmese line တွေရဲ့ ဖတ်ရလွယ်မှုနဲ့ စာလုံးမှားနိုင်တဲ့နေရာတွေကို ပြန်စစ်ပါ။",
-        ],
-      },
-      {
-        title: "Timing နဲ့ visual ကို တိုက်စစ်ပါ",
-        paragraphs: [
-          "Subtitle တက်တဲ့အချိန်၊ voice နဲ့ visual တို့ ကိုက်ညီမှု၊ video အစနဲ့အဆုံးမှာ မလိုတဲ့အပိုင်းတွေ ရှိမရှိ စစ်ပါ။",
-        ],
-      },
-      {
-        title: "SRT နဲ့ review-ready output ကို သုံးပါ",
-        paragraphs: [
-          "Video ထဲ subtitle တန်းပါဖို့ မလိုသေးရင် SRT file ကို သီးခြား download လုပ်ပြီး ကိုယ့် editing workflow ထဲ ဆက်သုံးနိုင်ပါတယ်။ Platform အလိုက် output format နဲ့ caption ကို ပြန်စစ်ပါ။",
-        ],
-      },
-      {
-        title: "Rights နဲ့ claims ကို မမေ့ပါနဲ့",
-        paragraphs: [
-          "Source rights မရှိဘဲ အသုံးပြုတာ၊ platform enforcement, views, followers, income နဲ့ monetization approval ကို One Click AI က အာမခံမပေးပါ။ Publish မလုပ်ခင် ကိုယ့် source rights နဲ့ platform rules ကို ကိုယ်တိုင်စစ်ဆေးပါ။",
-        ],
-      },
-    ],
-    relatedToolSlugs: [
-      "movie-recap",
-      "football",
-      "dhamma",
-      "shorts",
-      "hook-maker",
-      "thumbnail-generator",
-      "video-splitter",
-      "knowledge-video",
-      "voice-library",
-    ],
   },
 ]
 

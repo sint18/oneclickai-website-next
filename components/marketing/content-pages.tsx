@@ -18,7 +18,7 @@ import {
   ActionLink,
   MediaSlot,
   SectionHeading,
-  ToolIcon,
+  ToolCard,
 } from "@/components/marketing/marketing-ui"
 import {
   type ExampleItem,
@@ -189,26 +189,6 @@ function GuideCard({ guide }: { guide: GuideArticle }) {
   )
 }
 
-function ToolDirectoryCard({ tool }: { tool: Tool }) {
-  return (
-    <article className={cn("content-card", `content-card--${tool.accent}`)}>
-      <span className="content-card__icon" aria-hidden="true">
-        <ToolIcon icon={tool.icon} />
-      </span>
-      <p className="content-card__eyebrow">
-        {tool.name} · {tool.access}
-        {tool.availability === "coming-soon" ? " · မကြာမီ" : ""}
-      </p>
-      <h2>{tool.label}</h2>
-      <p>{tool.description}</p>
-      <Link className="content-card__link" href={`/tools/${tool.slug}`}>
-        Tool အကြောင်းကြည့်ရန်
-        <ArrowRight aria-hidden="true" />
-      </Link>
-    </article>
-  )
-}
-
 function ExampleCard({ example }: { example: ExampleItem }) {
   const tool = getToolBySlug(example.toolSlug)
 
@@ -284,9 +264,9 @@ function RelatedTools({ slugs }: { slugs: Tool["slug"][] }) {
         title="ကိုယ့် content နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ"
         description="Source နဲ့ output ရည်ရွယ်ချက်အလိုက် tool တစ်ခုချင်းစီကို ကြည့်ပါ။"
       />
-      <div className="content-card-grid content-card-grid--three">
+      <div className="tool-grid">
         {relatedTools.map((tool) => (
-          <ToolDirectoryCard key={tool.slug} tool={tool} />
+          <ToolCard key={tool.slug} tool={tool} />
         ))}
       </div>
     </section>
@@ -406,7 +386,7 @@ export function GuidesIndexPage() {
       }}
     >
       <section className="content-page__section">
-        <div className="content-card-grid content-card-grid--four">
+        <div className="content-card-grid content-card-grid--two">
           {guides.map((guide) => (
             <GuideCard guide={guide} key={guide.slug} />
           ))}
@@ -449,9 +429,9 @@ export function ToolsIndexPage() {
       }}
     >
       <section className="content-page__section">
-        <div className="content-card-grid content-card-grid--three">
+        <div className="tool-grid">
           {tools.map((tool) => (
-            <ToolDirectoryCard key={tool.slug} tool={tool} />
+            <ToolCard key={tool.slug} tool={tool} />
           ))}
         </div>
       </section>

@@ -2141,6 +2141,10 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .content-card-grid--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .content-card {
     position: relative;
     display: flex;
@@ -2174,7 +2178,7 @@
     justify-content: center;
     border-radius: 0.8rem;
     background: var(--brand-teal-soft);
-    color: var(--brand-teal-deep);
+    color: var(--eyebrow-foreground);
   }
 
   .content-card__icon svg {
@@ -2190,7 +2194,7 @@
   .content-card__eyebrow,
   .resource-card__label {
     margin: 1.5rem 0 0;
-    color: var(--brand-teal-deep);
+    color: var(--eyebrow-foreground);
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.13em;
@@ -2225,7 +2229,7 @@
     gap: 0.45rem;
     margin-top: auto;
     padding-top: 1.5rem;
-    color: var(--brand-teal-deep);
+    color: var(--eyebrow-foreground);
     font-size: 0.82rem;
     font-weight: 700;
   }
@@ -2700,7 +2704,7 @@
 
   .pricing-compare thead th:nth-child(3) {
     background: var(--brand-teal-soft);
-    color: var(--brand-teal-deep);
+    color: var(--eyebrow-foreground);
   }
 
   .pricing-compare thead tr:first-child th:first-child {
@@ -2752,7 +2756,7 @@
   }
 
   .pricing-compare thead th:nth-child(3) .pricing-compare__price {
-    color: var(--brand-teal-deep);
+    color: var(--eyebrow-foreground);
   }
 
   .pricing-compare__group th {
@@ -2790,7 +2794,7 @@
     padding: 0.15rem 0.55rem;
     border-radius: var(--radius);
     background: var(--brand-teal-soft);
-    color: var(--brand-teal-deep);
+    color: var(--eyebrow-foreground);
     font-size: 0.75rem;
     font-weight: 700;
   }
@@ -2811,7 +2815,7 @@
   }
 
   .pricing-compare__note a {
-    color: var(--brand-teal-deep);
+    color: var(--eyebrow-foreground);
     text-decoration: underline;
     text-underline-offset: 0.18em;
   }
@@ -2902,6 +2906,7 @@
   }
 
   .content-card-grid--three,
+  .content-card-grid--two,
   .content-card-grid--four,
   .resource-grid,
   .example-grid {
