@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.0.6] - 2026-09-19
+
 ### Added
 
 - Add a compact homepage hero with a 9:16 Movie Recap sample that plays with audio after a click.
