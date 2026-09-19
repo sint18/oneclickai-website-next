@@ -57,7 +57,7 @@ const workflowSteps = [
     number: "02",
     title: "Video တင်ပြီး setting ရွေးပါ",
     description:
-      "Movie Recap tool ထဲမှာ source တင်ပြီး voice, subtitle နဲ့ ATS mode ကို ရွေးပါ။",
+      "Movie Recap tool ထဲမှာ source တင်ပြီး voice, subtitle နဲ့ output setting ကို ရွေးပါ။",
   },
   {
     number: "03",
@@ -259,33 +259,38 @@ export function LandingPage() {
             <div className="how-to-buy-actions">
               <ActionLink
                 analyticsLocation="how_to_buy_app"
+                className="how-to-buy-actions__purchase"
                 external
                 href={getPlanCtaHref()}
               >
                 App မှာ Plan ဝယ်ရန်
                 <ArrowRight aria-hidden="true" />
               </ActionLink>
-              <CopyAppLink />
-              <SupportLink
-                analyticsLocation="how_to_buy_support"
-                channel="messenger"
-                variant="secondary"
-              >
-                <SupportIcon channel="messenger" />
-                Messenger
-              </SupportLink>
-              <SupportLink
-                analyticsLocation="how_to_buy_support"
-                channel="telegram"
-                variant="secondary"
-              >
-                <SupportIcon channel="telegram" />
-                Telegram
-              </SupportLink>
-              <ActionLink href="/pricing" variant="text">
-                VIP နှင့် VVIP ကို နှိုင်းယှဉ်ရန်
-                <ArrowRight aria-hidden="true" />
-              </ActionLink>
+              <div className="how-to-buy-actions__support">
+                <SupportLink
+                  analyticsLocation="how_to_buy_support"
+                  channel="messenger"
+                  variant="secondary"
+                >
+                  <SupportIcon channel="messenger" />
+                  Messenger
+                </SupportLink>
+                <SupportLink
+                  analyticsLocation="how_to_buy_support"
+                  channel="telegram"
+                  variant="secondary"
+                >
+                  <SupportIcon channel="telegram" />
+                  Telegram
+                </SupportLink>
+              </div>
+              <div className="how-to-buy-actions__utility">
+                <CopyAppLink variant="text" />
+                <ActionLink href="/pricing" variant="text">
+                  VIP နှင့် VVIP ကို နှိုင်းယှဉ်ရန်
+                  <ArrowRight aria-hidden="true" />
+                </ActionLink>
+              </div>
             </div>
           </div>
         </section>

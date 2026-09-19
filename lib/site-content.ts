@@ -36,27 +36,16 @@ export const knowledgeVideoNotice =
     ? "Knowledge Video — မကြာမီ။ လက်ရှိအသုံးပြုနိုင်တဲ့ feature မဟုတ်သေးပါ။"
     : "Knowledge Video ကို VVIP plan မှာ အသုံးပြုနိုင်ပါတယ်။"
 
-export const recapCreditExample = z
+export const planCreditAllocation = z
   .object({
-    sourceMinutes: z.number().positive(),
-    standardPerMinute: z.number().positive(),
-    proPerMinute: z.number().positive(),
-    monthlyCredits: z.object({
-      VIP: z.number().int().positive(),
-      VVIP: z.number().int().positive(),
-    }),
+    VIP: z.number().int().positive(),
+    VVIP: z.number().int().positive(),
   })
-  .parse({
-    sourceMinutes: 5,
-    standardPerMinute: 1,
-    proPerMinute: 3,
-    monthlyCredits: { VIP: 60, VVIP: 120 },
-  })
+  .parse({ VIP: 60, VVIP: 120 })
 
 export const guideSlugSchema = z.enum([
   "getting-started",
   "choose-a-source",
-  "ats-modes",
   "review-and-publish",
 ])
 
@@ -493,7 +482,7 @@ export const plans: PricingPlan[] = [
     description: "Movie Recap ကို အခုမှ စပြီး ပုံမှန်တင်ချင်တဲ့ creator အတွက်။",
     badge: "အခုမှ စမယ့်သူတွေအတွက်",
     features: [
-      `${recapCreditExample.monthlyCredits.VIP} monthly credits`,
+      `${planCreditAllocation.VIP} monthly credits`,
       "Normal processing",
       "Voice, video and subtitle timing sync",
       "SRT subtitle download",
@@ -510,7 +499,7 @@ export const plans: PricingPlan[] = [
     valueSummary:
       "24,000 MMK ပိုပေးပြီး 2× credits နဲ့ priority processing ကို ရယူပါ။",
     features: [
-      `${recapCreditExample.monthlyCredits.VVIP} monthly credits`,
+      `${planCreditAllocation.VVIP} monthly credits`,
       "VIP မှာပါဝင်တဲ့ features အားလုံး + VVIP-only tools",
       "Priority processing",
       "Styled Myanmar subtitle burn-in",
@@ -541,11 +530,11 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
         feature: "Monthly credits",
         vip: {
           kind: "text",
-          label: String(recapCreditExample.monthlyCredits.VIP),
+          label: String(planCreditAllocation.VIP),
         },
         vvip: {
           kind: "text",
-          label: String(recapCreditExample.monthlyCredits.VVIP),
+          label: String(planCreditAllocation.VVIP),
         },
       },
       {
@@ -659,10 +648,6 @@ export const faqs: FAQItem[] = [
     question: "Burmese voice နဲ့ subtitle ပါလား?",
     answer:
       "Supported tools တွေမှာ Burmese narration, Burmese subtitle နဲ့ SRT export ပါပါတယ်။ Output ကောင်းမကောင်းက source quality, အသံရှင်းလင်းမှု, source type နဲ့ mode ပေါ်မူတည်ပါတယ်။",
-  },
-  {
-    question: "ATS Standard နဲ့ ATS Pro ဘာကွာလဲ?",
-    answer: `Movie Recap ATS Standard က source တစ်မိနစ်လျှင် ခန့်မှန်း ${recapCreditExample.standardPerMinute} credit၊ ATS Pro က ခန့်မှန်း ${recapCreditExample.proPerMinute} credits ဖြစ်ပါတယ်။ Exact credit ကို generate screen ပေါ်က estimate မှာ စစ်ပါ။`,
   },
   {
     question: "Phone နဲ့သုံးလို့ရလား?",
@@ -810,7 +795,7 @@ export const guides: GuideArticle[] = [
       {
         title: "၃။ Voice, subtitle, timing နဲ့ mode ကို ရွေးပါ",
         paragraphs: [
-          "လိုအပ်တဲ့ voice, subtitle, timing နဲ့ output setting ကို ရွေးပါ။ ATS Standard နဲ့ ATS Pro ဘာကွာလဲဆိုတာကို ATS Modes guide မှာ ဆက်ဖတ်နိုင်ပါတယ်။",
+          "လိုအပ်တဲ့ voice, subtitle, timing နဲ့ output setting ကို ရွေးပါ။ Generate မလုပ်ခင် screen ပေါ်က estimated credit ကို စစ်ပါ။",
         ],
       },
       {
@@ -887,36 +872,6 @@ export const guides: GuideArticle[] = [
     ],
     relatedToolSlugs: ["movie-recap"],
     videoResourceSlugs: ["movie-recap-walkthrough", "movie-recap-source-guide"],
-  },
-  {
-    slug: "ats-modes",
-    eyebrow: "Quality modes",
-    title: "ATS Standard နဲ့ ATS Pro ကို ဘယ်လိုရွေးမလဲ?",
-    description:
-      "Movie Recap အတွက် ATS Standard နဲ့ ATS Pro credit rate ကိုကြည့်ပြီး mode ရွေးပါ။",
-    intro:
-      "Movie Recap မှာ ATS Standard နဲ့ ATS Pro နှစ်မျိုးရှိပါတယ်။ Credit ကို source footage duration ပေါ်မူတည်ပြီးတွက်လို့ generate မလုပ်ခင် screen ပေါ်က estimate ကို စစ်ပြီးမှ စတင်ပါ။",
-    sections: [
-      {
-        title: "ATS Standard",
-        paragraphs: [
-          `ATS Standard က source footage duration အလိုက် approximately ${recapCreditExample.standardPerMinute} credit per source minute ဖြစ်ပါတယ်။ Credit usage ကို ထိန်းပြီး Movie Recap content ကို မှန်မှန်ထုတ်ချင်တဲ့ workflow အတွက် သင့်တော်ပါတယ်။`,
-        ],
-      },
-      {
-        title: "ATS Pro",
-        paragraphs: [
-          `ATS Pro က source footage duration အလိုက် approximately ${recapCreditExample.proPerMinute} credits per source minute ဖြစ်ပါတယ်။ Quality priority ကို ပိုဂရုစိုက်ချင်တဲ့ Movie Recap content အတွက် သုံးနိုင်ပါတယ်။`,
-        ],
-      },
-      {
-        title: "Generate မလုပ်ခင် စစ်ရမယ့်အချက်",
-        paragraphs: [
-          "Exact credit amount က video length, selected feature နဲ့ quality setting ပေါ်မူတည်ပြီး အနည်းငယ်ကွာနိုင်ပါတယ်။ Generate မလုပ်ခင် estimated credit ကို ကြည့်ပြီး ကိုယ့် plan နဲ့ကိုက်မကိုက် စစ်ပါ။ အသေးစိတ်ကို Credit Rules မှာ ဖတ်ပါ။",
-        ],
-      },
-    ],
-    relatedToolSlugs: ["movie-recap", "football", "dhamma", "shorts"],
   },
   {
     slug: "review-and-publish",
@@ -1070,8 +1025,7 @@ export const creditRules = [
 ]
 
 export const creditVideoRates = [
-  `Movie Recap ATS Standard: source footage duration အလိုက် approximately ${recapCreditExample.standardPerMinute} credit per source minute`,
-  `Movie Recap ATS Pro: source footage duration အလိုက် approximately ${recapCreditExample.proPerMinute} credits per source minute`,
+  "Movie Recap: exact credit amount ကို generate screen ပေါ်က estimate မှာ စစ်ပါ။",
   "Football Content Maker: source footage duration အလိုက် approximately 2 credits per source minute",
   "One Click Shorts: source footage duration အလိုက် approximately 1 credit per source minute",
 ]

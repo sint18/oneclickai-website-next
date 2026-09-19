@@ -356,11 +356,11 @@
   .action-link--text {
     min-height: auto;
     padding: 0;
-    color: var(--brand-teal-deep);
+    color: var(--eyebrow-foreground);
   }
 
   .action-link--text:hover {
-    color: var(--brand-teal);
+    color: var(--action-hover);
   }
 
   .action-link--muted {
@@ -1745,13 +1745,39 @@
   }
 
   .site-footer__support-links {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    min-width: 18rem;
     gap: 0.7rem;
   }
 
-  .site-footer__support-links .action-link {
+  .site-footer__purchase {
+    width: 100%;
+  }
+
+  .site-footer__support-channels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .site-footer__support-channels .action-link {
+    width: 100%;
+    border-color: color-mix(in oklch, #fefefd, transparent 70%);
+    background: transparent;
+    color: #fefefd;
+    padding-inline: 0.8rem;
     white-space: nowrap;
+  }
+
+  .site-footer__support-channels .action-link:hover {
+    border-color: #a9ddd8;
+    background: color-mix(in oklch, #fefefd, transparent 88%);
+    color: #fefefd;
+  }
+
+  .site-footer__app-login {
+    justify-self: start;
+    color: #a9ddd8;
   }
 
   .site-footer__main {
@@ -3662,6 +3688,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0;
     margin-block: var(--space-compact);
+    padding: 0;
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
     overflow: hidden;
@@ -3702,11 +3729,22 @@
     line-height: 1.75;
   }
   .how-to-buy-actions {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: var(--space-compact);
+    row-gap: 0.7rem;
+    margin-top: var(--space-compact);
+  }
+  .how-to-buy-actions__purchase {
+    grid-row: span 2;
+  }
+  .how-to-buy-actions__support,
+  .how-to-buy-actions__utility {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--space-compact);
-    margin-top: var(--space-compact);
+    gap: 0.7rem;
   }
   .content-page--pricing .content-page__hero {
     padding-block: 2rem;
@@ -3753,8 +3791,8 @@
     grid-template-columns: 1fr;
   }
   .how-to-buy-step {
-    padding: 1.25rem 0;
-    background: transparent;
+    padding: 1.25rem;
+    background: var(--card);
   }
   .how-to-buy-step:nth-child(odd) {
     border-right: 0;
@@ -3764,6 +3802,29 @@
   }
   .how-to-buy-step:not(:last-child) {
     border-bottom: 1px solid var(--border);
+  }
+  .how-to-buy-actions {
+    grid-template-columns: 1fr;
+    gap: var(--space-compact);
+  }
+  .how-to-buy-actions__purchase {
+    grid-row: auto;
+    width: 100%;
+  }
+  .how-to-buy-actions__support {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .how-to-buy-actions__support .action-link {
+    width: 100%;
+    padding-inline: 0.75rem;
+  }
+  .how-to-buy-actions__utility {
+    justify-content: space-between;
+  }
+  .site-footer__support-links {
+    width: 100%;
+    min-width: 0;
   }
   .content-page--pricing .content-page__hero h1 {
     font-size: 1.75rem;

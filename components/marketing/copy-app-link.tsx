@@ -3,8 +3,15 @@
 import { useState } from "react"
 
 import { siteConfig } from "@/lib/site-content"
+import { cn } from "@/lib/utils"
 
-export function CopyAppLink() {
+export function CopyAppLink({
+  className,
+  variant = "secondary",
+}: {
+  className?: string
+  variant?: "secondary" | "text"
+}) {
   const [copied, setCopied] = useState(false)
 
   async function copyLink() {
@@ -34,7 +41,7 @@ export function CopyAppLink() {
 
   return (
     <button
-      className="action-link action-link--secondary"
+      className={cn("action-link", `action-link--${variant}`, className)}
       onClick={copyLink}
       type="button"
     >

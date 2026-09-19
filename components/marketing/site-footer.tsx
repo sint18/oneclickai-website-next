@@ -28,27 +28,31 @@ export function SiteFooter() {
             </p>
           </div>
           <div className="site-footer__support-links">
-            <SupportLink channel="messenger">
-              <SupportIcon channel="messenger" />
-              Messenger Support
-            </SupportLink>
-            <SupportLink channel="telegram">
-              <SupportIcon channel="telegram" />
-              Telegram Support
-            </SupportLink>
             <ActionLink
               analyticsLocation="footer_vvip"
+              className="site-footer__purchase"
               external
               href={getPlanCtaHref()}
               variant="light"
             >
               {planCtaLabels.vvip}
             </ActionLink>
+            <div className="site-footer__support-channels">
+              <SupportLink channel="messenger">
+                <SupportIcon channel="messenger" />
+                Messenger Support
+              </SupportLink>
+              <SupportLink channel="telegram">
+                <SupportIcon channel="telegram" />
+                Telegram Support
+              </SupportLink>
+            </div>
             <ActionLink
               analyticsLocation="footer_app"
+              className="site-footer__app-login"
               external
               href={siteConfig.appUrl}
-              variant="light"
+              variant="text"
             >
               App ဝင်ရန်
             </ActionLink>

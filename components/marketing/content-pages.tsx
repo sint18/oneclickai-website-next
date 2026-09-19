@@ -395,7 +395,7 @@ export function GuidesIndexPage() {
   return (
     <ContentPageFrame
       breadcrumbs={[{ label: "Guide" }]}
-      description="Tool ရွေးတာ၊ source ပြင်တာ၊ ATS mode သတ်မှတ်တာနဲ့ output review လုပ်တာတွေကို beginner-friendly အနေနဲ့ ဖတ်နိုင်ပါတယ်။"
+      description="Tool ရွေးတာ၊ source ပြင်တာ၊ output setting စစ်တာနဲ့ output review လုပ်တာတွေကို beginner-friendly အနေနဲ့ ဖတ်နိုင်ပါတယ်။"
       eyebrow="Guides"
       title="One Click AI ကို သုံးရတာ ပိုရှင်းအောင်"
       structuredData={{

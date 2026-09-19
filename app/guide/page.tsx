@@ -5,7 +5,7 @@ import { GuidesIndexPage } from "@/components/marketing/content-pages"
 export const metadata: Metadata = {
   title: "Guides",
   description:
-    "One Click AI အသုံးပြုနည်း၊ source ရွေးနည်း၊ ATS modes နဲ့ output review guides။",
+    "One Click AI အသုံးပြုနည်း၊ source ရွေးနည်းနဲ့ output review guides။",
   alternates: {
     canonical: "/guide",
   },
