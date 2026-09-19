@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Track marketing CTA and outbound clicks in Google Analytics (`cta_clicked`, `outbound_click`) and disclose Analytics on `/privacy`.
+
 ## [0.0.4] - 2026-09-16
 
 ### Changed
