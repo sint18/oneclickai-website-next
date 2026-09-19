@@ -5,7 +5,6 @@
 ### Added
 
 - Add a compact homepage hero with a 9:16 Movie Recap sample that plays with audio after a click.
-- Add 5-minute Movie Recap credit examples on `/pricing`.
 - Add a skip-to-content link and keyboard-accessible mobile navigation.
 - Add homepage How to buy steps for opening the app, paying with KBZPay, and sending a screenshot.
 
@@ -19,11 +18,14 @@
 - Tighten homepage hero copy and remove the output-includes list.
 - Replace the boxed mobile Menu control with an icon-only menu and grouped glass panel.
 - Replace the homepage credit examples with the How to buy flow.
+- Remove the 5-minute credit calculator from `/pricing`.
+- Fix the homepage How to buy step grid so desktop cells align evenly.
 - Show KBZPay as the only payment method on the homepage.
 - Present Movie Recap output as ready to post and clarify the AI copyright disclaimer.
 
 ### Fixed
 
+- Round the `/pricing` comparison table corners without breaking sticky plan headers.
 - Darken the primary action color so small button text meets contrast.
 - Enlarge homepage proof screenshots so they stay readable beside the trust metrics.
 

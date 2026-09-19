@@ -961,7 +961,6 @@
   .problem-grid,
   .tool-grid,
   .steps-grid,
-  .how-to-buy-steps,
   .mode-grid,
   .output-feature-grid,
   .pricing-grid {
@@ -2599,7 +2598,8 @@
   .pricing-compare table {
     width: 100%;
     table-layout: fixed;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     text-align: left;
   }
 
@@ -2623,6 +2623,22 @@
   .pricing-compare thead th:nth-child(3) {
     background: var(--brand-teal-soft);
     color: var(--brand-teal-deep);
+  }
+
+  .pricing-compare thead tr:first-child th:first-child {
+    border-top-left-radius: calc(var(--radius-card) - 1px);
+  }
+
+  .pricing-compare thead tr:first-child th:last-child {
+    border-top-right-radius: calc(var(--radius-card) - 1px);
+  }
+
+  .pricing-compare tbody tr:last-child th:first-child {
+    border-bottom-left-radius: calc(var(--radius-card) - 1px);
+  }
+
+  .pricing-compare tbody tr:last-child td:last-child {
+    border-bottom-right-radius: calc(var(--radius-card) - 1px);
   }
 
   .pricing-compare tbody th {
@@ -3402,22 +3418,48 @@
     margin-block: var(--space-section);
   }
   .how-to-buy-steps {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
     margin-block: var(--space-compact);
-    border-top: 1px solid var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
   }
-  .how-to-buy-steps .step-card {
-    min-height: 0;
+  .how-to-buy-step {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    align-content: start;
+    min-height: 100%;
+    padding: 1.5rem;
+    border: 0;
+    background: var(--card);
   }
-  .how-to-buy-steps .step-card:not(:last-child) {
-    border-right: 0;
-  }
-  .how-to-buy-steps .step-card:nth-child(odd) {
+  .how-to-buy-step:nth-child(odd) {
     border-right: 1px solid var(--border);
-    padding-right: 2rem;
   }
-  .how-to-buy-steps .step-card:nth-child(even) {
-    padding-left: 2rem;
+  .how-to-buy-step:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--border);
+  }
+  .how-to-buy-step__number {
+    display: block;
+    color: var(--brand-teal);
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.08em;
+    line-height: 0.9;
+  }
+  .how-to-buy-step h3 {
+    margin: 1.25rem 0 0;
+    max-width: none;
+    line-height: 1.45;
+  }
+  .how-to-buy-step p {
+    margin: 0.75rem 0 0;
+    max-width: none;
+    color: var(--muted-foreground);
+    font-size: var(--font-small);
+    line-height: 1.75;
   }
   .how-to-buy-actions {
     display: flex;
@@ -3425,40 +3467,6 @@
     align-items: center;
     gap: var(--space-compact);
     margin-top: var(--space-compact);
-  }
-  .credit-examples {
-    margin-block: 1.5rem;
-    padding: 1.25rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card);
-    background: var(--card);
-  }
-  .credit-examples h3 {
-    margin: 0;
-    font-size: 1.25rem;
-    line-height: 1.7;
-  }
-  .credit-examples p {
-    font-size: var(--font-small);
-    line-height: 1.85;
-    color: var(--muted-foreground);
-  }
-  .credit-examples a {
-    color: var(--foreground);
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-  }
-  .credit-examples__plans {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-compact);
-  }
-  .credit-examples dt {
-    font-weight: 700;
-  }
-  .credit-examples dd {
-    margin: 0.5rem 0 0;
-    line-height: 1.8;
   }
   .content-page--pricing .content-page__hero {
     padding-block: 2rem;
@@ -3501,14 +3509,21 @@
   .hero-section--compact .hero-copy {
     max-width: none;
   }
-  .credit-examples__plans {
+  .how-to-buy-steps {
     grid-template-columns: 1fr;
   }
-  .how-to-buy-steps .step-card:nth-child(odd),
-  .how-to-buy-steps .step-card:nth-child(even) {
-    padding-left: 0;
-    padding-right: 0;
+  .how-to-buy-step {
+    padding: 1.25rem 0;
+    background: transparent;
+  }
+  .how-to-buy-step:nth-child(odd) {
     border-right: 0;
+  }
+  .how-to-buy-step:nth-child(-n + 2) {
+    border-bottom: 0;
+  }
+  .how-to-buy-step:not(:last-child) {
+    border-bottom: 1px solid var(--border);
   }
   .content-page--pricing .content-page__hero h1 {
     font-size: 1.75rem;

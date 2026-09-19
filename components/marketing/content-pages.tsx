@@ -16,7 +16,6 @@ import { SiteFooter } from "@/components/marketing/site-footer"
 import { SiteHeader } from "@/components/marketing/site-header"
 import {
   ActionLink,
-  CreditExamples,
   MediaSlot,
   SectionHeading,
   ToolIcon,
@@ -561,7 +560,6 @@ export function PricingPage() {
             </tbody>
           </table>
         </div>
-        <CreditExamples />
         <div className="pricing-compare__actions">
           <ActionLink
             analyticsLocation="pricing_vip"

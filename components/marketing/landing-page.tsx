@@ -249,8 +249,8 @@ export function LandingPage() {
             />
             <ol className="how-to-buy-steps">
               {howToBuySteps.map((step) => (
-                <li className="step-card" key={step.number}>
-                  <span className="step-card__number">{step.number}</span>
+                <li className="how-to-buy-step" key={step.number}>
+                  <span className="how-to-buy-step__number">{step.number}</span>
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
                 </li>

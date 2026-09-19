@@ -25,7 +25,6 @@ import {
   type Tool,
   getPlanCtaHref,
   planCtaLabels,
-  recapCreditExample,
   getSupportUrl,
 } from "@/lib/site-content"
 import { cn } from "@/lib/utils"
@@ -319,39 +318,4 @@ export function FAQList({ items }: { items: FAQItem[] }) {
 export function SupportIcon({ channel }: { channel: SupportChannel }) {
   const Icon = channel === "messenger" ? MessageCircle : Send
   return <Icon aria-hidden="true" />
-}
-
-export function CreditExamples() {
-  const { sourceMinutes, standardPerMinute, proPerMinute, monthlyCredits } =
-    recapCreditExample
-  const standardCost = sourceMinutes * standardPerMinute
-  const proCost = sourceMinutes * proPerMinute
-  return (
-    <div className="credit-examples">
-      <h3>{sourceMinutes} မိနစ် source တစ်ပုဒ်အတွက် credit ဘယ်လောက်လိုမလဲ?</h3>
-      <p>
-        ATS Standard မှာ ခန့်မှန်း {standardCost} credits၊ ATS Pro မှာ ခန့်မှန်း{" "}
-        {proCost} credits သုံးပါတယ်။
-      </p>
-      <dl className="credit-examples__plans">
-        {Object.entries(monthlyCredits).map(([name, credits]) => (
-          <div key={name}>
-            <dt>
-              {name} · {credits} monthly credits
-            </dt>
-            <dd>
-              Standard ခန့်မှန်း {Math.floor(credits / standardCost)} ပုဒ် / Pro
-              ခန့်မှန်း {Math.floor(credits / proCost)} ပုဒ်
-            </dd>
-          </div>
-        ))}
-      </dl>
-      <p>
-        Credits အားလုံးကို ဒီလို source တွေအတွက်ပဲ သုံးထားတယ်လို့ ယူဆထားတဲ့
-        နမူနာပါ။ လက်ရှိဖော်ပြထားတဲ့ ခန့်မှန်းနှုန်းထားအပေါ် အခြေခံထားပြီး
-        အမှန်တကယ်ကုန်မယ့် credit ကို app ရဲ့ generation estimate မှာ စစ်ပါ။{" "}
-        <Link href="/credit">Credit Rules ဖတ်ရန်</Link>
-      </p>
-    </div>
-  )
 }
