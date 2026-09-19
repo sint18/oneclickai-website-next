@@ -106,7 +106,7 @@ export function ContentPageFrame({
   return (
     <>
       <SiteHeader />
-      <main className="content-page">
+      <main id="main-content" tabIndex={-1} className="content-page">
         <div className="site-shell">
           <Breadcrumbs items={breadcrumbs} />
           <header
@@ -454,9 +454,7 @@ function PlanValue({ value }: { value: PlanComparisonValue }) {
         className="pricing-compare__value pricing-compare__value--included"
       >
         <Check aria-hidden="true" />
-        {value.label === "ပါဝင်ပါတယ်" ? null : (
-          <span>{value.label}</span>
-        )}
+        {value.label === "ပါဝင်ပါတယ်" ? null : <span>{value.label}</span>}
       </span>
     )
   }
@@ -561,9 +559,8 @@ export function PricingPage() {
           </ActionLink>
         </div>
         <p className="pricing-compare__note">
-          app.oneclickai.studio မှာ ဝယ်ယူလို့ရပါပြီ။ Credit rates နဲ့
-          estimate စစ်နည်းကို <Link href="/credit">Credit Rules</Link> မှာ
-          ဖတ်နိုင်ပါတယ်။
+          app.oneclickai.studio မှာ ဝယ်ယူလို့ရပါပြီ။ Credit rates နဲ့ estimate
+          စစ်နည်းကို <Link href="/credit">Credit Rules</Link> မှာ ဖတ်နိုင်ပါတယ်။
         </p>
       </section>
       <ContentCta

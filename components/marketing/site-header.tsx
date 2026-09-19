@@ -1,3 +1,5 @@
+import { MobileNavigation } from "@/components/marketing/mobile-navigation"
+
 import Image from "next/image"
 import Link from "next/link"
 
@@ -9,6 +11,9 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
+      <a className="skip-link" href="#main-content">
+        အဓိကအကြောင်းအရာသို့ ကျော်ရန်
+      </a>
       <div className="site-shell site-header__inner">
         <Link className="brand-lockup" href="/" aria-label="One Click AI home">
           <Image
@@ -50,6 +55,7 @@ export function SiteHeader() {
             VVIP ဝယ်ရန်
           </ActionLink>
         </div>
+        <MobileNavigation />
       </div>
     </header>
   )

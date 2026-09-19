@@ -1,7 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { ActionLink } from "@/components/marketing/marketing-ui"
+import {
+  ActionLink,
+  SupportLink,
+  SupportIcon,
+} from "@/components/marketing/marketing-ui"
 import { getPlanCtaHref, siteConfig } from "@/lib/site-content"
 
 export function SiteFooter() {
@@ -23,6 +27,14 @@ export function SiteFooter() {
             </p>
           </div>
           <div className="site-footer__support-links">
+            <SupportLink channel="messenger">
+              <SupportIcon channel="messenger" />
+              Messenger Support
+            </SupportLink>
+            <SupportLink channel="telegram">
+              <SupportIcon channel="telegram" />
+              Telegram Support
+            </SupportLink>
             <ActionLink external href={getPlanCtaHref()} variant="light">
               VVIP ဝယ်ရန်
             </ActionLink>

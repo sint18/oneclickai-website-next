@@ -182,7 +182,7 @@ export function LandingPage() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="hero-section">
           <div className="hero-section__stage">
             {/*<div className="hero-section__backdrop" aria-hidden="true">*/}
@@ -206,16 +206,13 @@ export function LandingPage() {
                 </p>
                 <h1>
                   Manual Editing ခေတ် ကုန်သွားပြီ။
-                  <span>
-                    သင့်ရဲ့ အချိန်ကို ပြန်ဝယ်ပေးမယ့် Content Engine။
-                  </span>
+                  <span>သင့်ရဲ့ အချိန်ကို ပြန်ဝယ်ပေးမယ့် Content Engine။</span>
                 </h1>
                 <p className="hero-copy__description">
                   Video တစ်ပုဒ်အတွက် Tool တွေအများကြီးပြောင်းသုံးပြီး Subtitle
-                  နဲ့ Voice ကို နာရီနဲ့ချီ လိုက်ညှိနေစရာ မလိုတော့ပါဘူး။ One Click
-                  AI က Source ကနေ Upload-ready Output အထိ Workflow
-                  တစ်ခုလုံးကို စက္ကန့်ပိုင်းအတွင်း အလိုအလျောက်
-                  စီမံပေးပါတယ်။
+                  နဲ့ Voice ကို နာရီနဲ့ချီ လိုက်ညှိနေစရာ မလိုတော့ပါဘူး။ One
+                  Click AI က Source ကနေ Upload-ready Output အထိ Workflow
+                  တစ်ခုလုံးကို စက္ကန့်ပိုင်းအတွင်း အလိုအလျောက် စီမံပေးပါတယ်။
                 </p>
                 <div className="hero-actions">
                   <ActionLink
@@ -235,9 +232,7 @@ export function LandingPage() {
                 </div>
                 <div className="hero-note">
                   <BadgeCheck aria-hidden="true" />
-                  <span>
-                    KBZPay / WavePay ဖြင့် အလွယ်တကူ စတင်နိုင်ပါသည်။
-                  </span>
+                  <span>KBZPay / WavePay ဖြင့် အလွယ်တကူ စတင်နိုင်ပါသည်။</span>
                 </div>
                 <p className="hero-app-note">
                   အကောင့်ရှိပြီးသားဆို app.oneclickai.studio မှာ ဝင်ပါ။
@@ -346,8 +341,8 @@ export function LandingPage() {
                 Movie Recap workflow တစ်နေရာတည်းမှာ
               </p>
               <h2 id="solution-title">
-                Source တင်ပြီး၊ upload-ready Burmese recap output ကို တစ်နေရာတည်းမှာ
-                ရယူပါ။
+                Source တင်ပြီး၊ upload-ready Burmese recap output ကို
+                တစ်နေရာတည်းမှာ ရယူပါ။
               </h2>
               <p>
                 One Click AI က Movie Recap workflow အတွက် source video, Burmese

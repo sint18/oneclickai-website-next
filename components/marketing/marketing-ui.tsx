@@ -196,7 +196,10 @@ export function ToolCard({ tool }: { tool: Tool }) {
   const Icon = toolIcons[tool.icon]
 
   return (
-    <article className={cn("tool-card", `tool-card--${tool.accent}`)}>
+    <Link
+      href={`/tools/${tool.slug}`}
+      className={cn("tool-card", `tool-card--${tool.accent}`)}
+    >
       <div className="tool-card__icon" aria-hidden="true">
         <Icon />
       </div>
@@ -210,7 +213,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
       <span className="tool-card__arrow" aria-hidden="true">
         <ArrowUpRight />
       </span>
-    </article>
+    </Link>
   )
 }
 
