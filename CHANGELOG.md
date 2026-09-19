@@ -20,6 +20,7 @@
 - Replace the boxed mobile Menu control with an icon-only menu and grouped glass panel.
 - Replace the homepage credit examples with the How to buy flow.
 - Show KBZPay as the only payment method on the homepage.
+- Present Movie Recap output as ready to post and clarify the AI copyright disclaimer.
 
 ### Fixed
 

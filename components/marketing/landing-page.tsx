@@ -304,7 +304,7 @@ export function LandingPage() {
             <div>
               <p className="eyebrow">Use it with confidence</p>
               <h2>
-                မတင်ခင် source rights နဲ့ platform rules ကို ကိုယ်တိုင်စစ်ပါ။
+                Advanced AI နဲ့ ready-to-post output ကို ယုံကြည်စွာ အသုံးပြုပါ။
               </h2>
             </div>
             <div className="policy-grid">
@@ -312,8 +312,8 @@ export function LandingPage() {
                 <ShieldCheck aria-hidden="true" />
                 <strong>Copyright</strong>
                 <p>
-                  Source rights မရှိဘဲ အသုံးပြုတာနဲ့ platform enforcement အတွက်
-                  One Click AI က အာမခံမပေးပါ။
+                  Advanced AI နဲ့ source ကို transform လုပ်ပေးပေမယ့် copyright
+                  claim နဲ့ platform enforcement ကို အာမခံမပေးပါ။
                 </p>
               </div>
               <div>
@@ -326,10 +326,10 @@ export function LandingPage() {
               </div>
               <div>
                 <WandSparkles aria-hidden="true" />
-                <strong>AI output</strong>
+                <strong>Highest Quality</strong>
                 <p>
-                  Source quality နဲ့ mode ပေါ်မူတည်ပြီး output ကွာနိုင်လို့
-                  မတင်ခင် ပြန်စစ်ပါ။
+                  အကောင်းဆုံး ready-to-post quality နဲ့ ထုတ်ပေးလို့ download
+                  လုပ်ပြီး တန်းတင်နိုင်ပါတယ်။
                 </p>
               </div>
             </div>
