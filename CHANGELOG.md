@@ -24,6 +24,7 @@
 - Fix the homepage How to buy step grid so desktop cells align evenly.
 - Show KBZPay as the only payment method on the homepage.
 - Present Movie Recap output as ready to post and clarify the AI copyright disclaimer.
+- Refine the compact homepage hero with a soft ink gradient, vignette, and film grain.
 
 ### Fixed
 
