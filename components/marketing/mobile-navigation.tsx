@@ -1,7 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { Collapsible } from "@base-ui/react/collapsible"
+import { useEffect, useId, useRef, useState } from "react"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
 
@@ -10,6 +9,7 @@ import { navigation, siteConfig } from "@/lib/site-content"
 export function MobileNavigation() {
   const [open, setOpen] = useState(false)
   const trigger = useRef<HTMLButtonElement>(null)
+  const panelId = useId()
 
   useEffect(() => {
     const desktop = window.matchMedia("(min-width: 52.001rem)")
@@ -20,45 +20,91 @@ export function MobileNavigation() {
     return () => desktop.removeEventListener("change", closeOnDesktop)
   }, [])
 
+  useEffect(() => {
+    if (!open) {
+      return
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault()
+        setOpen(false)
+        trigger.current?.focus()
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener("keydown", onKeyDown)
+    }
+  }, [open])
+
   return (
-    <Collapsible.Root
-      className="mobile-navigation"
-      open={open}
-      onOpenChange={setOpen}
-      onKeyDown={(event) => {
-        if (event.key === "Escape" && open) {
-          event.preventDefault()
-          setOpen(false)
-          trigger.current?.focus()
-        }
-      }}
+    <div
+      className={
+        open ? "mobile-navigation mobile-navigation--open" : "mobile-navigation"
+      }
     >
-      <Collapsible.Trigger className="mobile-navigation__trigger" ref={trigger}>
-        {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        Menu
-      </Collapsible.Trigger>
-      <Collapsible.Panel className="mobile-navigation__panel">
-        <nav
-          className="mobile-navigation__links"
-          aria-label="Mobile navigation"
-        >
-          {navigation.map((item) => (
-            <Link
-              href={item.href}
-              key={item.href}
-              onClick={() => setOpen(false)}
+      <button
+        aria-controls={panelId}
+        aria-expanded={open}
+        aria-label={open ? "Close menu" : "Open menu"}
+        className="mobile-navigation__trigger"
+        onClick={() => setOpen((current) => !current)}
+        ref={trigger}
+        type="button"
+      >
+        {open ? (
+          <X aria-hidden="true" strokeWidth={1.75} />
+        ) : (
+          <Menu aria-hidden="true" strokeWidth={1.75} />
+        )}
+      </button>
+      {open ? (
+        <>
+          <button
+            aria-label="Close menu"
+            className="mobile-navigation__scrim"
+            onClick={() => setOpen(false)}
+            type="button"
+          />
+          <div className="mobile-navigation__panel" id={panelId}>
+            <nav
+              className="mobile-navigation__links"
+              aria-label="Mobile navigation"
             >
-              {item.label}
-            </Link>
-          ))}
-          <Link href="/#support" onClick={() => setOpen(false)}>
-            Support
-          </Link>
-          <a href={siteConfig.appUrl} onClick={() => setOpen(false)}>
-            App ဝင်ရန်
-          </a>
-        </nav>
-      </Collapsible.Panel>
-    </Collapsible.Root>
+              <div className="mobile-navigation__group">
+                {navigation.map((item) => (
+                  <Link
+                    href={item.href}
+                    key={item.href}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+              <div className="mobile-navigation__group">
+                <Link href="/#support" onClick={() => setOpen(false)}>
+                  Support
+                </Link>
+                <a
+                  className="mobile-navigation__app"
+                  href={siteConfig.appUrl}
+                  onClick={() => setOpen(false)}
+                >
+                  App ဝင်ရန်
+                </a>
+              </div>
+            </nav>
+          </div>
+        </>
+      ) : null}
+    </div>
   )
 }

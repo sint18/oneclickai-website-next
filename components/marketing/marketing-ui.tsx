@@ -71,13 +71,17 @@ export function ActionLink({
 }
 
 export function SupportLink({
+  analyticsLocation,
   channel,
   children,
   className,
+  variant = "light",
 }: {
+  analyticsLocation?: GaClickLocation
   channel: SupportChannel
   children: ReactNode
   className?: string
+  variant?: ActionLinkProps["variant"]
 }) {
   const href = getSupportUrl(channel)
 
@@ -94,7 +98,13 @@ export function SupportLink({
   }
 
   return (
-    <ActionLink className={className} external href={href} variant="light">
+    <ActionLink
+      analyticsLocation={analyticsLocation}
+      className={className}
+      external
+      href={href}
+      variant={variant}
+    >
       {children}
     </ActionLink>
   )

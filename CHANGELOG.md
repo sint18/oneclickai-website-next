@@ -7,6 +7,7 @@
 - Add a compact homepage hero with a 9:16 Movie Recap sample that plays with audio after a click.
 - Add 5-minute Movie Recap credit examples on `/pricing`.
 - Add a skip-to-content link and keyboard-accessible mobile navigation.
+- Add homepage How to buy steps for opening the app, paying with KBZPay, and sending a screenshot.
 
 ### Changed
 
@@ -15,6 +16,10 @@
 - Mark Knowledge Video as coming soon across tools, plans, and FAQs.
 - Use VIP- and VVIP-specific labels on app purchase CTAs.
 - Restore Messenger and Telegram support links in the header, footer, and mobile menu.
+- Tighten homepage hero copy and remove the output-includes list.
+- Replace the boxed mobile Menu control with an icon-only menu and grouped glass panel.
+- Replace the homepage credit examples with the How to buy flow.
+- Show KBZPay as the only payment method on the homepage.
 
 ### Fixed
 

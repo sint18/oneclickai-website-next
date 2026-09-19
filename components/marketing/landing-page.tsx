@@ -1,19 +1,23 @@
 import { ArrowRight, BadgeCheck, ShieldCheck, WandSparkles } from "lucide-react"
 import Image from "next/image"
 
-import { SiteFooter } from "@/components/marketing/site-footer"
-import { SiteHeader } from "@/components/marketing/site-header"
+import { CopyAppLink } from "@/components/marketing/copy-app-link"
 import {
   ActionLink,
-  CreditExamples,
   FAQList,
   SectionHeading,
+  SupportIcon,
+  SupportLink,
   ToolCard,
   VideoSlot,
 } from "@/components/marketing/marketing-ui"
+import { SiteFooter } from "@/components/marketing/site-footer"
+import { SiteHeader } from "@/components/marketing/site-header"
 import {
   faqs,
+  getPlanCtaHref,
   getVideoResourceBySlug,
+  howToBuySteps,
   plans,
   siteConfig,
   tools,
@@ -57,9 +61,9 @@ const workflowSteps = [
   },
   {
     number: "03",
-    title: "Output ကို review လုပ်ပြီး တင်ပါ",
+    title: "Download လုပ်ပြီး တင်ပါ",
     description:
-      "Voice, subtitle နဲ့ timing ကို ပြန်စစ်ပြီး အဆင်ပြေရင် download လုပ်ကာ platform ပေါ်တင်ပါ။",
+      "Recap video ကို download လုပ်ပြီး TikTok, Reels နဲ့ Shorts မှာ တင်နိုင်ပါတယ်။",
   },
 ]
 
@@ -126,9 +130,8 @@ export function LandingPage() {
                   မြန်မာအသံနဲ့ စာတန်းထိုးပါတဲ့ Movie Recap Video ဖန်တီးပါ။
                 </h1>
                 <p className="hero-copy__description">
-                  Source video ကနေ မြန်မာအသံ၊ subtitle နဲ့ recap video ကို
-                  workflow တစ်ခုတည်းမှာ ပြင်ဆင်ပါ။ Output ကို ပြန်စစ်ပြီးမှ
-                  download လုပ်ကာ တင်နိုင်ပါတယ်။
+                  Editing မတတ်လည်း Movie Recap စလုပ်နိုင်ပါတယ်။ Source video
+                  တင်ပြီး Click တစ်ချက်နှိပ်ရုံပါပဲ
                 </p>
                 <div className="hero-actions">
                   <ActionLink href="/pricing">
@@ -146,13 +149,8 @@ export function LandingPage() {
                 </div>
                 <div className="hero-note">
                   <BadgeCheck aria-hidden="true" />
-                  <span>KBZPay / WavePay ဖြင့် ဝယ်ယူနိုင်ပါတယ်။</span>
+                  <span>KBZPay ဖြင့် ဝယ်ယူနိုင်ပါတယ်။</span>
                 </div>
-                <ul className="hero-deliverables" aria-label="Output includes">
-                  <li>Burmese voice နှင့် subtitle</li>
-                  <li>9:16 vertical video</li>
-                  <li>SRT subtitle file</li>
-                </ul>
               </div>
               <div className="hero-sample" id="output">
                 <VideoSlot
@@ -245,17 +243,50 @@ export function LandingPage() {
         <section className="section section--wash" id="pricing">
           <div className="site-shell" id="reliability">
             <SectionHeading
-              eyebrow="Plans and credits"
-              title="ကိုယ့် workflow နဲ့ကိုက်တဲ့ plan ကို ရွေးပါ"
-              description="VIP မှာ monthly credits 60၊ VVIP မှာ 120 ပါဝင်ပါတယ်။ VVIP မှာ priority processing နဲ့ ထပ်ဆောင်း tools တွေပါဝင်ပါတယ်။"
+              eyebrow="How to buy"
+              title="Plan ဝယ်ပြီး စတင်ရန်"
+              description="App မှာ VIP သို့မဟုတ် VVIP ရွေးပြီး KBZPay နဲ့ ငွေလွှဲပါ။ Payment screenshot တင်ရင် Support က approve လုပ်ပေးပါမယ်။"
             />
-            <div id="ats">
-              <CreditExamples />
+            <ol className="how-to-buy-steps">
+              {howToBuySteps.map((step) => (
+                <li className="step-card" key={step.number}>
+                  <span className="step-card__number">{step.number}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="how-to-buy-actions">
+              <ActionLink
+                analyticsLocation="how_to_buy_app"
+                external
+                href={getPlanCtaHref()}
+              >
+                App မှာ Plan ဝယ်ရန်
+                <ArrowRight aria-hidden="true" />
+              </ActionLink>
+              <CopyAppLink />
+              <SupportLink
+                analyticsLocation="how_to_buy_support"
+                channel="messenger"
+                variant="secondary"
+              >
+                <SupportIcon channel="messenger" />
+                Messenger
+              </SupportLink>
+              <SupportLink
+                analyticsLocation="how_to_buy_support"
+                channel="telegram"
+                variant="secondary"
+              >
+                <SupportIcon channel="telegram" />
+                Telegram
+              </SupportLink>
+              <ActionLink href="/pricing" variant="text">
+                VIP နှင့် VVIP ကို နှိုင်းယှဉ်ရန်
+                <ArrowRight aria-hidden="true" />
+              </ActionLink>
             </div>
-            <ActionLink href="/pricing">
-              VIP နှင့် VVIP ကို နှိုင်းယှဉ်ရန်
-              <ArrowRight aria-hidden="true" />
-            </ActionLink>
           </div>
         </section>
         <section className="section" id="faq">

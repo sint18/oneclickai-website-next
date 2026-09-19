@@ -1135,3 +1135,29 @@ export const planCtaLabels = {
   vip: "VIP ကို App မှာ ဝယ်ရန်",
   vvip: "VVIP ကို App မှာ ဝယ်ရန်",
 } as const
+
+export const howToBuySteps = [
+  {
+    number: "01",
+    title: "Link ကို Chrome သို့မဟုတ် Safari မှာ ဖွင့်ပါ",
+    description:
+      "Link ကို copy ယူပြီး Chrome သို့မဟုတ် Safari မှာ ဖွင့်ပါ။ Messenger, Facebook, Telegram ထဲက browser မသုံးပါနဲ့။",
+  },
+  {
+    number: "02",
+    title: "Gmail နဲ့ account ဖွင့်ပါ",
+    description: "app.oneclickai.studio မှာ Gmail သုံးပြီး account ဖွင့်ပါ။",
+  },
+  {
+    number: "03",
+    title: "Plan ရွေးပြီး KBZPay နဲ့ ငွေလွှဲပါ",
+    description:
+      "App ထဲက Plan ဝယ်မယ် ကိုနှိပ်ပြီး VIP သို့မဟုတ် VVIP ရွေးကာ KBZPay နဲ့ ငွေလွှဲပါ။",
+  },
+  {
+    number: "04",
+    title: "Payment screenshot တင်ပါ",
+    description:
+      "Payment screenshot ကို app ထဲမှာ တင်ပါ။ Support က approve လုပ်ပေးပါမယ်။",
+  },
+] as const
