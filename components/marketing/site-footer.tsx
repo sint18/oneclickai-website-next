@@ -47,15 +47,6 @@ export function SiteFooter() {
                 Telegram Support
               </SupportLink>
             </div>
-            <ActionLink
-              analyticsLocation="footer_app"
-              className="site-footer__app-login"
-              external
-              href={siteConfig.appUrl}
-              variant="text"
-            >
-              App ဝင်ရန်
-            </ActionLink>
           </div>
         </div>
 

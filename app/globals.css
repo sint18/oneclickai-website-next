@@ -1775,11 +1775,6 @@
     color: #fefefd;
   }
 
-  .site-footer__app-login {
-    justify-self: start;
-    color: #a9ddd8;
-  }
-
   .site-footer__main {
     display: flex;
     justify-content: space-between;
@@ -3800,6 +3795,7 @@
     border-bottom: 1px solid var(--border);
   }
   .how-to-buy-actions {
+    display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-compact);
   }
