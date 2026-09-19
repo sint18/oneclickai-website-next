@@ -2,6 +2,24 @@
 
 ## [Unreleased]
 
+## [0.0.7] - 2026-09-20
+
+### Added
+
+- Add a deeper dark-theme treatment to the compact homepage hero.
+
+### Changed
+
+- Use one neutral ToolCard design across the homepage, tools directory, and related-tool sections.
+- Simplify the Guide directory to the two remaining workflow guides.
+- Refine purchase and support action grouping across desktop and mobile layouts.
+
+### Fixed
+
+- Improve dark-theme contrast for pricing status text, Credit Rules links, guide labels, and resource icons.
+- Restore mobile spacing for How to buy steps and stack its actions consistently.
+- Remove the duplicate footer app-login link.
+
 ## [0.0.6] - 2026-09-19
 
 ### Added
