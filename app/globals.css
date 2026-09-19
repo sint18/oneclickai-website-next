@@ -793,8 +793,7 @@
     place-items: center;
     padding: 0;
     border: 0;
-    background: color-mix(in oklch, var(--brand-ink), transparent 55%);
-    color: var(--action-foreground);
+    background: transparent;
     cursor: pointer;
   }
 
@@ -806,12 +805,13 @@
   .video-slot__play-mark {
     display: grid;
     place-items: center;
-    width: 2.8rem;
-    height: 2.8rem;
-    border: 1px solid
-      color-mix(in oklch, var(--action-foreground), transparent 54%);
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 2px solid #fefefd;
     border-radius: 999px;
-    background: color-mix(in oklch, var(--brand-ink), transparent 22%);
+    background: var(--action-background);
+    box-shadow: 0 0 0 0.4rem color-mix(in oklch, #000, transparent 50%);
+    color: var(--action-foreground);
   }
 
   .video-slot__play-mark svg {
@@ -3729,15 +3729,11 @@
     line-height: 1.75;
   }
   .how-to-buy-actions {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    column-gap: var(--space-compact);
-    row-gap: 0.7rem;
+    gap: 0.7rem;
     margin-top: var(--space-compact);
-  }
-  .how-to-buy-actions__purchase {
-    grid-row: span 2;
   }
   .how-to-buy-actions__support,
   .how-to-buy-actions__utility {
