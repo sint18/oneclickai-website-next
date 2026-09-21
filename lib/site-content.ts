@@ -482,7 +482,7 @@ export const plans: PricingPlan[] = [
     badge: "အခုမှ စမယ့်သူတွေအတွက်",
     features: [
       `${planCreditAllocation.VIP} monthly credits`,
-      `~${planTwoMinVideoEstimate.VIP} 2-min videos`,
+      `approx. ${planTwoMinVideoEstimate.VIP} 2-min videos`,
       "Normal processing",
       "Voice, video and subtitle timing sync",
       "SRT subtitle download",
@@ -500,7 +500,7 @@ export const plans: PricingPlan[] = [
       "24,000 MMK ပိုပေးပြီး credits ပိုရပြီး priority processing ကို ရယူပါ။",
     features: [
       `${planCreditAllocation.VVIP} monthly credits`,
-      `~${planTwoMinVideoEstimate.VVIP} 2-min videos`,
+      `approx. ${planTwoMinVideoEstimate.VVIP} 2-min videos`,
       "VIP မှာပါဝင်တဲ့ features အားလုံး + VVIP-only tools",
       "Priority processing",
       "Styled Myanmar subtitle burn-in",
@@ -542,11 +542,11 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
         feature: "Approx. 2-min videos",
         vip: {
           kind: "text",
-          label: `~${planTwoMinVideoEstimate.VIP}`,
+          label: String(planTwoMinVideoEstimate.VIP),
         },
         vvip: {
           kind: "text",
-          label: `~${planTwoMinVideoEstimate.VVIP}`,
+          label: String(planTwoMinVideoEstimate.VVIP),
         },
       },
       {
