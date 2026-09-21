@@ -41,12 +41,16 @@ export const planCreditAllocation = z
     VIP: z.number().int().positive(),
     VVIP: z.number().int().positive(),
   })
-  .parse({ VIP: 60, VVIP: 120 })
+  .parse({ VIP: 90, VVIP: 240 })
 
-export const guideSlugSchema = z.enum([
-  "getting-started",
-  "choose-a-source",
-])
+export const planTwoMinVideoEstimate = z
+  .object({
+    VIP: z.number().int().positive(),
+    VVIP: z.number().int().positive(),
+  })
+  .parse({ VIP: 15, VVIP: 40 })
+
+export const guideSlugSchema = z.enum(["getting-started", "choose-a-source"])
 
 export type GuideSlug = z.infer<typeof guideSlugSchema>
 
@@ -209,10 +213,7 @@ export const tools: Tool[] = [
       "Movie Recap tool ထဲ တင်ပြီး voice, subtitle, timing ကို ရွေးပါ။",
       "Generate လုပ်ပြီး output ကို ပြန်ကြည့်၊ အဆင်ပြေရင် download လုပ်ပါ။",
     ],
-    relatedGuideSlugs: [
-      "getting-started",
-      "choose-a-source",
-    ],
+    relatedGuideSlugs: ["getting-started", "choose-a-source"],
     icon: "film",
     accent: "teal",
   },
@@ -481,6 +482,7 @@ export const plans: PricingPlan[] = [
     badge: "အခုမှ စမယ့်သူတွေအတွက်",
     features: [
       `${planCreditAllocation.VIP} monthly credits`,
+      `~${planTwoMinVideoEstimate.VIP} 2-min videos`,
       "Normal processing",
       "Voice, video and subtitle timing sync",
       "SRT subtitle download",
@@ -495,9 +497,10 @@ export const plans: PricingPlan[] = [
       "Movie Recap ကို seriously run မယ်၊ output ပိုများမယ်၊ VVIP-only tools လိုအပ်မယ်ဆိုရင်။",
     badge: "အတန်ဆုံး",
     valueSummary:
-      "24,000 MMK ပိုပေးပြီး 2× credits နဲ့ priority processing ကို ရယူပါ။",
+      "24,000 MMK ပိုပေးပြီး credits ပိုရပြီး priority processing ကို ရယူပါ။",
     features: [
       `${planCreditAllocation.VVIP} monthly credits`,
+      `~${planTwoMinVideoEstimate.VVIP} 2-min videos`,
       "VIP မှာပါဝင်တဲ့ features အားလုံး + VVIP-only tools",
       "Priority processing",
       "Styled Myanmar subtitle burn-in",
@@ -533,6 +536,17 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
         vvip: {
           kind: "text",
           label: String(planCreditAllocation.VVIP),
+        },
+      },
+      {
+        feature: "Approx. 2-min videos",
+        vip: {
+          kind: "text",
+          label: `~${planTwoMinVideoEstimate.VIP}`,
+        },
+        vvip: {
+          kind: "text",
+          label: `~${planTwoMinVideoEstimate.VVIP}`,
         },
       },
       {

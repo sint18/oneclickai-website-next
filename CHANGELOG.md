@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Raise monthly credits to 90 on VIP and 240 on VVIP, and show approximate 2-min video capacity on `/pricing`.
+
 ## [0.0.7] - 2026-09-20
 
 ### Added
