@@ -37,10 +37,13 @@ import {
   getVideoResourcesForTool,
   guides,
   hasApprovedExampleAssets,
+  isSunsetTool,
   movieRecapTestimonials,
   planComparisonGroups,
   planCtaLabels,
   plans,
+  toolSunsetNotice,
+  toolSunsetSummaryNotice,
   tools,
 } from "@/lib/site-content"
 import { cn } from "@/lib/utils"
@@ -418,7 +421,7 @@ export function ToolsIndexPage() {
   return (
     <ContentPageFrame
       breadcrumbs={[{ label: "Tools" }]}
-      description="ကိုယ့် source နဲ့ content ရည်ရွယ်ချက်နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။ လက်ရှိအသုံးပြုနိုင်မှုနဲ့ မကြာမီထွက်မယ့် tool တွေကို သီးခြားဖော်ပြထားပါတယ်။"
+      description={`ကိုယ့် source နဲ့ content ရည်ရွယ်ချက်နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။ ${toolSunsetSummaryNotice} မကြာမီထွက်မယ့် tool တွေကို သီးခြားဖော်ပြထားပါတယ်။`}
       eyebrow="Creator tools"
       title="ကိုယ့် niche အတွက် tool ကို ရွေးပါ။"
       structuredData={{
@@ -487,7 +490,7 @@ export function PricingPage() {
     <ContentPageFrame
       className="content-page--pricing"
       breadcrumbs={[{ label: "Pricing" }]}
-      description="လစဉ်ကြေး၊ credits နဲ့ ပါဝင်တဲ့ tools တွေကို နှိုင်းယှဉ်ပါ။"
+      description={`လစဉ်ကြေး၊ credits နဲ့ ပါဝင်တဲ့ tools တွေကို နှိုင်းယှဉ်ပါ။ ${toolSunsetSummaryNotice}`}
       eyebrow="Plans"
       title="VIP နဲ့ VVIP ကို နှိုင်းယှဉ်ပါ"
       structuredData={{
@@ -875,6 +878,8 @@ export function ToolDetailPage({ tool }: { tool: Tool }) {
             </ActionLink>
             <span>app.oneclickai.studio မှာ ဝယ်ယူလို့ရပါပြီ။</span>
           </div>
+        ) : isSunsetTool(tool.slug) ? (
+          <p className="content-page__hero-action">{toolSunsetNotice}</p>
         ) : undefined
       }
       heroAside={

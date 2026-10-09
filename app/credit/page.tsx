@@ -7,6 +7,7 @@ import {
   creditVideoRates,
   dhammaCreditRules,
   hookMakerCreditRules,
+  toolSunsetNotice,
 } from "@/lib/site-content"
 
 export const metadata: Metadata = {
@@ -40,7 +41,8 @@ export default function CreditPage() {
             <p>
               Movie Recap, Football Content Maker နဲ့ One Click Shorts တွေမှာ
               credit ကို system က process လုပ်တဲ့ source footage duration
-              ပေါ်မူတည်ပြီးတွက်ပါတယ်။
+              ပေါ်မူတည်ပြီးတွက်ပါတယ်။ Football Content Maker နဲ့ One Click
+              Shorts က {toolSunsetNotice}
             </p>
           ),
           bullets: creditVideoRates,
@@ -51,7 +53,7 @@ export default function CreditPage() {
             <p>
               Dhamma Content က VVIP only feature ဖြစ်ပြီး Standard နဲ့ Pro
               quality tier နှစ်မျိုးရှိပါတယ်။ Source duration အလိုက် credit tier
-              ကွာပါတယ်။
+              ကွာပါတယ်။ {toolSunsetNotice}
             </p>
           ),
           bullets: dhammaCreditRules,
@@ -61,7 +63,7 @@ export default function CreditPage() {
           body: (
             <p>
               Hook Maker usage က variation count နဲ့ output types
-              ပေါ်မူတည်ပါတယ်။ Pricing က tiered ဖြစ်ပါတယ်။
+              ပေါ်မူတည်ပါတယ်။ Pricing က tiered ဖြစ်ပါတယ်။ {toolSunsetNotice}
             </p>
           ),
           bullets: hookMakerCreditRules,

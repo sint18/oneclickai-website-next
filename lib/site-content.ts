@@ -36,6 +36,28 @@ export const knowledgeVideoNotice =
     ? "Knowledge Video — မကြာမီ။ လက်ရှိအသုံးပြုနိုင်တဲ့ feature မဟုတ်သေးပါ။"
     : "Knowledge Video ကို VVIP plan မှာ အသုံးပြုနိုင်ပါတယ်။"
 
+export const sunsetToolSlugs: ToolSlug[] = [
+  "hook-maker",
+  "football",
+  "shorts",
+  "dhamma",
+]
+
+export const toolSunsetDate = "12 Nov 2026"
+
+export const toolSunsetNotice = `${toolSunsetDate} အထိ အသုံးပြုနိုင်ပါတယ်။`
+
+export const toolSunsetSummaryNotice =
+  `Hook Maker, Football Content Maker, One Click Shorts နဲ့ Dhamma Content က ${toolSunsetDate} အထိ အသုံးပြုနိုင်ပါတယ်။`
+
+function sunsetFeatureLabel(feature: string) {
+  return `${feature} (${toolSunsetDate} အထိ)`
+}
+
+export function isSunsetTool(slug: ToolSlug) {
+  return sunsetToolSlugs.includes(slug)
+}
+
 export const planCreditAllocation = z
   .object({
     VIP: z.number().int().positive(),
@@ -486,7 +508,7 @@ export const plans: PricingPlan[] = [
       "Normal processing",
       "Voice, video and subtitle timing sync",
       "SRT subtitle download",
-      "Hook Maker + Thumbnail Generator",
+      `Hook Maker (${toolSunsetDate} အထိ) + Thumbnail Generator`,
       "Free Video Splitter",
     ],
   },
@@ -504,7 +526,7 @@ export const plans: PricingPlan[] = [
       "VIP မှာပါဝင်တဲ့ features အားလုံး + VVIP-only tools",
       "Priority processing",
       "Styled Myanmar subtitle burn-in",
-      "Football + One Click Shorts + Dhamma",
+      `Football + One Click Shorts + Dhamma (${toolSunsetDate} အထိ)`,
       "Voice Cloning",
       toolAvailability["knowledge-video"] === "coming-soon"
         ? "Knowledge Video — မကြာမီ"
@@ -605,22 +627,22 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
     heading: "Extra features",
     rows: [
       {
-        feature: "Hook Maker",
+        feature: sunsetFeatureLabel("Hook Maker"),
         vip: included,
         vvip: included,
       },
       {
-        feature: "Football Content Maker",
+        feature: sunsetFeatureLabel("Football Content Maker"),
         vip: excluded,
         vvip: included,
       },
       {
-        feature: "One Click Shorts",
+        feature: sunsetFeatureLabel("One Click Shorts"),
         vip: excluded,
         vvip: included,
       },
       {
-        feature: "Dhamma Content",
+        feature: sunsetFeatureLabel("Dhamma Content"),
         vip: excluded,
         vvip: included,
       },
@@ -649,7 +671,7 @@ export const faqs: FAQItem[] = [
   },
   {
     question: "ဘယ် content အမျိုးအစားတွေ လုပ်လို့ရလဲ?",
-    answer: `Movie Recap, Football Content, Dhamma Content, One Click Shorts, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter တွေကို plan အလိုက် သုံးနိုင်ပါတယ်။ ${knowledgeVideoNotice}`,
+    answer: `Movie Recap, Football Content, Dhamma Content, One Click Shorts, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter တွေကို plan အလိုက် သုံးနိုင်ပါတယ်။ ${toolSunsetSummaryNotice} ${knowledgeVideoNotice}`,
   },
   {
     question: "Software install လုပ်ရလား?",
@@ -679,7 +701,7 @@ export const faqs: FAQItem[] = [
   {
     question: "VIP နဲ့ VVIP ဘယ်ဟာရွေးရမလဲ?",
     answer:
-      "Movie Recap စလုပ်မယ်၊ normal processing အဆင်ပြေတယ်ဆို VIP က သင့်တော်ပါတယ်။ Priority processing, styled subtitle burn-in, Football, Shorts သို့မဟုတ် Dhamma workflow လိုတာဆို VVIP ကို ရွေးပါ။",
+      `Movie Recap စလုပ်မယ်၊ normal processing အဆင်ပြေတယ်ဆို VIP က သင့်တော်ပါတယ်။ Priority processing, styled subtitle burn-in, Football, Shorts သို့မဟုတ် Dhamma workflow လိုတာဆို VVIP ကို ရွေးပါ။ ${toolSunsetSummaryNotice}`,
   },
 ]
 
@@ -784,15 +806,15 @@ export const guides: GuideArticle[] = [
       {
         title: "၁။ ကိုယ်လုပ်မယ့် content type ကို ရွေးပါ",
         paragraphs: [
-          `Movie Recap, Football, Dhamma, Shorts, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter ထဲက ကိုယ့် content နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။ ${knowledgeVideoNotice}`,
+          `Movie Recap, Football, Dhamma, Shorts, Hook Maker, Thumbnail Generator, Voice Cloning နဲ့ Video Splitter ထဲက ကိုယ့် content နဲ့ကိုက်တဲ့ tool ကို ရွေးပါ။ ${toolSunsetSummaryNotice} ${knowledgeVideoNotice}`,
         ],
         bullets: [
           "Movie recap-style source အတွက် Movie Recap",
-          "Match clip သို့မဟုတ် highlight အတွက် Football",
-          "Sermon audio အတွက် Dhamma",
-          "Long video သို့မဟုတ် stream အတွက် Shorts",
+          `Match clip သို့မဟုတ် highlight အတွက် Football (${toolSunsetDate} အထိ)`,
+          `Sermon audio အတွက် Dhamma (${toolSunsetDate} အထိ)`,
+          `Long video သို့မဟုတ် stream အတွက် Shorts (${toolSunsetDate} အထိ)`,
           knowledgeVideoNotice,
-          "Opening angle လိုရင် Hook Maker",
+          `Opening angle လိုရင် Hook Maker (${toolSunsetDate} အထိ)`,
           "Video idea ကနေ thumbnail လိုရင် Thumbnail Generator",
           "ကိုယ်ပိုင်အသံကို content မှာသုံးချင်ရင် Voice Cloning",
           "ပြီးစီးထားတဲ့ video ကို clips ခွဲချင်ရင် Video Splitter",

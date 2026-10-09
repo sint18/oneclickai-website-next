@@ -1232,6 +1232,11 @@
     color: var(--eyebrow-foreground);
   }
 
+  .tool-card__badge--sunset {
+    border-color: color-mix(in oklch, var(--foreground), transparent 70%);
+    color: var(--muted-foreground);
+  }
+
   .tool-card__arrow {
     position: absolute;
     right: 1.4rem;
