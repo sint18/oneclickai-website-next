@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.0.9] - 2026-10-10
+
 ### Changed
 
 - Announce 12 Nov 2026 sunset for Hook Maker, Football Content Maker, One Click Shorts, and Dhamma Content across tools, pricing, credit rules, guide, FAQs, and terms.
