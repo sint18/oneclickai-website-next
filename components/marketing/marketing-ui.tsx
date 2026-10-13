@@ -7,12 +7,10 @@ import {
   Check,
   Film,
   ImageIcon,
-  Leaf,
   MessageCircle,
   Scissors,
   Send,
   Sparkles,
-  Trophy,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
@@ -24,10 +22,8 @@ import {
   type SupportChannel,
   type Tool,
   getPlanCtaHref,
-  isSunsetTool,
   planCtaLabels,
   getSupportUrl,
-  toolSunsetDate,
 } from "@/lib/site-content"
 import { cn } from "@/lib/utils"
 
@@ -113,9 +109,7 @@ export function SupportLink({
 
 const toolIcons: Record<Tool["icon"], LucideIcon> = {
   film: Film,
-  football: Trophy,
   image: ImageIcon,
-  leaf: Leaf,
   scissors: Scissors,
   sparkles: Sparkles,
 }
@@ -210,11 +204,6 @@ export function ToolCard({ tool }: { tool: Tool }) {
           {tool.availability === "coming-soon" ? (
             <span className="tool-card__badge tool-card__badge--coming-soon">
               မကြာမီ
-            </span>
-          ) : null}
-          {isSunsetTool(tool.slug) ? (
-            <span className="tool-card__badge tool-card__badge--sunset">
-              {toolSunsetDate} အထိ
             </span>
           ) : null}
         </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 import { PolicyPage } from "@/components/marketing/policy-page"
-import { toolSunsetSummaryNotice } from "@/lib/site-content"
+import { removedToolsNotice } from "@/lib/site-content"
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -57,7 +57,7 @@ export default function TermsPage() {
             <p>
               Tool availability, modes နဲ့ product features တွေက အချိန်နဲ့အမျှ
               ပြောင်းလဲနိုင်ပါတယ်။ မသုံးခင် လက်ရှိ plan နဲ့ product rules ကို စစ်ဆေးပါ။{" "}
-              {toolSunsetSummaryNotice}
+              {removedToolsNotice}
             </p>
           ),
         },
