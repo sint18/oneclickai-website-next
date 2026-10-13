@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Document Movie Recap credit use as approximately 3 credits per source minute on `/credit`.
+
+### Removed
+
+- Remove Hook Maker, Football Content Maker, One Click Shorts, and Dhamma Content from the marketing catalog, pricing, credit rules, and guide; redirect old tool URLs to `/tools`.
+
 ## [0.0.9] - 2026-10-10
 
 ### Changed

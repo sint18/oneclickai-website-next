@@ -21,8 +21,6 @@ export const metadata: Metadata = {
     "Myanmar AI content tool",
     "Burmese voiceover video maker",
     "Movie Recap Myanmar",
-    "Football Content Maker",
-    "Dhamma Content Maker",
     "Knowledge Video",
     "Thumbnail Generator Myanmar",
     "Voice Cloning AI",
