@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.0.10] - 2026-10-13
+
 ### Changed
 
 - Document Movie Recap credit use as approximately 3 credits per source minute on `/credit`.
