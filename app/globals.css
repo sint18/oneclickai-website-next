@@ -2819,6 +2819,102 @@
     text-decoration: underline;
     text-underline-offset: 0.18em;
   }
+
+  .plan-offers {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .plan-offer {
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    background: var(--card);
+  }
+
+  .plan-offer--featured {
+    border-color: var(--brand-teal);
+    background: var(--brand-teal-soft);
+  }
+
+  .plan-offer__name {
+    margin: 0;
+    color: var(--foreground);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .plan-offer__terms {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .plan-offer__term {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding: 1rem;
+    border-radius: calc(var(--radius-card) - 0.35rem);
+    background: var(--background);
+  }
+
+  .plan-offer__term--bundle {
+    border: 1px solid var(--brand-teal);
+    background: var(--card);
+  }
+
+  .plan-offer__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin: 0;
+    color: var(--foreground);
+  }
+
+  .plan-offer__amount {
+    font-size: clamp(1.7rem, 2.4vw, 2.35rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .plan-offer__currency {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .plan-offer__period,
+  .plan-offer__credits {
+    margin: 0;
+    color: var(--brand-muted);
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .plan-offer__credits {
+    color: var(--foreground);
+    font-weight: 700;
+  }
+
+  .plan-offer__save {
+    margin: 0.45rem 0 0;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: var(--action-background);
+    color: var(--action-foreground);
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
 }
 
 .dark .pricing-compare thead th:nth-child(3),
@@ -3562,13 +3658,12 @@
 @layer components {
   .hero-section--compact .hero-section__stage {
     --hero-stage-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background:
-      linear-gradient(
-        155deg,
-        color-mix(in oklch, var(--brand-ink), var(--brand-mist) 16%) 0%,
-        var(--brand-ink) 40%,
-        color-mix(in oklch, var(--brand-ink), var(--brand-teal-deep) 55%) 100%
-      );
+    background: linear-gradient(
+      155deg,
+      color-mix(in oklch, var(--brand-ink), var(--brand-mist) 16%) 0%,
+      var(--brand-ink) 40%,
+      color-mix(in oklch, var(--brand-ink), var(--brand-teal-deep) 55%) 100%
+    );
   }
   .hero-section--compact .hero-section__stage::before,
   .hero-section--compact .hero-section__stage::after {
@@ -3604,13 +3699,12 @@
     mix-blend-mode: soft-light;
   }
   .dark .hero-section--compact .hero-section__stage {
-    background:
-      linear-gradient(
-        155deg,
-        color-mix(in oklch, var(--brand-teal-deep), var(--brand-ink) 88%) 0%,
-        var(--brand-ink) 44%,
-        color-mix(in oklch, var(--brand-teal-deep), var(--brand-ink) 72%) 100%
-      );
+    background: linear-gradient(
+      155deg,
+      color-mix(in oklch, var(--brand-teal-deep), var(--brand-ink) 88%) 0%,
+      var(--brand-ink) 44%,
+      color-mix(in oklch, var(--brand-teal-deep), var(--brand-ink) 72%) 100%
+    );
   }
   .dark .hero-section--compact .hero-section__stage::before {
     background:
@@ -3826,6 +3920,10 @@
   .content-page--pricing .content-page__hero h1 {
     font-size: 1.75rem;
     letter-spacing: 0;
+  }
+  .plan-offers,
+  .plan-offer__terms {
+    grid-template-columns: 1fr;
   }
   .pricing-compare th,
   .pricing-compare td {

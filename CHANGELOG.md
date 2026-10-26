@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Show monthly and 3-month VIP and VVIP prices, credits, and savings above the `/pricing` comparison.
+
 ## [0.0.10] - 2026-10-13
 
 ### Changed

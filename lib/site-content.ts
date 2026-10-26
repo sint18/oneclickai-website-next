@@ -45,6 +45,41 @@ export const planTwoMinVideoEstimate = z
   })
   .parse({ VIP: 15, VVIP: 40 })
 
+const planTermSchema = z
+  .object({
+    monthlyPrice: z.string().min(1),
+    monthlyCredits: z.number().int().positive(),
+    termMonths: z.literal(3),
+    termPrice: z.string().min(1),
+    termCredits: z.number().int().positive(),
+    savings: z.string().min(1),
+  })
+  .refine((term) => term.termCredits === term.monthlyCredits * term.termMonths)
+
+export const planOffers = z
+  .object({
+    VIP: planTermSchema,
+    VVIP: planTermSchema,
+  })
+  .parse({
+    VIP: {
+      monthlyPrice: "35,000",
+      monthlyCredits: planCreditAllocation.VIP,
+      termMonths: 3,
+      termPrice: "99,000",
+      termCredits: planCreditAllocation.VIP * 3,
+      savings: "6,000",
+    },
+    VVIP: {
+      monthlyPrice: "59,000",
+      monthlyCredits: planCreditAllocation.VVIP,
+      termMonths: 3,
+      termPrice: "165,000",
+      termCredits: planCreditAllocation.VVIP * 3,
+      savings: "12,000",
+    },
+  })
+
 export const guideSlugSchema = z.enum(["getting-started", "choose-a-source"])
 
 export type GuideSlug = z.infer<typeof guideSlugSchema>
@@ -341,7 +376,7 @@ export const tools: Tool[] = [
 export const plans: PricingPlan[] = [
   {
     name: "VIP",
-    price: "35,000 MMK",
+    price: `${planOffers.VIP.monthlyPrice} MMK`,
     description: "Movie Recap ကို အခုမှ စပြီး ပုံမှန်တင်ချင်တဲ့ creator အတွက်။",
     badge: "အခုမှ စမယ့်သူတွေအတွက်",
     features: [
@@ -356,7 +391,7 @@ export const plans: PricingPlan[] = [
   },
   {
     name: "VVIP",
-    price: "59,000 MMK",
+    price: `${planOffers.VVIP.monthlyPrice} MMK`,
     description:
       "Movie Recap ကို seriously run မယ်၊ output ပိုများမယ်၊ VVIP-only tools လိုအပ်မယ်ဆိုရင်။",
     badge: "အတန်ဆုံး",
@@ -385,22 +420,6 @@ const free: PlanComparisonValue = { kind: "included", label: "အခမဲ့" }
 export const planComparisonGroups: PlanComparisonGroup[] = [
   {
     rows: [
-      {
-        feature: "လစဉ်ကြေး",
-        vip: { kind: "text", label: "35,000 MMK" },
-        vvip: { kind: "text", label: "59,000 MMK" },
-      },
-      {
-        feature: "Monthly credits",
-        vip: {
-          kind: "text",
-          label: String(planCreditAllocation.VIP),
-        },
-        vvip: {
-          kind: "text",
-          label: String(planCreditAllocation.VVIP),
-        },
-      },
       {
         feature: "Approx. 2-min videos",
         vip: {

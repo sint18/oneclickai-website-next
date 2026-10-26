@@ -38,6 +38,7 @@ import {
   guides,
   hasApprovedExampleAssets,
   movieRecapTestimonials,
+  planOffers,
   planComparisonGroups,
   planCtaLabels,
   plans,
@@ -498,18 +499,61 @@ export function PricingPage() {
       }}
     >
       <section className="content-page__section">
+        <div className="plan-offers">
+          {(
+            [
+              ["VIP", planOffers.VIP],
+              ["VVIP", planOffers.VVIP],
+            ] as const
+          ).map(([name, offer]) => (
+            <article
+              className={cn(
+                "plan-offer",
+                name === "VVIP" && "plan-offer--featured"
+              )}
+              key={name}
+            >
+              <h2 className="plan-offer__name">{name}</h2>
+              <div className="plan-offer__terms">
+                <div className="plan-offer__term">
+                  <p className="plan-offer__price">
+                    <span className="plan-offer__amount">
+                      {offer.monthlyPrice}
+                    </span>
+                    <span className="plan-offer__currency">MMK</span>
+                  </p>
+                  <p className="plan-offer__period">per month</p>
+                  <p className="plan-offer__credits">
+                    {offer.monthlyCredits} credits
+                  </p>
+                </div>
+                <div className="plan-offer__term plan-offer__term--bundle">
+                  <p className="plan-offer__price">
+                    <span className="plan-offer__amount">
+                      {offer.termPrice}
+                    </span>
+                    <span className="plan-offer__currency">MMK</span>
+                  </p>
+                  <p className="plan-offer__period">
+                    valid {offer.termMonths} months
+                  </p>
+                  <p className="plan-offer__credits">
+                    {offer.termCredits} credits
+                  </p>
+                  <p className="plan-offer__save">Save {offer.savings} MMK</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
         <div className="pricing-compare">
-          <table aria-label="VIP and VVIP monthly plan comparison">
+          <table aria-label="VIP and VVIP plan comparison">
             <thead>
               <tr>
                 <th scope="col">Feature</th>
                 {plans.map((plan) => (
                   <th key={plan.name} scope="col">
                     <span className="pricing-compare__plan">{plan.name}</span>
-                    <span className="pricing-compare__price">
-                      {plan.price}
-                      <span> / တစ်လ</span>
-                    </span>
                   </th>
                 ))}
               </tr>
