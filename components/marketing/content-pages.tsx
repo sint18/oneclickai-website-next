@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react"
 
+import { PlanChoice } from "@/components/marketing/plan-choice"
 import { SiteFooter } from "@/components/marketing/site-footer"
 import { SiteHeader } from "@/components/marketing/site-header"
 import {
@@ -41,6 +42,7 @@ import {
   planOffers,
   planComparisonGroups,
   planCtaLabels,
+  planTwoMinVideoEstimate,
   plans,
   tools,
 } from "@/lib/site-content"
@@ -100,7 +102,7 @@ export function ContentPageFrame({
   breadcrumbs: BreadcrumbItem[]
   children: ReactNode
   description: string
-  eyebrow: string
+  eyebrow?: string
   heroAction?: ReactNode
   heroAside?: ReactNode
   title: string
@@ -124,7 +126,7 @@ export function ContentPageFrame({
             )}
           >
             <div>
-              <p className="eyebrow">{eyebrow}</p>
+              {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
               <h1>{title}</h1>
               <p>{description}</p>
               {heroAction}
@@ -276,9 +278,11 @@ function RelatedTools({ slugs }: { slugs: Tool["slug"][] }) {
 
 function ContentCta({
   description = "ကိုယ့် content type နဲ့ကိုက်တဲ့ workflow ကို One Click AI မှာ စတင်ကြည့်ပါ။",
+  eyebrow = "VVIP နဲ့ Movie Recap စတင်ရန်",
   title = "ကိုယ့် workflow ကို စတင်ကြည့်ပါ။",
 }: {
   description?: string
+  eyebrow?: string | null
   title?: string
 }) {
   const href = getPlanCtaHref()
@@ -286,7 +290,7 @@ function ContentCta({
   return (
     <section className="content-page__cta">
       <div>
-        <p className="eyebrow eyebrow--light">VVIP နဲ့ Movie Recap စတင်ရန်</p>
+        {eyebrow ? <p className="eyebrow eyebrow--light">{eyebrow}</p> : null}
         <h2>{title}</h2>
         <p>{description}</p>
         <p>
@@ -488,9 +492,8 @@ export function PricingPage() {
     <ContentPageFrame
       className="content-page--pricing"
       breadcrumbs={[{ label: "Pricing" }]}
-      description="လစဉ်ကြေး၊ credits နဲ့ ပါဝင်တဲ့ tools တွေကို နှိုင်းယှဉ်ပါ။"
-      eyebrow="Plans"
-      title="VIP နဲ့ VVIP ကို နှိုင်းယှဉ်ပါ"
+      description="အရင် plan ကို ရွေးပါ။ ပြီးရင် လစဉ် သို့မဟုတ် ၃ လ ကို ရွေးပါ။"
+      title="VIP နဲ့ VVIP ကို ရွေးပါ"
       structuredData={{
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -499,53 +502,38 @@ export function PricingPage() {
       }}
     >
       <section className="content-page__section">
-        <div className="plan-offers">
-          {(
-            [
-              ["VIP", planOffers.VIP],
-              ["VVIP", planOffers.VVIP],
-            ] as const
-          ).map(([name, offer]) => (
-            <article
-              className={cn(
-                "plan-offer",
-                name === "VVIP" && "plan-offer--featured"
-              )}
-              key={name}
-            >
-              <h2 className="plan-offer__name">{name}</h2>
-              <div className="plan-offer__terms">
-                <div className="plan-offer__term">
-                  <p className="plan-offer__price">
-                    <span className="plan-offer__amount">
-                      {offer.monthlyPrice}
-                    </span>
-                    <span className="plan-offer__currency">MMK</span>
-                  </p>
-                  <p className="plan-offer__period">per month</p>
-                  <p className="plan-offer__credits">
-                    {offer.monthlyCredits} credits
-                  </p>
-                </div>
-                <div className="plan-offer__term plan-offer__term--bundle">
-                  <p className="plan-offer__price">
-                    <span className="plan-offer__amount">
-                      {offer.termPrice}
-                    </span>
-                    <span className="plan-offer__currency">MMK</span>
-                  </p>
-                  <p className="plan-offer__period">
-                    valid {offer.termMonths} months
-                  </p>
-                  <p className="plan-offer__credits">
-                    {offer.termCredits} credits
-                  </p>
-                  <p className="plan-offer__save">Save {offer.savings} MMK</p>
-                </div>
-              </div>
-            </article>
-          ))}
+        <div className="plan-choices">
+          <PlanChoice
+            analyticsLocation="pricing_vip"
+            badge={plans[0].badge ?? ""}
+            defaultTerm="month"
+            external={isExternalHref(href)}
+            href={href}
+            label="VIP"
+            monthlyCredits={planOffers.VIP.monthlyCredits}
+            monthlyPrice={planOffers.VIP.monthlyPrice}
+            monthlyVideos={planTwoMinVideoEstimate.VIP}
+            savings={planOffers.VIP.savings}
+            termCredits={planOffers.VIP.termCredits}
+            termPrice={planOffers.VIP.termPrice}
+          />
+          <PlanChoice
+            analyticsLocation="pricing_vvip"
+            badge={plans[1].badge ?? ""}
+            defaultTerm="term"
+            external={isExternalHref(href)}
+            featured
+            href={href}
+            label="VVIP"
+            monthlyCredits={planOffers.VVIP.monthlyCredits}
+            monthlyPrice={planOffers.VVIP.monthlyPrice}
+            monthlyVideos={planTwoMinVideoEstimate.VVIP}
+            savings={planOffers.VVIP.savings}
+            termCredits={planOffers.VVIP.termCredits}
+            termPrice={planOffers.VVIP.termPrice}
+          />
         </div>
+        <h2 className="plan-compare-heading">နှိုင်းယှဉ်ချက်</h2>
         <div className="pricing-compare">
           <table aria-label="VIP and VVIP plan comparison">
             <thead>
@@ -584,33 +572,15 @@ export function PricingPage() {
             </tbody>
           </table>
         </div>
-        <div className="pricing-compare__actions">
-          <ActionLink
-            analyticsLocation="pricing_vip"
-            external={isExternalHref(href)}
-            href={href}
-            variant="secondary"
-          >
-            {planCtaLabels.vip}
-          </ActionLink>
-          <ActionLink
-            analyticsLocation="pricing_vvip"
-            external={isExternalHref(href)}
-            href={href}
-            variant="primary"
-          >
-            {planCtaLabels.vvip}
-            <ArrowRight aria-hidden="true" />
-          </ActionLink>
-        </div>
         <p className="pricing-compare__note">
-          app.oneclickai.studio မှာ ဝယ်ယူလို့ရပါပြီ။ Credit rates နဲ့ estimate
+          App ထဲမှာ plan နဲ့ သက်တမ်းကို ပြန်ရွေးပြီး ဝယ်ယူပါ။ Credit rates နဲ့ estimate
           စစ်နည်းကို <Link href="/credit">Credit Rules</Link> မှာ ဖတ်နိုင်ပါတယ်။
         </p>
       </section>
       <ContentCta
-        description="ကိုယ့် content type နဲ့ source video ဘယ်လောက်ရှည်လဲ ပြောပါ။ သင့်တော်တဲ့ monthly plan ကို support က ကူညီရွေးပေးပါမယ်။"
-        title="ကိုယ့် plan ကို ရွေးပြီး စတင်ပါ။"
+        description="165,000 MMK၊ 720 credits။ 12,000 MMK ပိုသက်သာ။ App မှာ ဝယ်ယူပါ။"
+        eyebrow={null}
+        title="VVIP ၃ လ နဲ့ စတင်ပါ။"
       />
     </ContentPageFrame>
   )

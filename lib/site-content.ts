@@ -421,7 +421,7 @@ export const planComparisonGroups: PlanComparisonGroup[] = [
   {
     rows: [
       {
-        feature: "Approx. 2-min videos",
+        feature: "Approx. 2-min videos per month",
         vip: {
           kind: "text",
           label: String(planTwoMinVideoEstimate.VIP),
