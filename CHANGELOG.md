@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [0.0.11] - 2026-10-27
+
+### Changed
+
+- Show monthly and 3-month VIP and VVIP prices, credits, savings, and estimated video capacity on `/pricing`.
+- Pass the selected plan and term in purchase links and clarify that customers choose them in the app.
+
 ## [0.0.10] - 2026-10-13
 
 ### Changed
