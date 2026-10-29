@@ -4178,7 +4178,6 @@
   .hero-section--compact .hero-actions { margin-top: 2rem; }
   .hero-section--compact .hero-note { color: #42665f; }
   .hero-section--compact .hero-note svg { color: #187f73; }
-  .hero-section--compact .hero-actions .action-link--light { background: transparent; color: #174a43; border-color: #81b8ad; }
   .story-preview { --move-x: 0px; --move-y: 0px; --drift: 0px; position: relative; width: 100%; padding: 0 1.3rem 2rem 0; }
   .story-preview::before { content: ""; position: absolute; z-index: 0; inset: 2.2rem 0 0 2.2rem; background: #a6ddd2; }
   .story-preview__frame { position: relative; aspect-ratio: 1.06; overflow: hidden; background: #113d3d; box-shadow: 0 24px 60px rgb(19 72 64 / 19%); }
@@ -4207,8 +4206,6 @@
   .dark .hero-section--compact .hero-copy__description { color: #c0d8d0; }
   .dark .hero-section--compact .hero-note { color: #b3d0c6; }
   .dark .hero-section--compact .hero-note svg { color: #6acfc0; }
-  .dark .hero-section--compact .hero-actions .action-link--light { color: #def3ed; border-color: #75a99e; }
-  .dark .hero-section--compact .hero-actions .action-link--light:hover { background: #285a50; color: #f2fffb; }
   .dark .story-preview::before { background: #275b53; }
   .dark .story-preview__rail { background: #1b3330; box-shadow: 0 14px 35px rgb(0 0 0 / 24%); }
   .dark .story-preview__rail button { color: #cbe1d9; border-color: #41625b; }

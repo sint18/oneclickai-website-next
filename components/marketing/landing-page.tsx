@@ -137,7 +137,7 @@ export function LandingPage() {
                   </ActionLink>
                   <ActionLink
                     href="#comparison"
-                    variant="light"
+                    variant="secondary"
                   >
                     နမူနာ Video ကြည့်ရန်
                   </ActionLink>
