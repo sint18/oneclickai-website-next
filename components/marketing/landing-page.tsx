@@ -10,7 +10,6 @@ import {
   SupportLink,
   ToolCard,
 } from "@/components/marketing/marketing-ui"
-import { VideoSlot } from "@/components/marketing/video-slot"
 import { SiteFooter } from "@/components/marketing/site-footer"
 import { SiteHeader } from "@/components/marketing/site-header"
 import {
@@ -150,11 +149,7 @@ export function LandingPage() {
                   <span>KBZPay ဖြင့် ဝယ်ယူနိုင်ပါတယ်။</span>
                 </div>
               </div>
-              <a className="hero-preview" href="#comparison" aria-label="Movie Recap နမူနာကို ကြည့်ရန်">
-                <Image src="/images/movie-recap-output-poster.jpg" alt="" width={360} height={640} priority />
-                <span className="hero-preview__label">Source <ArrowRight aria-hidden="true" /> Result</span>
-                <span className="hero-preview__action">နမူနာကို ကြည့်ရန် <ArrowRight aria-hidden="true" /></span>
-              </a>
+
             </div>
           </div>
         </section>
@@ -179,7 +174,10 @@ export function LandingPage() {
               </div>
               <div className="comparison__item">
                 <h3>One Click AI Result</h3>
-                <VideoSlot caption="မြန်မာအသံနဲ့ subtitle ပါတဲ့ Movie Recap နမူနာ" src="/videos/movie-recap-output-sample.mp4" poster="/images/movie-recap-output-poster.jpg" title="Movie Recap output sample with Burmese voice and subtitles" />
+                <div className="comparison__placeholder">
+                  <span>One Click AI Result</span>
+                  <p>Result video နမူနာ မကြာမီ ထည့်သွင်းပါမည်။</p>
+                </div>
               </div>
             </div>
           </div>
