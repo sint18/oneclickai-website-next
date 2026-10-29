@@ -139,12 +139,10 @@ export function LandingPage() {
                     <ArrowRight aria-hidden="true" />
                   </ActionLink>
                   <ActionLink
-                    analyticsLocation="hero_demo"
-                    external={heroDemoHref.startsWith("http")}
-                    href={heroDemoHref}
+                    href="#comparison"
                     variant="light"
                   >
-                    အသုံးပြုပုံ Video ကြည့်ရန်
+                    နမူနာ Video ကြည့်ရန်
                   </ActionLink>
                 </div>
                 <div className="hero-note">
@@ -152,13 +150,36 @@ export function LandingPage() {
                   <span>KBZPay ဖြင့် ဝယ်ယူနိုင်ပါတယ်။</span>
                 </div>
               </div>
-              <div className="hero-sample" id="output">
-                <VideoSlot
-                  caption="နမူနာကို ဖွင့်ပြီး မြန်မာအသံနဲ့ subtitle ကို ကြည့်ရှုနားထောင်ပါ။"
-                  src="/videos/movie-recap-output-sample.mp4"
-                  poster="/images/movie-recap-output-poster.jpg"
-                  title="Movie Recap output sample with Burmese voice and subtitles"
-                />
+              <a className="hero-preview" href="#comparison" aria-label="Movie Recap နမူနာကို ကြည့်ရန်">
+                <Image src="/images/movie-recap-output-poster.jpg" alt="" width={360} height={640} priority />
+                <span className="hero-preview__label">Source <ArrowRight aria-hidden="true" /> Result</span>
+                <span className="hero-preview__action">နမူနာကို ကြည့်ရန် <ArrowRight aria-hidden="true" /></span>
+              </a>
+            </div>
+          </div>
+        </section>
+        <section className="section comparison" id="comparison" aria-labelledby="comparison-title">
+          <div className="site-shell">
+            <div className="comparison__heading">
+              <div>
+                <h2 id="comparison-title">Source Video ကနေ Movie Recap အဖြစ်</h2>
+                <p>မြန်မာအသံနဲ့ subtitle ပါတဲ့ Movie Recap နမူနာကို ကြည့်ရှုနားထောင်ပါ။</p>
+              </div>
+              <ActionLink href={heroDemoHref} external={heroDemoHref.startsWith("http")} analyticsLocation="hero_demo" variant="text">
+                အသုံးပြုပုံ Video ကြည့်ရန် <ArrowRight aria-hidden="true" />
+              </ActionLink>
+            </div>
+            <div className="comparison__grid">
+              <div className="comparison__item">
+                <h3>Original Video</h3>
+                <div className="comparison__placeholder">
+                  <span>Original video</span>
+                  <p>မူရင်း video နမူနာ မကြာမီ ထည့်သွင်းပါမည်။</p>
+                </div>
+              </div>
+              <div className="comparison__item">
+                <h3>One Click AI Result</h3>
+                <VideoSlot caption="မြန်မာအသံနဲ့ subtitle ပါတဲ့ Movie Recap နမူနာ" src="/videos/movie-recap-output-sample.mp4" poster="/images/movie-recap-output-poster.jpg" title="Movie Recap output sample with Burmese voice and subtitles" />
               </div>
             </div>
           </div>

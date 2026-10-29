@@ -22,6 +22,7 @@ export function VideoSlot({
 }: VideoSlotProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [started, setStarted] = useState(false)
+  const [error, setError] = useState(false)
 
   async function playSample() {
     const video = videoRef.current
@@ -35,6 +36,7 @@ export function VideoSlot({
       video.focus()
     } catch {
       setStarted(false)
+      setError(true)
     }
   }
 
@@ -52,7 +54,8 @@ export function VideoSlot({
               video.currentTime = 0
             }
           }}
-          onPlay={() => setStarted(true)}
+          onPlay={() => { setStarted(true); setError(false) }}
+          onError={() => { setStarted(false); setError(true) }}
           playsInline
           poster={poster}
           preload="none"
@@ -61,7 +64,7 @@ export function VideoSlot({
         >
           <source src={src} type="video/mp4" />
         </video>
-        {started ? null : (
+        {started || error ? null : (
           <button
             aria-label={`Play ${title}`}
             className="video-slot__play"
@@ -74,7 +77,7 @@ export function VideoSlot({
           </button>
         )}
       </div>
-      <figcaption>{caption}</figcaption>
+      <figcaption>{error ? "Video ဖွင့်မရပါ။ Page ကို refresh လုပ်ပြီး ထပ်ကြိုးစားပါ။" : caption}</figcaption>
     </figure>
   )
 }

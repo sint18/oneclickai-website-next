@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Rework the homepage hero and add a Movie Recap source and result comparison preview while retaining creator results.
+
 ## [0.0.11] - 2026-10-27
 
 ### Changed

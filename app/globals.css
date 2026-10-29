@@ -4063,3 +4063,53 @@
     font-size: var(--font-small);
   }
 }
+
+@layer components {
+  .hero-preview {
+    position: relative;
+    display: block;
+    justify-self: center;
+    width: min(100%, 15rem);
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    color: #fff;
+    background: var(--brand-ink);
+    box-shadow: 0 1.5rem 3rem -1rem rgb(0 0 0 / 45%);
+    text-decoration: none;
+  }
+  .hero-preview img { display: block; width: 100%; height: auto; }
+  .hero-preview::after {
+    content: "";
+    position: absolute;
+    inset: 40% 0 0;
+    background: linear-gradient(transparent, rgb(0 0 0 / 85%));
+  }
+  .hero-preview__label, .hero-preview__action {
+    position: absolute;
+    z-index: 1;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .hero-preview__label { bottom: 3.6rem; font-size: .75rem; font-weight: 700; letter-spacing: .06em; }
+  .hero-preview__action { bottom: 1.25rem; font-size: .9rem; font-weight: 700; }
+  .hero-preview svg { width: 1rem; height: 1rem; }
+  .hero-preview:focus-visible { outline: 3px solid var(--focus-color); outline-offset: 4px; }
+  .comparison__heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
+  .comparison__heading h2 { margin: 0; text-wrap: balance; }
+  .comparison__heading p { max-width: 60ch; margin: .75rem 0 0; color: var(--brand-muted); }
+  .comparison__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2rem); }
+  .comparison__item h3 { margin: 0 0 .75rem; font-size: 1rem; }
+  .comparison__placeholder { display: grid; place-content: center; min-height: 0; aspect-ratio: 16 / 9; padding: 2rem; border: 1px dashed var(--border); border-radius: var(--radius-card); background: var(--card); text-align: center; }
+  .comparison__placeholder span { font-weight: 700; }
+  .comparison__placeholder p { margin: .5rem 0 0; color: var(--brand-muted); }
+  .comparison .video-slot figcaption { text-align: left; }
+  .comparison + .trust-strip { margin-block: var(--space-section); }
+  @media (max-width: 52rem) {
+    .hero-preview { width: min(100%, 12rem); }
+    .comparison__heading { display: block; }
+    .comparison__heading .action-link { margin-top: 1rem; }
+    .comparison__grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+}
