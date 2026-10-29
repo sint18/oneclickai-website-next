@@ -1,4 +1,4 @@
-import { ArrowRight, BadgeCheck, ShieldCheck, WandSparkles } from "lucide-react"
+import { ArrowDown, ArrowRight, AudioLines, BadgeCheck, Captions, Film, ShieldCheck, WandSparkles } from "lucide-react"
 import Image from "next/image"
 
 import { CopyAppLink } from "@/components/marketing/copy-app-link"
@@ -122,9 +122,6 @@ export function LandingPage() {
           <div className="hero-section__stage">
             <div className="site-shell hero-section__inner">
               <div className="hero-copy">
-                <p className="eyebrow eyebrow--light">
-                  Movie Recap for Myanmar creators
-                </p>
                 <h1>
                   မြန်မာအသံနဲ့ စာတန်းထိုးပါတဲ့ Movie Recap Video ဖန်တီးပါ။
                 </h1>
@@ -149,7 +146,15 @@ export function LandingPage() {
                   <span>KBZPay ဖြင့် ဝယ်ယူနိုင်ပါတယ်။</span>
                 </div>
               </div>
-
+              <div className="hero-story" aria-label="Source video to Burmese voice and subtitles">
+                <div className="hero-story__source"><Film aria-hidden="true" /><span>Source video</span></div>
+                <div className="hero-story__connector"><ArrowDown aria-hidden="true" /></div>
+                <div className="hero-story__result">
+                  <span className="hero-story__result-title">Movie Recap</span>
+                  <div><AudioLines aria-hidden="true" /><span>မြန်မာအသံ</span></div>
+                  <div><Captions aria-hidden="true" /><span>စာတန်းထိုး</span></div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -168,14 +173,14 @@ export function LandingPage() {
               <div className="comparison__item">
                 <h3>Original Video</h3>
                 <div className="comparison__placeholder">
-                  <span>Original video</span>
+                  <Film aria-hidden="true" />
                   <p>မူရင်း video နမူနာ မကြာမီ ထည့်သွင်းပါမည်။</p>
                 </div>
               </div>
               <div className="comparison__item">
                 <h3>One Click AI Result</h3>
                 <div className="comparison__placeholder">
-                  <span>One Click AI Result</span>
+                  <Captions aria-hidden="true" />
                   <p>Result video နမူနာ မကြာမီ ထည့်သွင်းပါမည်။</p>
                 </div>
               </div>
