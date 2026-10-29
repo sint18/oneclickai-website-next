@@ -10,7 +10,6 @@ import {
   SupportLink,
   ToolCard,
 } from "@/components/marketing/marketing-ui"
-import { VideoSlot } from "@/components/marketing/video-slot"
 import { SiteFooter } from "@/components/marketing/site-footer"
 import { SiteHeader } from "@/components/marketing/site-header"
 import {
@@ -123,9 +122,6 @@ export function LandingPage() {
           <div className="hero-section__stage">
             <div className="site-shell hero-section__inner">
               <div className="hero-copy">
-                <p className="eyebrow eyebrow--light">
-                  Movie Recap for Myanmar creators
-                </p>
                 <h1>
                   မြန်မာအသံနဲ့ စာတန်းထိုးပါတဲ့ Movie Recap Video ဖန်တီးပါ။
                 </h1>
@@ -139,12 +135,10 @@ export function LandingPage() {
                     <ArrowRight aria-hidden="true" />
                   </ActionLink>
                   <ActionLink
-                    analyticsLocation="hero_demo"
-                    external={heroDemoHref.startsWith("http")}
-                    href={heroDemoHref}
+                    href="#comparison"
                     variant="light"
                   >
-                    အသုံးပြုပုံ Video ကြည့်ရန်
+                    နမူနာ Video ကြည့်ရန်
                   </ActionLink>
                 </div>
                 <div className="hero-note">
@@ -152,13 +146,35 @@ export function LandingPage() {
                   <span>KBZPay ဖြင့် ဝယ်ယူနိုင်ပါတယ်။</span>
                 </div>
               </div>
-              <div className="hero-sample" id="output">
-                <VideoSlot
-                  caption="နမူနာကို ဖွင့်ပြီး မြန်မာအသံနဲ့ subtitle ကို ကြည့်ရှုနားထောင်ပါ။"
-                  src="/videos/movie-recap-output-sample.mp4"
-                  poster="/images/movie-recap-output-poster.jpg"
-                  title="Movie Recap output sample with Burmese voice and subtitles"
-                />
+
+            </div>
+          </div>
+        </section>
+        <section className="section comparison" id="comparison" aria-labelledby="comparison-title">
+          <div className="site-shell">
+            <div className="comparison__intro">
+              <h2 id="comparison-title">Source Video ကနေ<br />Movie Recap အဖြစ်</h2>
+              <div className="comparison__intro-detail">
+                <p>Original video နဲ့ One Click AI ရဲ့ result ကို ယှဉ်ကြည့်ပါ။</p>
+                <ActionLink href={heroDemoHref} external={heroDemoHref.startsWith("http")} analyticsLocation="hero_demo" variant="text">
+                  အသုံးပြုပုံ Video ကြည့်ရန် <ArrowRight aria-hidden="true" />
+                </ActionLink>
+              </div>
+            </div>
+            <div className="comparison__stage" aria-label="Video comparison preview">
+              <div className="comparison__item">
+                <div className="comparison__label"><h3>Original Video</h3><span>Source</span></div>
+                <video className="comparison__screen" controls playsInline preload="none" poster="/images/comparison-original.webp" title="Original video">
+                  <source src="https://storage.googleapis.com/oneclickai-website-assets/videos/b13d989f-69f9-4416-99f7-58dbf199344d.mp4" type="video/mp4" />
+                  Your browser does not support video playback.
+                </video>
+              </div>
+              <div className="comparison__item">
+                <div className="comparison__label"><h3>One Click AI Result</h3><span>Movie Recap</span></div>
+                <video className="comparison__screen" controls playsInline preload="none" poster="/images/comparison-result.webp" title="One Click AI result video">
+                  <source src="https://storage.googleapis.com/oneclickai-website-assets/videos/b13d989f-69f9-4416-99f7-58dbf199344d%202.mp4" type="video/mp4" />
+                  Your browser does not support video playback.
+                </video>
               </div>
             </div>
           </div>

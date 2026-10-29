@@ -4063,3 +4063,82 @@
     font-size: var(--font-small);
   }
 }
+
+@layer components {
+  .hero-section--compact .hero-section__inner {
+    display: block;
+    padding-block: clamp(5rem, 9vw, 8rem);
+  }
+  .hero-section--compact .hero-copy { max-width: 52rem; }
+  .hero-section--compact .hero-copy h1 { max-width: 20ch; }
+  .comparison + .trust-strip { margin-block: var(--space-section); }
+  @media (max-width: 52rem) {
+  }
+}
+
+@layer components {
+  .hero-section--compact .hero-section__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(17rem, .7fr);
+    gap: clamp(3rem, 7vw, 7rem);
+    align-items: center;
+    padding-block: clamp(5rem, 8vw, 7rem);
+  }
+  .hero-section--compact .hero-copy h1 {
+    max-width: 17ch;
+    font-size: clamp(2.5rem, 4.1vw, 4.3rem);
+    line-height: 1.4;
+  }
+  .hero-section--compact .hero-copy__description { max-width: 37rem; margin-top: 1.5rem; }
+  .hero-section--compact .hero-actions { margin-top: 2rem; }
+  @media (max-width: 52rem) {
+    .hero-section--compact .hero-section__inner { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4.5rem; }
+    .hero-section--compact .hero-copy h1 { max-width: 20ch; font-size: clamp(2rem, 6vw, 3rem); }
+  }
+}
+@layer components {
+  .hero-section--compact .hero-section__stage,
+  .dark .hero-section--compact .hero-section__stage {
+    background: #061012 url("/images/hero-cinema-projector.webp") center / cover no-repeat;
+  }
+  .hero-section--compact .hero-section__stage::before,
+  .dark .hero-section--compact .hero-section__stage::before {
+    background: linear-gradient(90deg, rgb(3 12 14 / 96%) 0%, rgb(3 12 14 / 86%) 35%, rgb(3 12 14 / 22%) 78%);
+  }
+  .hero-section--compact .hero-section__stage::after { display: none; }
+  .hero-section--compact .hero-section__inner {
+    display: block;
+    min-height: clamp(34rem, 70vh, 47rem);
+    padding-block: clamp(6rem, 10vw, 9rem);
+  }
+  .hero-section--compact .hero-copy { max-width: 47rem; }
+  .hero-section--compact .hero-copy h1 { max-width: 16ch; font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1.45; }
+  @media (max-width: 52rem) {
+    .hero-section--compact .hero-section__stage,
+    .dark .hero-section--compact .hero-section__stage { background-position: 65% center; }
+    .hero-section--compact .hero-section__stage::before,
+    .dark .hero-section--compact .hero-section__stage::before { background: linear-gradient(90deg, rgb(3 12 14 / 94%), rgb(3 12 14 / 72%)); }
+    .hero-section--compact .hero-section__inner { min-height: 0; padding-block: 5rem; }
+    .hero-section--compact .hero-copy h1 { max-width: none; font-size: clamp(2rem, 7vw, 3rem); }
+  }
+}
+
+@layer components {
+  .comparison { background: var(--background); color: var(--foreground); padding-block: clamp(4.5rem, 8vw, 7rem); }
+  .comparison__intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, .6fr); gap: 2rem; align-items: end; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+  .comparison__intro h2 { margin: 0; max-width: 19ch; font-size: clamp(2rem, 3.6vw, 3.6rem); line-height: 1.45; }
+  .comparison__intro-detail { max-width: 25rem; padding-bottom: .3rem; }
+  .comparison__intro-detail p { margin: 0 0 1rem; color: var(--foreground); line-height: 1.8; }
+  .comparison__stage { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 2rem); }
+  .comparison__item { min-width: 0; }
+  .comparison__label { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0 0 .85rem; }
+  .comparison__label h3 { margin: 0; font-size: clamp(1.05rem, 1.5vw, 1.3rem); }
+  .comparison__label span { color: var(--foreground); font-size: .75rem; opacity: .75; }
+  .comparison__screen { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: .75rem; background: #152320; object-fit: contain; }
+  .comparison__item:nth-child(2) .comparison__screen { background: #10443f; }
+  @media (max-width: 52rem) {
+    .comparison__intro { grid-template-columns: 1fr; gap: 1rem; }
+    .comparison__intro h2 { max-width: none; }
+    .comparison__stage { grid-template-columns: 1fr; gap: 2rem; }
+  }
+}
