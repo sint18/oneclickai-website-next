@@ -1,4 +1,4 @@
-import { ArrowRight, BadgeCheck, Captions, Film, ShieldCheck, WandSparkles } from "lucide-react"
+import { ArrowRight, BadgeCheck, ShieldCheck, WandSparkles } from "lucide-react"
 import Image from "next/image"
 
 import { CopyAppLink } from "@/components/marketing/copy-app-link"
@@ -152,29 +152,23 @@ export function LandingPage() {
         </section>
         <section className="section comparison" id="comparison" aria-labelledby="comparison-title">
           <div className="site-shell">
-            <div className="comparison__heading">
-              <div>
-                <h2 id="comparison-title">Source Video ကနေ Movie Recap အဖြစ်</h2>
-                <p>မြန်မာအသံနဲ့ subtitle ပါတဲ့ Movie Recap နမူနာကို ကြည့်ရှုနားထောင်ပါ။</p>
+            <div className="comparison__intro">
+              <h2 id="comparison-title">Source Video ကနေ<br />Movie Recap အဖြစ်</h2>
+              <div className="comparison__intro-detail">
+                <p>Original video နဲ့ One Click AI ရဲ့ result ကို ဒီနေရာမှာ ယှဉ်ကြည့်နိုင်ပါမယ်။</p>
+                <ActionLink href={heroDemoHref} external={heroDemoHref.startsWith("http")} analyticsLocation="hero_demo" variant="text">
+                  အသုံးပြုပုံ Video ကြည့်ရန် <ArrowRight aria-hidden="true" />
+                </ActionLink>
               </div>
-              <ActionLink href={heroDemoHref} external={heroDemoHref.startsWith("http")} analyticsLocation="hero_demo" variant="text">
-                အသုံးပြုပုံ Video ကြည့်ရန် <ArrowRight aria-hidden="true" />
-              </ActionLink>
             </div>
-            <div className="comparison__grid">
+            <div className="comparison__stage" aria-label="Video comparison preview">
               <div className="comparison__item">
-                <h3>Original Video</h3>
-                <div className="comparison__placeholder">
-                  <Film aria-hidden="true" />
-                  <p>မူရင်း video နမူနာ မကြာမီ ထည့်သွင်းပါမည်။</p>
-                </div>
+                <div className="comparison__label"><h3>Original Video</h3><span>Source</span></div>
+                <div className="comparison__screen"><p>Original video ထည့်သွင်းရန်</p></div>
               </div>
               <div className="comparison__item">
-                <h3>One Click AI Result</h3>
-                <div className="comparison__placeholder">
-                  <Captions aria-hidden="true" />
-                  <p>Result video နမူနာ မကြာမီ ထည့်သွင်းပါမည်။</p>
-                </div>
+                <div className="comparison__label"><h3>One Click AI Result</h3><span>Movie Recap</span></div>
+                <div className="comparison__screen"><p>Result video ထည့်သွင်းရန်</p></div>
               </div>
             </div>
           </div>
