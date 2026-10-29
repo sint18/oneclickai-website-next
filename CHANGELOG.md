@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.0.12] - 2026-10-29
+
 ### Changed
 
 - Rework the homepage hero and show an original video alongside its Movie Recap result while retaining creator results.
