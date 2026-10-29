@@ -4134,9 +4134,8 @@
   .comparison__label { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0 0 .85rem; }
   .comparison__label h3 { margin: 0; font-size: clamp(1.05rem, 1.5vw, 1.3rem); }
   .comparison__label span { color: var(--foreground); font-size: .75rem; opacity: .75; }
-  .comparison__screen { aspect-ratio: 16 / 9; display: flex; align-items: end; padding: clamp(1.2rem, 2.5vw, 2rem); border-radius: .75rem; background: #152320; color: #fefefd; }
+  .comparison__screen { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: .75rem; background: #152320; object-fit: contain; }
   .comparison__item:nth-child(2) .comparison__screen { background: #10443f; }
-  .comparison__screen p { margin: 0; font-size: .875rem; line-height: 1.6; color: #d4eeeb; }
   @media (max-width: 52rem) {
     .comparison__intro { grid-template-columns: 1fr; gap: 1rem; }
     .comparison__intro h2 { max-width: none; }

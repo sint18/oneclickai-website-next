@@ -155,7 +155,7 @@ export function LandingPage() {
             <div className="comparison__intro">
               <h2 id="comparison-title">Source Video ကနေ<br />Movie Recap အဖြစ်</h2>
               <div className="comparison__intro-detail">
-                <p>Original video နဲ့ One Click AI ရဲ့ result ကို ဒီနေရာမှာ ယှဉ်ကြည့်နိုင်ပါမယ်။</p>
+                <p>Original video နဲ့ One Click AI ရဲ့ result ကို ယှဉ်ကြည့်ပါ။</p>
                 <ActionLink href={heroDemoHref} external={heroDemoHref.startsWith("http")} analyticsLocation="hero_demo" variant="text">
                   အသုံးပြုပုံ Video ကြည့်ရန် <ArrowRight aria-hidden="true" />
                 </ActionLink>
@@ -164,11 +164,17 @@ export function LandingPage() {
             <div className="comparison__stage" aria-label="Video comparison preview">
               <div className="comparison__item">
                 <div className="comparison__label"><h3>Original Video</h3><span>Source</span></div>
-                <div className="comparison__screen"><p>Original video ထည့်သွင်းရန်</p></div>
+                <video className="comparison__screen" controls playsInline preload="none" poster="/images/comparison-original.webp" title="Original video">
+                  <source src="https://storage.googleapis.com/oneclickai-website-assets/videos/b13d989f-69f9-4416-99f7-58dbf199344d.mp4" type="video/mp4" />
+                  Your browser does not support video playback.
+                </video>
               </div>
               <div className="comparison__item">
                 <div className="comparison__label"><h3>One Click AI Result</h3><span>Movie Recap</span></div>
-                <div className="comparison__screen"><p>Result video ထည့်သွင်းရန်</p></div>
+                <video className="comparison__screen" controls playsInline preload="none" poster="/images/comparison-result.webp" title="One Click AI result video">
+                  <source src="https://storage.googleapis.com/oneclickai-website-assets/videos/b13d989f-69f9-4416-99f7-58dbf199344d%202.mp4" type="video/mp4" />
+                  Your browser does not support video playback.
+                </video>
               </div>
             </div>
           </div>

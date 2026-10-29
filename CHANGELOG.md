@@ -4,7 +4,7 @@
 
 ### Changed
 
-- Rework the homepage hero and add a Movie Recap source and result comparison preview while retaining creator results.
+- Rework the homepage hero and show an original video alongside its Movie Recap result while retaining creator results.
 
 ## [0.0.11] - 2026-10-27
 
