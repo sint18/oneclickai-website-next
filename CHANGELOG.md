@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [0.0.13] - 2026-10-29
+
+### Changed
+
+- Redesign the homepage hero with interactive Movie Recap previews, matching day and night visuals, and softly lit backgrounds for light and dark themes.
+- Match the hero sample-video button to the site's secondary button style.
+
 ## [0.0.12] - 2026-10-29
 
 ### Changed
