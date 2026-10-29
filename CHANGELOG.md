@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Show a Smart Recap source and output example and feature highlights on the Examples page.
+
 ## [0.0.13] - 2026-10-29
 
 ### Changed

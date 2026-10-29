@@ -4228,3 +4228,25 @@
   }
   @media (prefers-reduced-motion: reduce) { .story-preview__image { transform: scale(1.04); transition: none; } .story-preview__rail button { transition: none; } .hero-section--compact .hero-section__stage::before { transform: none; transition: none; } }
 }
+
+
+@layer components {
+  .examples-comparison { margin-block: clamp(3rem, 6vw, 6rem); }
+  .examples-comparison__heading { margin-bottom: 2rem; }
+  .examples-comparison h2, .examples-features h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1.5; letter-spacing: -.02em; }
+  .examples-comparison__heading p, .examples-features__intro p { color: var(--muted-foreground); line-height: 1.8; margin: .75rem 0 0; }
+  .examples-comparison__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 2rem); }
+  .examples-comparison__label { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: .8rem; }
+  .examples-comparison__label h3 { margin: 0; font-size: 1.05rem; }
+  .examples-comparison__label span { color: var(--muted-foreground); font-size: .7rem; letter-spacing: .08em; }
+  .examples-comparison video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #102f2b; border-radius: 12px; }
+  .examples-features { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2rem, 7vw, 7rem); padding-block: clamp(3rem, 6vw, 6rem); border-top: 1px solid var(--border); }
+  .examples-features__intro p { max-width: 25rem; }
+  .examples-features__list article { border-top: 1px solid var(--border); padding: 1.3rem 0; }
+  .examples-features__list h3 { font-size: 1.12rem; line-height: 1.6; margin: 0 0 .45rem; }
+  .examples-features__list p { color: var(--muted-foreground); line-height: 1.8; margin: 0; }
+  .examples-cta { padding: clamp(2rem, 4vw, 4rem); background: var(--brand-teal-soft); border-radius: 16px; margin-bottom: 5rem; }
+  .examples-cta h2 { margin: 0; font-size: clamp(1.6rem, 2.6vw, 2.6rem); line-height: 1.5; }
+  .examples-cta p { margin: .75rem 0 1.5rem; line-height: 1.8; }
+  @media (max-width: 52rem) { .examples-comparison__grid, .examples-features { grid-template-columns: 1fr; } .examples-features { gap: 2rem; } }
+}

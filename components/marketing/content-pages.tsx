@@ -29,7 +29,6 @@ import {
   type Tool,
   type VideoResource,
   customerChannels,
-  exampleItems,
   getExamplesForTool,
   getGuideBySlug,
   getPlanCtaHref,
@@ -37,7 +36,6 @@ import {
   getVideoResourceBySlug,
   getVideoResourcesForTool,
   guides,
-  hasApprovedExampleAssets,
   movieRecapTestimonials,
   planOffers,
   planComparisonGroups,
@@ -312,61 +310,33 @@ function ContentCta({
 }
 
 export function ExamplesPage() {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "One Click AI Examples",
-    description:
-      "One Click AI tools အတွက် output example နဲ့ real product media ထည့်ရန်နေရာများ။",
-  }
-
   return (
     <ContentPageFrame
       breadcrumbs={[{ label: "Examples" }]}
-      description="Tool တစ်ခုချင်းစီက ဘယ်လို source နဲ့ output workflow အတွက် သင့်တော်လဲဆိုတာ ကြည့်နိုင်ပါတယ်။ Approved product screenshots နဲ့ output files တွေကို ဒီနေရာမှာ ထည့်သွားပါမယ်။"
-      eyebrow="Examples"
-      heroAside={
-        <MediaSlot
-          alt="One Click AI examples gallery featured media"
-          className="content-page__hero-media"
-          detail="Approved dashboard or output gallery image ထည့်ရန်နေရာ။"
-          eyebrow="Featured example slot"
-          title="Show the work, not a promise"
-        />
-      }
-      structuredData={structuredData}
-      title="Output ကို မျက်မြင်ကြည့်ပါ။"
+      description="Smart Recap က source video တစ်ခုကို မြန်မာအသံ၊ စာတန်းထိုးပါတဲ့ content အဖြစ် ဘယ်လိုဖန်တီးပေးလဲ ယှဉ်ကြည့်ပါ။"
+      eyebrow="Smart Recap"
+      title="နမူနာကို မျက်မြင်ကြည့်ပါ။"
+      structuredData={{ "@context": "https://schema.org", "@type": "WebPage", name: "Smart Recap Examples", description: "One Click AI Smart Recap နမူနာများ။" }}
     >
-      <section className="content-page__notice" aria-live="polite">
-        <p className="eyebrow">Real examples coming soon</p>
-        <p>
-          အခုမြင်ရတဲ့နေရာတွေက approved product screenshots နဲ့ output files
-          ထည့်ဖို့ media slots တွေပါ။ Real asset မရသေးခင် fabricated proof
-          မထည့်ထားပါဘူး။
-        </p>
-      </section>
-
-      <section className="content-page__section">
-        <SectionHeading
-          eyebrow="By tool"
-          title="ကိုယ့် content နဲ့ကိုက်တဲ့ example ကို ရွေးပါ"
-          description="Source type, output type နဲ့ related tool page ကို တစ်နေရာတည်းမှာ ကြည့်ပါ။"
-        />
-        <div className="example-grid">
-          {exampleItems.map((example) => (
-            <ExampleCard example={example} key={example.slug} />
-          ))}
+      <section className="examples-comparison" aria-labelledby="examples-comparison-title">
+        <div className="examples-comparison__heading"><div><h2 id="examples-comparison-title">Source video ကနေ Smart Recap အထိ</h2><p>မူရင်း video နဲ့ Smart Recap ရလဒ်ကို ယှဉ်ကြည့်ပါ။</p></div></div>
+        <div className="examples-comparison__grid">
+          <div><div className="examples-comparison__label"><h3>မူရင်း Video</h3><span>SOURCE</span></div><video controls playsInline preload="none" poster="/images/comparison-original.webp" title="မူရင်း video"><source src="https://storage.googleapis.com/oneclickai-website-assets/videos/b13d989f-69f9-4416-99f7-58dbf199344d.mp4" type="video/mp4" />Your browser does not support video playback.</video></div>
+          <div><div className="examples-comparison__label"><h3>Smart Recap ရလဒ်</h3><span>OUTPUT</span></div><video controls playsInline preload="none" poster="/images/comparison-result.webp" title="Smart Recap ရလဒ်"><source src="https://storage.googleapis.com/oneclickai-website-assets/videos/b13d989f-69f9-4416-99f7-58dbf199344d%202.mp4" type="video/mp4" />Your browser does not support video playback.</video></div>
         </div>
       </section>
-
-      <ContentCta
-        description={
-          hasApprovedExampleAssets
-            ? "Real examples ကို ကြည့်ပြီး ကိုယ့် content နဲ့ကိုက်တဲ့ tool ကို စတင်ရွေးပါ။"
-            : "Real output examples မရသေးခင် ကိုယ့် content နဲ့ကိုက်တဲ့ tool နဲ့ guide ကို အရင်ကြည့်ပါ။"
-        }
-        title="Tool နဲ့ guide ကို အရင်လေ့လာကြည့်ပါ။"
-      />
+      <section className="examples-features" aria-labelledby="examples-features-title">
+        <div className="examples-features__intro"><h2 id="examples-features-title">Smart Recap က ဘာထူးလဲ။</h2><p>Video ကို မြင်ကွင်းကနေ နားလည်ပြီး ကိုယ့် content အဖြစ် ပြန်ဖန်တီးပေးပါတယ်။</p></div>
+        <div className="examples-features__list">
+          <article><h3>မူရင်း video မှာ narration မလိုပါဘူး</h3><p>စကားပြောသံ မပါတဲ့ video ကနေလည်း Smart Recap နဲ့ content ဖန်တီးနိုင်ပါတယ်။</p></article>
+          <article><h3>Recap တစ်မျိုးတည်းအတွက် မဟုတ်ပါဘူး</h3><p>Movie Recap အပြင် video အမျိုးအစားအမျိုးမျိုးကနေ ကိုယ်လိုချင်တဲ့ content ကို ဖန်တီးနိုင်ပါတယ်။</p></article>
+          <article><h3>Video တစ်ခုလုံးကို မြင်ပြီး နားလည်တယ်</h3><p>Video ထဲမှာ ဘာတွေဖြစ်နေလဲဆိုတာ မြင်ကွင်းတွေကို အခြေခံပြီး နားလည်ပေးပါတယ်။</p></article>
+          <article><h3>မြင်ကွင်းနဲ့ စာတန်း အချိန်ကိုက်</h3><p>စာတန်းထိုးနဲ့ video မြင်ကွင်းတွေရဲ့ timeline ကို အချိန်ကိုက်ဖြစ်စေဖို့ အာမခံပါတယ်။</p></article>
+          <article><h3>သဘာဝကျတဲ့ မြန်မာအသံ</h3><p>အဆင့်မြင့် voice model တွေနဲ့ ကိုယ့်ဇာတ်လမ်းကို နားထောင်လို့ကောင်းအောင် အသံထုတ်ပေးပါတယ်။</p></article>
+          <article><h3>Transcript၊ voiceover နဲ့ subtitle 99.9% တိကျမှု</h3><p>ပြောမယ့်စာသား၊ အသံနဲ့ စာတန်းထိုးတွေကို တိကျစိတ်ချစွာ ဖန်တီးပေးပါတယ်။</p></article>
+        </div>
+      </section>
+      <section className="examples-cta"><h2>ကိုယ့် video နဲ့ စမ်းကြည့်ပါ။</h2><p>ကိုယ့် content အတွက် သင့်တော်မယ့် plan ကို ရွေးပါ။</p><ActionLink href="/pricing">Plan နှင့် ဈေးနှုန်း ကြည့်ရန် <ArrowRight aria-hidden="true" /></ActionLink></section>
     </ContentPageFrame>
   )
 }

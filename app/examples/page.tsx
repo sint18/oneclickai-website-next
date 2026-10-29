@@ -6,7 +6,7 @@ import { hasApprovedExampleAssets } from "@/lib/site-content"
 export const metadata: Metadata = {
   title: "Examples",
   description:
-    "One Click AI tools အတွက် approved product screenshots နဲ့ output examples ထည့်ရန် curated gallery။",
+    "Smart Recap နဲ့ source video ကနေ ဖန်တီးထားတဲ့ output နမူနာကို ယှဉ်ကြည့်ပါ။",
   alternates: {
     canonical: "/examples",
   },
