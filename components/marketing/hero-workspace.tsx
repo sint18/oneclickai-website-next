@@ -18,6 +18,8 @@ export function HeroWorkspace() {
   useEffect(() => {
     const element = stage.current
     if (!element) return
+    const hero = element.closest<HTMLElement>(".hero-section__stage")
+    if (!hero) return
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)")
     let frame = 0
     const scroll = () => {
@@ -26,11 +28,26 @@ export function HeroWorkspace() {
       frame = requestAnimationFrame(() => {
         const offset = Math.max(-1, Math.min(1, element.getBoundingClientRect().top / window.innerHeight))
         element.style.setProperty("--drift", `${offset * 14}px`)
+        hero.style.setProperty("--ambient-scroll", `${offset * 12}px`)
       })
     }
+    const move = (event: PointerEvent) => {
+      if (motion.matches || event.pointerType !== "mouse") return
+      const rect = hero.getBoundingClientRect()
+      hero.style.setProperty("--ambient-x", `${((event.clientX - rect.left) / rect.width - .5) * 18}px`)
+      hero.style.setProperty("--ambient-y", `${((event.clientY - rect.top) / rect.height - .5) * 18}px`)
+    }
+    const reset = () => {
+      hero.style.removeProperty("--ambient-x")
+      hero.style.removeProperty("--ambient-y")
+      hero.style.removeProperty("--ambient-scroll")
+    }
+    hero.addEventListener("pointermove", move)
+    hero.addEventListener("pointerleave", reset)
+    motion.addEventListener("change", reset)
     window.addEventListener("scroll", scroll, { passive: true })
     scroll()
-    return () => { window.removeEventListener("scroll", scroll); cancelAnimationFrame(frame) }
+    return () => { window.removeEventListener("scroll", scroll); hero.removeEventListener("pointermove", move); hero.removeEventListener("pointerleave", reset); motion.removeEventListener("change", reset); cancelAnimationFrame(frame); reset() }
   }, [])
 
   return (

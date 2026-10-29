@@ -4,7 +4,7 @@
 
 ### Changed
 
-- Redesign the homepage hero with interactive Movie Recap previews and matching daylight and nighttime visuals for light and dark themes.
+- Redesign the homepage hero with interactive Movie Recap previews, matching day and night visuals, and softly lit backgrounds for light and dark themes.
 
 ## [0.0.12] - 2026-10-29
 
