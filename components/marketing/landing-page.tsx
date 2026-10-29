@@ -2,6 +2,7 @@ import { ArrowRight, BadgeCheck, ShieldCheck, WandSparkles } from "lucide-react"
 import Image from "next/image"
 
 import { CopyAppLink } from "@/components/marketing/copy-app-link"
+import { HeroWorkspace } from "@/components/marketing/hero-workspace"
 import {
   ActionLink,
   FAQList,
@@ -146,7 +147,7 @@ export function LandingPage() {
                   <span>KBZPay ဖြင့် ဝယ်ယူနိုင်ပါတယ်။</span>
                 </div>
               </div>
-
+              <HeroWorkspace />
             </div>
           </div>
         </section>

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Reimagine the homepage hero as an interactive Movie Recap workspace using source and result previews.
+
 ## [0.0.12] - 2026-10-29
 
 ### Changed
