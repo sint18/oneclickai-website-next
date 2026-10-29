@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight, AudioLines, BadgeCheck, Captions, Film, ShieldCheck, WandSparkles } from "lucide-react"
+import { ArrowRight, BadgeCheck, Captions, Film, ShieldCheck, WandSparkles } from "lucide-react"
 import Image from "next/image"
 
 import { CopyAppLink } from "@/components/marketing/copy-app-link"
@@ -146,15 +146,7 @@ export function LandingPage() {
                   <span>KBZPay ဖြင့် ဝယ်ယူနိုင်ပါတယ်။</span>
                 </div>
               </div>
-              <div className="hero-story" aria-label="Source video to Burmese voice and subtitles">
-                <div className="hero-story__source"><Film aria-hidden="true" /><span>Source video</span></div>
-                <div className="hero-story__connector"><ArrowDown aria-hidden="true" /></div>
-                <div className="hero-story__result">
-                  <span className="hero-story__result-title">Movie Recap</span>
-                  <div><AudioLines aria-hidden="true" /><span>မြန်မာအသံ</span></div>
-                  <div><Captions aria-hidden="true" /><span>စာတန်းထိုး</span></div>
-                </div>
-              </div>
+
             </div>
           </div>
         </section>
