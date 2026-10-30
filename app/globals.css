@@ -4263,14 +4263,3 @@
     .comparison-benefits { grid-template-columns: 1fr; gap: 1.5rem; }
   }
 }
-
-@layer components {
-  .comparison-benefits { gap: clamp(2rem, 3.5vw, 3.5rem) clamp(2rem, 4vw, 4rem); }
-  .benefit-story { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 1rem; align-items: start; min-width: 0; }
-  .benefit-story__visual { width: 2rem; color: var(--eyebrow-foreground); padding-top: .2rem; }
-  .benefit-story__visual svg { display: block; width: 100%; height: auto; transition: transform 200ms ease; }
-  .benefit-story__copy { max-width: 35rem; }
-  .benefit-story__copy h3 { font-size: 1.1rem; }
-  @media (hover: hover) and (pointer: fine) { .benefit-story:hover .benefit-story__visual svg { transform: translateY(-2px); } }
-  @media (prefers-reduced-motion: reduce) { .benefit-story__visual svg { transition: none; } .benefit-story:hover .benefit-story__visual svg { transform: none; } }
-}
