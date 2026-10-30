@@ -155,7 +155,7 @@ export function LandingPage() {
         <section className="section comparison" id="comparison" aria-labelledby="comparison-title">
           <div className="site-shell">
             <div className="comparison__intro">
-              <div><h2 id="comparison-title">မြင်ကွင်းကနေ<br />Smart Recap အဖြစ်</h2><p>မူရင်း video နဲ့ Smart Recap ရလဒ်ကို ယှဉ်ကြည့်ပါ။</p></div>
+              <div><h2 id="comparison-title">Original Video ကနေ<br />Smart Recap အဖြစ်</h2><p>မူရင်း video နဲ့ Smart Recap ရလဒ်ကို ယှဉ်ကြည့်ပါ။</p></div>
               <div className="comparison__intro-detail"><p>မူရင်း video မှာ narration မပါလည်း ရပါတယ်။ Smart Recap က video ထဲက မြင်ကွင်းတွေကို နားလည်ပြီး မြန်မာအသံ၊ စာတန်းထိုးနဲ့ ပြန်ပြောပြပေးပါတယ်။</p><ActionLink href={heroDemoHref} external={heroDemoHref.startsWith("http")} analyticsLocation="hero_demo" variant="text">အသုံးပြုပုံ Video ကြည့်ရန် <ArrowRight aria-hidden="true" /></ActionLink></div>
             </div>
             <RecapComparison />
