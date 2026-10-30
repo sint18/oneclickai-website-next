@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Highlight Smart Recap in the homepage video comparison and improve mobile viewing.
+
 ## [0.0.13] - 2026-10-29
 
 ### Changed

@@ -4228,3 +4228,32 @@
   }
   @media (prefers-reduced-motion: reduce) { .story-preview__image { transform: scale(1.04); transition: none; } .story-preview__rail button { transition: none; } .hero-section--compact .hero-section__stage::before { transform: none; transition: none; } }
 }
+
+@layer components {
+  .comparison { background: var(--background); }
+  .comparison__intro { grid-template-columns: 1.1fr .8fr; align-items: end; gap: clamp(2rem, 6vw, 7rem); }
+  .comparison__intro h2 { max-width: 20ch; }
+  .comparison__intro > div:first-child > p { margin: 1rem 0 0; color: var(--muted-foreground); line-height: 1.8; }
+  .comparison__intro-detail { max-width: 32rem; }
+  .comparison__intro-detail p { color: var(--foreground); line-height: 1.85; }
+  .comparison__stage { gap: clamp(1rem, 2vw, 2rem); }
+  .comparison__label { align-items: center; padding-block: .2rem 1rem; }
+  .comparison__label h3 { font-size: clamp(1rem, 1.3vw, 1.2rem); }
+  .comparison__label span { font-size: .65rem; font-weight: 700; letter-spacing: .09em; color: var(--eyebrow-foreground); opacity: 1; }
+  .comparison__screen { background: #102f2b; }
+  .comparison-switch { display: none; }
+  .comparison-benefits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 3rem); margin-top: clamp(2.5rem, 5vw, 4.5rem); }
+  .comparison-benefits > div { border-top: 1px solid var(--border); padding-top: 1.25rem; }
+  .comparison-benefits h3 { margin: 0 0 .65rem; font-size: 1.1rem; line-height: 1.6; }
+  .comparison-benefits p { margin: 0; color: var(--muted-foreground); line-height: 1.85; }
+  @media (max-width: 52rem) {
+    .comparison__intro { grid-template-columns: 1fr; gap: 1.5rem; }
+    .comparison-switch { display: flex; gap: .25rem; padding: .3rem; background: var(--muted); border: 1px solid var(--border); border-radius: 999px; margin-bottom: 1.25rem; }
+    .comparison-switch button { flex: 1; min-height: 44px; border: 0; border-radius: 999px; padding: .6rem .75rem; color: var(--foreground); background: transparent; font: inherit; font-size: .85rem; cursor: pointer; }
+    .comparison-switch button[aria-pressed="true"] { background: var(--action-background); color: var(--action-foreground); }
+    .comparison-switch button:focus-visible { outline: 3px solid var(--focus-color); outline-offset: 2px; }
+    .comparison__stage { display: block; }
+    .comparison__item:not(.is-selected) { display: none; }
+    .comparison-benefits { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+}
