@@ -3,6 +3,7 @@ import Image from "next/image"
 
 import { CopyAppLink } from "@/components/marketing/copy-app-link"
 import { HeroWorkspace } from "@/components/marketing/hero-workspace"
+import { RecapComparison } from "@/components/marketing/recap-comparison"
 import {
   ActionLink,
   FAQList,
@@ -51,7 +52,7 @@ const workflowSteps = [
     number: "01",
     title: "Source ကို ရွေးပါ",
     description:
-      "ဇာတ်လမ်း flow ရှင်းပြီး narration ပါတဲ့ Movie Recap-style source ကို ရွေးပါ။",
+      "ဇာတ်လမ်း flow ရှင်းတဲ့ source video ကို ရွေးပါ။",
   },
   {
     number: "02",
@@ -154,29 +155,15 @@ export function LandingPage() {
         <section className="section comparison" id="comparison" aria-labelledby="comparison-title">
           <div className="site-shell">
             <div className="comparison__intro">
-              <h2 id="comparison-title">Source Video ကနေ<br />Movie Recap အဖြစ်</h2>
-              <div className="comparison__intro-detail">
-                <p>Original video နဲ့ One Click AI ရဲ့ result ကို ယှဉ်ကြည့်ပါ။</p>
-                <ActionLink href={heroDemoHref} external={heroDemoHref.startsWith("http")} analyticsLocation="hero_demo" variant="text">
-                  အသုံးပြုပုံ Video ကြည့်ရန် <ArrowRight aria-hidden="true" />
-                </ActionLink>
-              </div>
+              <div><h2 id="comparison-title">Original Video ကနေ<br />Smart Recap အဖြစ်</h2><p>မူရင်း video နဲ့ Smart Recap ရလဒ်ကို ယှဉ်ကြည့်ပါ။</p></div>
+              <div className="comparison__intro-detail"><p>မူရင်း video မှာ narration မပါလည်း ရပါတယ်။ Smart Recap က video ထဲက မြင်ကွင်းတွေကို နားလည်ပြီး မြန်မာအသံ၊ စာတန်းထိုးနဲ့ ပြန်ပြောပြပေးပါတယ်။</p><ActionLink href={heroDemoHref} external={heroDemoHref.startsWith("http")} analyticsLocation="hero_demo" variant="text">အသုံးပြုပုံ Video ကြည့်ရန် <ArrowRight aria-hidden="true" /></ActionLink></div>
             </div>
-            <div className="comparison__stage" aria-label="Video comparison preview">
-              <div className="comparison__item">
-                <div className="comparison__label"><h3>Original Video</h3><span>Source</span></div>
-                <video className="comparison__screen" controls playsInline preload="none" poster="/images/comparison-original.webp" title="Original video">
-                  <source src="https://storage.googleapis.com/oneclickai-website-assets/videos/b13d989f-69f9-4416-99f7-58dbf199344d.mp4" type="video/mp4" />
-                  Your browser does not support video playback.
-                </video>
-              </div>
-              <div className="comparison__item">
-                <div className="comparison__label"><h3>One Click AI Result</h3><span>Movie Recap</span></div>
-                <video className="comparison__screen" controls playsInline preload="none" poster="/images/comparison-result.webp" title="One Click AI result video">
-                  <source src="https://storage.googleapis.com/oneclickai-website-assets/videos/b13d989f-69f9-4416-99f7-58dbf199344d%202.mp4" type="video/mp4" />
-                  Your browser does not support video playback.
-                </video>
-              </div>
+            <RecapComparison />
+            <div className="comparison-benefits" aria-label="Smart Recap ရဲ့ အားသာချက်များ">
+              <div><h3>Narration/Voice over ပါစရာမလို</h3><p>မူရင်း video မှာ narration မပါလည်း မြင်ကွင်းတွေကနေ content ဖန်တီးနိုင်ပါတယ်။</p></div>
+              <div><h3>Movie Recap ထက် ပိုပါတယ်</h3><p>ရုပ်ရှင်တစ်မျိုးတည်းမဟုတ်ဘဲ video အမျိုးအစားအမျိုးမျိုးနဲ့ အသုံးပြုနိုင်ပါတယ်။</p></div>
+              <div><h3>မြန်မာအသံနဲ့ စာတန်းထိုး တစ်ခါတည်းပါမယ်</h3><p>အဆင့်မြင့် မြန်မာအသံနဲ့ အချိန်ကိုက် စာတန်းထိုးတွေ ရရှိနိုင်ပါတယ်။</p></div>
+              <div><h3>AI Agent နဲ့ အလိုအလျောက် Edit လုပ်ပေးတယ်</h3><p>AI Agent တွေက video ကို အလိုအလျောက် ပြုပြင်ပေးပြီး copyright claim ဖြစ်နိုင်ခြေကို လျှော့ချပေးပါတယ်။</p></div>
             </div>
           </div>
         </section>
