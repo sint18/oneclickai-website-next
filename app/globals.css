@@ -4241,6 +4241,12 @@
   .comparison__label h3 { font-size: clamp(1rem, 1.3vw, 1.2rem); }
   .comparison__label span { font-size: .65rem; font-weight: 700; letter-spacing: .09em; color: var(--eyebrow-foreground); opacity: 1; }
   .comparison__screen { background: #102f2b; }
+  .comparison__player { position: relative; }
+  .comparison__play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: grid; place-items: center; width: clamp(3.75rem, 5.5vw, 5rem); aspect-ratio: 1; border: 1px solid rgb(255 255 255 / 70%); border-radius: 50%; background: rgb(8 36 32 / 85%); color: #fff; cursor: pointer; transition: background-color 180ms ease, transform 180ms ease; }
+  .comparison__play svg { width: 1.35rem; height: 1.35rem; margin-left: .2rem; }
+  .comparison__play:hover { background: #17685e; transform: translate(-50%, -50%) scale(1.06); }
+  .comparison__play:focus-visible { outline: 3px solid var(--focus-color); outline-offset: 4px; }
+  @media (prefers-reduced-motion: reduce) { .comparison__play { transition: none; } }
   .comparison-switch { display: none; }
   .comparison-benefits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 3rem); margin-top: clamp(2.5rem, 5vw, 4.5rem); }
   .comparison-benefits > div { border-top: 1px solid var(--border); padding-top: 1.25rem; }
