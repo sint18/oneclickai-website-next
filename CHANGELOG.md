@@ -6,6 +6,7 @@
 
 - Highlight Smart Recap in the homepage video comparison and improve mobile viewing.
 - Add play buttons to the comparison videos and refine the Smart Recap feature copy.
+- Highlight AI-assisted copyright-risk reduction in the Smart Recap comparison.
 
 ## [0.0.13] - 2026-10-29
 
