@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.0.15] - 2026-10-31
+
 ### Changed
 
 - Clarify the one-month and three-month pricing options on `/pricing`.
