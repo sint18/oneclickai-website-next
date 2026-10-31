@@ -492,7 +492,7 @@ export function PricingPage() {
     <ContentPageFrame
       className="content-page--pricing"
       breadcrumbs={[{ label: "Pricing" }]}
-      description="အရင် plan ကို ရွေးပါ။ ပြီးရင် ၁ လစာ သို့မဟုတ် ၃ လ ကို ရွေးပါ။"
+      description="အရင် plan ကို ရွေးပါ။ ပြီးရင် ၁ လစာ သို့မဟုတ် ၃ လစာ ကို ရွေးပါ။"
       title="VIP နဲ့ VVIP ကို ရွေးပါ"
       structuredData={{
         "@context": "https://schema.org",
@@ -580,7 +580,7 @@ export function PricingPage() {
       <ContentCta
         description="165,000 MMK၊ 720 credits။ 12,000 MMK ပိုသက်သာ။ App မှာ ဝယ်ယူပါ။"
         eyebrow={null}
-        title="VVIP ၃ လ နဲ့ စတင်ပါ။"
+        title="VVIP ၃ လစာ နဲ့ စတင်ပါ။"
       />
     </ContentPageFrame>
   )

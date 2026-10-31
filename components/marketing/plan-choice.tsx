@@ -57,7 +57,7 @@ export function PlanChoice({
         {(
           [
             ["month", "၁ လစာ"],
-            ["term", "၃ လ"],
+            ["term", "၃ လစာ"],
           ] as const
         ).map(([value, text]) => (
           <label key={value}>
