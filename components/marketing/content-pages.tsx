@@ -492,7 +492,7 @@ export function PricingPage() {
     <ContentPageFrame
       className="content-page--pricing"
       breadcrumbs={[{ label: "Pricing" }]}
-      description="အရင် plan ကို ရွေးပါ။ ပြီးရင် လစဉ် သို့မဟုတ် ၃ လ ကို ရွေးပါ။"
+      description="အရင် plan ကို ရွေးပါ။ ပြီးရင် ၁ လစာ သို့မဟုတ် ၃ လ ကို ရွေးပါ။"
       title="VIP နဲ့ VVIP ကို ရွေးပါ"
       structuredData={{
         "@context": "https://schema.org",

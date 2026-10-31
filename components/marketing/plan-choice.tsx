@@ -56,7 +56,7 @@ export function PlanChoice({
         <legend className="plan-choice__legend">{label} သက်တမ်း</legend>
         {(
           [
-            ["month", "လစဉ်"],
+            ["month", "၁ လစာ"],
             ["term", "၃ လ"],
           ] as const
         ).map(([value, text]) => (
