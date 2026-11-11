@@ -761,6 +761,8 @@ export const hasApprovedExampleAssets = exampleItems.some((item) =>
 
 export const creditRules = [
   "Credit ဆိုတာ One Click AI ထဲမှာ content generate လုပ်တဲ့အခါ သုံးရတဲ့ billing unit ဖြစ်ပါတယ်။",
+  "၃ လစာ plan မှာ credits ကို တစ်လချင်းစီ ထည့်ပေးပါမယ်။ ၃ လစာလုံးကို တစ်ကြိမ်တည်း မထည့်ပေးပါ။",
+  "မသုံးဖြစ်တဲ့ monthly credits တွေက လစဉ် reset မှာ သက်တမ်းကုန်ပြီး နောက်လကို rollover မဖြစ်ပါ။",
   "Source သို့မဟုတ် output ပိုရှည်ရင် credit ပိုကုန်နိုင်ပြီး quality mode နဲ့ generation settings ပေါ်မူတည်ပြီးလည်း ကွာနိုင်ပါတယ်။",
   "Exact credit amount ကို generation screen ပေါ်က estimate မှာ စစ်ပြီးမှ စတင်ပါ။",
 ]

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Explain monthly credit releases and expiry without rollover on `/pricing` and `/credit`.
+
 ## [0.0.15] - 2026-10-31
 
 ### Changed

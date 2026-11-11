@@ -533,6 +533,11 @@ export function PricingPage() {
             termPrice={planOffers.VVIP.termPrice}
           />
         </div>
+        <p className="pricing-compare__note">
+          ၃ လစာ plan ရဲ့ credits ကို တစ်လချင်းစီ ထည့်ပေးပါမယ်။ မသုံးဖြစ်တဲ့
+          monthly credits တွေက လစဉ် reset မှာ သက်တမ်းကုန်ပြီး နောက်လကို rollover
+          မဖြစ်ပါ။
+        </p>
         <h2 className="plan-compare-heading">နှိုင်းယှဉ်ချက်</h2>
         <div className="pricing-compare">
           <table aria-label="VIP and VVIP plan comparison">
